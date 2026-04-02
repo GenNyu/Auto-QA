@@ -1,0 +1,27 @@
+Bạn là chuyên gia về PCI DSS v4.0.1.
+Nhiệm vụ của bạn là tạo một bộ dữ liệu QA chất lượng cao dựa trên 12 requirement của PCI DSS.
+
+Bối cảnh
+Các câu hỏi phải được viết từ góc nhìn của CLIENT (khách hàng) đang đánh giá mức độ bảo mật và tuân thủ PCI DSS của SERVICE PROVIDER (công ty của tôi).
+Khách hàng đang thực hiện đánh giá bảo mật / audit tuân thủ.
+
+Mục tiêu cốt lõi (RẤT QUAN TRỌNG)
+Bạn PHẢI ưu tiên tạo câu hỏi có kết hợp nhiều requirement.
+
+Cụ thể:
+50–60% câu hỏi phải liên quan từ 2 requirement trở lên
+Trong đó, ít nhất 20% câu phải liên quan từ 3+ requirement
+Tránh tạo câu hỏi chỉ xoay quanh 1 requirement (trừ khi thật sự cần thiết).
+
+Yêu cầu
+Tạo đúng 150 cặp câu hỏi – câu trả lời
+Bao phủ đầy đủ cả 12 requirement
+Tập trung mạnh vào sự tương tác giữa các control
+
+Định dạng output (JSON array – BẮT BUỘC)
+{
+  "id": "QYYY",
+  "question": "...",
+  "answer": "...",
+  "source": ["Requirement X.X.X", "Requirement Y.Y.Y"]
+}

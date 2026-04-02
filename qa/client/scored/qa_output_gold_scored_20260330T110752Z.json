@@ -1,0 +1,994 @@
+[
+  {
+    "question": "Làm thế nào để các ông đảm bảo rằng các thay đổi đáng kể (significant changes) đối với mạng không làm ảnh hưởng đến hiệu quả của việc phân vùng CDE và các lỗ hổng mới được phát hiện ngay lập tức?",
+    "id": "Q001",
+    "answer": "Để đảm bảo rằng các thay đổi đáng kể trong môi trường mạng không làm suy giảm hiệu quả của phân vùng CDE và các lỗ hổng mới được phát hiện ngay lập tức, thực thể (đặc biệt là service provider) cần thực hiện một loạt các hoạt động được quy định trong PCI DSS:\n\nXác nhận lại phạm vi PCI DSS\n\nThực hiện đánh giá lại phạm vi ít nhất một lần mỗi 12 tháng và ngay sau mỗi thay đổi đáng kể đối với môi trường trong‑scope (12.5.2) \n20260327_ENG_PC...nt_12_5.md\n.\nĐối với service provider, việc xác nhận phạm vi phải được thực hiện ít nhất mỗi 6 tháng và sau mỗi thay đổi đáng kể (12.5.2.1) \n20260327_ENG_PC...nt_12_5.md\n.\n\nKiểm tra kỹ thuật phân vùng (segmentation testing)\n\nKhi sử dụng phân vùng để cô lập CDE, thực hiện kiểm tra xâm nhập (penetration test) trên các kiểm soát phân vùng ít nhất một lần mỗi 12 tháng và sau bất kỳ thay đổi nào đối với các kiểm soát hoặc phương pháp phân vùng (11.4.5) \n20260327_ENG_PC...nt_11_4.md\n.\nĐối với service provider, tần suất tăng lên mỗi 6 tháng và sau mỗi thay đổi (11.4.6) \n20260327_ENG_PC...nt_11_4.md\n.\n\nCập nhật tài liệu mạng và luồng dữ liệu\n\nDuy trì sơ đồ mạng chính xác (network diagram) mô tả mọi kết nối giữa CDE và các mạng khác, và cập nhật ngay khi có thay đổi (1.2.3) \n20260319_ENG_PC...ent_1_2.md\n.\nDuy trì sơ đồ luồng dữ liệu (data‑flow diagram) hiển thị tất cả các luồng dữ liệu tài khoản, cũng cập nhật kịp thời khi môi trường thay đổi (1.2.4) \n20260319_ENG_PC...ent_1_2.md\n.\n\nQuản lý lỗ hổng và vá lỗi\n\nThiết lập quy trình quản lý lỗ hổng tích hợp với quản lý rủi ro, thay đổi, và vá lỗi; sử dụng nhiều nguồn thông tin (CVE, CERT, RSS, báo cáo nhà cung cấp, …) để phát hiện nhanh các lỗ hổng mới (6.3) \n20260327_ENG_PC...ent_6_3.md\n.\nKhi phát hiện lỗ hổng, áp dụng quy trình vá (6.3.3) để cài đặt các bản vá/điều chỉnh bảo mật kịp thời.\n\nThực hiện kiểm tra và phê duyệt thay đổi\n\nÁp dụng quy trình kiểm soát thay đổi cho mọi thay đổi đối với các thành phần mạng bảo mật (NSC) (1.2.2), bao gồm phê duyệt, kiểm tra và cập nhật tài liệu sau khi thay đổi.\n\nKết hợp đánh giá lại phạm vi, kiểm tra xâm nhập phân vùng, cập nhật sơ đồ mạng/luồng dữ liệu, và quản lý lỗ hổng sẽ giúp phát hiện ngay các sai lệch hoặc lỗ hổng mới phát sinh sau các thay đổi đáng kể, đồng thời duy trì tính hiệu quả của việc cô lập CDE.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_3.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Câu trả lời chứa đầy đủ các thông tin cốt lõi từ Reference Answer (quy trình quản lý thay đổi, xác định lại phạm vi 12.5.2, quét lỗ hổng 11.3.1.3, kiểm tra thâm nhập 11.4.5) đồng thời cung cấp thêm thông tin chi tiết liên quan về 12.5.2.1, 11.4.6, sơ đồ mạng (1.2.3) và quy trình quản lý lỗ hổng (6.3). Thông tin bổ sung là chính xác, không mâu thuẫn với Gold và phù hợp với ngữ cảnh PCI DSS. Điểm trừ nhỏ (-2) do thông tin chi tiết về 'service provider' (6 tháng) không nằm trong câu hỏi hoặc đáp án gốc theo yêu cầu bám sát Gold.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi áp dụng quy trình quản lý thay đổi nghiêm ngặt (6.5.2). Sau mỗi thay đổi đáng kể, chúng tôi thực hiện xác định lại phạm vi (12.5.2) và chạy quét lỗ hổng bảo mật nội bộ ngay lập tức (11.3.1.3). Ngoài ra, nếu có sử dụng phân vùng, chúng tôi thực hiện kiểm tra thâm nhập (penetration testing) để xác nhận tính hiệu quả của các rào cản phân vùng này (11.4.5)."
+  },
+  {
+    "question": "Trong trường hợp một quản trị viên hệ thống rời khỏi công ty, quy trình nào đảm bảo rằng quyền truy cập vật lý và quyền truy cập logic của họ vào dữ liệu thẻ được thu hồi đồng bộ?",
+    "id": "Q002",
+    "answer": "Quy trình thu hồi đồng bộ quyền truy cập vật lý và logic khi một quản trị viên rời công ty được quy định trong các yêu cầu sau:\n\nThu hồi quyền truy cập vật lý\n\nCác đối tượng truy cập vật lý (badge, chìa khóa, thẻ truy cập…) phải được thu hồi ngay lập tức khi nhân viên chấm dứt hợp đồng và các thiết bị này phải được trả lại hoặc vô hiệu hoá.\nĐây là yêu cầu của Requirement 9.3.1.1 – Physical access to sensitive areas within the CDE for personnel is controlled: “Access is revoked immediately upon termination. All physical access mechanisms, such as keys, access cards, etc., are returned or disabled upon termination.” \n20260327_ENG_PC...ent_9_3.md\n\nThu hồi quyền truy cập logic\n\nCác chính sách và quy trình kiểm soát truy cập phải được tài liệu hoá, cập nhật và thực thi, trong đó bao gồm việc thu hồi hoặc vô hiệu hoá các tài khoản hệ thống, quyền admin và các quyền truy cập vào dữ liệu thẻ khi nhân viên rời đi.\nĐiều này được phản ánh trong Requirement 7.1.1 – All security policies and operational procedures that are identified in Requirement 7 are documented, kept up to date, in use, and known to all affected parties; các chính sách này yêu cầu việc quản lý và thu hồi quyền truy cập khi có thay đổi nhân sự. \n20260327_ENG_PC...ent_7_1.md\n\nTóm lại, quy trình thu hồi đồng bộ bao gồm:\n\nThực hiện quy trình thu hồi vật lý theo Requirement 9.3.1.1 (thu hồi badge, chìa khóa, vô hiệu hoá thiết bị truy cập).\nThực hiện quy trình thu hồi logic dựa trên các chính sách kiểm soát truy cập được định nghĩa trong Requirement 7.1.1 (đóng tài khoản, thu hồi quyền admin, cập nhật danh sách quyền).\n\nKhi cả hai quy trình này được thực hiện đồng thời và được ghi lại trong tài liệu quản lý truy cập, quyền truy cập vật lý và logic của quản trị viên đã rời công ty sẽ được thu hồi một cách đồng bộ và không để lại lỗ hổng.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_1.md",
+      "20260327_ENG_PCIDSS_Requirement_9_1.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_1.md",
+      "20260327_ENG_PCIDSS_Requirement_9_4.md"
+    ],
+    "evaluate": "incorrect",
+    "score": 4,
+    "check": "Câu trả lời chọn sai Requirement ID cho việc thu hồi quyền truy cập logic. Gold chỉ ra cụ thể là 8.2.6 (vô hiệu hóa ID người dùng ngay lập tức), trong khi Candidate lại dùng 7.1.1 (chính sách và quy trình bảo mật mang tính tổng quát). Mặc dù hành động thu hồi vật lý và ý nghĩa tổng quan là giống nhau, nhưng việc dẫn chứng sai Requirement cụ thể (Anchor drift) và thiếu thông tin về việc kiểm tra nhật ký (10.2.1.2) làm mất đi tính chính xác theo tài liệu tham chiếu.",
+    "label": "NOT_SUPPORTED",
+    "confidence": 0.9,
+    "reference_answer": "Theo chính sách, ngay khi nhân sự chấm dứt hợp đồng, ID người dùng sẽ bị vô hiệu hóa ngay lập tức (8.2.6). Đồng thời, tất cả các phương thức truy cập vật lý như thẻ từ hoặc chìa khóa vào các khu vực nhạy cảm cũng bị thu hồi hoặc vô hiệu hóa (9.3.1.1). Nhật ký truy cập (10.2.1.2) sẽ được kiểm tra để xác nhận không có hoạt động nào xảy ra sau khi chấm dứt."
+  },
+  {
+    "question": "Làm thế nào các ông duy trì sự liên kết giữa các tiêu chuẩn cấu hình hệ thống, việc quản lý lỗ hổng và chu kỳ vá lỗi để bảo vệ các thành phần trong CDE?",
+    "id": "Q003",
+    "answer": "Cách duy trì liên kết giữa tiêu chuẩn cấu hình hệ thống, quản lý lỗ hổng và chu kỳ vá lỗi để bảo vệ các thành phần trong CDE\n\nXây dựng và duy trì tiêu chuẩn cấu hình (hardening baseline).\nTiêu chuẩn này phải bao quát tất cả các thành phần hệ thống và **được cập nhật khi có lỗ",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_6_1.md",
+      "20260319_ENG_PCIDSS_Requirement_2_1.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_5_1.md"
+    ],
+    "evaluate": "incorrect",
+    "score": 4,
+    "check": "Câu trả lời bị ngắt quãng và không hoàn thiện (incomplete). Nó đề cập đến việc xây dựng tiêu chuẩn cấu hình nhưng thiếu các thông tin cốt lõi từ Reference Answer như: dựa trên tiêu chuẩn ngành (2.2.1), quy trình xếp hạng rủi ro lỗ hổng mới (6.3.1), và mốc thời gian cài đặt bản vá trong vòng một tháng (6.3.3). Việc thiếu vế kết nối và các hành động cụ thể để duy trì sự liên kết dẫn đến việc thiếu thông tin trọng yếu.",
+    "label": "NOT_SUPPORTED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi duy trì các tiêu chuẩn cấu hình (hardening) dựa trên các tiêu chuẩn ngành (2.2.1). Các lỗ hổng bảo mật mới được theo dõi liên tục và xếp hạng rủi ro (6.3.1). Dựa trên xếp hạng này, các bản vá quan trọng sẽ được cài đặt trong vòng một tháng (6.3.3) và cấu hình hệ thống sẽ được cập nhật để đối phó với các lỗ hổng mới phát sinh."
+  },
+  {
+    "question": "Các ông quản lý việc truy cập từ xa của bên thứ ba như thế nào để vừa đảm bảo nguyên tắc 'cần biết' (need-to-know) vừa có khả năng phản ứng nhanh với các sự cố tiềm ẩn?",
+    "id": "Q004",
+    "answer": "Xây dựng mô hình kiểm soát truy cập dựa trên “need‑to‑know”\nĐịnh nghĩa access control model dựa trên",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_4.md",
+      "20260327_ENG_PCIDSS_Requirement_7_1.md",
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md"
+    ],
+    "evaluate": "incorrect",
+    "score": 1,
+    "check": "Bài viết bị đứt quãng (incomplete), không cung cấp thông tin cần thiết theo Reference Answer như quy tắc kích hoạt/vô hiệu hóa, MFA, hay giám sát logs.",
+    "label": "NOT_SUPPORTED",
+    "confidence": 1,
+    "reference_answer": "Mọi truy cập từ xa của bên thứ ba chỉ được kích hoạt khi cần thiết và bị vô hiệu hóa ngay sau khi sử dụng (8.2.7). Quyền truy cập được giới hạn theo đặc quyền tối thiểu (7.2.2) và bắt buộc sử dụng xác thực đa yếu tố (MFA) (8.4.2). Mọi hoạt động của họ đều được ghi nhật ký và giám sát liên tục (10.2.1.1), nếu phát hiện bất thường, kế hoạch ứng phó sự cố sẽ được kích hoạt (12.10.1)."
+  },
+  {
+    "question": "Khi sử dụng mật mã để bảo vệ dữ liệu thẻ được lưu trữ, các ông làm thế nào để đảm bảo rằng các khóa mã hóa không bị xâm phạm bởi chính những người có quyền truy cập vào hệ thống?",
+    "id": "Q005",
+    "answer": "Áp dụng “split knowledge” và “dual control”\n\nCác quy trình quản lý khóa phải định nghĩa việc sử dụng split knowledge và dual control để không ai có thể sở hữu toàn bộ khóa ở một thời điểm. Hai hoặc nhiều người phải cùng nhau xác thực và thực hiện các thao tác liên quan đến khóa \n20260320_ENG_PC...ent_3_7.md\n.\n\nNgăn chặn việc thay thế khóa không được ủy quyền\n\nChính sách quản lý khóa phải định nghĩa các biện pháp ngăn chặn việc thay thế khóa bởi những người không được phép, đảm bảo rằng chỉ những cá nhân có quyền mới có thể thực hiện thay đổi khóa \n20260320_ENG_PC...ent_3_7.md\n.\n\nYêu cầu các custodian khóa ký nhận trách nhiệm\n\nCác custodian khóa phải xác nhận (bằng văn bản hoặc điện tử) rằng họ hiểu và chấp nhận trách nhiệm quản lý khóa, bao gồm việc tuân thủ các quy trình split knowledge và dual control \n20260320_ENG_PC...ent_3_7.md\n.\n\nQuy trình quay vòng và nghỉ hưu khóa\n\nĐịnh nghĩa kỳ hạn (cryptoperiod) cho mỗi loại khóa và thực hiện quá trình quay vòng khóa khi hết kỳ; đồng thời đối phó với các khóa bị suy yếu, bị rò rỉ hoặc nghi ngờ bị xâm phạm bằng cách nghỉ hưu, thay thế hoặc tiêu hủy chúng \n20260320_ENG_PC...ent_3_7.md\n.\n\nKiểm soát truy cập hệ thống\n\nCác quyền truy cập hệ thống được cấp theo nguyên tắc “least privilege” và được giám sát, để chỉ những người cần thiết mới có quyền thực hiện các thao tác quản lý khóa.\n\nGhi nhận và giám sát các hoạt động liên quan đến khóa\n\nMọi thao tác quản lý khóa (tạo, truyền, tải, lưu trữ, hủy) phải được ghi lại và kiểm tra để phát hiện bất kỳ hành vi không hợp lệ nào.\n\nBằng cách kết hợp split knowledge, dual control, trách nhiệm custodian, quay vòng/những quy trình nghỉ hưu khóa, và kiểm soát truy cập chặt chẽ, tổ chức có thể ngăn chặn việc các khóa mã hoá bị xâm phạm bởi những người có quyền truy cập vào hệ thống \n20260320_ENG_PC...ent_3_7.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Câu trả lời của Candidate bao gồm các khái niệm cốt lõi từ Gold answer như 'phân tách nhiệm vụ' (split knowledge), 'kiểm soát kép' (dual control), và việc giám sát truy cập. Tuy nhiên, Candidate không đề cập cụ thể đến các yêu cầu ID (7.2.1, 3.7.3, 3.7.6) cũng như việc lưu trữ khóa trong 'thiết bị bảo mật mật mã' và giới hạn truy cập thành phần khóa rõ (cleartext) như trong Gold, dẫn đến việc thiếu một số chi tiết cụ thể. Thông tin thêm về quy trình quay vòng và nghỉ hưu khóa là chính xác và không mâu thuẫn, nhưng nằm ngoài phạm vi của Gold nên không được cộng điểm.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi thực hiện phân tách nhiệm vụ (7.2.1) để người quản trị hệ thống không có quyền truy cập vào các khóa mật mã. Các khóa được lưu trữ an toàn trong các thiết bị bảo mật mật mã (3.7.3) và việc truy cập vào các thành phần khóa rõ (cleartext) được giới hạn cho số ít người giám hộ khóa, thực hiện theo nguyên tắc kiểm soát kép và tri thức chia nhỏ (3.7.6)."
+  },
+  {
+    "question": "Quy trình giám sát nhật ký hàng ngày của các ông kết nối như thế nào với hệ thống phát hiện xâm nhập và cảnh báo lỗi các kiểm soát bảo mật quan trọng?",
+    "id": "Q006",
+    "answer": "Giám sát nhật ký hàng ngày (Control Objective 10.4.1)\n\nCác log quan trọng – bao gồm security events, log của các thành phần hệ thống quan trọng và log của các công cụ bảo mật (ví dụ IDS/IPS, FIM, segmentation controls…) – phải được xem xét ít nhất một lần mỗi ngày \n20260327_ENG_PC...nt_10_4.md\n.\nViệc này thường được thực hiện bằng công cụ tự động (SIEM, log‑harvesting, parsing, alerting) để thu thập, phân tích và phát hiện các hoạt động bất thường ngay trong quá trình review \n20260327_ENG_PC...nt_10_4.md\n.\n\nHệ thống phát hiện xâm nhập (IDS/IPS) và cảnh báo lỗi các kiểm soát bảo mật quan trọng\n\nIDS/IPS được yêu cầu giám sát toàn bộ traffic tại perimeter và các điểm quan trọng của CDE, cập nhật engine, signature và baseline, và cảnh báo nhân viên khi có dấu hiệu compromise \n20260327_ENG_PC...nt_11_5.md\n.\nControl Objective 10.7.2 quy định rằng các lỗi (failure) của các hệ thống kiểm soát bảo mật quan trọng – bao gồm audit logging mechanisms, IDS/IPS, segmentation controls, … – phải được phát hiện, cảnh báo và xử lý kịp thời \n20260327_ENG_PC...nt_10_7.md\n.\n\nCách chúng kết nối với nhau\n\nLog từ IDS/IPS và các cơ chế phát hiện lỗi được đưa vào hệ thống thu thập log (SIEM).\nKhi IDS/IPS phát hiện xâm nhập hoặc khi một critical security control gặp failure, hệ thống tạo alert và ghi lại chi tiết trong log.\nQuy trình review nhật ký hàng ngày (10.4.1) kiểm tra các alert này cùng với các security event khác, giúp xác định nhanh chóng các sự cố đang diễn ra hoặc các lỗi kiểm soát.\nNếu có alert/exception được phát hiện, quy trình incident response (Control Objective 12.10) được kích hoạt để đối phó và khắc phục.\n\nNhư vậy, giám sát nhật ký hàng ngày không chỉ là việc đọc log mà còn là cơ chế trung tâm để nhận, phân tích và phản hồi các cảnh báo từ IDS/IPS và các lỗi của các kiểm soát bảo mật quan trọng, đảm bảo rằng mọi sự cố được phát hiện và xử lý kịp thời.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_1.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md",
+      "20260327_ENG_PCIDSS_Requirement_11_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Candidate Answer trả lời đầy đủ và đúng trọng tâm Reference Answer về việc tích hợp giữa giám sát nhật ký hàng ngày (10.4.1.1), hệ thống phát hiện xâm nhập (IDS/IPS 11.5.1) và cảnh báo lỗi kiểm soát bảo mật quan trọng (10.7.2). Bên cạnh đó, Candidate Answer cung cấp thêm thông tin chi tiết về các công cụ (SIEM), các控制 cụ thể và quy trình Incident Response (12.10). Thông tin bổ sung này là hợp lý, không mâu thuẫn với Reference Answer nên không bị phạt điểm nặng, chỉ trừ 2 điểm do bao gồm thông tin bên ngoài phạm vi Gold (External Knowledge).",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi sử dụng cơ chế tự động để xem xét nhật ký hàng ngày, tập trung vào các sự kiện an ninh quan trọng (10.4.1.1). Hệ thống này tích hợp với IDS/IPS (11.5.1) để phát hiện các dấu hiệu tấn công. Nếu bất kỳ kiểm soát bảo mật quan trọng nào (như IDS hoặc logging) bị lỗi, hệ thống sẽ tạo cảnh báo tức thì để nhân viên phản ứng nhanh chóng (10.7.2)."
+  },
+  {
+    "question": "Làm thế nào để các ông chứng minh rằng sơ đồ mạng và sơ đồ luồng dữ liệu hiện tại phản ánh đúng thực tế lưu trữ dữ liệu thẻ và đang được sử dụng để xác định phạm vi đánh giá?",
+    "id": "Q007",
+    "answer": "Để chứng minh rằng sơ đồ mạng và sơ đồ luồng dữ liệu hiện tại phản ánh đúng thực tế lưu trữ dữ liệu thẻ và đang được dùng để xác định phạm vi đánh giá, thực thể cần thực hiện các bước sau:\n\nCập nhật và duy trì các sơ đồ\n\nĐảm bảo sơ đồ mạng mô tả đầy đủ mọi thành phần hệ thống, kết nối và ranh giới phân vùng (CDE).\nĐảm bảo sơ đồ luồng dữ liệu ghi lại tất cả các luồng dữ liệu thẻ qua các giai đoạn thanh toán, các kênh chấp nhận và các vị trí lưu trữ (cả trong và ngoài CDE).\nCác sơ đồ này phải được cập nhật khi có bất kỳ thay đổi nào trong môi trường (thêm, bớt, hoặc thay đổi cấu hình) \n20260327_ENG_PC...nt_12_5.md\n.\n\nSử dụng sơ đồ trong quá trình xác nhận phạm vi (scope validation)\n\nKhi thực hiện Control Objective 12.5.2, việc xác nhận phạm vi bao gồm:\n• Xác định tất cả các luồng dữ liệu thanh toán.\n• Cập nhật các sơ đồ luồng dữ liệu theo Requirement 1.2.4.\n• Xác định mọi vị trí lưu trữ, xử lý và truyền dữ liệu thẻ.\n• Xác định các thành phần hệ thống trong CDE, các kết nối tới CDE và các kết nối từ bên thứ ba.\nCác sơ đồ được đánh giá và xác nhận là tài liệu chứng minh rằng phạm vi đánh giá đã bao phủ toàn bộ môi trường thực tế \n20260327_ENG_PC...nt_12_5.md\n.\n\nLưu trữ bằng chứng kiểm tra\n\nLưu bản sao các sơ đồ đã duyệt (phiên bản có ngày, người duyệt).\nGhi lại biên bản kiểm tra (interview, review) xác nhận rằng các sơ đồ phản ánh đúng hiện trạng.\nĐính kèm bản ghi thay đổi (change‑control) để chứng minh rằng mọi thay đổi lớn đã được cập nhật vào sơ đồ trước khi thực hiện đánh giá lại phạm vi.\n\nKiểm tra định kỳ\n\nThực hiện đánh giá lại phạm vi ít nhất mỗi 12 tháng và ngay sau mỗi thay đổi đáng kể; trong mỗi lần đánh giá lại, sơ đồ mạng và luồng dữ liệu được xem xét lại để đảm bảo chúng vẫn đồng nhất với môi trường thực tế \n20260327_ENG_PC...nt_12_5.md\n.\n\nBằng cách cập nhật, sử dụng trong scope validation, lưu trữ bằng chứng và kiểm tra định kỳ như trên, tổ chức có thể chứng minh rằng sơ đồ mạng và sơ đồ luồng dữ liệu hiện tại luôn phản ánh đúng thực tế lưu trữ dữ liệu thẻ và là cơ sở xác định phạm vi đánh giá. \n20260327_ENG_PC...nt_12_5.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_4_1.md",
+      "20260319_ENG_PCIDSS_Requirement_1_1.md",
+      "20260320_ENG_PCIDSS_Requirement_3_1.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_6_1.md",
+      "20260327_ENG_PCIDSS_Requirement_5_1.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Câu trả lời của Ứng viên bao gồm đầy đủ các thông tin cốt lõi trong Gold Answer như: rà soát phạm vi 12 tháng/sau thay đổi (12.5.2), xác nhận vị trí lưu trữ PAN/tìm kiếm dữ liệu (3.5.1), cập nhật sơ đồ mạng (1.2.3) và sơ đồ luồng dữ liệu (1.2.4). Tuy nhiên, Ứng viên có bổ sung thêm các bước quá trình chi tiết (lưu trữ bằng chứng, kiểm tra định kỳ) không có trong Gold. Mặc dù thông tin bổ sung này hợp lý và không mâu thuẫn, nhưng theo quy tắc không thưởng cho thông tin ngoài Gold và đánh giá nghiêm, ta trừ 1-2 điểm nên chấm 8.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi thực hiện rà soát phạm vi PCI DSS ít nhất mỗi 12 tháng hoặc sau thay đổi đáng kể (12.5.2). Quy trình này bao gồm việc chạy các công cụ khám phá dữ liệu (data discovery) để xác nhận tất cả vị trí lưu trữ PAN (3.5.1). Kết quả được đối chiếu để cập nhật sơ đồ mạng (1.2.3) và sơ đồ luồng dữ liệu (1.2.4) chính xác nhất."
+  },
+  {
+    "question": "Trong quy trình phát triển phần mềm tùy chỉnh, các ông làm thế nào để ngăn chặn mã độc (malware) và đảm bảo các lỗ hổng bảo mật được kiểm tra trước khi đưa vào môi trường vận hành?",
+    "id": "Q008",
+    "answer": "Để ngăn chặn mã độc (malware) và đảm bảo các lỗ hổng bảo mật được phát hiện, đánh giá và khắc phục trước khi phần mềm tùy chỉnh được đưa vào môi trường vận hành, quy trình phát triển cần thực hiện các bước sau (theo các yêu cầu của PCI‑DSS v4.0.1):\n\nÁp dụng Secure SDLC (Secure Software Development Life‑Cycle)\n\nPhát triển phần mềm theo một quy trình được tài liệu hoá, bao gồm việc xem xét các vấn đề bảo mật ở mọi giai đoạn – từ yêu cầu, thiết kế, lập trình, kiểm thử tới triển khai \n20260327_ENG_PC...ent_6_2.md\n.\nĐảm bảo các yếu tố bảo mật (ví dụ: xác thực, ghi log) được tích hợp ngay từ đầu.\n\nĐào tạo lập trình viên về secure coding\n\nNhân viên phát triển phải được đào tạo ít nhất một lần mỗi 12 tháng về thiết kế bảo mật, kỹ thuật lập trình an toàn và cách sử dụng công cụ kiểm tra lỗ hổng \n20260327_ENG_PC...ent_6_2.md\n.\n\nThực hiện code review và kiểm tra kỹ thuật\n\nMọi mã nguồn phải được review trước khi đưa vào production để phát hiện và loại bỏ các đoạn code có khả năng chứa malware hoặc gây ra các lỗ hổng chung (SQL injection, XSS, authentication bypass, …) \n20260327_ENG_PC...ent_6_2.md\n.\n\nQuản lý và đánh giá lỗ hổng bảo mật\n\nSử dụng các nguồn thông tin công nghiệp (CERT, vendor advisories, NVD…) để xác định các lỗ hổng mới \n20260327_ENG_PC...ent_6_3.md\n.\nGán mức rủi ro (risk ranking) và ưu tiên khắc phục các lỗ hổng có mức “high‑risk” hoặc “critical” \n20260327_ENG_PC...ent_6_3.md\n.\n\nThực hiện kiểm thử bảo mật (vulnerability scanning & penetration testing)\n\nThực hiện quét lỗ hổng nội bộ ít nhất mỗi 3 tháng và sau mỗi thay đổi quan trọng \n20260327_ENG_PC...nt_11_3.md\n.\nThực hiện penetration testing (cả internal và external) ít nhất mỗi 12 tháng và ngay sau các thay đổi lớn \n20260327_ENG_PC...nt_11_4.md\n.\n\nQuản lý thay đổi (Change Management) có kiểm tra bảo mật\n\nMọi thay đổi đối với phần mềm tùy chỉnh phải được kiểm thử để xác nhận không làm suy giảm các kiểm soát bảo mật và phải đáp ứng yêu cầu 6.2.4 trước khi triển khai \n20260327_ENG_PC...ent_6_5.md\n.\nQuy trình thay đổi phải bao gồm mô tả, lý do, đánh giá tác động bảo mật, phê duyệt và kế hoạch rollback.\n\nSử dụng công cụ phát hiện malware\n\nTích hợp phần mềm anti‑malware hoặc các giải pháp bảo vệ runtime (ví dụ: RASP, WAF) để phát hiện và chặn mã độc trong quá trình phát triển và khi phần mềm chạy trong môi trường production.\n\nLưu trữ và duy trì bằng chứng\n\nLưu giữ tài liệu quy trình, kết quả kiểm thử, báo cáo khắc phục và nhật ký audit ít nhất 12 tháng để chứng minh tuân thủ \n20260327_ENG_PC...nt_11_4.md +1\n .\n\nBằng cách kết hợp Secure SDLC, đào tạo lập trình viên, code review, quản lý lỗ hổng, kiểm thử bảo mật định kỳ và quản lý thay đổi có kiểm tra bảo mật, tổ chức có thể ngăn chặn malware và đảm bảo mọi lỗ hổng được phát hiện và xử lý trước khi phần mềm được đưa vào môi trường vận hành.\n\nTham khảo: PCI‑DSS v4.0.1 Control Objective 6.2 (secure software development) \n20260327_ENG_PC...ent_6_2.md\n; Control Objective 6.3.1 (identifying and managing security vulnerabilities) \n20260327_ENG_PC...ent_6_3.md\n; Control Objective 6.5.1 (change management) \n20260327_ENG_PC...ent_6_5.md\n; Control Objective 11.3 (vulnerability scanning) \n20260327_ENG_PC...nt_11_3.md\n; Control Objective 11.4 (penetration testing) \n20260327_ENG_PC...nt_11_4.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_1.md"
+    ],
+    "evaluate": "error",
+    "score": 0,
+    "check": "Invalid JSON response: Expecting ',' delimiter: line 5 column 443 (char 502). Raw: ```json\\n{\\n  \"label\": \"ENTAILED\",\\n  \"score\": 7,\\n  \"confidence\": 0.9,\\n  \"reason\": \"Câu trả lời bao quát đầy đủ các yêu cầu bảo mật chính từ Gold answer (phát triển an toàn 6.2.4, review mã 6.2.3, kiểm tra lỗ hổng 6.4.1) và cung cấp thêm thông tin bổ sung chi tiết như đào tạo lập trình viên và quản lý thay đổi. Tuy nhiên, Candidate đã bổ sung lượng lớn kiến thức bên ngoài ( vulnerability scan theo định kỳ 3 tháng, penetration test, lưu trữ log 12 tháng...) đi quá xa so với phạm vi của Gold ans...(truncated)",
+    "label": "ERROR",
+    "confidence": 0,
+    "reference_answer": "Mã nguồn được phát triển theo các quy tắc lập trình an toàn (6.2.4) và trải qua quy trình đánh giá mã độc lập (6.2.3). Môi trường phát triển hoàn toàn tách biệt với môi trường vận hành (6.5.3). Trước khi phát hành, chúng tôi thực hiện kiểm tra lỗ hổng phần mềm (6.4.1) và đảm bảo rằng giải pháp chống mã độc đang hoạt động trên hệ thống đích (5.2.1)."
+  },
+  {
+    "question": "Các ông làm thế nào để quản lý rủi ro từ các thiết bị di động kết nối với mạng nội bộ và đồng thời truy cập vào Internet công cộng?",
+    "id": "Q009",
+    "answer": "Để giảm thiểu rủi ro từ các thiết bị di động (laptop, smartphone, tablet, BYOD…) khi chúng đồng thời kết nối vào mạng nội bộ và truy cập Internet công cộng, PCI‑DSS yêu cầu thực hiện các kiểm soát bảo mật trên endpoint như sau \n20260319_ENG_PC...ent_1_5.md\n:\n\nTriển khai security controls trên mọi thiết bị (EDR, tường lửa host, phần mềm chống malware, …).\nCấu hình bảo mật rõ ràng để ngăn các mối đe dọa từ mạng không tin cậy xâm nhập vào mạng nội bộ.\nKiểm soát luôn hoạt động: các security controls phải luôn chạy và không bị tắt bởi người dùng, trừ khi có phê duyệt quản lý và trong thời gian giới hạn.\nÁp dụng cho cả thiết bị công ty và thiết bị cá nhân (BYOD); danh sách thiết bị được phép kết nối phải đáp ứng các yêu cầu trên.\nHạn chế split‑tunneling VPN và yêu cầu thiết bị khởi động vào VPN để đảm bảo lưu lượng nội bộ luôn được bảo vệ.\nQuản lý ngoại lệ: chỉ cho phép tạm thời vô hiệu hoá các controls khi có nhu cầu kỹ thuật hợp lệ và được phê duyệt, đồng thời phải có cơ chế cảnh báo và theo dõi việc tắt controls.\n\nNhững biện pháp này giúp đảm bảo rằng thiết bị di động không mang malware hoặc các mối đe dọa từ Internet vào CDE, đồng thời ngăn người dùng tự ý tắt các lớp bảo vệ quan trọng.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_4.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md"
+    ],
+    "evaluate": "correct",
+    "score": 7,
+    "check": "Câu trả lời của Candidate bao quát đúng tinh thần của Gold như việc triển khai các kiểm soát bảo mật endpoint (phản ánh 2.2.1 và 5.2.1) và hạn chế truy cập/rủi ro xâm nhập (phản ánh 1.5.1). Tuy nhiên, Candidate đã sử dụng kiến thức bên ngoài để mở rộng chi tiết (EDR, VPN, BYOD, quy trình quản lý ngoại lệ) và không đề cập rõ đến yêu cầu MFA (8.4.2) cũng như không trích dẫn chính xác các ID yêu cầu. Mặc dù không mâu thuẫn, sự thiếu hụt các điểm cốt lõi trong Gold và sự thêm thắt thông tin bên ngoài khiến chỉ đạt mức 7 điểm.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi áp dụng các tiêu chuẩn cấu hình riêng cho thiết bị di động (2.2.1). Các thiết bị này phải chạy phần mềm chống mã độc được cập nhật liên tục (5.2.1) và kết nối thông qua các kiểm soát an ninh mạng (NSC) để giới hạn truy cập trực tiếp vào CDE (1.5.1). Mọi truy cập vào CDE từ các thiết bị này đều yêu cầu MFA (8.4.2)."
+  },
+  {
+    "question": "Làm thế nào để đảm bảo rằng các chính sách sử dụng công nghệ của nhân viên không vi phạm các yêu cầu về bảo vệ dữ liệu thẻ khi họ làm việc từ xa?",
+    "id": "Q010",
+    "answer": "Để các chính sách sử dụng công nghệ của nhân viên không gây ra vi phạm các yêu cầu bảo vệ dữ liệu thẻ khi làm việc từ xa, PCI‑DSS yêu cầu bạn thực hiện các bước sau \n20260327_ENG_PC...nt_12_2.md +1\n :\n\nXây dựng “acceptable use policy” (chính sách sử dụng chấp nhận được) cho mọi công nghệ người dùng cuối\n\nGhi rõ các hành vi được phép và không được phép khi truy cập vào hệ thống nội bộ, CDE và Internet.\nĐưa vào danh sách các thiết bị và phần mềm được công ty phê duyệt (hardware + software).\nYêu cầu phê duyệt trước khi bất kỳ công nghệ nào được sử dụng để truy cập dữ liệu thẻ.\n\nPhê duyệt và phổ biến chính sách\n\nChính sách phải được phê duyệt bởi các bên có thẩm quyền và được phổ biến tới toàn bộ nhân viên, bao gồm cả người làm việc từ xa.\n\nÁp dụng kiểm soát kỹ thuật để thực thi chính sách\n\nTất cả các thiết bị (công ty hoặc BYOD) phải có security controls (EDR, tường lửa host, phần mềm chống malware).\nCác controls phải luôn hoạt động và không cho phép người dùng tự ý tắt trừ khi có phê duyệt quản lý trong thời gian giới hạn.\nHạn chế split‑tunneling VPN; yêu cầu thiết bị khởi động vào VPN để bảo vệ lưu lượng truy cập CDE.\n\nQuản lý ngoại lệ\n\nCho phép tạm thời vô hiệu hoá controls chỉ khi có lý do kỹ thuật hợp lệ, được phê duyệt và giám sát.\n\nĐào tạo và nhận thức\n\nĐảm bảo nhân viên được đào tạo về chính sách sử dụng, các rủi ro khi làm việc từ xa và cách bảo vệ dữ liệu thẻ.\n\nGiám sát và kiểm tra\n\nThường xuyên kiểm tra cấu hình thiết bị, nhật ký VPN và việc tuân thủ chính sách để phát hiện vi phạm kịp thời.\n\nBằng cách tài liệu hoá, phê duyệt, phổ biến, thực thi bằng công nghệ và đào tạo như trên, bạn sẽ đáp ứng yêu cầu bảo vệ dữ liệu thẻ khi nhân viên làm việc từ xa.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_5.md",
+      "20260327_ENG_PCIDSS_Requirement_4_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_6.md",
+      "20260320_ENG_PCIDSS_Requirement_3_1.md",
+      "20260319_ENG_PCIDSS_Requirement_1_1.md",
+      "20260327_ENG_PCIDSS_Requirement_5_1.md"
+    ],
+    "evaluate": "correct",
+    "score": 9,
+    "check": "Candidate Answer bao trùm đầy đủ các ý chính trong Gold Answer như chính sách sử dụng chấp nhận được (12.2.1), đào tạo nhân viên và áp dụng kiểm soát kỹ thuật/xác thực mạnh. Ngoài ra, Candidate cung cấp thêm các chi tiết triển khai cụ thể (ví dụ: EDR, tường lửa, quy trình phê duyệt, split-tunneling) là thông tin bổ sung hợp lý không làm thay đổi nghĩa của Gold. Chỉ trừ điểm nhỏ do cấu trúc liệt kê dài dòng và cụ thể hơn mức cần thiết so với Gold.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi triển khai chính sách sử dụng chấp nhận được (Acceptable Use Policy - 12.2.1), trong đó nghiêm cấm việc sao chép trái phép dữ liệu thẻ (3.4.2). Nhân viên làm việc từ xa được đào tạo về nhận thức bảo mật, bao gồm cả kỹ thuật lừa đảo (12.6.3.1) và bắt buộc phải tuân thủ các quy tắc về xác thực mạnh khi kết nối vào mạng công ty (8.4.2)."
+  },
+  {
+    "question": "Quy trình phản ứng sự cố của các ông xử lý như thế nào khi phát hiện các thiết bị Point-of-Interaction (POI) có dấu hiệu bị giả mạo hoặc thay thế trái phép?",
+    "id": "Q011",
+    "answer": "Khi phát hiện một thiết bị Point‑of‑Interaction (POI) có dấu hiệu bị giả mạo hoặc thay thế trái phép, quy trình phản ứng sự cố được thực hiện theo các bước sau, dựa trên các yêu cầu của PCI‑DSS:\n\nPhát hiện & báo cáo\n\nNhân viên tại vị trí POI được đào tạo để nhận biết các dấu hiệu tampering (đồ vật lạ, cáp không thuộc chuẩn, nhãn bảo mật bị mất hoặc thay đổi, số serial không khớp…) và phải báo cáo ngay cho người chịu trách nhiệm bảo mật hoặc đội phản ứng sự cố.\nĐào tạo này được quy định trong Control Objective 9.5.1.3 (đào tạo nhân viên nhận biết và báo cáo hành vi đáng ngờ) \n20260327_ENG_PC...ent_9_5.md\n.\n\nXác nhận và ghi nhận\n\nKiểm tra lại danh sách thiết bị POI (model, serial, vị trí) để xác định thiết bị nào đã bị thay đổi hoặc mất. Danh sách này phải luôn cập nhật (9.5.1.1) \n20260327_ENG_PC...ent_9_5.md\n.\nGhi lại thời gian, địa điểm, mô tả chi tiết của dấu hiệu tampering.\n\nCô lập (containment)\n\nNgay lập tức tách thiết bị ra khỏi mạng CDE (vô hiệu hoá kết nối, ngắt nguồn hoặc đưa vào chế độ “offline”) để ngăn chặn việc thu thập dữ liệu thẻ tiếp tục.\nNếu thiết bị đang được sử dụng, chuyển sang thiết bị POI khác đã được xác thực.\n\nKhởi động Incident Response Plan (IRP)\n\nKế hoạch IRP phải đã được thiết lập, duy trì và sẵn sàng kích hoạt khi có sự cố bảo mật (12.10.1) \n20260327_ENG_PC...t_12_10.md\n.\nKế hoạch bao gồm: vai trò và trách nhiệm của các thành viên, quy trình thông báo nội bộ và tới các bên liên quan (brand, acquirer), và các bước containment, mitigation, recovery.\n\nĐiều tra (investigation)\n\nThu thập bằng chứng (log, hình ảnh, mẫu thiết bị) để xác định cách thức và thời điểm thiết bị bị thay thế hoặc giả mạo.\nĐánh giá mức độ ảnh hưởng tới dữ liệu thẻ (có PAN nào bị rò rỉ hay không).\n\nKhắc phục (mitigation & recovery)\n\nThay thế thiết bị POI bằng thiết bị hợp lệ, cập nhật lại danh sách thiết bị và xác nhận số serial.\nThực hiện kiểm tra lại toàn bộ môi trường POI để phát hiện các thiết bị khác có dấu hiệu tương tự.\nNếu có rò rỉ dữ liệu thẻ, thực hiện các bước báo cáo pháp lý và thông báo cho các brand/acquirer theo yêu cầu của IRP.\n\nBáo cáo & tài liệu hoá\n\nGhi lại toàn bộ quá trình phản ứng, kết quả điều tra và các biện pháp khắc phục.\nĐánh giá lại Incident Response Plan để cập nhật các bài học (12.10.2) \n20260327_ENG_PC...t_12_10.md\n và cải thiện quy trình đào tạo nhân viên (12.10.4) \n20260327_ENG_PC...t_12_10.md\n.\n\nĐánh giá lại rủi ro & cải tiến\n\nDựa trên kết quả sự cố, thực hiện đánh giá rủi ro mục tiêu để điều chỉnh tần suất kiểm tra POI (9.5.1.2.1) \n20260327_ENG_PC...ent_9_5.md\n và cập nhật các biện pháp phòng ngừa (ví dụ: sử dụng marker UV, nhãn bảo mật, quy trình xác thực bên thứ ba).\n\nNhư vậy, khi phát hiện POI bị giả mạo hoặc thay thế, quy trình bắt đầu bằng phát hiện & báo cáo, tiếp đến cô lập, kích hoạt kế hoạch phản ứng sự cố, điều tra, khắc phục, và báo cáo/đánh giá lại để ngăn ngừa tái diễn. Các bước này đáp ứng yêu cầu của Control Objective 9.5 (bảo vệ POI) và Control Objective 12.10 (incident response).",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Câu trả lời hoàn toàn khớp với Reference Answer về các điểm chính: duy trì danh mục thiết bị (9.5.1.1), kiểm tra phát hiện giả mạo (9.5.1.2), nhân viên báo cáo (9.5.1.3) và kích ứng kế hoạch ứng phó sự cố (12.10.1). Tuy nhiên, Candidate Answer có thêm nhiều thông tin chi tiết về quy trình khôi phục, điều tra, và đánh giá lại rủi ro (liên quan đến 12.10.2, 12.10.4, 9.5.1.2.1) không có trong Gold. Các thông tin thêm này là hợp lý và không mâu thuẫn, chỉ trừ điểm nhẹ về sự dư th�át so với Gold.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi duy trì danh mục thiết bị POI chính xác (9.5.1.1) và thực hiện kiểm tra định kỳ để phát hiện dấu hiệu giả mạo (9.5.1.2). Nếu phát hiện bất thường, nhân viên được đào tạo sẽ báo cáo ngay lập tức (9.5.1.3), và chúng tôi kích hoạt kế hoạch ứng phó sự cố (12.10.1) để cách ly thiết bị và thông báo cho các bên liên quan theo quy định."
+  },
+  {
+    "question": "Làm thế nào để các ông kiểm soát việc truyền dữ liệu thẻ qua mạng không dây và đảm bảo nó không bị chặn bởi các điểm truy cập giả mạo?",
+    "id": "Q012",
+    "answer": "Để bảo vệ việc truyền dữ liệu thẻ qua mạng không dây và ngăn chặn việc bị chặn bởi các điểm truy cập giả mạo, PCI‑DSS yêu cầu thực hiện đồng thời hai nhóm kiểm soát:\n\n1. Mã hoá mạnh trên mạng không dây\nTất cả các mạng không dây truyền PAN hoặc kết nối tới CDE phải sử dụng strong cryptography cho cả xác thực và truyền dữ liệu (ví dụ: WPA3‑Enterprise, TLS/SSL mạnh, không cho phép fallback sang giao thức yếu).\nCấu hình phải được kiểm tra để đảm bảo chỉ các giao thức, thuật toán và kích thước khóa được chấp nhận mới được sử dụng.\nĐiều này ngăn chặn việc kẻ tấn công có thể đọc hoặc chặn PAN khi dữ liệu di chuyển qua không gian không dây.\n\n[4]\n\n2. Phát hiện, quản lý và phản hồi khi có AP giả mạo (rogue AP)\nDuy trì inventory đầy đủ của tất cả các access point được ủy quyền, kèm theo lý do nghiệp vụ và tài liệu chứng minh.\nThực hiện kiểm tra định kỳ (ít nhất mỗi 3 tháng) để phát hiện và nhận dạng cả các AP được ủy quyền và unauthorized (rogue) AP.\nSử dụng phương pháp đa dạng: quét không dây, kiểm tra vật lý/logical, công cụ NAC, IDS/IPS không dây, hoặc các giải pháp tự động khác; kết quả phải được ghi lại và báo cáo cho nhân viên chịu trách nhiệm.\nKhi phát hiện rogue AP, cô lập ngay (tắt nguồn, ngắt kết nối) và kích hoạt Incident Response Plan (Requirement 12.10) để điều tra, khắc phục và tài liệu hoá sự cố.\n\n[1]\n\nQuy trình tổng hợp\nCấu hình mạng không dây theo chuẩn mã hoá mạnh (điều kiện 4.2.1.2).\nLập và duy trì danh sách AP được ủy quyền (11.2.2).\nThực hiện quét và kiểm tra định kỳ để phát hiện rogue AP (11.2.1).\nGhi nhận và báo cáo bất kỳ AP nào không có trong inventory.\nCô lập thiết bị và kích hoạt kế hoạch phản ứng sự cố để điều tra nguyên nhân, khôi phục an toàn và cập nhật inventory.\nĐào tạo nhân viên nhận diện dấu hiệu AP giả mạo và quy trình báo cáo.\n\nBằng cách kết hợp mã hoá mạnh cho truyền dữ liệu và quản lý, giám sát liên tục các điểm truy cập không dây, tổ chức có thể ngăn chặn việc PAN bị chặn hoặc đánh cắp qua các AP giả mạo.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_3.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_1.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md"
+    ],
+    "evaluate": "correct",
+    "score": 9,
+    "check": "Ứng viên trả lời đầy đủ và chính xác các điểm cốt lõi trong Reference Answer: sử dụng mật mã mạnh (4.2.1.2), quét định kỳ hàng quý (11.2.1), và duy trì danh sách AP được phép (11.2.2). Ứng viên bổ sung thêm chi tiết về quy trình xử lý khi phát hiện AP giả mạo và các ví dụ kỹ thuật (WPA3, TLS), những thông tin này hợp lý, không mâu thuẫn với Gold và giúp làm rõ câu trả lời, tuy nhiên không nằm trong phạm vi tài liệu tham khảo gốc nên trừ 1 điểm.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi sử dụng mật mã mạnh để bảo vệ dữ liệu thẻ trên mạng không dây (4.2.1.2). Đồng thời, chúng tôi thực hiện quét định kỳ hàng quý để phát hiện và xác định các điểm truy cập không dây không được phép (11.2.1). Danh mục các điểm truy cập được phép được duy trì cùng với lý do kinh doanh cụ thể (11.2.2)."
+  },
+  {
+    "question": "Các ông thực hiện các biện pháp gì để đảm bảo rằng các tài khoản hệ thống (system accounts) không bị lạm dụng để truy cập trái phép vào cơ sở dữ liệu thẻ?",
+    "id": "Q013",
+    "answer": "Để ngăn các tài khoản hệ thống (system / application accounts) bị lạm dụng truy cập vào dữ liệu thẻ, PCI‑DSS yêu cầu thực hiện các biện pháp sau:\n\nÁp dụng nguyên tắc “least privilege” – các tài khoản hệ thống chỉ được cấp quyền tối thiểu cần thiết để vận hành ứng dụng hoặc hệ thống. \n20260327_ENG_PC...ent_7_2.md\nHạn chế truy vấn trực tiếp vào kho dữ liệu thẻ – chỉ các quản trị viên chịu trách nhiệm mới được phép truy cập hoặc thực hiện query trên các repository chứa dữ liệu thẻ; mọi truy cập khác phải thông qua ứng dụng hoặc phương pháp lập trình có kiểm soát. \n20260327_ENG_PC...ent_7_2.md\nBảo vệ mật khẩu / passphrase của tài khoản hệ thống\nMật khẩu được lưu trữ ở dạng mã hoá (theo yêu cầu 8.3.2).\nThay đổi mật khẩu định kỳ (theo tần suất xác định trong phân tích rủi ro) và ngay khi có nghi ngờ/được xác nhận bị xâm phạm.\nÁp dụng độ phức tạp mật khẩu phù hợp với tần suất thay đổi. \n20260327_ENG_PC...ent_8_6.md\nThu hồi ngay quyền truy cập khi tài khoản không còn sử dụng\nKhi người dùng (hoặc bên thứ ba) rời công ty, tài khoản phải bị vô hiệu hoá hoặc xóa ngay lập tức. \n20260327_ENG_PC...ent_8_2.md\nCác tài khoản không hoạt động phải được vô hiệu hoá trong vòng 90 ngày kể từ lần đăng nhập cuối cùng. \n20260327_ENG_PC...ent_8_2.md\nQuản lý tài khoản của bên thứ ba – tài khoản remote của nhà cung cấp chỉ được bật trong thời gian cần thiết, được giám sát và tắt ngay khi không còn sử dụng. \n20260327_ENG_PC...ent_8_2.md\nThực hiện đánh giá định kỳ – các quyền của tài khoản hệ thống và ứng dụng phải được xem xét định kỳ (theo tần suất trong phân tích rủi ro) để xác nhận vẫn phù hợp với chức năng và khắc phục các quyền không phù hợp. \n20260327_ENG_PC...ent_7_2.md\nGiám sát và ghi log hoạt động – mọi hành động của tài khoản có quyền cao (admin) và mọi truy cập vào dữ liệu thẻ phải được ghi lại trong audit log để phát hiện và điều tra kịp thời. \n20260327_ENG_PC...nt_10_2.md\n\nNhững biện pháp này, khi được thực hiện đồng bộ, giúp ngăn chặn việc tài khoản hệ thống bị khai thác để truy cập trái phép vào cơ sở dữ liệu thẻ.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md",
+      "20260327_ENG_PCIDSS_Requirement_8_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Candidate trả lời đầy đủ các khía cạnh trong Gold (7.2.5, 8.6.2, 8.6.3, 7.2.6). Thông tin bổ sung (nghỉ việc/tài khoản 3 bên, audit log) là chính xác và không mâu thuẫn với PCI DSS, nên chỉ trừ điểm nhẹ (-2) vì mật khẩu trong Reference 'không được mã hóa cứng' bị Candidate diễn giải/viết thành 'lưu trữ ở dạng mã hoá', dù cả 2 theo chuẩn PCI đều đúng.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Tài khoản hệ thống được giới hạn quyền tối thiểu chỉ để phục vụ chức năng cần thiết (7.2.5). Mật khẩu cho các tài khoản này không được mã hóa cứng trong ứng dụng (8.6.2) và phải được thay đổi định kỳ hoặc quản lý thông qua giải pháp quản lý tài khoản đặc quyền dựa trên phân tích rủi ro (8.6.3). Mọi truy vấn trực tiếp vào DB bởi các tài khoản này đều bị hạn chế (7.2.6)."
+  },
+  {
+    "question": "Khi lưu trữ nhật ký kiểm toán (audit logs), làm thế nào các ông đảm bảo tính toàn vẹn của chúng trước các nỗ lực sửa đổi của kẻ tấn công?",
+    "id": "Q014",
+    "answer": "Để bảo vệ tính toàn vẹn của audit log trước các nỗ lực sửa đổi của kẻ tấn công, PCI‑DSS yêu cầu thực hiện các biện pháp sau \n20260327_ENG_PC...nt_10_3.md\n:\n\nKiểm soát truy cập chặt chẽ – chỉ những người có “need‑to‑know” mới được phép đọc hoặc ghi log. Việc hạn chế quyền truy cập giảm khả năng kẻ tấn công có quyền sửa đổi log.\nBảo vệ log bằng cơ chế ngăn chỉnh sửa – áp dụng các cơ chế kiểm soát truy cập, phân tách vật lý hoặc mạng (physical/network segregation) để ngăn người không có quyền thay đổi nội dung log.\nSử dụng công cụ giám sát tính toàn vẹn (file‑integrity monitoring) – triển khai phần mềm hoặc giải pháp FIM để phát hiện ngay bất kỳ thay đổi nào đối với file log; khi có thay đổi, hệ thống sẽ tạo cảnh báo và ghi lại chi tiết hành động.\nSao lưu log vào môi trường trung tâm, khó thay đổi – sao lưu nhanh chóng các file log vào máy chủ log nội bộ hoặc phương tiện lưu trữ an toàn, nơi quyền truy cập và sửa đổi được kiểm soát nghiêm ngặt. Điều này cung cấp bản sao không bị thay đổi để so sánh khi cần xác minh tính toàn vẹn. \n20260327_ENG_PC...nt_10_3.md\n\nKết hợp các biện pháp trên (kiểm soát truy cập, phân tách, giám sát tính toàn vẹn và sao lưu an toàn) giúp đảm bảo audit log không thể bị chỉnh sửa trái phép, đồng thời cung cấp bằng chứng đáng tin cậy cho việc điều tra sự cố.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_6.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260327_ENG_PCIDSS_Requirement_10_1.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Câu trả lời của ứng viên bao gồm đầy đủ các ý chính trong câu trả lời vàng: kiểm soát truy cập (10.3.1), giám sát tính toàn vẹn tệp FIM (10.3.4) và sao nhật ký (10.5.1). Tuy nhiên, ứng viên đã thêm thông tin chi tiết mở rộng (về phân tách vật lý/mạng, need-to-know) không có trong câu trả lời gốc. Mặc dù thông tin này không mâu thuẫn và hợp lý theo ngữ cảnh PCI DSS, nhưng theo hướng dẫn thì việc thêm thông tin ngoài sẽ bị trừ điểm nhẹ (-1 đến -2). Với việc bổ sung chi tiết không gây mâu thuẫn và bao quát đủ các ý cốt lõi, điểm 8 là phù hợp (Đúng nhưng hơi dư thừa so với Gold).",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Nhật ký kiểm toán được lưu trữ trên một máy chủ nhật ký tập trung và được bảo vệ bằng quyền truy cập hạn chế (10.3.1). Chúng tôi sử dụng phần mềm giám sát tính toàn vẹn của tệp (FIM) để tạo cảnh báo ngay lập tức nếu có bất kỳ nỗ lực thay đổi hoặc xóa dữ liệu nhật ký hiện tại nào (10.3.4). Ngoài ra, chúng tôi cũng thực hiện sao lưu nhật ký thường xuyên vào phương tiện an toàn (10.5.1)."
+  },
+  {
+    "question": "Làm thế nào để quy trình quản lý rủi ro mục tiêu (targeted risk analysis) hỗ trợ việc xác định tần suất quét lỗ hổng và kiểm tra nhật ký cho các hệ thống ít quan trọng hơn?",
+    "id": "Q015",
+    "answer": "Quy trình targeted risk analysis được dùng để quyết định tần suất thực hiện các hoạt động bảo mật (quét lỗ hổng, review nhật ký) cho các hệ thống có mức độ quan trọng khác nhau.\n\nCách thực hiện (theo PCI‑DSS):\n\nXác định tài sản (asset) cần bảo vệ – liệt kê các hệ thống, ứng dụng, dữ liệu (ví dụ: hệ thống ít quan trọng, không lưu trữ CHD).\nXác định các mối đe dọa (threat) liên quan – xác định các kiểu tấn công hoặc sai sót có thể ảnh hưởng tới tài sản đó.\nĐánh giá khả năng xảy ra (likelihood) và mức độ ảnh hưởng (impact) – dựa trên môi trường, độ phức tạp, mức độ tiếp xúc với mạng không tin cậy, tần suất thay đổi, v.v.\nXác định mức rủi ro – gán một risk ranking (critical, high, medium, low) cho mỗi tài sản/đối tượng.\nXác định tần suất kiểm soát – dựa trên risk ranking, quyết định tần suất phù hợp cho:\nQuét lỗ hổng – các hệ thống có risk low/medium có thể giảm tần suất dưới mức “ít nhất mỗi 3 tháng” được quy định cho các hệ thống quan trọng (Control Objective 11.3). Ví dụ, một hệ thống ít quan trọng có risk low có thể được quét mỗi 6 tháng hoặc khi có thay đổi lớn.\nReview nhật ký – các hệ thống ít quan trọng có thể không cần review hàng ngày; thay vào đó có thể thực hiện review định kỳ (hàng tuần hoặc hàng tháng) tùy theo mức rủi ro, vì “tần suất review được xác định dựa trên targeted risk analysis” (Control Objective 10.4).\nTài liệu hoá quyết định – ghi lại các yếu tố asset, threat, likelihood, impact và cách chúng dẫn tới tần suất được chọn.\nRà soát định kỳ – thực hiện review ít nhất một lần mỗi 12 tháng (hoặc khi có thay đổi đáng kể) để xác nhận rằng tần suất vẫn phù hợp và cập nhật lại nếu cần (Control Objective 12.3.1) \n20260327_ENG_PC...nt_12_3.md\n.\n\nKết quả:\n\nCác hệ thống có risk low/medium được giảm tần suất quét lỗ hổng và review log, giảm tải công việc mà vẫn duy trì mức bảo vệ phù hợp.\nCác quyết định này được dựa trên một phân tích rủi ro có cơ sở, được ghi lại và kiểm tra định kỳ, đáp ứng yêu cầu của PCI‑DSS cho cả quét lỗ hổng (Control Objective 11.3) và review nhật ký (Control Objective 10.4).",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md"
+    ],
+    "evaluate": "correct",
+    "score": 9,
+    "check": "Câu trả lời của Candidate bao gồm đầy đủ thông tin cốt lõi của Gold về việc sử dụng targeted risk analysis (12.3.1) để thiết lập tần suất cho review nhật ký (10.4.2.1) và khắc phục lỗ hổng (11.3.1.1). Bên cạnh đó, Candidate cung cấp thêm các bước thực hiện chi tiết (xác định asset, threat, likelihood, impact...) và ví dụ cụ thể về việc giảm tần suất cho hệ thống ít quan trọng. Thông tin bổ sung này chính xác, không mâu thuẫn với Gold và giúp làm rõ ngữ cảnh. Chỉ trừ 1 điểm nhỏ vì sự dài dòng không cần thiết.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi thực hiện phân tích rủi ro mục tiêu (12.3.1) để đánh giá các tài sản và mối đe dọa liên quan. Kết quả của phân tích này cho phép chúng tôi thiết lập tần suất phù hợp để xem xét nhật ký cho các hệ thống không nằm trong danh mục quan trọng (10.4.2.1) và xác định thời gian khắc phục các lỗ hổng không ở mức rủi ro cao (11.3.1.1)."
+  },
+  {
+    "question": "Làm thế nào các ông kiểm soát việc hiển thị số thẻ (PAN) trên màn hình làm việc của nhân viên và đảm bảo họ không thể sao chép nó ra các thiết bị lưu trữ ngoài?",
+    "id": "Q016",
+    "answer": "Áp dụng masking khi hiển thị PAN\n\nPAN chỉ được hiển thị ở mức tối đa là BIN + 4 chữ số cuối; các ký tự còn lại phải được che (mask) trên mọi màn hình làm việc. \n20260320_ENG_PC...ent_3_4.md\nDanh sách các vai trò (role) có quyền xem full PAN phải được tài liệu hoá, kèm theo “legitimate business need”. Các vai trò không được ủy quyền chỉ nhìn thấy PAN đã được mask. \n20260320_ENG_PC...ent_3_4.md\n\nKiểm soát sao chép / di chuyển PAN ra thiết bị lưu trữ ngoài\n\nKhi sử dụng công nghệ remote‑access (VDI, remote desktop, cloud session), triển khai các kiểm soát kỹ thuật ngăn việc copy hoặc relocate PAN lên ổ cứng nội bộ, ổ cứng rời, USB, hoặc bất kỳ phương tiện lưu trữ nào khác. \n20260320_ENG_PC...ent_3_4.md\nDuy trì danh sách nhân viên được phép copy/relocate PAN, kèm theo giấy tờ ủy quyền và nhu cầu kinh doanh rõ ràng. \n20260320_ENG_PC...ent_3_4.md\nCấu hình các công cụ remote‑access để tắt chức năng copy‑paste, chặn lưu file, và áp dụng các giải pháp DLP (Data Loss Prevention) nhằm phát hiện và ngăn chặn việc cố gắng sao chép dữ liệu PAN.\n\nQuy trình và kiểm tra\n\nKiểm tra cấu hình hệ thống và các công cụ remote‑access để xác nhận các kiểm soát trên được bật và hoạt động đúng. \n20260320_ENG_PC...ent_3_4.md\nThực hiện quan sát quy trình làm việc và phỏng vấn nhân viên để xác nhận chỉ những người có ủy quyền mới có thể copy/relocate PAN. \n20260320_ENG_PC...ent_3_4.md\n\nNhững biện pháp này kết hợp việc masking PAN trên màn hình và ngăn chặn sao chép qua các kiểm soát kỹ thuật, danh sách quyền và giám sát, giúp giảm thiểu rủi ro lộ PAN ra các thiết bị lưu trữ ngoài.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Câu trả lời của ứng viên hoàn toàn phù hợp với câu trả lời chuẩn (Gold), không có mâu thuẫn. Ứng viên cung cấp thêm các chi tiết triển khai cụ thể như 'BIN + 4 chữ số cuối', sử dụng công nghệ 'VDI/remote desktop', và giải pháp 'DLP'. Thông tin này là chính xác và không làm thay đổi ý nghĩa của Gold (về mặt nguyên tắc kiểm soát masking và ngăn chặn sao chép). Tuy nhiên, do việc cung cấp nhiều thông tin bổ sung và chi tiết kỹ thuật cụ thể vượt quá nội dung tóm tắt của Gold, điểm số bị trừ nhẹ xuống 8 (hoặc 9) theo quy tắc không thưởng cho sự冗 length, nhưng vẫn giữ mức cao vì tính chính xác.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Số PAN luôn được che mặt (masking) khi hiển thị, chỉ những người có nhu cầu kinh doanh thực sự mới được thấy các chữ số cần thiết (3.4.1). Quyền truy cập này được định nghĩa rõ ràng trong mô hình kiểm soát truy cập (7.2.1). Ngoài ra, chúng tôi sử dụng các biện pháp kỹ thuật để ngăn chặn việc sao chép PAN sang các phương tiện lưu trữ rời không được phép (3.4.2)."
+  },
+  {
+    "question": "Trong trường hợp sử dụng dịch vụ đám mây, các ông phân định trách nhiệm bảo mật mạng và quản lý khóa mật mã với nhà cung cấp như thế nào?",
+    "id": "Q017",
+    "answer": "Phân định trách nhiệm bảo mật mạng và quản lý khóa mật mã khi dùng dịch vụ đám mây\n\nMạng (Network)\n\nDo khách hàng (công ty) chịu trách nhiệm\nXây dựng và duy trì bản đồ mạng (network diagram) chính xác, trong đó phải thể hiện mọi kết nối giữa CDE và môi trường đám mây, cũng như các mạng tin cậy/không tin cậy. \n20260319_ENG_PC...ent_1_2.md\nĐảm bảo các thay đổi mạng (thêm, bớt, sửa đổi) được phê duyệt, kiểm tra và cập nhật trong tài liệu mạng ngay sau khi thực hiện. \n20260319_ENG_PC...ent_1_2.md\nDo nhà cung cấp đám mây chịu trách nhiệm\nCung cấp cơ sở hạ tầng mạng đáp ứng các yêu cầu bảo mật (ví dụ: tách biệt mạng, firewall, IDS/IPS) và đảm bảo các tham số bảo mật hệ thống được cấu hình đúng (ví dụ: tắt các giao thức không mã hoá, bật các giao thức mạnh). \n20260319_ENG_PC...ent_2_2.md\nKhi nhà cung cấp thực hiện thay đổi trên hạ tầng, phải thông báo và được khách hàng phê duyệt theo quy trình quản lý thay đổi. \n20260327_ENG_PC...ent_6_5.md\n\nQuản lý khóa mật mã (Cryptographic key management)\n\nDo khách hàng chịu trách nhiệm\nXây dựng chính sách và quy trình quản lý khóa bao gồm:\nSplit knowledge / dual control – không ai được biết toàn bộ khóa; các hoạt động với khóa phải có ít nhất hai người xác thực. \n20260320_ENG_PC...ent_3_7.md\nNgăn chặn thay thế khóa trái phép – quy trình ngăn người không được ủy quyền thay thế khóa. \n20260320_ENG_PC...ent_3_7.md\nXác nhận trách nhiệm của người quản lý khóa – người custodian phải ký xác nhận hiểu và chấp nhận trách nhiệm. \n20260320_ENG_PC...ent_3_7.md\nQuay vòng (rotation) và nghỉ hưu (retirement) khóa khi hết thời gian sử dụng hoặc khi có dấu hiệu bị xâm phạm. \n20260320_ENG_PC...ent_3_7.md +1\nDuy trì danh sách vai trò được phép truy cập và thao tác với khóa, và thực hiện đánh giá định kỳ (ít nhất mỗi 12 tháng) để xác nhận các quyền vẫn phù hợp. \n20260320_ENG_PC...ent_3_7.md\nDo nhà cung cấp đám mây chịu trách nhiệm\nTriển khai cơ chế bảo vệ khóa (ví dụ: HSM, key‑encrypting key) theo yêu cầu của khách hàng và đảm bảo các tham số bảo mật hệ thống (2.2.6) được cấu hình để ngăn lạm dụng. \n20260319_ENG_PC...ent_2_2.md\nCung cấp kết nối quản trị không‑console được mã hoá (SSH/TLS) để quản trị viên không thể đọc được khóa hoặc thông tin xác thực khi truyền qua mạng. \n20260319_ENG_PC...ent_2_2.md\nKhi có yêu cầu, cung cấp bằng chứng (ví dụ: báo cáo, attestation) cho khách hàng để chứng minh rằng các yêu cầu quản lý khóa đã được thực hiện. \n20260327_ENG_PC...nt_12_9.md\n\nCơ chế phối hợp\n\nThiết lập bảng phân chia trách nhiệm (responsibility matrix) giữa khách hàng và nhà cung cấp, trong đó nêu rõ:\nCác điểm kiểm soát mạng và điểm kiểm soát khóa do khách hàng quản lý (chính sách, phê duyệt, giám sát) và các điểm thực thi kỹ thuật do nhà cung cấp cung cấp (cấu hình hạ tầng, HSM, mã hoá admin).\nThực hiện quy trình quản lý thay đổi cho mọi thay đổi liên quan đến mạng hoặc khóa, bao gồm mô tả, đánh giá tác động bảo mật, phê duyệt và kiểm thử trước khi đưa vào môi trường production. \n20260327_ENG_PC...ent_6_5.md\n\nTóm lại, khách hàng chịu trách nhiệm định nghĩa chính sách, duy trì tài liệu (network diagram, key‑management policy), và giám sát quyền truy cập; nhà cung cấp đám mây chịu trách nhiệm triển khai các biện pháp kỹ thuật bảo vệ mạng và khóa, cung cấp bằng chứng tuân thủ, và thực hiện các thay đổi chỉ sau khi được khách hàng phê duyệt.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ],
+    "evaluate": "correct",
+    "score": 9,
+    "check": "Câu trả lời phù hợp hoàn toàn với câu trả lời chuẩn (Gold), cung cấp đầy đủ thông tin về ma trận trách nhiệm (PCI DSS 12.8.5) và kiến trúc mật mã/quản lý khóa (3.6.1.1). Bên cạnh đó, ứng viên có mở rộng thêm các chi tiết cụ thể về phân công trách nhiệm giữa khách hàng và nhà cung cấp (ví dụ: network diagram, dual control, HSM...), điều này giúp câu trả lời phong phú hơn nhưng không làm sai lệch ý nghĩa của Gold. Tuy nhiên, do có lượng thông tin bổ sung đáng kể nên không cho điểm 10 tuyệt đối.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi duy trì một ma trận trách nhiệm PCI DSS (12.8.5) mô tả rõ phần nào do chúng tôi quản lý và phần nào do nhà cung cấp đảm nhiệm. Đối với mật mã trên đám mây, chúng tôi duy trì tài liệu về kiến trúc mật mã (3.6.1.1) để xác định ranh giới quản lý khóa, đảm bảo chúng tôi luôn giữ quyền kiểm soát tối cao đối với các khóa bảo vệ dữ liệu của mình."
+  },
+  {
+    "question": "Quy trình nào đảm bảo rằng các mật khẩu mặc định của nhà sản xuất không bao giờ tồn tại trong môi trường sản xuất của các ông, kể cả sau khi bảo trì hệ thống?",
+    "id": "Q018",
+    "answer": "Quy trình Quản lý tài khoản mặc định của nhà cung cấp (Vendor default‑account management) đảm bảo rằng mật khẩu mặc định không bao giờ tồn tại trong môi trường production, kể cả sau các hoạt động bảo trì \n20260319_ENG_PC...ent_2_2.md\n:\n\nXác định và ghi nhận mọi tài khoản mặc định được cài đặt trên thiết bị, hệ thống hoặc phần mềm khi triển khai hoặc khi thực hiện bảo trì.\nNếu tài khoản mặc định cần được giữ lại (ví dụ vì tính năng đặc thù), đổi ngay mật khẩu mặc định theo yêu cầu của Requirement 8.3.6 (đặt mật khẩu mạnh, tuân thủ chính sách mật khẩu).\nNếu tài khoản mặc định không cần thiết, xóa hoặc vô hiệu hoá tài khoản ngay lập tức.\nÁp dụng quy trình này trong giai đoạn cấu hình ban đầu (cài đặt) và lại thực hiện sau mỗi lần bảo trì, cập nhật hoặc thay đổi cấu hình để đảm bảo không có mật khẩu mặc định nào còn tồn tại.\nGhi lại mọi hành động (đổi mật khẩu, xóa tài khoản) trong tài liệu quản lý cấu hình và kiểm tra định kỳ để xác nhận tuân thủ.\n\nNhờ quy trình này, các mật khẩu mặc định của nhà sản xuất luôn được thay thế hoặc loại bỏ, ngăn chặn việc chúng tồn tại trong môi trường sản xuất.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md",
+      "20260319_ENG_PCIDSS_Requirement_2_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_1.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_4.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md"
+    ],
+    "evaluate": "correct",
+    "score": 9,
+    "check": "Candidate trả lời đầy đủ và phù hợp với câu hỏi. Đề cập đúng quy trình quản lý tài khoản mặc định bao gồm việc thay đổi, xóa tài khoản và thực hiện lại sau bảo trì. Candidate bổ sung chi tiết cụ thể (tên quy trình, Requirement 8.3.6) nhưng vẫn giữ nguyên ý nghĩa cốt lõi của Gold. Chỉ trừ 1 điểm nhỏ vì không nhắc số ID Requirement 2.2.2, 11.3.1.3, 12.4.2 như trong Gold, nhưng nội dung thì tương đồng.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Tiêu chuẩn hardening của chúng tôi yêu cầu thay đổi mọi thông tin đăng nhập mặc định trước khi đưa hệ thống vào vận hành (2.2.2). Sau các hoạt động bảo trì hoặc thay đổi đáng kể, chúng tôi thực hiện quét lỗ hổng (11.3.1.3) và xác xác nhận lại cấu hình (12.4.2) để đảm bảo không có tài khoản mặc định nào bị kích hoạt lại vô ý."
+  },
+  {
+    "question": "Làm thế nào các ông bảo vệ các trang thanh toán thương mại điện tử khỏi các cuộc tấn công skimming mã độc JavaScript và đảm bảo tính toàn vẹn của mã chạy trên trình duyệt khách hàng?",
+    "id": "Q019",
+    "answer": "Để bảo vệ các trang thanh toán thương mại điện tử khỏi các cuộc tấn công skimming JavaScript và đảm bảo tính toàn vẹn của mã chạy trên trình duyệt khách hàng, chúng tôi áp dụng một loạt các biện pháp dựa trên các yêu cầu PCI‑DSS sau:\n\n1. Quản lý và ủy quyền script trên payment page\n\nTạo kho lưu trữ (inventory) các script được phép chạy trên trang thanh toán, kèm theo lý do nghiệp vụ cho mỗi script.\nChỉ cho phép các script đã được ủy quyền (được duyệt bằng quy trình thủ công hoặc tự động) được tải và thực thi.\nÁp dụng Sub‑resource Integrity (SRI) để trình duyệt xác thực rằng nội dung script không bị thay đổi.\nSử dụng Content Security Policy (CSP) để giới hạn nguồn tải script và ngăn chặn việc chèn script từ các địa chỉ không được phép. \n20260327_ENG_PC...ent_6_4.md\n\n2. Phát hiện và cảnh báo thay đổi (tamper‑detection) trên payment page\n\nTriển khai cơ chế giám sát thay đổi HTTP header và nội dung script của trang thanh toán, so sánh với phiên bản đã biết hoặc phiên bản trước đó.\nCấu hình CSP để báo cáo vi phạm (report‑to / report‑uri) và thu thập các báo cáo này để phát hiện tampering.\nSử dụng synthetic user monitoring (yêu cầu và phân tích các trang từ bên ngoài) để phát hiện bất kỳ thay đổi JavaScript nào.\nNhúng script chống tampering trong trang thanh toán; khi phát hiện hành vi script bất thường, hệ thống sẽ cảnh báo và chặn ngay lập tức.\nÁp dụng reverse proxy hoặc CDN có khả năng phát hiện và báo cáo các thay đổi không mong muốn trong script. \n20260327_ENG_PC...nt_11_6.md\n\n3. Tần suất giám sát\n\nThực hiện kiểm tra ít nhất hàng tuần hoặc theo tần suất được xác định trong phân tích rủi ro mục tiêu (targeted risk analysis) để phát hiện sớm các thay đổi trái phép. \n20260327_ENG_PC...nt_11_6.md\n\n4. Kiểm soát bên thứ ba\n\nKhi sử dụng embedded payment form của nhà cung cấp dịch vụ thanh toán (TPSP), yêu cầu nhà cung cấp cung cấp bằng chứng tuân thủ các yêu cầu trên (ví dụ: báo cáo CSP, báo cáo tamper‑detection) và ghi nhận trong thỏa thuận dịch vụ. \n20260327_ENG_PC...nt_11_6.md\n\n5. Đánh giá và duy trì\n\nĐịnh kỳ đánh giá lại danh mục script, CSP và các cơ chế phát hiện để đảm bảo chúng vẫn đáp ứng yêu cầu bảo mật và không gây gián đoạn chức năng kinh doanh.\nGhi lại mọi thay đổi cấu hình và kết quả giám sát trong audit log để có thể truy vết và điều tra khi cần.\n\nBằng cách kết hợp quản lý chặt chẽ các script được phép, cơ chế CSP & SRI, và hệ thống phát hiện/đánh báo thay đổi liên tục, chúng tôi giảm thiểu rủi ro skimming JavaScript và duy trì tính toàn vẹn của mã trên trình duyệt khách hàng. \n20260327_ENG_PC...ent_6_4.md +1",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_6.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260327_ENG_PCIDSS_Requirement_5_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md"
+    ],
+    "evaluate": "correct",
+    "score": 9,
+    "check": "Câu trả lời của ứng viên bao gồm đầy đủ các thông tin cốt lõi trong câu trả lời vàng (Gold) về việc phát hiện thay đổi (11.6.1) và quản lý tập lệnh (6.4.3). Ngoài ra, ứng viên còn cung cấp thêm các chi tiết kỹ thuật cụ thể (như SRI, CSP, tần suất giám sát hàng tuần) làm rõ hơn cách thức thực hiện các yêu cầu này. Các thông tin bổ sung này hợp lý, không mâu thuẫn với Gold và phù hợp với bối cảnh PCI DSS, do đó chỉ bị trừ 1 điểm nhỏ vì việc sử dụng kiến thức bên ngoài.",
+    "label": "ENTAILED",
+    "confidence": 1.0,
+    "reference_answer": "Chúng tôi triển khai cơ chế phát hiện và ngăn chặn thay đổi trên các trang thanh toán (11.6.1). Ngoài ra, tất cả các tập lệnh (scripts) chạy trên trình duyệt khách hàng đều được quản lý thông qua danh mục tập lệnh được phê duyệt, có kiểm tra tính toàn vẹn và lý do kinh doanh (6.4.3). Mọi thay đổi trái phép đối với các tập lệnh này sẽ kích hoạt cảnh báo sự cố ngay lập tức."
+  },
+  {
+    "question": "Khi thực hiện kiểm tra thâm nhập (Penetration Testing), các ông làm thế nào để đảm bảo rằng các phát hiện về bảo mật ứng dụng được liên kết trực tiếp với quy trình phát triển an toàn?",
+    "id": "Q020",
+    "answer": "Khi thực hiện penetration testing (điều khoản 11.4.1), tổ chức cần đưa các phát hiện bảo mật ứng dụng vào quy trình phát triển an toàn (Secure SDLC) theo các bước sau:\n\nPhương pháp kiểm thử được tài liệu hoá – phải bao gồm việc thực hiện application‑layer penetration testing để phát hiện ít nhất các lỗ hổng được liệt kê trong Requirement 6.2.4 (đánh giá các lỗi mã nguồn thường gặp) \n20260327_ENG_PC...nt_11_4.md\n.\n\nGhi nhận và xếp hạng rủi ro – kết quả pentest được đánh giá, xếp hạng rủi ro (critical, high, …) và ghi lại trong báo cáo. Việc xếp hạng này phải tuân theo quy trình rủi ro đã định nghĩa trong Requirement 6.3.1, giúp ưu tiên xử lý các lỗ hổng quan trọng nhất.\n\nLiên kết với quy trình phát triển – mọi lỗ hổng được đưa vào quy trình Secure SDLC (Requirement 6.2.1) để:\n\nThông báo cho nhóm phát triển phần mềm về lỗi cần sửa;\nThực hiện code review và/hoặc sửa đổi thiết kế theo các tiêu chuẩn secure coding (Requirement 6.2.2);\nGhi nhận trong hệ thống quản lý lỗ hổng và theo dõi việc khắc phục.\n\nKhắc phục và kiểm tra lại – sau khi lỗi được sửa, thực hiện rescans hoặc retesting (theo Requirement 6.3.1 và 11.3.1) để xác nhận rằng lỗ hổng đã được loại bỏ và không gây ra lỗi mới.\n\nLưu trữ bằng chứng – báo cáo pentest, kết quả đánh giá rủi ro và các hành động khắc phục phải được lưu trữ ít nhất 12 tháng để đáp ứng yêu cầu ghi chép và chứng minh việc tích hợp phát hiện vào quy trình phát triển \n20260327_ENG_PC...nt_11_4.md\n.\n\nNhư vậy, bằng cách tài liệu hoá phương pháp pentest, xếp hạng rủi ro, đưa kết quả vào quy trình Secure SDLC, thực hiện khắc phục và kiểm tra lại, các phát hiện bảo mật ứng dụng luôn được liên kết trực tiếp với quy trình phát triển an toàn. \n20260327_ENG_PC...nt_11_4.md +1",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md",
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_1.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Câu trả lời của Candidate bao gồm các thông tin cốt lõi của Reference như đưa kết quả kiểm thử vào quy trình phân tích rủi ro (6.3.1), đào tạo/sửa lỗi theo secure coding (6.2.2) và kiểm tra lại (re-testing). Tuy nhiên, Candidate đưa thêm nhiều quy trình chi tiết (luật chứng cứ, lưu trữ 12 tháng, Secure SDLC 6.2.1) không có trong Reference và sử dụng các ID sai so với Gold (nhắc 6.2.4 thay vì 6.2.2 cho đào tạo). Thông tin thêm không mâu thuẫn nhưng cần giảm điểm vì không bám sát ý chính của Gold.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Kết quả kiểm tra thâm nhập ứng dụng (11.4.1) được đưa ngược lại vào quy trình phân tích rủi ro lỗ hổng (6.3.1). Các lập trình viên của chúng tôi được đào tạo về các lỗ hổng cụ thể này dựa trên kết quả test (6.2.2). Sau khi sửa lỗi, chúng tôi tiến hành kiểm tra lại (re-testing) để xác nhận lỗ hổng đã được khắc phục hoàn toàn trong mã nguồn (11.4.4)."
+  },
+  {
+    "question": "Làm thế nào các ông đảm bảo rằng dữ liệu xác thực nhạy cảm (SAD) không bao giờ được lưu trữ sau khi ủy quyền, ngay cả trong các tệp nhật ký xử lý sự cố?",
+    "id": "Q021",
+    "answer": "Áp dụng chính sách cấm lưu trữ SAD sau khi ủy quyền – PCI‑DSS yêu cầu “SAD không được lưu trữ sau khi ủy quyền, ngay cả khi đã mã hoá” (Control Objective 3.3, sub‑requirement 3.3.1) \n20260320_ENG_PC...ent_3_3.md\n.\n\nCấu hình hệ thống và các công cụ ghi nhật ký để không ghi lại bất kỳ dữ liệu SAD nào (track data, CVV, PIN, PIN block). Các log phải được mask hoặc loại bỏ các trường chứa SAD trước khi ghi vào file log.\n\nKiểm tra và xác nhận rằng các nguồn dữ liệu (log giao dịch, log debug, file lịch sử, dump bộ nhớ, …) không chứa SAD sau khi ủy quyền, thông qua quy trình kiểm tra định kỳ được mô tả trong các “Defined Approach Testing Procedures” của 3.3.1 \n20260320_ENG_PC...ent_3_3.md\n.\n\nXóa an toàn mọi dữ liệu tạm thời hoặc log đã chứa SAD nếu vô tình được tạo ra, bằng cách render dữ liệu không thể khôi phục (secure deletion) và ghi lại bằng chứng việc xóa.\n\nĐào tạo và hướng dẫn nhân viên phát hiện và xử lý sự cố để họ biết không được lưu trữ SAD trong báo cáo hoặc tài liệu xử lý sự cố, đồng thời phải tuân thủ quy trình bảo mật dữ liệu đã được tài liệu hoá.\n\nKiểm toán nội bộ ít nhất mỗi 3‑6 tháng để xác minh rằng:\n\nCác cấu hình log không ghi SAD.\nCác log đã được rà soát và không có SAD tồn tại.\nCác biện pháp xóa an toàn đã được thực hiện khi cần.\n\nNhững biện pháp trên đảm bảo rằng SAD không bao giờ được lưu trữ ở bất kỳ dạng nào, kể cả trong các tệp nhật ký xử lý sự cố, đáp ứng yêu cầu cấm lưu trữ SAD sau ủy quyền của PCI‑DSS \n20260320_ENG_PC...ent_3_3.md\n.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md"
+    ],
+    "evaluate": "correct",
+    "score": 9,
+    "check": "Candidate Answer bao gồm đầy đủ các thông tin cốt lõi từ Reference Answer (chính sách cấm lưu trữ 3.3.1, cấu hình hệ thống nhật ký 3.3.1.1). Bên cạnh đó, ứng viên cung cấp thêm các biện pháp kiểm soát chi tiết như xóa an toàn, đào tạo nhân viên và kiểm toán nội bộ. Các thông tin bổ sung này không mâu thuẫn với Gold và hợp lý trong bối cảnh PCI DSS.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Chính sách lưu giữ dữ liệu của chúng tôi nghiêm cấm lưu trữ SAD sau ủy quyền (3.3.1). Chúng tôi cấu hình các ứng dụng và nhật ký để không ghi lại dữ liệu này (3.3.1.1). Hàng quý, chúng tôi sử dụng công cụ rà quét dữ liệu tự động để tìm kiếm SAD trong toàn bộ hệ thống, bao gồm cả các tệp dump và nhật ký lỗi (12.5.2)."
+  },
+  {
+    "question": "Quy trình tuyển dụng và đào tạo của các ông đóng vai trò gì trong việc giảm thiểu rủi ro từ các mối đe dọa nội bộ đối với dữ liệu thẻ?",
+    "id": "Q022",
+    "answer": "Sàng lọc nhân sự trước khi tuyển dụng – Control Objective 12.7 yêu cầu “tiềm năng nhân sự sẽ có quyền truy cập CDE phải được sàng lọc, trong phạm vi luật địa phương, trước khi tuyển dụng” \n20260327_ENG_PC...nt_12_7.md\n. Việc thực hiện quy trình screening (kiểm tra lịch sử làm việc, tham chiếu, hồ sơ công khai, tiền án, lịch sử tín dụng, v.v.) giúp tổ chức đánh giá và loại bỏ những ứng viên có nguy cơ cao gây ra mối đe dọa nội bộ trước khi họ được cấp quyền truy cập dữ liệu thẻ.\n\nĐào tạo nhận thức an ninh – Control Objective 12.6 quy định “tất cả nhân sự phải nhận được chương trình đào tạo nhận thức an ninh khi tuyển dụng và ít nhất một lần mỗi 12 tháng” \n20260327_ENG_PC...nt_12_6.md\n. Đào tạo cung cấp cho nhân viên:\n\nKiến thức về chính sách và quy trình bảo mật liên quan đến dữ liệu thẻ.\nHiểu biết về đe dọa nội bộ (phishing, social engineering, hành vi không an toàn).\nTrách nhiệm cá nhân trong việc bảo vệ dữ liệu thẻ và cách báo cáo sự cố.\n\nKhi nhân viên nắm rõ vai trò và các rủi ro, khả năng sai sót vô tình hoặc hành vi cố ý gây rò rỉ dữ liệu thẻ giảm đáng kể.\n\nKết hợp screening và đào tạo tạo một vòng bảo vệ kép:\n\nScreening ngăn chặn những cá nhân có tiềm năng gây nguy hiểm trước khi họ vào môi trường CDE.\nĐào tạo duy trì nhận thức và hành vi an toàn cho tất cả nhân viên, kể cả những người đã được sàng lọc và được cấp quyền truy cập.\n\nNhư vậy, quy trình tuyển dụng (screening) và đào tạo (security awareness) là các biện pháp nền tảng giúp giảm thiểu rủi ro từ các mối đe dọa nội bộ đối với dữ liệu thẻ bằng cách kiểm soát ai được phép vào CDE và đảm bảo mọi người trong CDE hiểu và thực hiện đúng các biện pháp bảo mật \n20260327_ENG_PC...nt_12_7.md +1\n .",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_7.md",
+      "20260327_ENG_PCIDSS_Requirement_12_6.md",
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Câu trả lời của Candidate hoàn toàn đồng nhất với Reference Answer về mặt nội dung cốt lõi (kiểm soát tuyển dụng 12.7 và đào tạo 12.6). Tuy nhiên, Candidate đã bổ sung thêm nhiều chi tiết giải thích mở rộng (ví dụ: các loại hình screening cụ thể, chi tiết về nội dung đào tạo phishing/social engineering, và khái niệm 'vòng bảo vệ kép'). Mặc dù thông tin bổ sung này hợp lý và không mâu thuẫn với Gold, theo quy tắc đánh giá, việc mở rộng quá mức so với thông tin Gold cung cấp sẽ bị trừ điểm nhẹ về độ chính xác tuyệt đối so với Reference. Vì vậy, chấm 8 điểm.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi thực hiện kiểm tra lý lịch đối với nhân viên sắp được thuê dựa trên luật địa phương (12.7.1). Sau khi được thuê, tất cả nhân viên phải tham gia chương trình nhận thức bảo mật ít nhất 12 tháng một lần (12.6.1), bao gồm đào tạo về đặc quyền tối thiểu (7.2.2) và trách nhiệm cá nhân đối với các hoạt động được ghi nhật ký (10.2.1.1)."
+  },
+  {
+    "question": "Làm thế nào để các ông đảm bảo rằng việc phân mảnh/phân vùng mạng (network segmentation) không bị vô hiệu hóa bởi các kết nối trái phép giữa mạng tin cậy và không tin cậy?",
+    "id": "Q023",
+    "answer": "Để đảm bảo phân mảnh / phân vùng mạng (network segmentation) không bị “bỏ qua” bởi các kết nối trái phép giữa mạng tin cậy (trusted) và mạng không tin cậy (untrusted), PCI‑DSS yêu cầu thực hiện các biện pháp sau:\n\nTriển khai NSC (Network Security Controls) tại mọi điểm nối giữa trusted và untrusted networks. Điều này tạo ra rào cản bắt buộc để mọi lưu lượng phải đi qua firewall, IDS/IPS hoặc các thiết bị kiểm soát khác trước khi vào hoặc ra khỏi mạng tin cậy \n20260319_ENG_PC...ent_1_4.md\n.\n\nKiểm soát inbound từ mạng không tin cậy:\n• Chỉ cho phép lưu lượng tới các hệ thống công khai (các service, protocol, port đã được phê duyệt).\n• Cho phép các phản hồi stateful đối với các kết nối được khởi tạo từ mạng tin cậy.\n• Tất cả các lưu lượng khác phải bị deny. \n20260319_ENG_PC...ent_1_4.md\n\nÁp dụng nguyên tắc “deny‑all” mặc định trên cả inbound và outbound, chỉ allow khi có business justification và được phê duyệt (Control Objective 1.3).\n\nXác định và duyệt danh sách services, protocols, ports được phép (1.2.5) để tránh việc mở các cổng không cần thiết mà có thể tạo “đường hầm” vào CDE. \n20260319_ENG_PC...ent_1_2.md\n\nQuản lý thay đổi (change control): mọi thay đổi cấu hình NSC hoặc thêm kết nối mới phải được phê duyệt và ghi lại theo quy trình Change Control (Requirement 6.5.1) \n20260319_ENG_PC...ent_1_2.md\n.\n\nRà soát định kỳ cấu hình NSC ít nhất mỗi 6 tháng (1.2.7) để xác nhận rằng không có quy tắc/đường nối nào còn tồn tại mà không có justification kinh doanh \n20260319_ENG_PC...ent_1_2.md\n.\n\nGiám sát và phát hiện xâm nhập: triển khai IDS/IPS tại các điểm quan trọng (perimeter và các segment) để cảnh báo ngay khi có lưu lượng bất thường hoặc cố gắng thiết lập kết nối trái phép \n20260327_ENG_PC...nt_11_5.md\n.\n\nÁp dụng anti‑spoofing và các biện pháp bảo vệ IP để ngăn các gói tin giả mạo cố gắng “bẻ” rào cản mạng \n20260319_ENG_PC...ent_1_4.md\n.\n\nDuy trì inventory và xác nhận scope (12.5) để luôn biết được tất cả các hệ thống, kết nối và segment đang nằm trong phạm vi PCI‑DSS, tránh bỏ sót các kết nối không được kiểm soát \n20260327_ENG_PC...nt_12_5.md\n.\n\nTóm lại, bằng cách đặt NSC giữa trusted và untrusted, giới hạn inbound/outbound theo danh sách đã duyệt, đảm bảo mọi thay đổi đều qua quy trình kiểm soát, kiểm tra cấu hình định kỳ và giám sát lưu lượng bằng IDS/IPS, tổ chức có thể ngăn chặn các kết nối trái phép làm mất hiệu lực của phân mảnh mạng \n20260319_ENG_PC...ent_1_4.md +2\n .",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_4.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_5.md"
+    ],
+    "evaluate": "correct",
+    "score": 7,
+    "check": "Candidate Answer bao gồm các thông tin cốt lõi của Gold như triển khai NSC, nguyên tắc 'deny default', và kiểm tra định kỳ 6 tháng. Tuy nhiên, câu trả lời mở rộng thêm nhiều thông tin chi tiết không có trong Gold (danh sách port, anti-spoofing, change control, IDS/IPS...). Mặc dù không mâu thuẫn và bổ trợ tốt cho ngữ cảnh, nhưng sự mở rộng quá mức và thiếu sự cô đọng theo đúng trọng tâm của Gold khiến điểm số bị trừ.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi triển khai các thiết bị NSC tại mọi điểm kết nối giữa các vùng mạng (1.4.1). Các kết nối này được cấu hình theo nguyên tắc 'từ chối mặc định' (1.4.2). Định kỳ 6 tháng một lần, chúng tôi thực hiện kiểm tra thâm nhập để xác nhận rằng các biện pháp phân mảnh vẫn hoạt động bình thường và không có đường dẫn trái phép nào được thiết lập (11.4.5)."
+  },
+  {
+    "question": "Các ông làm thế nào để duy trì tính nhất quán của thời gian hệ thống trên toàn bộ hạ tầng và tại sao điều này lại quan trọng đối với việc tuân thủ?",
+    "id": "Q024",
+    "answer": "Cách duy trì tính nhất quán thời gian trên toàn bộ hạ tầng\n\nTriển khai công nghệ đồng bộ thời gian (ví dụ NTP) trên mọi hệ thống để đồng bộ đồng hồ hệ thống  \n20260327_ENG_PC...nt_10_6.md\n.\nSử dụng một hoặc nhiều máy chủ thời gian trung tâm được chỉ định. Các máy chủ này:\nNhận thời gian chỉ từ các nguồn bên ngoài đáng tin cậy (International Atomic Time hoặc UTC)  \n20260327_ENG_PC...nt_10_6.md\n;\nKhi có nhiều",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_6.md",
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_1.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Ứng viên cung cấp thông tin chính xác về việc sử dụng NTP để đồng bộ hóa thời gian theo yêu cầu 10.6.1, bám sát Gold Answer. Tuy nhiên, ứng viên dừng ý ở việc mô tả cách triển khai và thiếu hoàn toàn phần giải thích lý do 'tại sao' điều này quan trọng (liên quan đến nhật ký 10.2.2, điều tra sự cố 12.10.1) nên bị trừ điểm vì thiếu Completeness.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi sử dụng công nghệ đồng bộ hóa thời gian (NTP) để đảm bảo tất cả các hệ thống có cùng một nguồn thời gian chuẩn (10.6.1). Điều này cực kỳ quan trọng để đảm bảo tính chính xác của các bản ghi nhật ký (10.2.2), giúp việc điều tra sự cố (12.10.1) và phân tích lỗ hổng (6.3.1) trở nên khả thi và đáng tin cậy."
+  },
+  {
+    "question": "Làm thế nào để các ông kiểm soát các thiết bị tính toán của nhân viên (như laptop) khi chúng vừa có thể kết nối vào Internet vừa có thể kết nối vào CDE?",
+    "id": "Q025",
+    "answer": "Để kiểm soát các thiết bị tính toán của nhân viên (laptop, tablet, …) khi chúng có khả năng kết nối đồng thời vào Internet (mạng không tin cậy) và vào CDE, PCI‑DSS yêu cầu thực hiện các biện pháp sau:\n\n1. Áp dụng security controls trên endpoint\n\nCài đặt endpoint protection (EDR, anti‑malware) và firewall host‑based trên mọi thiết bị, dù là thiết bị công ty hay BYOD.\nĐịnh nghĩa cấu hình bảo mật cụ thể (cài đặt firewall, tắt các service không cần thiết, bật auto‑",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_5.md",
+      "20260319_ENG_PCIDSS_Requirement_1_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_4.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_4.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_3.md"
+    ],
+    "evaluate": "correct",
+    "score": 7,
+    "check": "Câu trả lời của ứng viên bao gồm các biện pháp bảo mật endpoint (anti-malware, firewall host-base) phù hợp với các yêu cầu trong Gold (5.2.1, 2.2.1). Tuy nhiên, nó không đề cập cụ thể đến phần mềm NSC (1.5.1) và việc truy cập CDE qua VPN có MFA (8.4.2) như trong Gold, nên bị trừ điểm về tính đầy đủ.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi yêu cầu cài đặt phần mềm bảo mật NSC trên các thiết bị này để ngăn chặn các mối đe dọa từ Internet (1.5.1). Các thiết bị phải tuân thủ tiêu chuẩn hardening (2.2.1), cài đặt chống mã độc (5.2.1) và chỉ có thể truy cập vào CDE thông qua VPN có xác thực MFA (8.4.2)."
+  },
+  {
+    "question": "Khi một máy chủ trong CDE được thay thế, các ông làm thế nào để đảm bảo dữ liệu thẻ trên máy chủ cũ không bị khôi phục và máy chủ mới được bảo mật ngay lập tức?",
+    "id": "Q026",
+    "answer": "Khi một máy chủ trong CDE (Cardholder Data Environment) được thay thế, PCI‑DSS yêu cầu thực hiện quy trình quản lý thay đổi chặt chẽ và đảm bảo tiêu hủy an toàn dữ liệu trên máy chủ cũ, đồng thời cấu hình bảo mật ngay lập tức cho máy chủ mới.\n\nCác bước thực hiện\n\nQuy trình quản lý thay đổi (Change Management)\n\nGhi lại lý do và mô tả thay đổi, đánh giá tác động bảo mật và nhận được phê duyệt của các bên có thẩm quyền.\nThực hiện kiểm thử để xác nhận rằng việc thay thế không làm suy giảm các kiểm soát bảo mật hiện có.\nĐặt ra các thủ tục khôi phục (rollback) nếu thay đổi gặp lỗi.\nSau khi thay thế, kiểm tra lại toàn bộ các yêu cầu PCI‑DSS để xác nhận rằng môi trường mới vẫn đáp ứng mọi yêu cầu.\n(Tham khảo Control Objective 6.5 – sub‑requirement 6.5.1 và 6.5.2)【4】\n\nTiêu hủy an toàn dữ liệu trên máy chủ cũ\n\nXóa sạch hoặc phá hủy vật lý tất cả các phương tiện lưu trữ chứa dữ liệu thẻ trên máy chủ cũ (đĩa cứng, SSD, USB, …) để ngăn việc khôi phục lại dữ liệu.\nĐảm bảo các phương tiện này được bảo vệ vật lý trong suốt quá trình tiêu hủy và/hoặc lưu trữ tạm thời.\nNếu có bản sao lưu offline, chúng cũng phải được lưu trữ ở vị trí an toàn và được kiểm tra định kỳ.\n(Áp dụng Control Objective 9.4 – sub‑requirement 9.4.1 và 9.4.1.1)【6】\n\nCấu hình bảo mật ngay lập tức cho máy chủ mới\n\nThay đổi mọi cấu hình mặc định (mật khẩu, SNMP, key…) và áp dụng hardening cho hệ điều hành, phần mềm và dịch vụ mạng.\nCài đặt và kích hoạt các kiểm soát bảo mật cần thiết (firewall, IDS/IPS, anti‑malware, logging, …).\nQuản lý khóa mã hoá: nếu máy chủ mới sử dụng các khóa không dây hoặc các khóa mã hoá khác, thay đổi chúng ngay khi triển khai (theo Control Objective 2.3.2).\nKiểm tra rằng các quy tắc inbound/outbound trên NSC (firewall) chỉ cho phép lưu lượng cần thiết (Control Objective 1.3).\n\nXác nhận lại tuân thủ sau thay đổi\n\nThực hiện đánh giá lại toàn bộ các yêu cầu PCI‑DSS (ví dụ: 1.3, 2.3, 6.5, 9.4…) trên máy chủ mới để chắc chắn không có lỗ hổng mới xuất hiện.\nGhi lại kết quả và cập nhật tài liệu change‑control và inventory (danh sách thiết bị, vị trí, serial) để luôn phản ánh trạng thái hiện tại.\n\nTóm lại\n\nQuản lý thay đổi (6.5.1‑6.5.2) đảm bảo mọi bước thay thế được ghi lại, phê duyệt, kiểm thử và xác nhận lại tuân thủ.\nTiêu hủy dữ liệu (9.4.1‑9.4.1.1) ngăn dữ liệu thẻ trên máy chủ cũ bị khôi phục.\nCấu hình bảo mật ngay lập tức (đổi cấu hình mặc định, hardening, quản lý khóa) bảo vệ máy chủ mới trước khi đưa vào hoạt động.\n\nThực hiện đầy đủ các bước trên sẽ đáp ứng yêu cầu PCI‑DSS về việc thay thế máy chủ trong CDE mà không để lại dữ liệu thẻ có thể khôi phục và đồng thời bảo vệ môi trường mới ngay từ đầu.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_2_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_5.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Candidate trả lời bao quát toàn bộ yêu cầu của Reference về tiêu hủy dữ liệu máy chủ cũ và cấu hình bảo mật máy chủ mới. Tuy nhiên, Candidate bổ sung nhiều thông tin chi tiết thuộc về kiến thức bên ngoài (quy trình Change Management toàn diện, các ID như 6.5.1, 9.4.1.1...) không nằm trong câu trả lời chuẩn của Gold. Mặc dù không mâu thuẫn, theo quy tắc không khuyến khích thông tin ngoài Gold và tính trọng tâm của câu hỏi, điểm số bị trừ nhẹ.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Máy chủ cũ sẽ được tiêu hủy dữ liệu theo quy trình xóa an toàn để không thể khôi phục (9.4.6). Máy chủ mới sẽ được áp dụng ngay các tiêu chuẩn cấu hình an toàn (2.2.1), quét lỗ hổng để đảm bảo sạch mã độc và lỗi (11.3.1.3), và được đăng ký vào hệ thống giám sát nhật ký tập trung trước khi kết nối vào mạng sản xuất (10.2.1)."
+  },
+  {
+    "question": "Làm thế nào các ông quản lý các nhà cung cấp dịch vụ hạ tầng (TPSP) để đảm bảo họ không trở thành một điểm yếu trong chuỗi cung ứng an ninh của các ông?",
+    "id": "Q027",
+    "answer": "Để quản lý các nhà cung cấp dịch vụ hạ tầng (TPSP) sao cho chúng không trở thành điểm yếu trong chuỗi cung ứng an ninh, PCI DSS v4.0.1 yêu cầu thực hiện các bước sau:\n\nDuy trì danh sách đầy đủ TPSP\n\nGhi lại mọi TPSP mà dữ liệu thẻ được chia sẻ hoặc có thể ảnh hưởng tới bảo mật của dữ liệu, kèm mô tả dịch vụ cung cấp. \n20260327_ENG_PC...nt_12_8.md\n\nThiết lập thỏa thuận bằng văn bản\n\nKý hợp đồng/điều khoản với tất cả TPSP, trong đó TPSP xác nhận chịu trách nhiệm bảo mật dữ liệu thẻ mà họ lưu trữ, xử lý hoặc truyền (hoặc có khả năng ảnh hưởng tới dữ liệu). \n20260327_ENG_PC...nt_12_8.md\n\nThực hiện due‑diligence trước khi hợp tác\n\nĐánh giá rủi ro, kiểm tra an ninh và khả năng tuân thủ của TPSP trước khi ký hợp đồng, để chắc chắn họ đáp ứng các yêu cầu PCI DSS. \n20260327_ENG_PC...nt_12_8.md\n\nGiám sát tuân thủ định kỳ\n\nKiểm tra trạng thái tuân thủ PCI DSS của mỗi TPSP ít nhất một lần mỗi 12 tháng (hoặc thường xuyên hơn nếu cần). \n20260327_ENG_PC...nt_12_8.md\n\nPhân định trách nhiệm PCI DSS\n\nSử dụng ma trận trách nhiệm (responsibility matrix) để làm rõ ràng những kiểm soát nào thuộc trách nhiệm của entity và những kiểm soát nào thuộc trách nhiệm của TPSP. \n20260327_ENG_PC...nt_12_8.md\n\nYêu cầu TPSP cung cấp xác nhận trách nhiệm bảo mật\n\nTPSP phải đưa ra văn bản xác nhận rằng họ chịu trách nhiệm bảo mật dữ liệu thẻ mà họ nắm giữ hoặc có thể ảnh hưởng tới dữ liệu của khách hàng. \n20260327_ENG_PC...nt_12_9.md\n\nYêu cầu TPSP hỗ trợ cung cấp thông tin tuân thủ khi khách hàng yêu cầu\n\nKhi khách hàng cần, TPSP phải cung cấp:\n• Thông tin về trạng thái tuân thủ PCI DSS (Requirement 12.8.4).\n• Thông tin về các yêu cầu PCI DSS mà TPSP chịu trách nhiệm và các trách nhiệm chung (Requirement 12.8.5). \n20260327_ENG_PC...nt_12_9.md\n\nThực hiện đầy đủ các bước trên sẽ giúp entity quản lý rủi ro từ TPSP, ngăn chặn chúng trở thành lỗ hổng trong chuỗi cung ứng an ninh.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md"
+    ],
+    "evaluate": "correct",
+    "score": 7,
+    "check": "Candidate Answer bao gồm đầy đủ các thông tin cốt lõi từ Reference Answer (duy trì danh sách, thỏa thuận văn bản, thẩm định ban đầu, giám sát hàng năm, tích hợp kế hoạch ứng phó). Tuy nhiên, Candidate có bổ sung thêm thông tin không có trong Gold (yêu cầu TPSP hỗ trợ cung cấp thông tin tuân thủ khi khách hàng yêu cầu tại Functional Requirement 12.9) và sử dụng các tệp tham chiếu redundant. Đây là thông tin bổ sung hợp lý và không mâu thuẫn với Gold, nên không bị đánh giá là CONTRADICTED, nhưng sẽ bị trừ điểm nhẹ về completeness/external knowledge so với Gold. Do đó, chấm 7 điểm.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi duy trì danh sách TPSP và mô tả dịch vụ (12.8.1). Chúng tôi thực hiện thẩm định (due diligence) trước khi ký kết và yêu cầu thỏa thuận bằng văn bản về trách nhiệm bảo mật (12.8.2, 12.8.3). Ít nhất hàng năm, chúng tôi theo dõi trạng thái tuân thủ PCI DSS của họ (12.8.4) và tích hợp các thông tin này vào kế hoạch ứng phó sự cố chung (12.10.1)."
+  },
+  {
+    "question": "Làm thế nào để đảm bảo rằng các chính sách bảo mật của các ông không chỉ nằm trên giấy tờ mà thực sự được nhân viên hiểu và thực thi hàng ngày?",
+    "id": "Q028",
+    "answer": "Để các chính sách bảo mật không chỉ “nằm trên giấy” mà thực sự được nhân viên hiểu và thực thi hàng ngày, PCI DSS v4.0.1 yêu cầu thực hiện các biện pháp sau:\n\nGhi chép, cập nhật và phổ biến chính sách\n\nTất cả các chính sách và quy trình bảo mật phải được tài liệu hoá, giữ cập nhật, đang được sử dụng và được mọi người liên quan biết tới. \n20260327_ENG_PC...ent_4_1.md\nChính sách phải được truyền đạt tới toàn bộ nhân viên, nhà cung cấp và đối tác để họ nắm rõ yêu cầu bảo mật. \n20260327_ENG_PC...nt_12_1.md\n\nPhân công vai trò và trách nhiệm rõ ràng\n\nĐịnh nghĩa và ghi lại vai trò, trách nhiệm (RACI) cho từng hoạt động bảo mật; mọi người phải hiểu và chấp nhận trách nhiệm của mình. \n20260327_ENG_PC...nt_12_1.md\n\nXây dựng chương trình đào tạo nhận thức bảo mật\n\nThiết lập chương trình security awareness để mọi nhân viên biết về chính sách, quy trình và vai trò của mình trong việc bảo vệ dữ liệu thẻ. \n20260327_ENG_PC...nt_12_6.md\nĐào tạo khi tuyển dụng (on‑boarding) và ít nhất một lần mỗi 12 tháng. \n20260327_ENG_PC...nt_12_6.md\nSử dụng nhiều phương thức truyền thông (đào tạo trực tiếp, email, poster, video…) để tăng khả năng tiếp cận. \n20260327_ENG_PC...nt_12_6.md\n\nYêu cầu xác nhận hiểu và tuân thủ\n\nNhân viên phải xác nhận bằng văn bản (hoặc điện tử) rằng họ đã đọc, hiểu và đồng ý tuân thủ chính sách ít nhất một lần mỗi năm. \n20260327_ENG_PC...nt_12_6.md\n\nKiểm tra, giám sát và cải tiến định kỳ\n\nKiểm tra thực tế (kiểm tra hồ sơ đào tạo, phỏng vấn nhân viên, xem xét nhật ký thực thi) để xác nhận rằng chính sách đang được áp dụng. \n20260327_ENG_PC...nt_12_6.md\nRà soát và cập nhật nội dung chính sách và chương trình đào tạo ít nhất mỗi 12 tháng hoặc khi có thay đổi về rủi ro/đe dọa mới. \n20260327_ENG_PC...nt_12_6.md\n\nKhi kết hợp phổ biến chính sách, phân công trách nhiệm, đào tạo nhận thức định kỳ, yêu cầu xác nhận và giám sát thực thi, tổ chức sẽ đảm bảo rằng các chính sách bảo mật không chỉ tồn tại trên giấy tờ mà được nhân viên hiểu và thực hiện trong công việc hàng ngày.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_6.md",
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260327_ENG_PCIDSS_Requirement_4_1.md",
+      "20260327_ENG_PCIDSS_Requirement_10_1.md",
+      "20260327_ENG_PCIDSS_Requirement_11_1.md",
+      "20260320_ENG_PCIDSS_Requirement_3_1.md",
+      "20260319_ENG_PCIDSS_Requirement_1_1.md",
+      "20260327_ENG_PCIDSS_Requirement_6_1.md"
+    ],
+    "evaluate": "correct",
+    "score": 7,
+    "check": "Bài trả lời tuân thủ Gold answer về việc nhân viên phải ký cam kết hàng năm (12.1.3) và thực hiện đào tạo, kiểm thử. Tuy nhiên, nó thiếu thông tin cụ thể trong Gold là đánh giá hiệu quả vận hành kiểm soát 3 tháng/lần (12.4.2) và sự ký duyệt của quản lý cấp cao (12.4.2.1), đồng thời bổ sung thêm nhiều chi tiết về quy trình tài liệu hóa và RACI không có trong Gold.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi thực hiện đánh giá hiệu quả vận hành của các kiểm soát ít nhất 3 tháng một lần (12.4.2). Các kết quả này được ký duyệt bởi quản lý cấp cao (12.4.2.1). Ngoài ra, nhân viên phải ký cam kết hiểu và tuân thủ chính sách hàng năm (12.1.3), đồng thời chúng tôi thực hiện các bài kiểm tra nhận thức thực tế như mô phỏng tấn công phishing (12.6.3.1)."
+  },
+  {
+    "question": "Các ông làm thế nào để ngăn chặn việc sử dụng các giao thức truyền tin không an toàn (như FTP rõ hoặc Telnet) trong toàn bộ hệ thống của mình?",
+    "id": "Q029",
+    "answer": "Để ngăn chặn việc sử dụng các giao thức truyền tin không an toàn (ví dụ FTP không mã hoá, Telnet) trên toàn bộ hệ thống, PCI‑DSS yêu cầu thực hiện các bước sau:\n\nXác định và phê duyệt danh sách dịch vụ, giao thức và cổng được phép\n\nTạo danh sách toàn bộ các dịch vụ, giao thức và cổng được cho phép, kèm theo lý do kinh doanh và phê duyệt của nhân viên độc lập với người quản lý cấu hình \n20260319_ENG_PC...ent_1_2.md\n.\nKiểm tra cấu hình của các thiết bị mạng (NSC) để chắc chắn chỉ có các dịch vụ, giao thức, cổng đã được phê duyệt mới được bật \n20260319_ENG_PC...ent_1_2.md\n.\n\nLoại bỏ hoặc vô hiệu hoá các dịch vụ, giao thức không cần thiết\n\nChỉ bật các dịch vụ, giao thức, daemon và chức năng thực sự cần thiết; mọi chức năng không cần thiết phải bị gỡ bỏ hoặc vô hiệu hoá \n20260319_ENG_PC...ent_2_2.md\n.\nĐiều này giảm bề mặt tấn công và ngăn các dịch vụ như FTP, Telnet không được sử dụng tồn tại trong môi trường \n20260319_ENG_PC...ent_2_2.md\n.\n\nXác định và giảm thiểu rủi ro của các giao thức không an toàn còn lại\n\nNếu một giao thức không an toàn (ví dụ FTP, Telnet) cần thiết cho kinh doanh, phải có bản ghi lý do kinh doanh và các tính năng bảo mật được định nghĩa để giảm thiểu rủi ro (ví dụ: chuyển sang FTPS/SFTP, sử dụng VPN, hoặc áp dụng TLS) \n20260319_ENG_PC...ent_1_2.md\n[1.2.6].\nKiểm tra cấu hình để xác nhận các tính năng bảo mật đã được triển khai cho mỗi giao thức không an toàn [1.2.6].\n\nThực hiện đánh giá rủi ro định kỳ\n\nThực hiện đánh giá rủi ro mục tiêu cho mỗi yêu cầu PCI‑DSS, bao gồm việc xem xét các giao thức không an toàn và xác nhận rằng chúng đã được kiểm soát hoặc loại bỏ [4.12.3.2].\n\nĐánh giá và cập nhật định kỳ cấu hình mạng\n\nThực hiện đánh giá lại cấu hình NSC ít nhất mỗi 6 tháng để xác nhận rằng không có dịch vụ, giao thức, hoặc cổng không được phép còn tồn tại [1.2.7].\n\nTóm lại, quy trình bao gồm: (1) lập danh sách dịch vụ/ giao thức được phê duyệt; (2) vô hiệu hoá mọi dịch vụ không cần thiết; (3) nếu phải dùng giao thức không an toàn, phải có lý do kinh doanh và áp dụng các biện pháp bảo mật bổ sung; (4) thực hiện đánh giá rủi ro và kiểm tra cấu hình định kỳ. Các biện pháp này đáp ứng yêu cầu 1.2.5, 1.2.6, 2.2.4, 2.2.5 và 1.2.7 của PCI‑DSS.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Câu trả lời hoàn toàn không mâu thuẫn (Không trôi dạt Anchor) và bao quát các nội dung chính của câu trả lời tham khảo (Tiêu chuẩn cấu hình cấm dùng dịch vụ không an toàn, cấu hình rào cản mạng NSC, kiểm tra định kỳ). Tuy nhiên, ứng viên đưa thêm nhiều thông tin chi tiết, quy trình và các số yêu cầu (4.12.3.2, 2.2.5, v.v.) không có trong câu trả lời Gold. Mặc dù thông tin bổ sung đúng về PCI DSS nhưng việc không tuân thủ chặt chẽ cấu trúc đáp ứng của Gold và thêm các quy trình rườm rà không được đề cập sẽ bị trừ điểm nhẹ về tính gọn gàng và tập trung.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Tiêu chuẩn cấu hình của chúng tôi cấm sử dụng các dịch vụ/giao thức không an toàn trừ khi có lý do kinh doanh đặc biệt và được phê duyệt (2.2.4). Chúng tôi cấu hình các rào cản mạng (NSC) để chặn các cổng không an toàn này (1.2.5). Hàng quý, quét lỗ hổng sẽ giúp phát hiện nếu bất kỳ dịch vụ nào như vậy vô tình được bật lên (11.3.1)."
+  },
+  {
+    "question": "Làm thế nào quy trình xử lý sự cố của các ông đảm bảo rằng dữ liệu thẻ được tìm thấy ở những nơi không mong muốn (unexpected locations) sẽ được xử lý triệt để?",
+    "id": "Q030",
+    "answer": "Quy trình incident response được thiết kế để khi phát hiện dữ liệu thẻ xuất hiện ở các vị trí không mong muốn (unexpected locations) có thể phản hồi, cô lập và khắc phục triệt để theo các bước sau:\n\nXác định và thông báo sự cố – Kế hoạch phản ứng sự cố (IRP) yêu cầu ghi lại ngay khi có dấu hiệu dữ liệu thẻ bị rò rỉ hoặc xuất hiện ở nơi không được phép, đồng thời thông báo cho các bên liên quan (các brand, acquirer, bộ phận pháp lý,…) [12.10.1]\nContainment (cô lập) – IRP quy định các hoạt động containment để ngăn dữ liệu thẻ lan rộng, bao gồm việc tạm dừng các hệ thống, ngắt kết nối mạng hoặc cách ly các media chứa dữ liệu không mong muốn.\nMitigation & eradication (khắc phục & loại bỏ) – Kế hoạch mô tả các biện pháp khắc phục cụ thể, trong đó có xóa an toàn hoặc render dữ liệu không thể khôi phục ở mọi vị trí được phát hiện, đồng thời thực hiện các hành động để ngăn tái xuất hiện.\nBusiness recovery & continuity – Sau khi dữ liệu đã được loại bỏ, IRP hướng dẫn khôi phục hoạt động kinh doanh và xác nhận rằng các hệ thống đã trở lại trạng thái an toàn trước khi đưa vào vận hành lại.\nDocumentation & evidence collection – Toàn bộ quá trình được ghi chép chi tiết, bao gồm vị trí dữ liệu được tìm thấy, cách xử lý và kết quả, để làm bằng chứng và hỗ trợ các báo cáo pháp lý.\nReview & testing – Kế hoạch phải được xem xét và cập nhật ít nhất một lần mỗi 12 tháng, đồng thời được kiểm tra thực tế (test) để đảm bảo các bước xử lý dữ liệu ở các vị trí không mong muốn luôn hoạt động hiệu quả [12.10.2].\n\nNhờ các yếu tố trên, quy trình xử lý sự cố không chỉ phát hiện nhanh chóng mà còn đảm bảo dữ liệu thẻ được xóa hoặc render không thể khôi phục ở mọi vị trí bất hợp pháp, đồng thời duy trì khả năng kiểm tra và cải tiến liên tục.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md",
+      "20260327_ENG_PCIDSS_Requirement_11_6.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Câu trả lời của ứng viên bao phủ đầy đủ các ý chính của câu trả lời vàng: xử lý PAN ở ngoài CDE (12.10.7), xóa an toàn dữ liệu (3.2.1) và khắc phục lỗ hổng kiểm soát (6.3.1) dưới các bước như Mitigation & eradication. Ứng viên cung cấp thêm thông tin chi tiết về quy trình (Containment, Documentation, Review) và các ID yêu cầu khác (12.10.1, 12.10.2) là hợp lý và không mâu thuẫn với Gold. Điểm trừ nhỏ (-2) do ứng viên không nhắc chính xác các ID 12.10.7, 3.2.1, 6.3.1 như trong vàng, thay vào đó dùng các ID liên quan khác.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi có các quy trình cụ thể trong kế hoạch phản ứng sự cố để xử lý PAN được tìm thấy ngoài CDE (12.10.7). Quy trình này bao gồm việc xác định nguồn gốc rò rỉ, xóa an toàn dữ liệu (3.2.1) và khắc phục các lỗ hổng kiểm soát dẫn đến việc dữ liệu bị lưu trữ sai chỗ (6.3.1)."
+  },
+  {
+    "question": "Làm thế nào để các ông đảm bảo tính bảo mật của dữ liệu thẻ khi nó được truyền qua các mạng công cộng như Internet?",
+    "id": "Q031",
+    "answer": "Để bảo vệ dữ liệu thẻ (PAN) khi truyền qua các mạng công cộng như Internet, PCI‑DSS yêu cầu thực hiện các biện pháp sau:\n\nMã hoá mạnh – PAN phải được mã hoá bằng strong cryptography trước khi truyền.\nGiao thức bảo mật – Chỉ sử dụng các giao thức an toàn (ví dụ TLS v1.2/1.3, SSH v2) và không cho phép fallback sang các phiên bản, thuật toán, hoặc kích thước khóa yếu.\nChứng chỉ và khóa tin cậy – Chỉ chấp nhận các khóa và chứng chỉ được xác thực, không hết hạn và không bị thu hồi; các chứng chỉ phải được phát hành bởi một CA tin cậy và được kiểm tra thường xuyên (CRL/OCSP).\nQuản lý khoá – Duy trì khoản mục (inventory) các khóa và chứng chỉ được tin cậy, cập nhật kịp thời để có thể phản hồi nhanh khi phát hiện lỗ hổng hoặc thu hồi chứng chỉ.\nKiểm soát cấu hình – Kiểm tra cấu hình hệ thống để xác nhận rằng chỉ các phiên bản và cấu hình an toàn của giao thức được bật và không có cấu hình cho phép sử dụng các giao thức yếu (ví dụ SSL v3, TLS v1.0).\nĐánh giá và kiểm tra – Thực hiện kiểm tra định kỳ (kiểm tra tài liệu, cấu hình, và luồng truyền dữ liệu) để xác nhận rằng mọi PAN được truyền qua mạng công cộng luôn được mã hoá và bảo vệ theo các yêu cầu trên.\n\nNhững yêu cầu này được mô tả trong Control Objective 4.2.1 của PCI‑DSS v4.0.1, trong đó nhấn mạnh việc “bảo vệ PAN khi truyền qua mạng công cộng bằng strong cryptography và secure protocols” và yêu cầu duy trì một khoá chứng chỉ tin cậy cũng như ngăn không cho giao thức yếu được sử dụng \n20260327_ENG_PC...ent_4_2.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260327_ENG_PCIDSS_Requirement_4_1.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md"
+    ],
+    "evaluate": "correct",
+    "score": 9,
+    "check": "Candidate trả lời chính xác và đầy đủ các ý chính trong Reference Answer (mã hóa mạnh, giao thức an toàn TLS, quản lý chứng chỉ tin cậy). Candidate bổ sung thêm các chi tiết chi tiết về SSH, quản lý khoá, kiểm soát cấu hình tài liệu tham khảo cụ thể (4.2.1) nhưng không mâu thuẫn với Gold. Điểm trừ nhỏ (-1) vì đề bài chỉ hỏi 'làm thế nào' theo bối cảnh đơn vị, nên việc liệt kê checklist chung chung hơi đi lệch format, nhưng nội dung thì hoàn toàn ENTAILED.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi sử dụng mật mã mạnh và các giao thức bảo mật (như TLS 1.2+) để mã hóa dữ liệu thẻ trong khi truyền (4.2.1). Chúng tôi cũng đảm bảo rằng các chứng chỉ số được sử dụng là đáng tin cậy và không bị hết hạn (4.2.1.1). Mọi truy cập vào hệ thống từ mạng bên ngoài đều yêu cầu MFA (8.4.2)."
+  },
+  {
+    "question": "Các ông làm thế nào để quản lý các bản sao lưu (backups) dữ liệu thẻ và đảm bảo chúng được bảo vệ an toàn?",
+    "id": "Q032",
+    "answer": "Để quản lý các bản sao lưu (backup) chứa dữ liệu thẻ và đảm bảo chúng luôn được bảo vệ an toàn, PCI‑DSS yêu cầu thực hiện các biện pháp sau:\n\nLưu trữ ở vị trí an toàn – Các backup offline phải được đặt trong một địa điểm bảo mật (ví dụ phòng kho được khóa, trung tâm lưu trữ ngoài site, hoặc cơ sở lưu trữ thương mại có kiểm soát vật lý) để ngăn người không có thẩm quyền tiếp cận hoặc lấy cắp \n20260327_ENG_PC...ent_9_4.md\n.\n\nKiểm soát truy cập vật lý – Đảm bảo chỉ những nhân viên được ủy quyền mới có quyền vào khu vực lưu trữ backup, và mọi truy cập đều được ghi lại (log, camera, badge…) để có thể truy vết.\n\nDuy trì inventory – Tạo và duy trì danh sách (inventory) các backup chứa dữ liệu thẻ, bao gồm thông tin về vị trí, loại media, và người chịu trách nhiệm. Danh sách này phải được cập nhật mỗi khi backup được tạo, di chuyển, hoặc hủy bỏ.\n\nKiểm tra an ninh định kỳ – Thực hiện đánh giá an ninh của địa điểm lưu trữ backup ít nhất một lần mỗi 12 tháng để xác định và khắc phục các lỗ hổng (ví dụ cửa không khóa, thiếu giám sát, môi trường không kiểm soát) \n20260327_ENG_PC...ent_9_4.md\n.\n\nTiêu hủy an toàn khi không còn cần thiết – Khi backup không còn được sử dụng, phải tiêu hủy theo quy trình an toàn (shred, wipe, phá hủy vật lý) để dữ liệu thẻ không thể khôi phục lại.\n\nGhi chép và lưu trữ bằng chứng – Lưu trữ log, báo cáo kiểm tra và chứng từ liên quan đến việc lưu trữ, kiểm soát và tiêu hủy backup ít nhất 12 tháng (hoặc thời gian yêu cầu pháp lý) để có thể chứng minh tuân thủ.\n\nBằng cách thực hiện các bước trên, tổ chức sẽ đáp ứng Control Objective 9.4.1.1 (lưu trữ backup offline trong vị trí an toàn) và Control Objective 9.4.1.2 (đánh giá an ninh vị trí lưu trữ backup ít nhất một lần mỗi 12 tháng) của PCI‑DSS, đảm bảo các bản sao lưu dữ liệu thẻ luôn được bảo vệ khỏi truy cập trái phép và rủi ro mất mát.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_9_1.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md"
+    ],
+    "evaluate": "unclear",
+    "score": 5,
+    "check": "B Candidate bỏ sót thông tin cốt lõi về việc mã hóa bản sao lưu (3.5.1) vốn có trong Reference Answer. Mặc dù Candidate triển khai chi tiết các biện pháp vật lý (9.4.1.1, 9.4.1.2, 9.4.5) phù hợp với Gold, việc thiếu bảo mật dữ liệu tại mức mã hóa (được yêu cầu bắt buộc cho bảo mật dữ liệu thẻ) là sự thiếu hụt thông tin quan trọng và rủi ro bảo mật, dẫn đến chỉ có thể coi là 'Partial correctness' (điểm 5). Việc thêm thông tin về tiêu hủy và lưu trữ bằng chứng là thông tin hợp lệ nhưng nằm ngoài Gold. Nhãn NOT_SUPPORTED được đánh giá do Thiếu thông tin quan trọng.",
+    "label": "NOT_SUPPORTED",
+    "confidence": 0.9,
+    "reference_answer": "Các bản sao lưu được mã hóa mạnh (3.5.1) và được lưu trữ tại các địa điểm an toàn, được kiểm soát truy cập vật lý nghiêm ngặt (9.4.1.1). Chúng tôi cũng thực hiện rà soát định kỳ các địa điểm lưu trữ này (9.4.1.2) và duy trì danh mục các phương tiện lưu trữ bản sao lưu (9.4.5)."
+  },
+  {
+    "question": "Làm thế nào để các ông phát hiện và ngăn chặn các nỗ lực truy cập trái phép vào mạng nội bộ của mình?",
+    "id": "Q033",
+    "answer": "Để phát hiện và ngăn chặn các nỗ lực truy cập trái phép vào mạng nội bộ, chúng tôi áp dụng một loạt biện pháp dựa trên các yêu cầu của PCI‑DSS:\n\nKiểm soát lưu lượng inbound – Các quy tắc tường lửa (NSC) được cấu hình “deny‑all” và chỉ cho phép lưu lượng cần thiết vào CDE. Điều này ngăn mọi kết nối không được ủy quyền từ bên ngoài vào mạng nội bộ [1.3.1].\n\nKiểm soát lưu lượng outbound – Tương tự, lưu lượng ra khỏi CDE cũng bị giới hạn chỉ cho các dịch vụ được phê duyệt, giảm nguy cơ “data exfiltration” [1.3.2].\n\nRanh giới mạng tin cậy / không tin cậy – NSC được đặt giữa mạng tin cậy và không tin cậy; inbound từ mạng không tin cậy chỉ được phép cho các dịch vụ công khai đã được phê duyệt hoặc phản hồi stateful cho các kết nối do mạng nội bộ khởi tạo [1.4.2].\n\nGiám sát và phát hiện xâm nhập (IDS/IPS) – Triển khai các công cụ intrusion‑detection và/or intrusion‑prevention để:\n\nGiám sát tất cả traffic tại perimeter và các điểm quan trọng trong CDE.\nCảnh báo ngay khi phát hiện hành vi bất thường hoặc cố gắng xâm nhập.\nCập nhật liên tục các engine, baseline và signatures để bắt kịp các mối đe dọa mới [11.5.1].\n\nCập nhật và duy trì cấu hình – Các tiêu chuẩn cấu hình NSC (ruleset) được định nghĩa, triển khai và bảo trì, đồng thời được xem xét ít nhất mỗi 6 tháng để đảm bảo không có rule dư thừa hoặc lỗ hổng mới [1.2.1].\n\nQuản lý thay đổi – Mọi thay đổi cấu hình mạng hoặc NSC phải được phê duyệt và quản lý qua quy trình change control, tránh việc vô tình mở ra lỗ hổng truy cập trái phép [1.2.2].\n\nKiểm tra định kỳ – Thực hiện đánh giá an ninh (penetration testing, vulnerability scanning) và đánh giá IDS/IPS ít nhất mỗi 12 tháng để xác nhận các biện pháp ngăn chặn vẫn hiệu quả [11.5.1] và [11.4.1] (phương pháp pentest).\n\nTóm lại, bằng cách giới hạn lưu lượng theo nguyên tắc “default deny”, đặt ranh giới mạng chặt chẽ, triển khai IDS/IPS để giám sát và cảnh báo, và duy trì quy trình quản lý cấu hình, thay đổi và kiểm tra định kỳ, chúng tôi có thể phát hiện sớm và ngăn chặn mọi nỗ lực truy cập trái phép vào mạng nội bộ.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_5.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md"
+    ],
+    "evaluate": "correct",
+    "score": 7,
+    "check": "Câu trả lời bao gồm đầy đủ thông tin cốt lõi (IDS/IPS tại vi trí trọng yếu 11.5.1) nhưng mở rộng rất nhiều thông tin bên ngoài (Firewall rules, review 6 tháng, penetration testing...). Do không có MFA (8.4.2) và giám sát nhật ký hàng ngày (10.4.1) như trong Gold đáp án, nên bị trừ 3 điểm vì thiếu thông tin quan trọng, nhưng không bị mâu thuẫn.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi sử dụng hệ thống phát hiện/ngăn chặn xâm nhập (IDS/IPS) tại các điểm trọng yếu (11.5.1). Ngoài ra, chúng tôi triển khai xác thực MFA cho mọi truy cập không trực tiếp (non-console) vào CDE (8.4.2) và thực hiện giám sát nhật ký truy cập hàng ngày để tìm kiếm các dấu hiệu bất thường (10.4.1)."
+  },
+  {
+    "question": "Quy trình quản lý tài khoản người dùng của các ông đảm bảo như thế nào rằng không có tài khoản thừa hoặc tài khoản không sử dụng tồn tại?",
+    "id": "Q034",
+    "answer": "Quy trình quản lý tài khoản người dùng của chúng tôi được thiết kế để không để lại tài khoản thừa hoặc tài khoản không hoạt động bằng các biện pháp sau:\n\nQuản lý vòng đời tài khoản – Mọi tài khoản được tạo, sửa đổi, vô hiệu hoá và xóa theo quy trình chuẩn (Control Objective 8.2.4).\nThu hồi quyền ngay khi người dùng nghỉ việc – Khi một nhân viên rời công ty, quyền truy cập của họ được revoke ngay lập tức (Control Objective 8.2.5).\nVô hiệu hoá tài khoản không hoạt động – Các tài khoản không có hoạt động trong vòng ≤ 90 ngày sẽ tự động hoặc được quản trị viên vô hiệu hoá (Control Objective 8.2.6).\nKiểm tra định kỳ – Thực hiện đánh giá định kỳ (hàng tháng hoặc ít nhất mỗi 90 ngày) để xác nhận không có tài khoản thừa, và để bật lại hoặc xóa các tài khoản đã vô hiệu hoá khi không còn cần thiết.\nGhi chép và báo cáo – Mọi hành động liên quan đến tạo, vô hiệu hoá hoặc xóa tài khoản đều được ghi lại trong log audit, cho phép truy vết và kiểm tra tính tuân thủ.\n\nNhững biện pháp này đáp ứng yêu cầu Control Objective 8.2 của PCI‑DSS, trong đó tài khoản không hoạt động phải được vô hiệu hoá trong ≤ 90 ngày và quyền truy cập của người dùng đã nghỉ việc phải được thu hồi ngay \n20260327_ENG_PC...ent_8_2.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_1.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_1.md",
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_1.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Candidate Answer bao gồm đầy đủ các ý chính của Gold answer về việc rà soát định kỳ và vô hiệu hóa tài khoản không hoạt động trong vòng 90 ngày, cũng như thu hồi ngay lập tức khi nhân viên nghỉ việc. Tuy nhiên, Candidate Answer chưa nêu rõ chu kỳ rà soát 'ít nhất 6 tháng một lần' theo Requirement 7.2.4 như trong Gold, chỉ nhắc chung là 'đánh giá định kỳ', và có thêm một số thông tin mở rộng (log audit) không có trong Gold nhưng không mâu thuẫn.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi thực hiện rà soát định kỳ các tài khoản người dùng ít nhất 6 tháng một lần (7.2.4). Các tài khoản không hoạt động trong vòng 90 ngày sẽ bị vô hiệu hóa tự động (8.2.5). Khi nhân viên nghỉ việc, tài khoản của họ sẽ bị thu hồi ngay lập tức (8.2.6)."
+  },
+  {
+    "question": "Làm thế nào để các ông đảm bảo rằng các nhân viên của mình luôn được cập nhật về các mối đe dọa an ninh mới nhất?",
+    "id": "Q035",
+    "answer": "Chúng tôi duy trì chương trình nhận thức an ninh (security awareness program) để đảm bảo mọi nhân viên luôn được cập nhật về các mối đe dọa mới nhất:\n\nThiết lập chương trình nhận thức an ninh – Tất cả nhân viên được giới thiệu về chính sách và quy trình bảo mật ngay khi tuyển dụng và được yêu cầu tham gia đào tạo định kỳ [12.6.1].\n\nĐào tạo và xác nhận – Nhân viên phải hoàn thành đào tạo nhận thức an ninh khi onboard và ít nhất một lần mỗi 12 tháng. Trong quá trình đào tạo, nội dung bao gồm các mối đe dọa hiện hành (phishing, social engineering, malware, v.v.) và cách phòng tránh [12.6.3].\n\nCập nhật nội dung thường xuyên – Chương trình được xem lại ít nhất mỗi 12 tháng và cập nhật khi có mối đe dọa hoặc lỗ hổng mới để nội dung đào tạo luôn phản ánh môi trường threat hiện tại [12.6.2].\n\nSử dụng đa dạng phương thức truyền thông – Thông tin về các mối đe dọa mới được truyền qua đào tạo trực tiếp, email, poster, video, và các kênh nội bộ khác, giúp nhân viên nhận được thông tin kịp thời và dễ hiểu [12.6.3].\n\nXác nhận hiểu biết – Sau mỗi lần đào tạo, nhân viên phải xác nhận đã đọc và hiểu các chính sách và thông tin bảo mật, tạo bằng chứng rằng họ đã nắm bắt các mối đe dọa mới [12.6.3].\n\nNhờ quy trình này, nội dung đào tạo luôn được đánh giá, cập nhật và truyền đạt định kỳ, đảm bảo nhân viên luôn được trang bị kiến thức mới nhất về các mối đe dọa an ninh.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_6.md",
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_12_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_7.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md"
+    ],
+    "evaluate": "correct",
+    "score": 9,
+    "check": "Câu trả lời của ứng viên hoàn toàn khớp với câu trả lời vàng, bao gồm các yêu cầu chính về chương trình đào tạo liên tục (12.6.1), cập nhật nội dung theo mối đe dọa mới (12.6.2) và các phương thức kiểm tra/đánh giá (12.6.3). Ứng viên bổ sung thêm chi tiết cụ thể (ví dụ: chu kỳ 12 tháng, các phương thức truyền thông) nhưng không mâu thuẫn với Gold. Chỉ trừ nhỏ 1 điểm do đôi chỗ cung cấp thông tin chi tiết hơi thừa so với yêu cầu tối thiểu của Gold.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi triển khai chương trình đào tạo nhận thức bảo mật liên tục (12.6.1). Nội dung đào tạo được cập nhật thường xuyên để phản ánh các mối đe dọa mới (12.6.2). Chúng tôi cũng gửi các bản tin an ninh định kỳ cho nhân viên và tổ chức các buổi diễn tập để kiểm tra kiến thức của họ (12.6.3)."
+  },
+  {
+    "question": "Làm thế nào các ông bảo vệ dữ liệu thẻ khỏi bị mất mát hoặc rò rỉ qua các kênh liên lạc không chính thống như email hay tin nhắn?",
+    "id": "Q036",
+    "answer": "Để ngăn dữ liệu thẻ (PAN) bị mất mát hoặc rò rỉ khi truyền qua các kênh không chính thống như email, chat hay SMS, PCI DSS yêu cầu áp dụng Control Objective 4.2 – Bảo vệ PAN trong quá trình truyền qua mạng công cộng.\n\nCác biện pháp chính bao gồm:\n\nMã hoá mạnh: PAN phải được mã hoá bằng thuật toán mật mã mạnh trước khi truyền, bất kể kênh truyền là email, tin nhắn hay các giao thức mạng công cộng.\nGiao thức bảo mật: Sử dụng các giao thức bảo mật (ví dụ TLS 1.2/1.3) mà chỉ hỗ trợ các phiên bản và cấu hình an toàn; không cho phép fallback sang các giao thức yếu.\nChứng chỉ tin cậy: Chỉ chấp nhận các khóa và chứng chỉ đã được xác thực, không hết hạn và không bị thu hồi.\nMã hoá ở mức dữ liệu hoặc phiên: PAN có thể được mã hoá ở mức dữ liệu (trước khi đưa vào email/tin nhắn) hoặc ở mức phiên (kết nối bảo mật) để đảm bảo rằng nội dung không thể đọc được nếu bị chặn.\nKiểm soát cấu hình: Kiểm tra cấu hình hệ thống để xác nhận rằng các yếu tố trên được triển khai đầy đủ và không có cấu hình cho phép sử dụng các thuật toán, kích thước khóa hoặc phiên bản giao thức không an toàn.\n\nNhững yêu cầu này được nêu trong PCI‑DSS v4.0.1, Control Objective 4.2, sub‑requirement 4.2.1: “Strong cryptography and security protocols are implemented … to safeguard PAN during transmission over open, public networks… PAN sent via email/chat/SMS must be encrypted” \n20260327_ENG_PC...ent_4_2.md\n.\n\nVì vậy, việc bảo vệ PAN qua các kênh không chính thống dựa vào mã hoá mạnh, giao thức bảo mật, và việc chỉ sử dụng chứng chỉ tin cậy, đồng thời kiểm tra định kỳ cấu hình để đảm bảo không có lỗ hổng.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260327_ENG_PCIDSS_Requirement_4_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_6.md"
+    ],
+    "evaluate": "incorrect",
+    "score": 3,
+    "check": "Câu trả lời của ứng viên đề cập mã hóa và giao thức bảo mật (Control Objective 4.2) thay vì tuân thủ câu trả lời vàng tập trung vào việc cấm gửi PAN qua kênh không bảo mật (4.2.2) và kỹ thuật phát hiện/chặn (12.3.1). Mặc dù đúng về mặt kiến thức PCI DSS tổng quát, nhưng nội dung contradicted trực tiếp với trọng tâm và các biện pháp cụ thể được nêu trong Gold Answer.",
+    "label": "CONTRADICTED",
+    "confidence": 0.9,
+    "reference_answer": "Chính sách bảo mật của chúng tôi nghiêm cấm việc gửi PAN qua các kênh liên lạc cuối người dùng không được bảo mật (4.2.2). Chúng tôi thực hiện các biện pháp kiểm soát kỹ thuật để phát hiện và chặn các nỗ lực gửi PAN qua email (12.3.1). Ngoài ra, nhân viên được đào tạo để nhận biết các rủi ro liên quan đến việc chia sẻ dữ liệu nhạy cảm (12.6.1)."
+  },
+  {
+    "question": "Làm thế nào để các ông đảm bảo rằng các khóa mật mã của mình không bị sử dụng quá thời hạn cho phép?",
+    "id": "Q037",
+    "answer": "Để đảm bảo rằng các khóa mật mã không được sử dụng quá thời hạn cho phép, PCI DSS yêu cầu thực hiện quản lý vòng đời khóa với các bước sau (Control Objective 3.7, sub‑requirement 3.7.4) \n20260320_ENG_PC...ent_3_7.md\n:\n\nXác định cryptoperiod cho mỗi loại khóa được sử dụng (thời gian hoặc lượng dữ liệu mà khóa có thể hoạt động).\nLập chính sách và quy trình quản lý khóa, trong đó quy định rõ ràng việc thay đổi (rotate) khóa ngay khi đạt đến cuối cryptoperiod.\nThực hiện quy trình thay đổi khóa: khi một khóa hết thời hạn, quy trình sẽ tự động hoặc theo lịch định sẵn tạo khóa mới, cập nhật các hệ thống sử dụng khóa và hủy hoặc lưu trữ an toàn khóa cũ.\nKiểm tra và xác nhận rằng các khóa đã được thay đổi đúng thời điểm thông qua việc kiểm tra tài liệu quản lý khóa, phỏng vấn nhân viên và quan sát vị trí lưu trữ khóa.\n\nNhững biện pháp này ngăn việc một khóa bị sử dụng sau khi đã hết thời gian cho phép, giảm thiểu rủi ro khóa bị lộ và dữ liệu bị giải mã trái phép.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Candidate Answer khớp về mặt ngữ nghĩa với Reference Answer, xác định cryptoperiod (3.7.4) và quy trình thay đổi khóa (rotation). Tuy nhiên, CandidateAnswer dùng thông tin chung về chính sách và kiểm tra thay vì nêu rõ 'tự động theo dõi' và 'log/giám sát' như Gold, nên trừ 2 điểm về độ hoàn thiện nhỏ.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi định nghĩa rõ ràng thời hạn sử dụng (cryptoperiod) cho từng loại khóa mật mã (3.7.4). Hệ thống quản lý khóa của chúng tôi tự động theo dõi và thực hiện thay đổi khóa (key rotation) khi hết hạn (3.7.5). Mọi hoạt động liên quan đến khóa đều được ghi nhật ký và giám sát chặt chẽ (10.2.1.1)."
+  },
+  {
+    "question": "Quy trình ứng phó sự cố của các ông được kiểm tra và cập nhật như thế nào để đảm bảo tính hiệu quả?",
+    "id": "Q038",
+    "answer": "Theo PCI‑DSS v4.0.1, Control Objective 12.10 quy định rằng kế hoạch ứng phó sự cố phải được đánh giá và kiểm tra định kỳ để đảm bảo tính hiệu quả:\n\nĐánh giá hàng năm: ít nhất một lần mỗi 12 tháng, kế hoạch được xem xét lại và nội dung được cập nhật khi cần thiết.\nKiểm tra hàng năm: cùng kỳ với việc đánh giá, kế hoạch phải được thực hiện kiểm tra (test) bao gồm tất cả các yếu tố được nêu trong yêu cầu 12.10.1 (vai trò, trách nhiệm, quy trình containment, mitigation, phục hồi, sao lưu, yêu cầu pháp lý, …).\nQuy trình kiểm tra:\nKiểm tra tài liệu kế hoạch để xác nhận rằng kế hoạch tồn tại và bao gồm đầy đủ các yếu tố yêu cầu.\nPhỏng vấn nhân viên và xem xét tài liệu từ các sự cố hoặc cảnh báo đã báo cáo trước đó để xác nhận rằng các quy trình trong kế hoạch đã được thực hiện đúng.\n\nNhững hoạt động này giúp đảm bảo kế hoạch luôn phản ánh đúng môi trường, các mối đe dọa mới và có thể được triển khai hiệu quả khi có sự cố xảy ra. \n20260327_ENG_PC...t_12_10.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_6_1.md",
+      "20260327_ENG_PCIDSS_Requirement_11_1.md",
+      "20260327_ENG_PCIDSS_Requirement_4_1.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md",
+      "20260327_ENG_PCIDSS_Requirement_10_1.md",
+      "20260327_ENG_PCIDSS_Requirement_7_1.md",
+      "20260327_ENG_PCIDSS_Requirement_5_1.md"
+    ],
+    "evaluate": "unclear",
+    "score": 5,
+    "check": "Candidate Answer cung cấp các thông tin đúng về yêu cầu đánh giá và kiểm tra kế hoạch hàng năm (đồng nhất với ý nghĩa của 12.10.2), tuy nhiên nó bỏ sót các điểm then chốt được nêu trong Gold: Không nhắc đến phương pháp cụ thể là 'diễn tập (tabletop exercises)', thiếu quy trình 'bài học kinh nghiệm' sau sự cố/diễn tập để cập nhật kế hoạch (12.10.6), và không đề cập đến việc đào tạo định kỳ đội ngũ (12.10.4). Đây là sự thiếu hụt thông tin trọng yếu.",
+    "label": "NOT_SUPPORTED",
+    "confidence": 0.9,
+    "reference_answer": "Kế hoạch ứng phó sự cố của chúng tôi được kiểm tra ít nhất hàng năm thông qua các buổi diễn tập (tabletop exercises) (12.10.2). Sau mỗi lần diễn tập hoặc sự cố thực tế, chúng tôi thực hiện phân tích 'bài học kinh nghiệm' và cập nhật kế hoạch dựa trên kết quả đó (12.10.6). Đội ngũ ứng phó sự cố cũng được đào tạo định kỳ (12.10.4)."
+  },
+  {
+    "question": "Làm thế nào các ông đảm bảo rằng các thiết bị vật lý trong CDE (như máy chủ hay thiết bị mạng) không bị truy cập trái phép trực tiếp?",
+    "id": "Q039",
+    "answer": "Để ngăn các thiết bị vật lý trong CDE (máy chủ, thiết bị mạng, thiết bị không dây, …) bị truy cập trái phép, PCI DSS yêu cầu thực hiện các kiểm soát truy cập vật lý như sau \n20260327_ENG_PC...ent_9_2.md\n:\n\nHạn chế truy cập vật lý: Áp dụng các kiểm soát vật lý và/hoặc logic để ngăn người hoặc thiết bị không được ủy quyền kết nối vào các cổng mạng công cộng trong khu vực.\nBảo vệ thiết bị mạng: Đặt ra các biện pháp ngăn truy cập vật lý tới các điểm truy cập không dây, gateway, phần cứng mạng và các đường truyền viễn thông. Điều này ngăn kẻ tấn công gắn thiết bị độc hại hoặc can thiệp vào lưu lượng mạng.\nKhóa console: Khi không sử dụng, các console trong khu vực nhạy cảm phải được khóa để ngăn người không có quyền sử dụng.\nGiám sát vào/ra: Sử dụng camera giám sát hoặc cơ chế kiểm soát truy cập vật lý (badge, khóa) để giám sát mọi điểm vào/ra của khu vực nhạy cảm, đồng thời bảo vệ các thiết bị giám sát khỏi việc bị tắt hoặc phá hoại.\nKiểm tra và xác nhận: Thực hiện kiểm tra thực địa (quan sát vị trí thiết bị, phỏng vấn nhân viên chịu trách nhiệm) để xác nhận rằng các kiểm soát trên đang được duy trì và hoạt động đúng.\n\nNhững biện pháp này đảm bảo rằng chỉ những cá nhân được ủy quyền mới có thể tiếp cận trực tiếp vào các thiết bị vật lý trong CDE, ngăn ngừa việc truy cập trái phép và các hành vi can thiệp vật lý.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260327_ENG_PCIDSS_Requirement_9_1.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Candidate trả lời đúng ý chính và không mâu thuẫn với Gold. Tuy nhiên, Candidate sử dụng thông tin chi tiết từ tài liệu khác (mô tả các biện pháp kiểm soát cụ thể như khóa console, kiểm tra thực địa) thay vì liệt kê các biện pháp c thể trong Gold (như nhật ký khách thăm, thẻ định danh, vô hiệu hóa cổng mạng) nên bị trừ nhẹ điểm về độ trùng khớp (Completeness) và sử dụng External Knowledge.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi sử dụng các rào cản vật lý như tủ rack có khóa và phòng máy chủ được giám sát 24/7 bằng camera (9.2.1). Mọi lượt truy cập vào các khu vực nhạy cảm đều được ghi lại trong nhật ký khách thăm (9.3.4) và nhân viên phải mang thẻ định danh rõ ràng (9.3.1). Các cổng mạng không sử dụng đều bị vô hiệu hóa vật lý (9.2.3)."
+  },
+  {
+    "question": "Làm thế nào để các ông đảm bảo rằng các lỗ hổng bảo mật được phát hiện bởi các bên thứ ba (như các nhà nghiên cứu bảo mật) được xử lý kịp thời?",
+    "id": "Q040",
+    "answer": "Để đảm bảo các lỗ hổng bảo mật được bên thứ ba (như nhà nghiên cứu bảo mật, CERT, nhà cung cấp…) báo cáo được xử lý kịp thời, PCI DSS yêu cầu tổ chức xây dựng quy trình quản lý lỗ hổng tích hợp nhiều nguồn thông tin và đánh giá rủi ro để ưu tiên khắc phục \n20260327_ENG_PC...ent_6_3.md\n.\n\nCác bước thực hiện chính\n\nThu thập thông tin từ các nguồn bên thứ ba\n\nSử dụng các nguồn tin cậy như CERT quốc gia, RSS feed, danh mục lỗ hổng công cộng (NVD), thông báo của nhà cung cấp và báo cáo từ các nhà nghiên cứu bảo mật.\nCác thông tin này được đưa vào quy trình quản lý lỗ hổng cùng với dữ liệu thu thập được từ các quét nội/ngoại bộ (Req 11.3.1/11.3.2) \n20260327_ENG_PC...ent_6_3.md\n.\n\nXác định và xếp hạng rủi ro\n\nMỗi lỗ hổng được gán mức độ rủi ro (critical, high, medium, low) dựa trên các tiêu chuẩn công nghiệp (ví dụ CVSS) và tác động tiềm năng tới môi trường CDE.\nCác lỗ hổng critical và high phải được ưu tiên xử lý trước \n20260327_ENG_PC...ent_6_3.md\n.\n\nThời gian khắc phục\n\nCritical: phải cài bản vá trong vòng 1 tháng kể từ ngày phát hành.\nCác lỗ hổng khác: thời gian khắc phục được xác định dựa trên đánh giá rủi ro nội bộ (ví dụ 60 ngày cho high‑risk, 90 ngày cho các mức thấp hơn) [6.3.3].\n\nTheo dõi và xác nhận\n\nGhi lại toàn bộ quá trình nhận báo cáo, xếp hạng, triển khai bản vá và kiểm tra lại (rescan) để xác nhận lỗ hổng đã được khắc phục.\nKiểm tra định kỳ (ít nhất hàng năm) để đảm bảo quy trình vẫn đáp ứng yêu cầu và cập nhật khi có thay đổi mới trong môi trường hoặc trong các tiêu chuẩn rủi ro \n20260327_ENG_PC...ent_6_3.md\n.\n\nGiao tiếp với bên báo cáo\n\nThông báo cho nhà nghiên cứu hoặc tổ chức báo cáo về trạng thái xử lý (đã nhận, đang khắc phục, đã hoàn thành) để duy trì mối quan hệ hợp tác và khuyến khích việc báo cáo tiếp tục.\n\nBằng cách hợp nhất các báo cáo bên thứ ba vào quy trình quản lý lỗ hổng, xếp hạng rủi ro và thực hiện bản vá theo thời gian quy định, tổ chức có thể đáp ứng nhanh chóng và hiệu quả các lỗ hổng được phát hiện bởi các nhà nghiên cứu bảo mật.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md"
+    ],
+    "evaluate": "correct",
+    "score": 9,
+    "check": "Candidate trả lời đầy đủ, nhất quán về mặt ngữ nghĩa với Reference Answer. Cả hai đều đề cập quy trình tiếp nhận, xếp hạng rủi ro và thời gian xử lý (30 ngày/1 tháng). Candidate bổ sung thêm các chi tiết cụ thể về cách thức thu thập thông tin, tiêu chuẩn CVSS và quy trình theo dõi/tương tác, nhưng các thông tin này không mâu thuẫn với Gold answer (mặc dù Reference không nêu chi tiết này). Slight mismatch về chi tiết bổ sung không làm thay đổi ý nghĩa cốt lõi nên chỉ trừ 1 điểm về độ gọn gàng so với Gold.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi thiết lập quy trình để tiếp nhận các báo cáo lỗ hổng từ bên ngoài, ví dụ như thông qua chương trình bug bounty hoặc email liên hệ bảo mật (6.3.1). Các lỗ hổng này sau đó được xếp hạng rủi ro và đưa vào quy trình vá lỗi tiêu chuẩn (6.3.3). Mọi lỗ hổng quan trọng sẽ được xử lý trong vòng 30 ngày."
+  },
+  {
+    "question": "Làm thế nào các ông đảm bảo tính bảo mật khi thực hiện các hoạt động quản trị hệ thống từ xa, không thông qua bảng điều khiển trực tiếp (non-console administration)?",
+    "id": "Q041",
+    "answer": "Để bảo vệ các hoạt động quản trị hệ thống khi thực hiện non‑console access (tức là truy cập từ xa, không qua bảng điều khiển vật lý), PCI DSS yêu cầu áp dụng Multi‑Factor Authentication (MFA) cho toàn bộ các kết nối quản trị này \n20260327_ENG_PC...ent_8_4.md\n.\n\nCác biện pháp chính được thực hiện:\n\nÁp dụng MFA cho mọi truy cập quản trị không‑console\n\nTất cả nhân viên có quyền quản trị phải xác thực bằng ít nhất hai yếu tố khác nhau (ví dụ: mật khẩu + token, hoặc mật khẩu + biometric).\nMFA được cấu hình trên các giao diện mạng hoặc hệ thống mà quản trị viên đăng nhập (VPN, SSH, RDP, …).\n\nKhông cho phép bypass MFA\n\nCác tài khoản quản trị không được phép bỏ qua MFA, kể cả người quản trị cao cấp, trừ khi có tài liệu phê duyệt đặc biệt và thời gian giới hạn.\n\nKiểm soát và giám sát\n\nCấu hình hệ thống và mạng được kiểm tra để xác nhận rằng MFA luôn được yêu cầu khi thực hiện non‑console admin access.\nKiểm tra thực tế bằng cách quan sát các phiên đăng nhập của quản trị viên và xác nhận rằng MFA được thực thi.\n\nQuy trình kiểm tra định kỳ\n\nCác kiểm tra cấu hình và quan sát thực tế được thực hiện thường xuyên (theo yêu cầu kiểm tra của PCI DSS) để đảm bảo rằng MFA vẫn luôn hoạt động và không có lỗ hổng cho phép truy cập không xác thực.\n\nNhững biện pháp trên giúp ngăn chặn việc kẻ tấn công có thể chiếm quyền quản trị chỉ bằng một yếu tố xác thực duy nhất, giảm thiểu rủi ro truy cập trái phép vào môi trường CDE khi thực hiện quản trị từ xa.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_4.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_5.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_4_1.md",
+      "20260327_ENG_PCIDSS_Requirement_8_1.md"
+    ],
+    "evaluate": "incorrect",
+    "score": 4,
+    "check": "Bị thiếu thông tin cốt lõi so với Gold: không đề cập đến việc sử dụng mật mã mạnh để bảo vệ dữ liệu truyền tải (2.2.7) và việc ghi nhật ký chi tiết (10.2.1.2). Chỉ tập trung vào MFA (8.4.2), đồng thời thêm vào đây các quy trình kiểm soát/bypas không có trong Gold nhưng không làm thay đổi ý nghĩa chính.",
+    "label": "NOT_SUPPORTED",
+    "confidence": 0.9,
+    "reference_answer": "Tất cả các truy cập quản trị từ xa phải sử dụng mật mã mạnh để bảo vệ dữ liệu truyền tải (2.2.7). Chúng tôi bắt buộc sử dụng xác thực đa yếu tố (MFA) cho mọi phiên làm việc này (8.4.2). Ngoài ra, các phiên làm việc quản trị đều được ghi nhật ký chi tiết để phục vụ việc kiểm tra sau này (10.2.1.2)."
+  },
+  {
+    "question": "Các ông làm thế nào để bảo vệ dữ liệu thẻ khi nó được lưu trữ tạm thời trong bộ nhớ (memory) hoặc các tệp tạm thời trong quá trình xử lý?",
+    "id": "Q042",
+    "answer": "Để bảo vệ dữ liệu thẻ khi nó chỉ tồn tại tạm thời trong bộ nhớ (RAM) hoặc trong các tệp tạm thời trong quá trình xử lý, PCI DSS yêu cầu áp dụng các biện pháp sau:\n\nLưu trữ chỉ trong bộ nhớ không‑persist (non‑persistent memory).\n\nNếu có nhu cầu kinh doanh hợp lệ để giữ SAD (Sensitive Authentication Data) hoặc PAN trong thời gian ngắn sau khi hoàn tất ủy quyền, dữ liệu phải được giữ chỉ trong RAM và không được ghi ra đĩa.\nDữ liệu phải được xóa ngay lập tức khi mục đích kinh doanh đã hoàn thành.\nCác điều kiện này được nêu trong Control Objective 3.3.1 (SAD) – “It may be acceptable for an entity to store SAD in non‑persistent memory for a short time after authorization is complete, if … SAD is only ever stored in non‑persistent memory … SAD is removed as soon as the business purpose is complete” \n20260320_ENG_PC...ent_3_3.md\n.\n\nKhông ghi dữ liệu thẻ dưới dạng cleartext lên phương tiện lưu trữ.\n\nKhi thực hiện các thao tác mã hoá/giải mã, PAN có thể xuất hiện trong các tệp tạm thời, nhưng PAN không được phép đọc được từ bất kỳ phương tiện lưu trữ nào. Điều này được quy định trong Control Objective 3.5 – “Cleartext PAN cannot be read from storage media” và lưu ý rằng “temporary files containing cleartext PAN while encrypting and decrypting PAN” là cho phép chỉ trong thời gian ngắn và phải được bảo vệ ngay lập tức \n20260320_ENG_PC...ent_3_5.md\n.\n\nXóa an toàn các tệp tạm thời.\n\nCác tệp tạm thời chứa PAN hoặc SAD phải được xóa bằng phương pháp an toàn (overwrite, secure delete) để không thể khôi phục lại.\nQuy trình này phải được ghi lại trong chính sách và được kiểm tra định kỳ.\n\nKiểm soát truy cập vào bộ nhớ và tệp tạm thời.\n\nChỉ các tiến trình/người dùng có quyền hợp lệ mới được phép truy cập bộ nhớ hoặc tạo/đọc các tệp tạm thời.\nCác quyền này phải được tài liệu hoá và kiểm tra thường xuyên.\n\nGiám sát và ghi log.\n\nGhi lại mọi hoạt động tạo, truy cập và xóa bộ nhớ/tệp tạm thời để có thể kiểm tra và chứng minh rằng dữ liệu đã được xóa đúng thời điểm.\n\nNhững biện pháp trên đảm bảo rằng dữ liệu thẻ chỉ tồn tại trong môi trường tạm thời, không được ghi lại trên đĩa và được xóa ngay khi không còn cần thiết, giảm thiểu rủi ro rò rỉ khi bộ nhớ hoặc tệp tạm thời bị truy cập trái phép.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Candidate Answer khớp với Gold về các yêu cầu chính: không lưu trữ dài hạn (limit/nam chỉ trong RAM), bảo vệ bởi cơ chế hệ điều hành, xóa an toàn tệp tạm thời, và không nhật ký lỗi. Tuy nhiên, Candidate bổ sung nhiều chi tiết và quy trình cụ thể (ví dụ: ghi log, kiểm soát truy cập, overwrite) không có trong Gold. Mặc dù thông tin bổ sung này hợp lý và không mâu thuẫn, theo hướng dẫn không thưởng cho thông tin bên ngoài, nên điểm bị trừ nhẹ vì độ dài và sự mở rộng.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi hạn chế tối đa việc lưu trữ dữ liệu thẻ trong bộ nhớ (3.2.1). Khi bắt buộc phải xử lý, dữ liệu thẻ trong bộ nhớ được bảo vệ bởi các cơ chế an ninh của hệ điều hành và ứng dụng (2.2.1). Các tệp tạm thời chứa PAN phải được xóa an toàn ngay sau khi hoàn tất quá trình xử lý (3.5.1.2) và không bao giờ được lưu vào nhật ký lỗi (3.3.1)."
+  },
+  {
+    "question": "Quy trình kiểm tra tính an toàn của các tập lệnh (scripts) trên trang thanh toán của các ông được thực hiện như thế nào?",
+    "id": "Q043",
+    "answer": "Quy trình kiểm tra tính an toàn của các tập lệnh (scripts) trên trang thanh toán được thực hiện theo các bước chính sau:\n\nXác định và ủy quyền\n\nTất cả các script được tải và thực thi trên payment page phải được xác nhận là đã được ủy quyền trước khi đưa vào sử dụng.\nViệc ủy quyền có thể được thực hiện bằng quy trình thủ công hoặc tự động (ví dụ: workflow).\n\nQuản lý danh mục script\n\nDuy trì hồ sơ (inventory) của toàn bộ script cùng với lý do kinh doanh hoặc kỹ thuật chứng minh tại sao mỗi script là cần thiết.\n\nĐảm bảo tính toàn vẹn của script\n\nÁp dụng Sub‑resource Integrity (SRI) để trình duyệt kiểm tra rằng script không bị thay đổi.\nSử dụng Content Security Policy (CSP) để giới hạn các nguồn mà trình duyệt có thể tải script từ đó và ngăn chặn việc tải script không hợp lệ.\nCác hệ thống script hoặc tag‑management độc quyền cũng có thể được dùng để ngăn chặn việc thực thi script độc hại.\n\nPhát hiện và báo cáo thay đổi/đột nhập\n\nGiám sát vi phạm CSP (các chỉ thị report-to hoặc report-uri) để nhận thông báo khi có script hoặc nguồn không được phép.\nTheo dõi các thay đổi đối với CSP chính nó, vì việc thay đổi CSP có thể là dấu hiệu của việc tấn công.\nSử dụng giám sát bên ngoài (synthetic user monitoring) – các hệ thống tự động yêu cầu và phân tích trang web để phát hiện thay đổi trong JavaScript hoặc header.\nNhúng script phát hiện và ngăn chặn (tamper‑resistant/tamper‑detection) trong payment page để cảnh báo và chặn hành vi script độc hại.\nReverse proxy và Content Delivery Network (CDN) cũng có thể phát hiện các thay đổi trong script và gửi cảnh báo.\n\nXử lý và phản hồi\n\nKhi có cảnh báo về script không được ủy quyền hoặc thay đổi, ngay lập tức điều tra và khôi phục script về trạng thái đã được phê duyệt.\nNếu việc ủy quyền không thể thực hiện trước khi script thay đổi, xác nhận ủy quyền càng sớm càng tốt sau khi thay đổi đã xảy ra.\n\nQuy trình này giúp giảm thiểu khả năng script bị thay đổi để thực hiện skimming và đảm bảo rằng chỉ có các script đã được kiểm soát và xác thực mới được thực thi trên payment page.\n\nTham khảo:\n\nHướng dẫn quản lý script (Requirement 6.4.3) – mục Purpose, Good Practice và Examples. [source id=1]\nHướng dẫn phát hiện thay đổi và tampering (Control Objective 11.6) – các cơ chế phát hiện và báo cáo. [source id=2]",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_6.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Câu trả lời của Ứng viên bao gồm đầy đủ các thông tin trọng tâm trong câu trả lời vàng như việc duy trì danh mục (inventory) để quản lý, sử dụng kỹ thuật Sub-resource Integrity (SRI) để đảm bảo tính toàn vẹn, và yêu cầu đánh giá/xác thực các tập lệnh trước khi triển khai. Ứng viên đã bổ sung thêm các thông tin kỹ thuật chi tiết về Content Security Policy (CSP), giám sát vi phạm, reverse proxy và quy trình xử lý phản hồi. Những thông tin bổ sung này là hợp lý, hỗ trợ cho ngữ cảnh an ninh mà không mâu thuẫn hay làm thay đổi ý nghĩa của câu trả lời gốc. Tuy nhiên, do có bổ sung thêm kiến thức bên khá nhiều so với Reference, điểm số trừ 2 so với mức hoàn hảo.",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi duy trì danh mục tất cả các tập lệnh đang hoạt động và thực hiện kiểm tra tính hợp lệ của chúng định kỳ (6.4.3). Chúng tôi sử dụng các kỹ thuật như Sub-resource Integrity (SRI) để đảm bảo tập lệnh không bị thay đổi (11.6.1). Bất kỳ tập lệnh mới nào cũng phải trải qua quy trình đánh giá an ninh trước khi triển khai (6.2.1)."
+  },
+  {
+    "question": "Làm thế nào để các ông đảm bảo rằng các bản ghi nhật ký kiểm toán không bị lấp đầy (overflow) dẫn đến việc mất dữ liệu giám sát quan trọng?",
+    "id": "Q044",
+    "answer": "Để ngăn log kiểm toán bị “đổ đầy” (overflow) và gây mất dữ liệu giám sát quan trọng, PCI‑DSS yêu cầu thực hiện các biện pháp quản lý dung lượng và lưu trữ log như sau \n20260327_ENG_PC...nt_10_5.md\n:\n\nChính sách lưu trữ log – Định nghĩa rõ ràng thời gian lưu trữ tối thiểu 12 tháng cho toàn bộ audit log.\nKhả dụng ngay lập tức – Đảm bảo ba tháng log gần nhất luôn sẵn sàng để phân tích; các log cũ hơn được lưu trữ (archive) hoặc sao lưu để giải phóng không gian trên hệ thống sản xuất.\nCơ chế lưu trữ – Sử dụng một trong các phương pháp sau để giữ log luôn có sẵn và không gây quá tải:\nLưu trữ online (trực tiếp trên máy chủ log trung tâm).\nArchive log vào thiết bị lưu trữ lâu dài (đĩa, tape, cloud).\nKhôi phục nhanh từ backup khi cần truy xuất.\n\nBằng cách quy hoạch dung lượng, xoay vòng log (log rotation) và đưa các log cũ vào kho lưu trữ/backup theo chính sách trên, tổ chức có thể ngăn log bị lấp đầy, đồng thời vẫn đáp ứng yêu cầu “có sẵn ngay” cho việc phân tích và điều tra sự cố.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md"
+    ],
+    "evaluate": "incorrect",
+    "score": 3,
+    "check": "Câu trả lời ứng viên tập trung vào chính sách lưu trữ 12 tháng, log rotation và backup (liên quan đến 10.7), nhưng hoàn toàn bỏ lỡ các khía cạnh cốt lõi trong câu trả lời chuẩn: gửi cảnh báo khi dung lượng sắp hết (10.4.1.1) và biện pháp dự phòng khi hệ thống nhật ký gặp sự cố (10.7.2). Do đó, thông tin không trùng khớp với câu trả lời tham khảo.",
+    "label": "NOT_SUPPORTED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi cấu hình các hệ thống để gửi cảnh báo khi dung lượng nhật ký sắp đạt giới hạn (10.4.1.1). Nếu hệ thống nhật ký bị lỗi hoặc dừng hoạt động, chúng tôi có các biện pháp dự phòng để đảm bảo việc ghi nhật ký không bị gián đoạn (10.7.2). Nhật ký cũng được định kỳ chuyển ra máy chủ lưu trữ tập trung (10.5.1)."
+  },
+  {
+    "question": "Các ông làm thế nào để đảm bảo rằng các nhân viên có quyền truy cập vào CDE không lạm dụng đặc quyền của mình để thay đổi cấu hình bảo mật?",
+    "id": "Q045",
+    "answer": "Để ngăn nhân viên có quyền truy cập vào CDE lạm dụng đặc quyền và thay đổi cấu hình bảo mật, PCI‑DSS yêu cầu thực hiện một loạt biện pháp kiểm soát dựa trên mô hình kiểm soát truy cập và hệ thống kiểm soát truy cập:\n\n1. Xây dựng mô hình kiểm soát truy cập dựa trên job function và nguyên tắc “least‑privilege”\n\nĐịnh nghĩa rõ ràng các vai trò công việc và các quyền cần thiết cho mỗi vai trò.\nChỉ cấp quyền tối thiểu cần thiết để thực hiện công việc (ví dụ: quyền người dùng, quyền quản trị).\nCác quyền được phê duyệt bởi người có thẩm quyền và được ghi lại.\nThực hiện review định kỳ (ít nhất mỗi 6 tháng) để xác nhận rằng các quyền vẫn phù hợp với chức năng hiện tại của người dùng.\n\nNguồn: PCI‑DSS Control Objective 7.2 – “An access control model is defined … least privileges …” \n20260327_ENG_PC...ent_7_2.md\n\n2. Triển khai và cấu hình hệ thống kiểm soát truy cập (access‑control system)\n\nSử dụng hệ thống kiểm soát truy cập bao phủ toàn bộ các thành phần hệ thống (server, ứng dụng, thiết bị mạng, …).\nHệ thống được cấu hình “deny all” mặc định; chỉ cho phép truy cập khi có quy tắc rõ ràng được tạo ra.\nHệ thống tự động enforce các quyền đã gán cho người dùng, ứng dụng và hệ thống dựa trên phân loại công việc.\n\nNguồn: PCI‑DSS Control Objective 7.3 – “An access control system(s) is in place … deny all by default” \n20260327_ENG_PC...ent_7_3.md\n\n3. Áp dụng nguyên tắc Separation of Duties (phân tách nhiệm vụ)\n\nKhông cho phép một cá nhân vừa có quyền tạo, vừa có quyền duyệt hoặc thay đổi cấu hình bảo mật.\nGiao trách nhiệm quản lý cấu hình cho các nhóm khác nhau (ví dụ: nhóm vận hành vs. nhóm bảo mật) để tạo “checkpoint” độc lập.\n\n4. Giám sát và ghi log các hoạt động thay đổi cấu hình\n\nGhi lại mọi hành động thay đổi cấu hình bảo mật (cập nhật firewall rule, thay đổi thiết lập hệ thống, …).\nĐánh giá log định kỳ và khi có sự kiện bất thường để phát hiện hành vi lạm dụng.\n\n5. Đánh giá và sàng lọc nhân sự trước khi cấp quyền (pre‑employment screening)\n\nThực hiện screening nhân sự trước khi tuyển dụng cho các vị trí có quyền truy cập CDE, và khi nhân viên chuyển sang vai trò mới có quyền cao hơn.\n\nNguồn: PCI‑DSS Control Objective 12.7 – “Potential personnel who will have access to the CDE are screened …” \n20260327_ENG_PC...nt_12_7.md\n\nKết hợp các biện pháp trên sẽ giúp đảm bảo rằng quyền truy cập vào CDE chỉ được cấp cho những người thực sự cần, được kiểm soát chặt chẽ và luôn được giám sát, giảm thiểu nguy cơ nhân viên lạm dụng đặc quyền để thay đổi cấu hình bảo mật.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_7.md",
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_5.md",
+      "20260319_ENG_PCIDSS_Requirement_2_3.md",
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_4.md",
+      "20260319_ENG_PCIDSS_Requirement_1_3.md",
+      "20260327_ENG_PCIDSS_Requirement_7_3.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Candidate trả lời đúng các ý chính từ Gold bao gồm: nguyên tắc phân tách nhiệm vụ (separation of duties) và rà soát/ghi log định kỳ. Tuy nhiên, Candidate đưa thêm nhiều thông tin chi tiết không có trong Gold (mô hình least-privilege, deny all, screening nhân sự) và trích dẫn các Requirement ID khác (7.2, 7.3, 12.7) thay vì các ID trong Gold (10.3.1, 6.5.1, 1.2.7). Mặc dù thông tin bổ sung không mâu thuẫn nhưng việc không bám sát vào các anchor và context cụ thể của Gold khiến kết quả bị trừ điểm nhẹ.",
+    "label": "ENTAILED",
+    "confidence": 0.8,
+    "reference_answer": "Chúng tôi áp dụng nguyên tắc phân tách nhiệm vụ, ví dụ: người quản trị hệ thống không có quyền xóa nhật ký (10.3.1). Mọi thay đổi đối với cấu hình bảo mật đều phải thông qua quy trình phê duyệt thay đổi (6.5.1). Chúng tôi cũng thực hiện rà soát định kỳ các cấu hình này để phát hiện các thay đổi không phép (1.2.7)."
+  },
+  {
+    "question": "Làm thế nào để các ông bảo vệ mạng nội bộ khỏi các cuộc tấn công giả mạo địa chỉ IP (IP spoofing) từ bên ngoài?",
+    "id": "Q046",
+    "answer": "Bảo vệ mạng nội bộ khỏi các cuộc tấn công giả mạo địa chỉ IP (IP spoofing) :\n\nTriển khai biện pháp anti‑spoofing trên các thiết bị kiểm soát mạng (NSC).\nCác NSC phải được cấu hình để phát hiện và chặn các gói tin có địa chỉ IP nguồn giả mạo trước khi chúng vào mạng tin cậy.\n\nXác minh cấu hình và tài liệu của nhà cung cấp.\nKiểm tra tài liệu và cấu hình của NSC để chắc chắn rằng tính năng anti‑spoofing đã được bật và hoạt động đúng theo yêu cầu.\n\nMục tiêu tùy chỉnh:\n“Các gói tin có địa chỉ IP nguồn giả mạo không được phép vào mạng tin cậy.”\n\nMục đích:\nLọc các gói tin vào mạng tin cậy giúp ngăn chặn việc gói tin được “giả mạo” để trông như xuất phát từ mạng nội bộ, tránh việc các địa chỉ nội bộ được gửi từ Internet vào DMZ hoặc các khu vực khác.\n\nThực hành tốt:\n\nHầu hết các sản phẩm mạng đã có anti‑spoofing được bật mặc định và không thể cấu hình tắt.\nTham khảo tài liệu của nhà cung cấp để hiểu cách tính năng này hoạt động và để đảm bảo không bị vô hiệu hoá hoặc bỏ qua.\n\nTham khảo: PCI‑DSS v4.0.1, Control Objective 1.4, sub‑requirement 1.4.3【1】.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_4.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_3.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Candidate trả lời đúng trọng tâm: cấu hình NSC để lọc gói tin anti-spoofing (khớp với 1.4.3 trong Gold). Tuy nhiên, nhóm tham chiếu (8.3.1) về xác thực thiết bị bị thiếu so với Gold.",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi cấu hình các thiết bị chặn mạng (NSC) để thực hiện lọc gói tin (anti-spoofing), từ chối các gói tin đi vào mạng nội bộ nhưng lại mang địa chỉ IP nguồn từ bên trong (1.4.3). Ngoài ra, chúng tôi sử dụng các giao thức bảo mật để xác thực các thiết bị kết nối vào mạng (8.3.1)."
+  },
+  {
+    "question": "Quy trình vá lỗi (patching) của các ông xử lý như thế nào đối với các hệ thống cũ (legacy systems) mà nhà sản xuất không còn hỗ trợ?",
+    "id": "Q047",
+    "answer": "Theo các yêu cầu của PCI‑DSS, việc quản lý lỗ hổng bảo mật (Control Objective 6.3) bao gồm:\n\nXác định và đánh giá lỗ hổng – các lỗ hổng mới phải được phát hiện thông qua các nguồn thông tin công nhận (CERT, vendor advisory, NVD, …) và được xếp hạng rủi ro.\nÁp dụng bản vá – các lỗ hổng được xếp “critical” phải được vá trong vòng ≤ 1 tháng sau khi được phát hiện \n20260327_ENG_PC...ent_6_3.md\n.\n\nKhi một hệ thống legacy không còn nhận được bản vá từ nhà sản xuất, PCI‑DSS yêu cầu tổ chức thực hiện các biện pháp bù trừ để giảm rủi ro, chẳng hạn:\n\nThực hiện phân tích rủi ro có mục tiêu (targeted risk analysis).\nXác định tài sản, mối đe dọa, khả năng xảy ra và tác động của việc không thể vá hệ thống cũ. Kết quả sẽ quyết định mức độ chấp nhận rủi ro và các biện pháp kiểm soát bổ sung.\n\nÁp dụng các kiểm soát bù trừ (compensating controls).\n\nPhân đoạn mạng (network segmentation): Đặt hệ thống legacy vào một phân đoạn riêng, cách ly khỏi môi trường chứa dữ liệu thẻ (CDE).\nGiám sát chặt chẽ (continuous monitoring): Sử dụng IDS/IPS, firewall, và các công cụ giám sát lưu lượng để phát hiện hành vi bất thường.\nHạn chế quyền truy cập (access restriction): Áp dụng nguyên tắc “least privilege”, chỉ cho phép các tài khoản cần thiết và chỉ từ các địa chỉ IP tin cậy.\n\nXem xét thay thế hoặc nâng cấp hệ thống.\nNếu không thể giảm rủi ro bằng các biện pháp bù trừ, tổ chức phải lập kế hoạch thay thế, nâng cấp hoặc chuyển sang giải pháp được hỗ trợ.\n\nDuy trì inventory và tài liệu.\nGhi lại toàn bộ các hệ thống legacy, trạng thái hỗ trợ, và các biện pháp bù trừ đã triển khai để đáp ứng yêu cầu “inventory” và “risk analysis” của Control Objective 6.3 \n20260327_ENG_PC...ent_6_3.md\n.\n\nKiểm tra và xác nhận định kỳ.\nThực hiện quét lỗ hổng nội bộ (Control Objective 11.3.1) và đánh giá lại các biện pháp bù trừ ít nhất mỗi 12 tháng hoặc khi có thay đổi đáng kể trong môi trường.\n\nTóm lại, khi nhà sản xuất không còn cung cấp bản vá cho hệ thống cũ, PCI‑DSS yêu cầu tổ chức phân tích rủi ro, áp dụng các kiểm soát bù trừ (phân đoạn, giám sát, hạn chế truy cập), giữ inventory và lập kế hoạch thay thế để đảm bảo mức độ bảo mật tương đương với các hệ thống được hỗ trợ.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_1.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md"
+    ],
+    "evaluate": "correct",
+    "score": 7,
+    "check": "Câu trả lời bao quát đúng các ý chính của đáp án vàng: duy trì danh mục (inventory), áp dụng biện pháp kiểm soát bù đắp (compensating controls) như cách ly mạng và giám sát, cũng như ưu tiên thay thế hệ thống. Tuy nhiên, câu trả lời có thêm nhiều chi tiết external knowledge (quy trình cụ thể 1 tháng, Control Objective 6.3, 11.3.1, IDS/IPS, etc.) không có trong đáp án vàng. Do quy định không phần thưởng thông tin bên ngoài và ưu tiên dựa trên Gold, điểm số bị trừ xuống mức 7 (Đúng nhưng thiếu cân đối so với Gold).",
+    "label": "ENTAILED",
+    "confidence": 0.9,
+    "reference_answer": "Chúng tôi duy trì danh mục các hệ thống sắp hết hạn hỗ trợ (12.3.4). Đối với các hệ thống không thể vá lỗi, chúng tôi áp dụng các biện pháp kiểm soát bù đắp (compensating controls) như tăng cường giám sát hoặc cách ly mạng (12.3.1). Tuy nhiên, ưu tiên hàng đầu của chúng tôi là thay thế các hệ thống này theo kế hoạch đã định."
+  },
+  {
+    "question": "Làm thế nào để các ông đảm bảo tính bảo mật của dữ liệu thẻ khi thực hiện các hoạt động bảo trì định kỳ bởi các kỹ thuật viên bên ngoài?",
+    "id": "Q048",
+    "answer": "Để bảo vệ dữ liệu thẻ khi có kỹ thuật viên bên ngoài thực hiện bảo trì định kỳ, PCI DSS yêu cầu thực hiện các biện pháp sau (theo yêu cầu 9.5.1.3) \n20260327_ENG_PC...ent_9_5.md\n:\n\nXác thực danh tính của bất kỳ người nào tự nhận là nhân viên bảo trì/ sửa chữa trước khi cho phép họ tiếp cận hoặc thao tác trên thiết bị POI.\nThiết lập quy trình nghiêm ngặt để không cho phép thiết bị được lắp đặt, thay thế hoặc trả lại nếu chưa được xác minh.\nĐào tạo nhân viên trong môi trường POI nhận biết các hành vi đáng ngờ quanh thiết bị (ví dụ: người lạ muốn rút, mở hoặc thay đổi thiết bị).\nBáo cáo ngay mọi hành vi hoặc dấu hiệu nghi ngờ về việc thiết bị bị can thiệp hoặc thay thế cho người quản lý hoặc nhân viên an ninh được chỉ định.\n\nNhững biện pháp này giúp ngăn chặn kẻ gian giả danh nhân viên bảo trì để truy cập vào thiết bị POI và bảo vệ dữ liệu chủ thẻ trong suốt quá trình bảo trì.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md"
+    ],
+    "evaluate": "incorrect",
+    "score": 3,
+    "check": "Candidate Answer dựa trên yêu cầu 9.5.1.3 (bảo vệ thiết bị POI khỏi can thiệp/tráo đổi), trong khi Reference Answer dựa trên yêu cầu 9.3.2, 8.2.7, 10.2.1.1 (quản lý truy cập của kỹ thuật viên là khách thăm vào CDE, tài khoản tạm thời, giám sát và ghi nhật ký). Hai câu trả bàn về các biện pháp kiểm soát hoàn toàn khác nhau nhau và Candidate không đề cập đến các điểm cốt lõi trong Reference Answer như hộ tống, tài khoản tạm thời hay nhật ký hoạt động.",
+    "label": "NOT_SUPPORTED",
+    "confidence": 0.95,
+    "reference_answer": "Kỹ thuật viên bên ngoài được coi là khách thăm và phải luôn có người hộ tống khi vào khu vực CDE (9.3.2). Mọi truy cập vào hệ thống của họ phải thông qua tài khoản tạm thời, được giám sát và vô hiệu hóa ngay sau khi xong việc (8.2.7). Mọi hoạt động của họ đều được ghi nhật ký (10.2.1.1)."
+  },
+  {
+    "question": "Làm thế nào các ông đảm bảo rằng các ứng dụng web của mình không bị ảnh hưởng bởi các cuộc tấn công phổ biến như SQL Injection hay Cross-Site Scripting (XSS)?",
+    "id": "Q049",
+    "answer": "Để ngăn chặn các tấn công phổ biến như SQL Injection hay Cross‑Site Scripting (XSS) trên các ứng dụng web, PCI‑DSS yêu cầu thực hiện một loạt các biện pháp bảo mật, bao gồm:\n\nÁp dụng kỹ thuật phát triển phần mềm an toàn (Requirement 6.2.4) – thiết kế, lập trình và kiểm thử để ngăn chặn các lỗi thường gặp như injection, XSS, CSRF, v.v. \n20260327_ENG_PC...ent_6_2.md\nĐào tạo lập trình viên về secure coding và các kiểu tấn công phổ biến, đồng thời thực hiện code review bởi người không phải tác giả để phát hiện lỗi trước khi đưa vào sản xuất. \n20260327_ENG_PC...ent_6_2.md\nThực hiện đánh giá lỗ hổng định kỳ (ít nhất mỗi 12 tháng và sau mỗi thay đổi quan trọng) bằng công cụ tự động hoặc thủ công, xếp hạng và khắc phục mọi lỗ hổng được phát hiện. \n20260327_ENG_PC...ent_6_4.md\nTriển khai giải pháp kỹ thuật tự động (ví dụ: Web Application Firewall – WAF, Runtime Application Self‑Protection – RASP) được đặt trước mặt các ứng dụng web công khai, luôn chạy, cập nhật và ghi lại log, đồng thời chặn các cuộc tấn công hoặc cảnh báo ngay lập tức để điều tra. \n20260327_ENG_PC...ent_6_4.md\n\nKết hợp quy trình phát triển an toàn, đào tạo, đánh giá lỗ hổng và công cụ phòng thủ thời gian thực sẽ giúp giảm thiểu rủi ro các cuộc tấn công SQL Injection, XSS và các kiểu tấn công web khác.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md"
+    ],
+    "evaluate": "correct",
+    "score": 8,
+    "check": "Candidate trả lời đầy đủ, bao quát các ý chính trong Reference Answer: kỹ thuật lập trình an toàn (6.2.4), kiểm tra lỗ hổng (11.3.1/6.4) và triển khai WAF (6.4.1). Tuy nhiên, Candidate bổ sung thêm các thông tin ngoại lai không có trong Gold (như đào tạo lập trình viên, RASP, code review), dù không mâu thuẫn nhưng chiếm dung lượng và làm giảm tập trung vào Gold. Theo quy trình, việc thêm thông tin không hẹn trước sẽ bị trừ điểm nhẹ (-1 đến -2).",
+    "label": "ENTAILED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi áp dụng các kỹ thuật lập trình an toàn để chống lại các lỗ hổng này (6.2.4). Đồng thời, chúng tôi sử dụng Web Application Firewall (WAF) để giám sát và chặn các cuộc tấn công nhắm vào ứng dụng web (6.4.1). Chúng tôi cũng thực hiện kiểm tra lỗ hổng ứng dụng định kỳ (11.3.1)."
+  },
+  {
+    "question": "Quy trình quản lý mật khẩu của các ông đối phó như thế nào với các cuộc tấn công vét cạn (brute-force) vào tài khoản người dùng?",
+    "id": "Q050",
+    "answer": "Để giảm thiểu nguy cơ tấn công vét cạn (brute‑force) vào tài khoản người dùng, PCI‑DSS yêu cầu thực hiện các biện pháp quản lý mật khẩu sau \n20260327_ENG_PC...ent_8_3.md\n:\n\nGiới hạn số lần đăng nhập sai: tài khoản sẽ bị khóa sau không quá 10 lần nhập sai.\n\nThời gian khóa tối thiểu: tài khoản bị khóa ít nhất 30 phút hoặc cho đến khi nhân viên xác minh danh tính người dùng.\n\nXác minh danh tính trước khi mở khóa tài khoản, để ngăn kẻ tấn công tiếp tục thử mật khẩu.\n\nMật khẩu mạnh:\n\nĐộ dài tối thiểu 12 ký tự (hoặc 8 ký tự nếu hệ thống không hỗ trợ 12).\nChứa cả ký tự số và chữ cái.\nMật khẩu ban đầu được thiết lập duy nhất cho mỗi người dùng và phải được thay đổi ngay sau lần sử dụng đầu tiên.\n\nLịch sử mật khẩu: người dùng không được phép tái sử dụng bất kỳ 4 mật khẩu gần nhất, ngăn việc quay lại mật khẩu cũ đã bị lộ.\n\nNhững biện pháp này kết hợp giới hạn cố gắng đăng nhập, khóa tài khoản và độ phức tạp mật khẩu để làm cho việc đoán hoặc bẻ khóa mật khẩu bằng brute‑force trở nên không khả thi.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md"
+    ],
+    "evaluate": "incorrect",
+    "score": 4,
+    "check": "Candidate trả lời quá chi tiết và chứa các thông số cụ thể (11 lần, 30 phút, 12 ký tự, 4 mật khẩu) không xuất hiện trong Gold Answer. Dữ liệu này không được Reference hỗ trợ, dẫn đến việc không thể xác minh tính chính xác dựa trên quy luật đánh giá. Mặc dù không mâu thuẫn trực tiếp về mặt bản chất, việc thêm thắt chi tiết cụ thể vượt quá Gold vi phạm nguyên tắc đánh giá và bị tính là sai lệch thông tin trọng điểm (thiếu các ID 8.3.4, 8.3.6, 8.4.2).",
+    "label": "NOT_SUPPORTED",
+    "confidence": 0.95,
+    "reference_answer": "Chúng tôi áp dụng chính sách khóa tài khoản sau một số lần đăng nhập sai nhất định (8.3.4). Đồng thời, chúng tôi yêu cầu mật khẩu có độ phức tạp cao để gây khó khăn cho việc đoán (8.3.6). Việc bắt buộc sử dụng MFA cũng là một lớp bảo vệ quan trọng chống lại các cuộc tấn công này (8.4.2)."
+  }
+]

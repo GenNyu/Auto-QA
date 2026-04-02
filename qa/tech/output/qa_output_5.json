@@ -1,0 +1,1936 @@
+[
+  {
+    "question": "What is the primary objective of maintaining up-to-date network diagrams according to Requirement 1?",
+    "id": "Q001",
+    "answer": "Mục tiêu chính của việc duy trì sơ đồ mạng luôn cập nhật là ngăn chặn các kết nối và thiết bị mạng bị bỏ quên hoặc để lại không an toàn, đồng thời giúp tổ chức xác định và xác minh phạm vi PCI DSS bằng cách nhận diện mọi hệ thống kết nối vào và ra CDE【1】.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md"
+    ]
+  },
+  {
+    "question": "How do network segmentation (Req 1) and least-privilege access control (Req 7) collaborate to secure the cardholder data environment?",
+    "id": "Q002",
+    "answer": "Theo nội dung hiện có, Requirement 1 (đặc biệt là mục 1.2.3) yêu cầu duy trì sơ đồ mạng chính xác và luôn cập nhật. Mục đích của việc này là:\n\nNgăn không cho các kết nối và thiết bị mạng bị bỏ quên hoặc để lại không an toàn, giảm nguy cơ bị tấn công.\nGiúp tổ chức xác định và xác minh phạm vi PCI DSS bằng cách nhận diện mọi hệ thống kết nối vào và ra CDE.\n\nNhờ có sơ đồ mạng đầy đủ, tổ chức có thể xác định rõ ranh giới giữa môi trường CDE, các mạng tin cậy và các mạng không tin cậy, từ đó thực hiện phân đoạn mạng (network segmentation) một cách hiệu quả.\n\nTuy nhiên, trong tài liệu được cung cấp không có thông tin chi tiết về Requirement 7 (nguyên tắc “least‑privilege” – chỉ cấp quyền tối thiểu). Vì vậy, không thể mô tả chính xác cách mà việc kiểm soát truy cập tối thiểu sẽ phối hợp với phân đoạn mạng để bảo vệ môi trường dữ liệu thẻ. Nếu bạn có tài liệu liên quan đến Requirement 7, vui lòng cung cấp để mình có thể đưa ra câu trả lời đầy đủ.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "An administrator forgets to change a default password on a newly deployed cloud virtual network control. Which requirement is violated, and what is the risk?",
+    "id": "Q003",
+    "answer": "Việc để lại mật khẩu mặc định trên một thành phần mạng ảo mới triển khai vi phạm Requirement 2.2.6 – “System security parameters are configured to prevent misuse.”\nGuidance của Requirement 2.2.6 nhấn mạnh rằng các tham số bảo mật của hệ thống (bao gồm các cài đặt như mật khẩu mặc định) phải được cấu hình đúng để ngăn chặn việc sử dụng sai mục đích và giảm thiểu các lỗ hổng có thể bị khai thác \n20260319_ENG_PC...ent_2_2.md\n.\n\nRủi ro\n\nMật khẩu mặc định dễ đoán hoặc công khai sẽ cho phép kẻ tấn công truy cập quản trị vào thành phần mạng ảo.\nKhi kẻ tấn công có được quyền quản trị, họ có thể xâm nhập, thay đổi cấu hình, hoặc di chuyển trong môi trường mạng, từ đó gây ra vi phạm dữ liệu thẻ (CDE) hoặc các hệ thống khác.\nĐiều này làm suy giảm toàn bộ kiểm soát bảo mật và có thể dẫn đến mất mát hoặc rò rỉ dữ liệu thẻ.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "Why does Requirement 3 strictly prohibit the storage of sensitive authentication data (SAD) after authorization, even if encrypted?",
+    "id": "Q004",
+    "answer": "Requirement 3 cấm tuyệt đối việc lưu trữ Sensitive Authentication Data (SAD) sau khi quá trình ủy quyền hoàn tất, ngay cả khi dữ liệu được mã hoá, vì:\n\nSAD có giá trị rất cao đối với kẻ tấn công – nó cho phép tạo thẻ giả và thực hiện các giao dịch gian lận.\nViệc lưu trữ SAD, dù đã mã hoá, vẫn tạo ra rủi ro – mã hoá không làm cho việc lưu trữ này trở nên hợp lệ; nếu khóa bị lộ hoặc bị phá vỡ, dữ liệu vẫn có thể bị khai thác. Do đó PCI DSS yêu cầu dữ liệu này phải được xóa hoặc làm không thể khôi phục ngay khi ủy quyền kết thúc.\n\n(Tham khảo: Guidance – Purpose of 3.3.1)【2】.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md"
+    ]
+  },
+  {
+    "question": "Contrast the use of masking versus truncation in protecting Primary Account Numbers (PAN).",
+    "id": "Q005",
+    "answer": "Masking và truncation là hai cách bảo vệ PAN khác nhau:\n\nMasking: chỉ che giấu một số chữ số khi hiển thị hoặc in ra, trong khi toàn bộ PAN vẫn được lưu trữ trên hệ thống. Các chữ số bị che có thể được “unmasked” (bị lộ) nếu có quyền truy cập phù hợp.\nTruncation: cắt bỏ các chữ số của PAN và không thể khôi phục chúng được; các phần đã bị cắt không còn tồn tại trong hệ thống và không thể “un‑truncated” trừ khi tạo lại PAN từ nguồn khác.\n\nDo đó, masking giữ lại PAN đầy đủ ở phía sau nhưng giới hạn việc hiển thị, còn truncation loại bỏ vĩnh viễn các phần của PAN, làm cho dữ liệu không thể được khôi phục lại. 【1】",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md"
+    ]
+  },
+  {
+    "question": "How should an organization verify that all Primary Account Numbers (PAN) are rendered unreadable in their database logs?",
+    "id": "Q006",
+    "answer": "Để xác nhận rằng tất cả PAN trong các log cơ sở dữ liệu đã được làm không thể đọc được, tổ chức cần thực hiện các bước kiểm tra sau (theo Requirement 3.5.1):\n\nXem xét tài liệu mô tả cơ chế được dùng để làm cho PAN không đọc được (ví dụ: hashing, truncation, tokenization, mã hoá mạnh) và xác nhận rằng các phương pháp này được áp dụng cho dữ liệu trong log.\nKiểm tra các kho dữ liệu và log (bao gồm log của ứng dụng thanh toán) để xác nhận rằng PAN không xuất hiện ở dạng clear‑text. Các log phải chỉ chứa giá trị đã được render unreadable theo một trong các phương pháp được chấp nhận.\n\nNếu các log chỉ chứa PAN đã được hash, truncate, token hoặc mã hoá và không có bất kỳ bản sao clear‑text nào, thì việc render PAN là thành công.\n\n(Tham khảo: Testing procedures 3.5.1.b – “Examine data repositories and audit logs … to verify the PAN is rendered unreadable”【2】)",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md"
+    ]
+  },
+  {
+    "question": "In a scenario where an entity uses a third-party cloud provider for storage, who is responsible for the inventory of trusted keys and certificates?",
+    "id": "Q007",
+    "answer": "The provided context does not contain information that specifies who is responsible for maintaining the inventory of trusted keys and certificates when an entity uses a third‑party cloud provider for storage. If you can share the relevant section or give more details, I can help answer the question.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "Explain the role of 'cryptographic agility' as defined in Requirement 12 in the context of data transmission security.",
+    "id": "Q008",
+    "answer": "Cryptographic agility được định nghĩa trong Requirement 12 (sub‑requirement 12.3.3) là khả năng giám sát và quản lý các công nghệ mã hoá và các cơ chế xác thực được triển khai trong toàn tổ chức.\n\nTrong bối cảnh bảo mật truyền dữ liệu, vai trò của cryptographic agility bao gồm:\n\nTheo dõi xu hướng ngành và đánh giá tính khả dụng của các bộ mã hoá, giao thức hiện đang được sử dụng để truyền dữ liệu (ví dụ: PAN, mật khẩu, khóa xác thực).\nDuy trì một danh mục cập nhật về mọi cipher suite và giao thức, kèm theo mục đích sử dụng và vị trí triển khai.\nLập kế hoạch phản hồi nhanh chóng khi phát hiện lỗ hổng hoặc khi một giao thức/thuật toán bị chuẩn công nghiệp (như NIST) tuyên bố không còn an toàn.\nĐảm bảo có giải pháp thay thế (alternative encryption method hoặc thuật toán mới) sẵn sàng triển khai mà không gây gián đoạn lớn cho hạ tầng hệ thống.\nBảo vệ dữ liệu truyền (bao gồm PAN, dữ liệu xác thực) bằng cách cập nhật kịp thời các thuật toán và giao thức mạnh hơn, tránh việc dữ liệu bị đọc trộm hoặc bị giải mã bởi các cuộc tấn công mới.\n\nNhư tài liệu chỉ ra, “cryptographic agility” cho phép thực thể phản ứng nhanh với các lỗ hổng trong các giao thức hoặc thuật toán mã hoá, từ đó duy trì an toàn cho việc truyền dữ liệu nhạy cảm. \n20260327_ENG_PC...nt_12_3.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_6.md"
+    ]
+  },
+  {
+    "question": "What is the requirement for anti-malware solutions on system components that are not commonly affected by malware?",
+    "id": "Q009",
+    "answer": "Yêu cầu là phải triển khai giải pháp anti‑malware trên mọi thành phần hệ thống, trừ khi:\n\nthành phần đó đã được đánh giá định kỳ và kết luận không có nguy cơ bị malware.\nKhi có kết luận như vậy, phải có danh sách tài liệu các thành phần không có nguy cơ, kèm theo việc giám sát các mối đe dọa malware mới và xác nhận lại định kỳ rằng chúng vẫn không cần bảo vệ anti‑malware.\n\nNói cách khác, anti‑malware được cài đặt trên toàn bộ hệ thống, nhưng có thể không áp dụng cho những thành phần được chứng minh không thường bị ảnh hưởng bởi malware, với điều kiện có quy trình đánh giá và tài liệu hỗ trợ. \n20260327_ENG_PC...ent_5_2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_5_2.md",
+      "20260327_ENG_PCIDSS_Requirement_5_1.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md"
+    ]
+  },
+  {
+    "question": "How does Requirement 6.2.4 support the defense-in-depth strategy for custom software development?",
+    "id": "Q010",
+    "answer": "Requirement 6.2.4 yêu cầu phần mềm nội bộ được phòng ngừa các tấn công phần mềm phổ biến (ví dụ: injection, XSS, bypass xác thực, …). Khi các biện pháp này được tích hợp vào mọi giai đoạn của vòng đời phát triển – từ thiết kế, mã hoá, kiểm thử cho tới sửa lỗi – chúng tạo ra nhiều lớp bảo vệ (design‑level controls, secure coding, vulnerability remediation, re‑testing). Nhờ vậy, ngay cả khi một lớp bảo vệ bị xâm phạm, các lớp khác vẫn còn hoạt động để ngăn chặn hoặc giảm thiểu tác động của cuộc tấn công, đáp ứng nguyên tắc “defense‑in‑depth” cho phần mềm tùy chỉnh.\n\nNguồn: đề cập rằng các đánh giá bảo mật phải bao gồm “tất cả các tấn công phần mềm phổ biến trong Requirement 6.2.4” [4].",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_1.md",
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260327_ENG_PCIDSS_Requirement_5_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md"
+    ]
+  },
+  {
+    "question": "A developer needs to test a new application feature using live data. What controls must be in place to use live PANs in this pre-production environment?",
+    "id": "Q011",
+    "answer": "Để cho phép sử dụng live PAN trong môi trường pre‑production, phải đáp ứng các điều kiện sau (theo Requirement 6.5.5):\n\nMôi trường pre‑production phải được bao gồm trong CDE (Cardholder Data Environment).\nMôi trường đó phải được bảo vệ theo tất cả các yêu cầu PCI DSS áp dụng – bao gồm kiểm soát truy cập, mã hoá, giám sát, quản lý khóa, v.v. – giống như môi trường production.\nPhải có chính sách và quy trình tài liệu xác định rõ việc không sử dụng live PAN",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md"
+    ]
+  },
+  {
+    "question": "What is the specific audit procedure to verify that privileged user access is correctly assigned?",
+    "id": "Q012",
+    "answer": "Kiểm tra cụ thể được mô tả trong Requirement 7.2.2 như sau:\n\nKiểm tra cài đặt quyền truy cập của người dùng, bao gồm cả các tài khoản privileged, để xác định các quyền đã được gán có đáp ứng đầy đủ các yếu tố của yêu cầu hay không.\nPhỏng vấn nhân viên quản lý chịu trách nhiệm về việc gán quyền để xác nhận rằng các quyền được cấp đúng theo chính sách và dựa trên chức năng công việc.\nPhỏng vấn nhân viên chịu trách nhiệm gán quyền (người thực hiện việc cấp quyền) để kiểm chứng quy trình gán quyền được tuân thủ.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_3.md"
+    ]
+  },
+  {
+    "question": "Why is multi-factor authentication (MFA) required for all non-console access into the CDE?",
+    "id": "Q013",
+    "answer": "Multi‑factor authentication (MFA) được yêu cầu cho tất cả truy cập non‑console vào CDE vì:\n\nGiảm thiểu rủi ro bị chiếm đoạt tài khoản – Khi yêu cầu hơn một loại yếu tố xác thực (điều gì bạn biết, gì bạn có, hoặc gì bạn là), kẻ tấn công phải đồng thời phá vỡ nhiều lớp bảo vệ để có thể đăng nhập. Điều này làm giảm khả năng một kẻ tấn công chỉ cần đánh cắp một mật khẩu hoặc một yếu tố duy nhất để xâm nhập vào CDE.\n\nBảo vệ dữ liệu thẻ – CDE chứa PAN và các thông tin nhạy cảm; việc áp dụng MFA cho mọi truy cập logic (không phải console) giúp ngăn chặn việc truy cập trái phép và giảm khả năng rò rỉ dữ liệu.\n\nTuân thủ yêu cầu PCI‑DSS – Requirement 8.4.2 quy định rằng “MFA is implemented for all non‑console access into the CDE,” và phần Guidance – Purpose giải thích rằng “requiring more than one type of authentication factor reduces the probability that an attacker can gain access to a system by masquerading as a legitimate user” \n20260327_ENG_PC...ent_8_4.md\n.\n\nVì vậy, MFA được áp dụng để tăng độ chắc chắn của quá trình xác thực, ngăn chặn các cuộc tấn công dựa trên yếu tố xác thực đơn lẻ và bảo vệ an toàn cho môi trường CDE.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_4.md",
+      "20260327_ENG_PCIDSS_Requirement_8_5.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_3.md"
+    ]
+  },
+  {
+    "question": "How should an entity handle publicly accessible network jacks to prevent unauthorized physical access?",
+    "id": "Q014",
+    "answer": "Áp dụng kiểm soát vật lý và/hoặc logic để hạn chế việc sử dụng các jack mạng công cộng trong cơ sở.\nCác biện pháp thực tiễn (theo ví dụ trong hướng dẫn) bao gồm:\nVô hiệu hoá các jack mạng ở khu vực công cộng và chỉ bật lại khi có yêu cầu truy cập được phê duyệt.\nThiết lập quy trình để đảm bảo người truy cập (ví dụ: khách thăm quan) luôn được hộ tống khi ở trong khu vực có jack mạng hoạt động.\nSử dụng các cơ chế kiểm soát truy cập (ví dụ: khóa, thiết bị quản lý truy cập) để ngăn người không được ủy quyền kết nối thiết bị vào jack.\n\nNhững kiểm soát này ngăn chặn kẻ xấu cắm thiết bị vào các jack mạng sẵn có và tránh việc truy cập trái phép vào CDE hoặc các hệ thống liên quan. \n20260327_ENG_PC...ent_9_2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md"
+    ]
+  },
+  {
+    "question": "What must be captured in audit logs when an administrator elevates their privileges?",
+    "id": "Q015",
+    "answer": "Khi một quản trị viên nâng cao đặc quyền, audit log phải ghi lại sự thay đổi này – tức là việc “elevation of privileges” – như một trong các thay đổi đối với thông tin nhận dạng và xác thực (cùng với việc tạo tài khoản mới, thêm, xóa hoặc thay đổi tài khoản có quyền quản trị).\n\nLog này cũng phải bao gồm các chi tiết tối thiểu được yêu cầu ở mục 10.2.2, chẳng hạn như:\n\nUser identification (ai đã thực hiện việc nâng đặc quyền)\nType of event (elevation of privileges)\nDate and time của sự kiện\nSuccess/failure indication\nOrigination of event (nguồn gốc, ví dụ: địa chỉ IP, máy chủ)\nIdentity hoặc tên của tài nguyên/bộ phận bị ảnh hưởng (tài khoản hoặc hệ thống được nâng đặc quyền)\n\nNhư vậy, mọi lần nâng đặc quyền của quản trị viên phải được ghi lại đầy đủ để có thể truy vết và điều tra sau này.\n\nTham khảo: PCI‑DSS v4.0.1, Control Objective 10.2, Sub‑requirement 10.2.1.5【1】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_7_2.md"
+    ]
+  },
+  {
+    "question": "During a quarterly review, an auditor discovers that the internal vulnerability scans were performed but not by an independent resource. Which requirement is affected?",
+    "id": "Q016",
+    "answer": "Yêu cầu bị vi phạm là Control Objective 11.3 – Sub‑requirement 11.3.1 (Internal vulnerability scans), vì trong phần “Defined Approach Requirements” của 11.3.1 quy định rằng “scans are performed by qualified personnel and organizational independence of the tester exists”【1】. Nếu các quét nội bộ không được thực hiện bởi một nguồn độc lập, thì yêu cầu 11.3.1 không được đáp ứng.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md"
+    ]
+  },
+  {
+    "question": "Describe the relationship between a TPSP’s written agreement and Requirement 12.8.5 regarding shared responsibilities.",
+    "id": "Q017",
+    "answer": "Một thỏa thuận bằng văn bản với TPSP (được quy định ở Requirement 12.8.2) phải chứa các “acknowledgments” xác nhận rằng TPSP chịu trách nhiệm bảo mật dữ liệu thẻ mà nó lưu trữ, xử lý hoặc truyền.\n\nRequirement 12.8.5 yêu cầu thực thể duy trì thông tin chi tiết về:\n\ncác yêu cầu PCI DSS mà TPSP chịu trách nhiệm một mình,\ncác yêu cầu mà thực thể chịu trách nhiệm một mình,\nvà các yêu cầu được chia sẻ giữa TPSP và thực thể.\n\nDo đó, thỏa thuận bằng văn bản là nguồn tài liệu chính để xác định và ghi lại những trách nhiệm chung này. Nội dung thỏa thuận cung cấp bằng chứng rằng các bên đã đồng ý về việc chia sẻ trách nhiệm, và thông tin này sau đó được lưu trữ và quản lý theo yêu cầu 12.8.5 (thường dưới dạng ma trận trách nhiệm).\n\nNguồn: PCI‑DSS v4.0.1, Control Objective 12.8 – sub‑requirement 12.8.2 (written agreements) và sub‑requirement 12.8.5 (shared responsibilities).",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_6.md",
+      "20260327_ENG_PCIDSS_Requirement_11_1.md"
+    ]
+  },
+  {
+    "question": "What documentation must be updated immediately after a significant change to the network architecture?",
+    "id": "Q018",
+    "answer": "Sau khi có một thay đổi quan trọng đối với kiến trúc mạng, tài liệu sơ đồ mạng (network diagram) và sơ đồ luồng dữ liệu (data‑flow diagram) phải được cập nhật ngay lập tức để phản ánh các thành phần, kết nối và luồng dữ liệu mới. Đây là yêu cầu bắt buộc trong quá trình xác nhận phạm vi PCI DSS và quản lý thay đổi【3】.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_4_1.md",
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_1.md",
+      "20260319_ENG_PCIDSS_Requirement_1_4.md"
+    ]
+  },
+  {
+    "question": "Explain the importance of Requirement 2.2.4 (Minimal Services) in reducing the attack surface.",
+    "id": "Q019",
+    "answer": "Requirement 2.2.4 – “Minimizing Services” yêu cầu chỉ bật các dịch vụ, giao thức, daemon và chức năng thực sự cần thiết và tắt hoặc loại bỏ mọi chức năng không cần thiết.\n\nTầm quan trọng trong việc giảm bề mặt tấn công\n\nGiảm điểm vào: Các dịch vụ, giao thức và daemon không dùng thường tạo ra các cổng và quy trình mà kẻ tấn công có thể khai thác. Khi chúng bị loại bỏ, số lượng “cửa sổ” mà kẻ xâm nhập có thể tấn công giảm đi đáng kể.\n\nTập trung bảo mật: Khi chỉ còn các chức năng cần thiết, tổ chức có thể tập trung các biện pháp bảo vệ (ví dụ: cập nhật, giám sát, kiểm soát truy cập) vào những thành phần thực sự quan trọng, thay vì phải bảo vệ một loạt các dịch vụ thừa.\n\nNgăn chặn khai thác không mong muốn: Các dịch vụ dư thừa có thể chứa lỗ hổng chưa được vá hoặc cấu hình yếu. Việc tắt chúng ngăn không cho kẻ tấn công khai thác các lỗ hổng “ẩn” mà không liên quan tới nghiệp vụ.\n\nGiảm độ phức tạp quản trị: Ít dịch vụ hơn đồng nghĩa với ít cấu hình cần quản lý, giảm nguy cơ sai cấu hình và lỗi con người.\n\nHỗ trợ kiểm soát liên tục: Khi các dịch vụ không cần thiết đã bị loại bỏ, việc kiểm tra và xác nhận tính hợp lệ của các dịch vụ còn lại trở nên dễ dàng hơn, giúp duy trì một môi trường an toàn và đáp ứng yêu cầu PCI DSS.\n\nTóm lại, việc chỉ duy trì các dịch vụ cần thiết và tắt mọi chức năng không cần thiết là một biện pháp cơ bản nhưng cực kỳ hiệu quả để thu hẹp bề mặt tấn công, giảm khả năng khai thác và nâng cao mức độ bảo mật tổng thể của hệ thống【1】.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_5.md"
+    ]
+  },
+  {
+    "question": "A system is configured to auto-decrypt a partition upon user login. Why is this insufficient for protecting stored cardholder data?",
+    "id": "Q020",
+    "answer": "Việc tự động giải mã phân vùng khi người dùng đăng nhập không đáp ứng yêu cầu bảo vệ dữ liệu thẻ lưu trữ vì:\n\nPCI DSS yêu cầu PAN phải được “render unreadable” ở mọi vị trí lưu trữ bằng một trong các phương pháp: hashing, truncation, tokenization hoặc mã hoá mạnh. Mã hoá mức đĩa (disk‑level encryption) không đủ nếu chỉ được dùng một mình; khi hệ thống khởi động và người dùng đăng nhập, dữ liệu lại hiện ra ở dạng rõ ràng và có thể bị truy cập trái phép \n20260320_ENG_PC...ent_3_5.md\n.\n\nKhóa giải mã được tự động cung cấp cho người dùng, nghĩa là khóa không được bảo vệ theo yêu cầu “protect cryptographic keys” (giới hạn quyền truy cập, lưu trữ riêng, sử dụng HSM hoặc các biện pháp bảo vệ khóa). Khi khóa bị lộ, kẻ tấn công có thể giải mã toàn bộ dữ liệu ngay cả khi nó được mã hoá ở mức đĩa \n20260320_ENG_PC...ent_3_6.md\n.\n\nDo đó, việc auto‑decrypt khi login không làm cho PAN trở nên không thể đọc được khi dữ liệu “nghỉ” và không bảo vệ khóa một cách thích hợp, nên không đáp ứng được Requirement 3.5.1 và Requirement 3.6.1 của PCI‑DSS.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_3.md"
+    ]
+  },
+  {
+    "question": "How do Requirement 3 and Requirement 8 work together to protect cryptographic keys?",
+    "id": "Q021",
+    "answer": "The provided knowledge base contains detailed information about Requirement 3 (specifically Control Objective 3.7 and its sub‑requirements for cryptographic key management, such as key rotation, retirement, split‑knowledge/dual‑control, and key‑custodian acknowledgment). However, it does not include any description of Requirement 8 (which in PCI DSS generally addresses authentication and access‑control mechanisms).\n\nBecause the context does not contain the content of Requirement 8, I cannot explain how Requirement 3 and Requirement 8 work together to protect cryptographic keys. If you can provide the relevant details for Requirement 8, I’ll be able to describe their combined effect.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "An organization uses wireless technology cellular communications to transmit PAN. What specific security measures must be implemented?",
+    "id": "Q022",
+    "answer": "Đối với việc truyền PAN qua công nghệ không dây – cụ thể là truyền qua mạng di động – tổ chức phải đáp ứng Sub‑requirement 4.2.1.2 của PCI‑DSS v4.0.1:\n\nÁp dụng mật mã mạnh cho cả xác thực và truyền dữ liệu.\n– Các kết nối không được cho phép truyền PAN ở dạng clear‑text; PAN phải được mã hoá bằng thuật toán mật mã mạnh (ví dụ TLS 1.2/1.3, IPsec, hoặc các giao thức bảo mật tương đương).\n– Không cho phép fallback hoặc downgrade sang các giao thức yếu (như SSL, SSH v1.0, TLS cũ) hoặc các bộ mã không đáp ứng yêu cầu mật mã mạnh.\n\nKiểm soát truy cập vào mạng không dây: chỉ những thiết bị và người dùng được ủy quyền mới được phép kết nối; các thiết bị không được phép phải bị chặn.\n\nQuản lý khóa và chứng chỉ liên quan tới việc bảo vệ PAN: các khóa và chứng chỉ được sử dụng phải là trusted, không hết hạn và được kiểm tra thường xuyên (CRL/OCSP).\n\nMục tiêu tùy chỉnh: PAN không thể bị đọc hoặc bị chặn khi truyền qua mạng không dây (bao gồm cả công nghệ di động) – tất cả PAN phải luôn được mã hoá trong quá trình truyền.\n\nNhững yêu cầu này được nêu trong Sub‑requirement 4.2.1.2: “Wireless networks transmitting PAN or connected to the CDE use industry best practices to implement strong cryptography for authentication and transmission” và mục tiêu “Cleartext PAN cannot be read or intercepted from wireless network transmissions” \n20260327_ENG_PC...ent_4_2.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_3.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_3.md"
+    ]
+  },
+  {
+    "question": "What is the required retention period for audit log history, and what portion must be immediately accessible?",
+    "id": "Q023",
+    "answer": "Theo PCI‑DSS v4.0.1, lịch sử audit log phải được lưu trữ tối thiểu 12 tháng, và ba tháng gần nhất trong khoảng thời gian này phải luôn sẵn sàng để phân tích ngay lập tức \n20260327_ENG_PC...nt_10_5.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_6.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "What scenario would trigger an ad-hoc penetration test according to Requirement 11.4?",
+    "id": "Q024",
+    "answer": "The current knowledge base does not provide enough data to conclude which specific scenario would trigger an ad‑hoc penetration test under Requirement 11.4.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md"
+    ]
+  },
+  {
+    "question": "How does Requirement 12.3.1 (Targeted Risk Analysis) provide flexibility to organizations?",
+    "id": "Q025",
+    "answer": "Requirement 12.3.1 cho phép các tổ chức định mức độ và tần suất thực hiện các kiểm soát dựa trên kết quả phân tích rủi ro có mục tiêu.\n\nCác yêu cầu PCI DSS mà cho phép linh hoạt (ví dụ: tần suất kiểm soát, công nghệ, phương pháp bảo mật) sẽ được đánh giá bằng một phân tích rủi ro riêng, thay vì phải áp dụng một chu kỳ cố định cho toàn bộ môi trường.\nPhân tích này xác định tài sản, mối đe dọa, các yếu tố ảnh hưởng tới khả năng xảy ra và mức độ tác động, sau đó đưa ra lý do biện minh cho tần suất hoặc quy trình thực hiện sao cho giảm thiểu rủi ro một cách hiệu quả.\nKết quả phân tích phải được xem xét lại ít nhất một lần mỗi 12 tháng và cập nhật khi có thay đổi quan trọng, giúp tổ chức duy trì tính hợp lý và phù hợp của các kiểm soát theo thời gian.\n\nNhư mô tả trong tài liệu, Targeted Risk Analysis “focuses on those PCI DSS requirements that allow an entity flexibility about how frequently an entity performs a given control” và yêu cầu tổ chức thực hiện, ghi chép và định kỳ rà soát phân tích này để duy trì tính hợp lệ của các quyết định kiểm soát \n20260327_ENG_PC...nt_12_3.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260320_ENG_PCIDSS_Requirement_3_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md"
+    ]
+  },
+  {
+    "question": "What is the purpose of anti-spoofing measures in network security controls?",
+    "id": "Q026",
+    "answer": "Anti‑spoofing measures được yêu cầu áp dụng cho tất cả các kiểm soát an ninh mạng nhằm ngăn chặn việc kẻ tấn công giả mạo (spoof) lưu lượng mạng, tránh cho các kiểm soát này bị lừa lọc hoặc bị vượt qua bởi traffic giả mạo. \n20260327_ENG_PC...nt_11_4.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "If a system component has two primary functions with different security needs, how must they be secured?",
+    "id": "Q027",
+    "answer": "Khi một thành phần hệ thống thực hiện hai chức năng chính có mức độ bảo mật khác nhau, PCI‑DSS yêu cầu một trong hai cách sau:\n\nCách 1 – Cách ly: Hai chức năng phải được cách ly (vật lý hoặc logic) để chúng không thể ảnh hưởng lẫn nhau.\nCách 2 – Bảo mật theo mức cao nhất: Nếu không thể cách ly, cả hai chức năng phải được bảo mật ở mức độ yêu cầu của chức năng có mức bảo mật cao nhất.\n\n(hoặc chỉ triển khai một chức năng duy nhất trên mỗi thành phần, nhưng khi có hai chức năng thì phải áp dụng một trong hai biện pháp trên) \n20260319_ENG_PC...ent_2_2.md\n.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md"
+    ]
+  },
+  {
+    "question": "A merchant wants to keep card verification codes (CVV) for post-purchase disputes. Is this allowed?",
+    "id": "Q028",
+    "answer": "Không được phép. CVV (card verification value) là một phần của Sensitive Authentication Data (SAD) và PCI‑DSS yêu cầu không lưu trữ bất kỳ SAD nào sau khi quá trình ủy quyền hoàn tất (Control Objective 3.3, sub‑requirement 3.3.1). Vì vậy, việc giữ CVV để dùng cho các tranh chấp sau mua là vi phạm quy định. \n20260320_ENG_PC...ent_3_3.md",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md"
+    ]
+  },
+  {
+    "question": "What must an entity do if they identify an insecure service like Telnet that is necessary for their business operations?",
+    "id": "Q029",
+    "answer": "Nếu một dịch vụ không an toàn (ví dụ Telnet) phải được duy trì vì nhu cầu kinh doanh, thực thể phải:\n\nXác định và chấp nhận rủi ro – hiểu rõ các rủi ro mà dịch vụ gây ra và chấp nhận chúng ở mức phù hợp.\nCó biện pháp biên luận kinh doanh – lập tài liệu giải thích vì sao dịch vụ này cần thiết và được phê duyệt bởi nhân sự có thẩm quyền, độc lập với người quản lý cấu hình.\nĐịnh nghĩa và triển khai các tính năng bảo mật – xác định các biện pháp bảo vệ (ví dụ mã hoá, kiểm soát truy cập, giám sát) để giảm thiểu rủi ro của dịch vụ không an toàn và thực hiện chúng trên các thiết bị mạng (NSC).\n\n(Tham khảo: PCI‑DSS v4.0.1, Sub‑requirement 1.2.6 – “Good Practice” và Sub‑requirement 2.2.5 – “Good Practice”.)",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md"
+    ]
+  },
+  {
+    "question": "How should an administrator verify that only authorized personnel have read access to audit logs?",
+    "id": "Q030",
+    "answer": "Để xác nhận rằng chỉ những người có nhu cầu công việc (need‑to‑know) mới được phép đọc các file audit log, quản trị viên cần thực hiện các bước sau  \n20260327_ENG_PC...nt_10_3.md\n:\n\n**Kiểm tra cấu hình",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260327_ENG_PCIDSS_Requirement_7_2.md"
+    ]
+  },
+  {
+    "question": "Why does Requirement 5 emphasize protecting against 'zero-day' attacks through behavioral analysis?",
+    "id": "Q031",
+    "answer": "The knowledge base you provided does not contain any information about Requirement 5 or its emphasis on protecting against zero‑day attacks through behavioral analysis.\n\nHowever, based on the PCI DSS framework, Requirement 5 (which deals with protecting systems against malware) stresses behavioral‑based detection because:\n\nZero‑day attacks use previously unknown code – they have no known signatures, so traditional signature‑based anti‑virus tools cannot detect them.\nBehavioral analysis monitors how programs act (e.g., unexpected file modifications, abnormal network traffic, suspicious system calls). By looking for malicious behaviour rather than a known fingerprint, the system can flag or block an attack even when the specific malware has never been seen before.\nThis approach helps maintain continuous protection of cardholder data environments against emerging threats that could otherwise bypass static defenses.\n\nSo, the requirement highlights behavioral analysis as a necessary complement to signature‑based controls to ensure that zero‑day exploits are identified and mitigated.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "What is the requirement for reviewing bespoke and custom code prior to release?",
+    "id": "Q032",
+    "answer": "Yêu cầu là tất cả phần mềm bespoke (được thiết kế riêng) và custom (được tùy chỉnh) phải được thực hiện việc review trước khi đưa vào môi trường production hoặc giao cho khách hàng.\nViệc review này phải:\n\nĐảm bảo mã nguồn được phát triển theo các hướng dẫn secure coding.\nKiểm tra để phát hiện cả các lỗ hổng hiện có và các lỗ hổng mới xuất hiện.\nThực hiện các sửa chữa cần thiết trước khi phần mềm được phát hành.\n\n(Theo PCI‑DSS v4.0.1, Sub‑requirement 6.2.3)【1】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md"
+    ]
+  },
+  {
+    "question": "An employee leaves the company. What action must be taken regarding their system access accounts and physical access devices?",
+    "id": "Q033",
+    "answer": "Khi một nhân viên rời công ty, các quyền truy cập của họ phải được thu hồi ngay lập tức:\n\nTài khoản hệ thống – ID người dùng của nhân viên phải được vô hiệu hoá hoặc xóa khỏi mọi danh sách truy cập (cả truy cập cục bộ và từ xa).\nThiết bị xác thực vật lý – Các yếu tố xác thực vật lý như thẻ thông minh, token, chìa khóa bảo mật, v.v. phải được thu hồi hoặc vô hiệu hoá ngay khi nhân viên ra khỏi công ty.\n\n(Theo PCI‑DSS Requirement 8.2.5: “Access for terminated users is immediately revoked” và các quy trình kiểm tra yêu cầu kiểm tra danh sách người dùng đã bị vô hiệu hoá và thu hồi các thiết bị xác thực vật lý)【2】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_5.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_11_2.md"
+    ]
+  },
+  {
+    "question": "How does Requirement 10.6 support forensic investigations?",
+    "id": "Q034",
+    "answer": "Requirement 10.6 yêu cầu đồng bộ thời gian trên toàn bộ hệ thống, và điều này hỗ trợ quá trình forensic như sau:\n\nKhi các hệ thống có đồng hồ đồng bộ, các bản ghi audit log từ các nguồn khác nhau có thể so sánh và sắp xếp theo thứ tự thời gian chính xác.\nNếu thời gian không đồng bộ, việc xác định chuỗi sự kiện và khoảng thời gian xảy ra sẽ trở nên khó khăn hoặc không thể thực hiện, làm giảm khả năng phân tích và truy vết sau một vụ vi phạm.\n\nDo đó, việc triển khai công nghệ đồng bộ thời gian (ví dụ NTP) giúp tạo ra một “timeline” nhất quán, cho phép các nhà phân tích forensic xác định chính xác các hành động, nguyên nhân và phạm vi của sự cố bảo mật【2】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_6.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_1.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md"
+    ]
+  },
+  {
+    "question": "A TPSP manages an entity’s firewalls. What must the entity confirm regarding the TPSP’s compliance?",
+    "id": "Q035",
+    "answer": "Khi một TPSP (đối tác dịch vụ bên thứ ba) chịu trách nhiệm quản lý tường lửa của thực thể, thực thể phải xác nhận rằng:\n\nTPSP đã ký một thỏa thuận bằng văn bản trong đó công nhận trách nhiệm bảo mật đối với dữ liệu thẻ mà nó lưu trữ, xử lý hoặc truyền (hoặc bất kỳ ảnh hưởng nào tới bảo mật dữ liệu thẻ của thực thể).\nKhi thực thể yêu cầu, TPSP có thể cung cấp thông tin về trạng thái tuân thủ PCI DSS và phân định rõ ràng các yêu cầu PCI DSS mà TPSP chịu trách nhiệm so với các yêu cầu do thực thể chịu trách nhiệm, bao gồm cả các trách nhiệm chia sẻ.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md"
+    ]
+  },
+  {
+    "question": "What are the rules for managing accounts used by third parties for remote maintenance?",
+    "id": "Q036",
+    "answer": "Quy tắc quản lý tài khoản của bên thứ ba dùng để bảo trì từ xa (PCI‑DSS 8.2.7)\n\nTài khoản chỉ được bật trong khoảng thời gian cần thiết và phải bị vô hiệu hoá ngay khi không còn sử dụng.\nHoạt động của tài khoản phải được giám sát để phát hiện bất thường.\n\nThực hành tốt (Good Practice)\n\nGhi lại, biện minh và chỉ định ngày bắt đầu‑kết thúc cho quyền truy cập của bên thứ ba dựa trên hợp đồng dịch vụ.\nTheo dõi việc sử dụng để đảm bảo bên thứ ba chỉ truy cập các hệ thống cần thiết và trong khung thời gian được phê duyệt.\nMọi hoạt động bất thường phải được điều tra và giải quyết kịp thời.\n\nNguồn: PCI‑DSS Requirement 8.2.7【1】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md"
+    ]
+  },
+  {
+    "question": "Explain 'split knowledge' and 'dual control' in the context of cryptographic key management.",
+    "id": "Q037",
+    "answer": "Split knowledge (kiến thức chia tách)\n\nLà phương pháp mà hai người trở lên mỗi người chỉ nắm được một phần của khóa (key component).\nMỗi phần không cung cấp bất kỳ thông tin nào về các phần khác hay về khóa gốc ban đầu, vì vậy không ai có thể suy ra toàn bộ khóa chỉ từ phần mình sở hữu.\n\nDual control (kiểm soát kép)\n\nYêu cầu hai người hoặc hơn phải xác thực và thực hiện cùng một thao tác liên quan đến khóa (ví dụ: tạo, tải, sử dụng, hoặc hủy khóa).\nKhông cho phép một cá nhân duy nhất thực hiện toàn bộ quá trình; cả hai (hoặc nhiều) người phải đồng ý và tham gia để hoàn thành hành động.\n\nMục đích trong quản lý khóa\n\nNgăn một cá nhân có quyền truy cập toàn bộ khóa, giảm nguy cơ lộ hoặc lạm dụng khóa.\nĐảm bảo rằng việc sử dụng hoặc thao tác với khóa luôn được giám sát và xác nhận bởi ít nhất hai người có quyền hạn.\n\nTham khảo: PCI‑DSS 3.7.6 – “Split knowledge” và “dual control”【1】",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_1.md",
+      "20260319_ENG_PCIDSS_Requirement_2_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_4.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md"
+    ]
+  },
+  {
+    "question": "An entity uses an automated technical solution to protect its public-facing web applications. What configurations are required?",
+    "id": "Q038",
+    "answer": "Giải pháp phải được cài đặt ở phía trước các ứng dụng web công khai và cấu hình để phát hiện và ngăn chặn các cuộc tấn công web.\nGiải pháp phải hoạt động liên tục và được cập nhật (các bản cập nhật phần mềm, chữ ký, engine…) để luôn bảo vệ trước các mối đe dọa mới.\nGiải pháp phải tạo ra nhật ký (audit logs) cho mọi hoạt động phát hiện và ngăn chặn.\nCấu hình phải đặt ở chế độ chặn (block) các cuộc tấn công hoặc tạo cảnh báo mà ngay lập tức được điều tra bởi nhân viên có thẩm quyền.\n\n(Thông tin dựa trên PCI‑DSS Requirement 6.4.2 / 6.4.1 về giải pháp kỹ thuật tự động)【1】【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_5_2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_6.md"
+    ]
+  },
+  {
+    "question": "What must be included in the annual security awareness education for personnel?",
+    "id": "Q039",
+    "answer": "Đào tạo khi tuyển dụng và ít nhất một lần mỗi 12 tháng.\nSử dụng nhiều phương pháp truyền thông (đào tạo trực tiếp, email, poster, video, …).\nNhân sự phải xác nhận (ít nhất một lần mỗi 12 tháng) rằng họ đã đọc và hiểu chính sách và quy trình an ninh thông tin.\nNội dung đào tạo phải bao gồm đánh giá rủi ro, trách nhiệm của nhân viên, và cách bảo vệ dữ liệu thẻ; cụ thể:\nCác mối đe dọa hiện nay (threat landscape)\nPhishing và các kỹ thuật social engineering\nSử dụng chấp nhận được (acceptable use) của công nghệ và tài sản công ty\n\n(Thông tin dựa trên PCI‑DSS Control Objective 12.6.3)【1】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_6.md",
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_7.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_2.md"
+    ]
+  },
+  {
+    "question": "How often must an organization perform an inventory of its point-of-interaction (POI) devices?",
+    "id": "Q040",
+    "answer": "The PCI DSS does not specify a frequency in the excerpts you provided, but according to the standard the organization must maintain an up‑to‑date inventory of all point‑of‑interaction (POI) devices and review/refresh that inventory at least once a year (and whenever a POI device is added, removed, or its status changes).",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "What action is required when a critical security control, such as a firewall, fails?",
+    "id": "Q041",
+    "answer": "Khi một kiểm soát bảo mật quan trọng",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_7.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_1.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_4_1.md",
+      "20260327_ENG_PCIDSS_Requirement_11_1.md",
+      "20260319_ENG_PCIDSS_Requirement_1_1.md"
+    ]
+  },
+  {
+    "question": "Why is it important to restrict outbound traffic from the cardholder data environment?",
+    "id": "Q042",
+    "answer": "Việc hạn chế lưu lượng outbound từ môi trường dữ liệu thẻ (CDE) là cần thiết vì:\n\nNgăn chặn rò rỉ dữ liệu (data exfiltration). Khi chỉ cho phép các luồng outbound cần thiết, các thông tin thẻ không thể được truyền ra ngoài mạng nội bộ một cách trái phép.\nGiảm khả năng kẻ tấn công hoặc thành phần bị xâm phạm liên lạc với máy chủ không tin cậy. Nếu một hệ thống trong CDE bị xâm phạm, việc không cho phép giao tiếp ra ngoài sẽ ngăn kẻ tấn công truyền dữ liệu, tải mã độc hoặc nhận lệnh điều khiển từ bên ngoài.\nBảo vệ CDE khỏi các mối đe dọa bên ngoài. Kiểm soát outbound giúp ngăn các kết nối không được ủy quyền tới các dịch vụ, giao thức hoặc cổng không cần thiết, giảm bề mặt tấn công.\n\n(Thông tin dựa trên Control Objective 1.3.2 – “Outbound traffic from the CDE is restricted to only traffic that is necessary; all other traffic is specifically denied” và mục đích ngăn chặn giao tiếp với host không tin cậy)【1】",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_4.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_5.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_5.md",
+      "20260327_ENG_PCIDSS_Requirement_9_3.md"
+    ]
+  },
+  {
+    "question": "How does Requirement 7 enforce the 'need to know' principle for system-to-system accounts?",
+    "id": "Q043",
+    "answer": "Requirement 7 (Control Objective 7) đảm bảo nguyên tắc “need‑to‑know” cho các tài khoản hệ thống‑đến‑hệ thống (application/system accounts) thông qua các bước sau:\n\nXây dựng mô hình kiểm soát truy cập có yếu tố “need‑to‑know”\n\nMô hình phải xác định các tài nguyên cần bảo vệ, các chức năng công việc và hoạt động mà mỗi chức năng cần thực hiện.\nQuyền truy cập được cấp dựa trên nhu cầu công việc (need‑to‑know) và nguyên tắc least‑privilege.\n[Nguồn 1, phần “Defined Approach Requirements” của 7.2.1]\n\nCấp quyền cho tài khoản hệ thống dựa trên phân loại công việc và “least privileges”\n\nCác tài khoản hệ thống (application, service) được gán quyền chỉ đối với các hệ thống, ứng dụng hoặc quy trình thực sự cần thiết cho hoạt động của chúng.\nQuyền này được xác định theo phân loại công việc và giới hạn ở mức tối thiểu để thực hiện chức năng.\n[Nguồn 1, phần “Defined Approach Requirements” của 7.2.2]\n\nQuản lý và giới hạn quyền truy cập của tài khoản hệ thống\n\nTất cả tài khoản ứng dụng và hệ thống phải được gán và quản lý dựa trên least privileges và giới hạn truy cập chỉ tới các hệ thống, ứng dụng hoặc quy trình cần thiết.\nĐiều này ngăn không cho tài khoản có quyền truy cập vào dữ liệu hoặc hệ thống không liên quan tới chức năng của chúng.\n[Nguồn 1, phần “Defined Approach Requirements” của 7.2.5]\n\nĐánh giá định kỳ để xác nhận “need‑to‑know” vẫn còn hợp lý\n\nCác quyền của tài khoản hệ thống được đánh giá định kỳ (theo phân tích rủi ro) để đảm bảo vẫn phù hợp với chức năng và bất kỳ quyền không phù hợp nào đều được xử lý.\n[Nguồn 1, phần “Defined Approach Requirements” của 7.2.5.1]\n\nTriển khai hệ thống kiểm soát truy cập tự động\n\nHệ thống kiểm soát truy cập (access control system) phải thực thi các quyền đã được định nghĩa, đảm bảo rằng chỉ những tài khoản được ủy quyền mới có thể truy cập và cấu hình mặc định là “deny all”.\nĐiều này hỗ trợ việc thực thi “need‑to‑know” một cách nhất quán cho các tài khoản hệ thống.\n[Nguồn 2, phần “Defined Approach Requirements” của 7.3.1‑7.3.3]\n\nTóm lại, Requirement 7 thực thi nguyên tắc “need‑to‑know” cho tài khoản hệ thống‑đến‑hệ thống bằng cách định nghĩa mô hình truy cập dựa trên nhu cầu công việc, cấp quyền tối thiểu, giới hạn phạm vi truy cập, đánh giá định kỳ và sử dụng hệ thống kiểm soát truy cập tự động để thực thi các quyền này.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_1.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md"
+    ]
+  },
+  {
+    "question": "What is the requirement for changing cryptographic keys that protect stored account data?",
+    "id": "Q044",
+    "answer": "The current knowledge base does not provide enough data to conclude the specific requirement for changing cryptographic keys that protect stored account data.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_1.md",
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260319_ENG_PCIDSS_Requirement_2_3.md"
+    ]
+  },
+  {
+    "question": "What is the role of an Approved Scanning Vendor (ASV) in the PCI DSS framework?",
+    "id": "Q045",
+    "answer": "Trong khung PCI DSS, Approved Scanning Vendor (ASV) là nhà cung cấp được PCI SSC công nhận thực hiện đánh giá lỗ hổng bên ngoài cho thực thể. Vai trò của ASV bao gồm:\n\nThực hiện các cuộc quét lỗ hổng bên ngoài (external vulnerability scans) ít nhất một lần mỗi ba tháng.\nCung cấp báo cáo “passing scan” đáp ứng các yêu cầu của ASV Program Guide; nếu có lỗ hổng, ASV yêu cầu thực thể khắc phục và thực hiện rescans để xác nhận việc khắc phục.\nĐảm bảo tính độc lập và chuyên môn: các cuộc quét phải được thực hiện bởi một nhà cung cấp được PCI SSC phê duyệt, thay vì bởi nhân viên nội bộ, nhằm duy trì tính khách quan của kết quả.\n\n(Tham khảo: External vulnerability scans are performed by a PCI SSC Approved Scanning Vendor (ASV) and must meet ASV Program Guide requirements, with rescans as needed \n20260327_ENG_PC...nt_11_3.md\n.)",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md"
+    ]
+  },
+  {
+    "question": "Under what condition is 'split-tunneling' for VPNs allowed on computing devices connecting to the CDE?",
+    "id": "Q046",
+    "answer": "Split‑tunneling không được phép đối với bất kỳ thiết bị nào (cả thiết bị công ty và thiết bị cá nhân) khi chúng kết nối đồng thời với mạng không tin cậy và CDE. Các thiết bị này phải khởi động trực tiếp vào một kết nối VPN đầy đủ, không cho phép tách luồng lưu lượng qua VPN và mạng không tin cậy.\n\n“Practices include forbidding split‑tunneling of VPNs for employee‑owned or corporate‑owned mobile devices and requiring that such devices boot up into a VPN.” \n20260319_ENG_PC...ent_1_5.md",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_5.md",
+      "20260319_ENG_PCIDSS_Requirement_1_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_4.md",
+      "20260319_ENG_PCIDSS_Requirement_2_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_7.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_4.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md"
+    ]
+  },
+  {
+    "question": "How must an organization verify the identity of a user before performing a password reset?",
+    "id": "Q047",
+    "answer": "Để thực hiện việc đặt lại mật khẩu, tổ chức phải xác minh danh tính người dùng trước khi thay đổi bất kỳ yếu tố xác thực nào.\n\nCách thực hiện thường bao gồm một trong các phương pháp sau (hoặc kết hợp chúng):\n\nHỏi câu hỏi bí mật và kiểm tra câu trả lời.\nYêu cầu thông tin dựa trên kiến thức mà chỉ người dùng hợp pháp biết.\nGọi lại cho người dùng theo số điện thoại đã được thiết lập và xác nhận trước đó.\n\nViệc xác minh này đảm bảo rằng người yêu cầu thay đổi mật khẩu thực sự là chủ tài khoản, ngăn ngừa kẻ tấn công sử dụng kỹ thuật “social engineering” để thay đổi mật khẩu.\n\n“User identity is verified before modifying any authentication factor… Methods to verify a user's identity include a secret question/answer, knowledge‑based information, and calling the user back at a known and previously established phone number.” \n20260327_ENG_PC...ent_8_3.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md"
+    ]
+  },
+  {
+    "question": "If an entity uses hashes to render PAN unreadable, what additional requirement must they meet starting March 2025?",
+    "id": "Q048",
+    "answer": "Nếu một thực thể sử dụng hash (cụ thể là keyed cryptographic hash) để làm cho PAN không thể đọc được, thì sau ngày 31 tháng 3 năm 2025 họ phải áp dụng các quy trình và quy định quản lý khóa (Requirements 3.6 và 3.7) cho hệ thống tạo các hash này.\n\nNói cách khác, việc không áp dụng quản lý khóa cho các thành phần tạo hash sẽ chỉ là “best practice” cho tới 31 / 3 / 2025; kể từ thời điểm đó, các thành phần này bắt buộc phải tuân thủ các yêu cầu quản lý vòng đời khóa (tạo, phân phối, lưu trữ, rotation, v.v.) để đáp ứng PCI DSS.\n\n“Key‑management processes and procedures (Requirements 3.6 and 3.7) do not apply … This requirement is considered a best practice until 31 March 2025, after which it will be required …” \n20260320_ENG_PC...ent_3_5.md",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md"
+    ]
+  },
+  {
+    "question": "What documentation is required to describe the overall cryptographic architecture?",
+    "id": "Q049",
+    "answer": "Để đáp ứng Requirement 3.6.1.1, thực thể phải duy trì tài liệu mô tả kiến trúc mật mã và tài liệu này phải bao gồm các nội dung sau:\n\nChi tiết các thuật toán, giao thức và khóa được sử dụng để bảo vệ dữ liệu tài khoản lưu trữ, kèm theo độ mạnh của khóa và ngày hết hạn.\nBiện pháp ngăn ngừa việc sử dụng cùng một khóa trong môi trường sản xuất và môi trường thử nghiệm.\nMô tả cách sử dụng của mỗi khóa (key usage).\nKiểm kê các thiết bị bảo mật mật mã (HSM, hệ thống quản lý khóa – KMS, hoặc các Secure Cryptographic Devices – SCD) bao gồm loại thiết bị và vị trí của chúng, để hỗ trợ việc đáp ứng Requirement 12.3.4.\n\n“A documented description of the cryptographic architecture is maintained that includes: details of all algorithms, protocols, and keys used for the protection of stored account data… preventing the use of the same cryptographic keys in production and test environments… description of the key usage for each key… inventory of any hardware security modules (HSMs), key management systems (KMS), and other secure cryptographic devices (SCDs) used for key management…” \n20260320_ENG_PC...ent_3_6.md",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260327_ENG_PCIDSS_Requirement_12_3.md"
+    ]
+  },
+  {
+    "question": "How should an auditor verify that test data is removed before a system goes live?",
+    "id": "Q050",
+    "answer": "Để xác nhận rằng dữ liệu và tài khoản thử nghiệm đã được xóa trước khi hệ thống được đưa vào môi trường production, kiểm toán viên cần thực hiện các bước sau (theo Sub‑requirement 6.5.6 của PCI‑DSS v4.0.1):\n\nKiểm tra chính sách và quy trình – Xem xét tài liệu chính sách/ quy trình để xác nhận rằng tổ chức đã định nghĩa quy trình loại bỏ dữ liệu và tài khoản thử nghiệm trước khi đưa hệ thống vào production. \n20260327_ENG_PC...ent_6_5.md\n\nQuan sát quy trình kiểm thử – Theo dõi thực tế các hoạt động kiểm thử (cả phần mềm mua sẵn và phần mềm tự phát triển) và phỏng vấn nhân viên để xác nhận rằng quy trình loại bỏ dữ liệu/thử nghiệm được thực hiện đúng. \n20260327_ENG_PC...ent_6_5.md\n\nKiểm tra thực tế trên hệ thống – Kiểm tra các thành phần hệ thống vừa được cài đặt hoặc cập nhật (phần mềm mua sẵn và phần mềm tự phát triển) để xác nhận không còn tồn tại dữ liệu hoặc tài khoản thử nghiệm trên các hệ thống đang vận hành trong môi trường production. \n20260327_ENG_PC...ent_6_5.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md"
+    ]
+  },
+  {
+    "question": "What constitutes a 'significant change' that would require a re-validation of the PCI DSS scope?",
+    "id": "Q051",
+    "answer": "‘Significant change’ là bất kỳ thay đổi nào có thể ảnh hưởng đến phạm vi PCI DSS – tức là thay đổi các thành phần, luồng dữ liệu hoặc kết nối mà PCI DSS đã xác định là trong‑scope.\n\nTheo Requirement 12.5.2, phạm vi phải bao gồm:\n\nTất cả system components trong CDE, các thành phần kết nối tới CDE hoặc có thể ảnh hưởng tới bảo mật của CDE.\nData‑flow của các giai đoạn thanh toán và các kênh chấp nhận.\nSegmentation controls và môi trường mà CDE được phân đoạn.\nKết nối từ bên thứ ba có quyền truy cập vào CDE.\n\nKhi bất kỳ yếu tố nào trên bị thêm mới, xóa bỏ hoặc thay đổi (ví dụ: triển khai hệ thống mới, di chuyển dữ liệu sang vị trí lưu trữ khác, thay đổi cấu hình segmentation, thiết lập hoặc hủy kết nối với đối tác bên thứ ba, hoặc thay đổi chức năng của một thành phần hiện có), thay đổi đó được coi là significant change và phải được xác nhận lại phạm vi PCI DSS.\n\nPCI DSS yêu cầu thực hiện post‑significant‑change validation (Control Objective 6.5.2) và ghi lại trong quá trình xác nhận phạm vi hàng năm (Requirement 12.5.2) \n20260327_ENG_PC...ent_6_5.md +1\n .",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md"
+    ]
+  },
+  {
+    "question": "Contrast the audit log review frequency for critical systems versus 'all other' system components.",
+    "id": "Q052",
+    "answer": "Hệ thống quan trọng (critical systems) – Các log của hệ thống quan trọng, các hệ thống lưu / xử lý / truyền CHD và các máy chủ thực hiện chức năng bảo mật phải được review ít nhất một lần mỗi ngày (daily review) \n20260327_ENG_PC...nt_10_4.md\n.\n\nCác hệ thống khác (all other system components) – Các log của các hệ thống không được coi là “critical” không bắt buộc phải review hàng ngày; tần suất review được xác định dựa trên phân tích rủi ro và có thể là định kỳ (weekly, monthly, …) tùy theo mức độ rủi ro của từng hệ thống \n20260327_ENG_PC...nt_10_4.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_6.md",
+      "20260327_ENG_PCIDSS_Requirement_10_1.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md"
+    ]
+  },
+  {
+    "question": "Why is hard-coding passwords in custom source code prohibited?",
+    "id": "Q053",
+    "answer": "Hard‑coding passwords (hoặc passphrase) trong mã nguồn, script, hoặc file cấu hình bị cấm bởi Requirement 8.6.2 của PCI‑DSS v4.0.1.\n\nYêu cầu này quy định rằng “Passwords/passphrases for any application and system accounts that can be used for interactive login are not hard coded in scripts, configuration/property files, or bespoke and custom source code” \n20260327_ENG_PC...ent_8_6.md\n.\n\nViệc cấm hard‑coding nhằm đảm bảo rằng mật khẩu không được lưu trữ cố định trong tài sản phần mềm, tránh tình huống mật khẩu bị lộ qua việc xem mã nguồn, sao chép hoặc chia sẻ tài sản, và giúp duy trì khả năng quản lý, thay đổi và kiểm soát truy cập mật khẩu một cách an toàn.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_6.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md"
+    ]
+  },
+  {
+    "question": "What information must be recorded in the log for every visitor to a sensitive area?",
+    "id": "Q054",
+    "answer": "The current knowledge base does not provide enough data to conclude what specific information must be recorded in the log for every visitor to a sensitive area.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "How does Requirement 1.2.5 ensure only necessary network traffic is allowed?",
+    "id": "Q055",
+    "answer": "The current knowledge base does not provide enough data to conclude how Requirement 1.2.5 ensures that only necessary network traffic is allowed.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260319_ENG_PCIDSS_Requirement_1_5.md",
+      "20260327_ENG_PCIDSS_Requirement_11_5.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_7.md"
+    ]
+  },
+  {
+    "question": "What is the security risk associated with keeping default SNMP communities?",
+    "id": "Q056",
+    "answer": "Giữ lại các community string SNMP mặc định tạo ra rủi ro rằng kẻ tấn công có thể sử dụng các thông tin đăng nhập đã được công khai rộng rãi để:\n\nTruy cập trái phép vào thiết bị mạng thông qua giao thức SNMP, vì các community string mặc định (ví dụ “public”, “private”) thường được biết và có thể được thử một cách tự động.\nThu thập thông tin về cấu hình, phiên bản phần mềm và các tài nguyên mạng, từ đó mở rộng tấn công vào các hệ thống khác.\n\nPCI‑DSS nhấn mạnh rằng “Malicious individuals often use vendor default account names and passwords to compromise operating systems, applications, and the systems on which they are installed” và SNMP defaults được liệt kê trong danh sách các thiết lập mặc định cần thay đổi hoặc xác nhận an toàn \n20260319_ENG_PC...ent_2_2.md +1\n .",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_2_3.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_6_4.md"
+    ]
+  },
+  {
+    "question": "A merchant stores full magnetic stripe data to process recurring payments. Is this compliant?",
+    "id": "Q057",
+    "answer": "Không. Theo yêu cầu 3.3.1.1 của PCI‑DSS, “Nội dung đầy đủ của bất kỳ track nào không được lưu trữ sau khi hoàn tất quá trình ủy quyền”. Việc lưu trữ toàn bộ dữ liệu dải từ tính (full magnetic‑stripe/track data) – ngay cả để thực hiện các giao dịch định kỳ – vi phạm yêu cầu này và do đó không đáp ứng tiêu chuẩn PCI‑DSS. \n20260320_ENG_PC...ent_3_3.md",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md"
+    ]
+  },
+  {
+    "question": "How should an entity protect against unauthorized changes to their payment pages rendered in a browser?",
+    "id": "Q058",
+    "answer": "Để ngăn chặn việc thay đổi trái phép các trang thanh toán khi chúng được hiển thị trong trình duyệt người dùng, thực thể phải triển khai cơ chế phát hiện thay đổi và tamper‑detection như sau \n20260327_ENG_PC...nt_11_6.md\n:\n\nGiám sát nội dung thực tế: Kiểm tra các HTTP header và script của payment page khi chúng được nhận bởi trình duyệt, so sánh với phiên bản đã được phê duyệt.\nCảnh báo kịp thời: Khi phát hiện bất kỳ thay đổi, bổ sung, hoặc xóa bỏ nào (bao gồm các indicator of compromise), hệ thống phải tạo cảnh báo để nhân viên có thể phản hồi ngay.\nTần suất thực hiện: Thực hiện kiểm tra ít nhất một lần mỗi tuần hoặc theo tần suất được xác định trong phân tích rủi ro của thực thể.\nQuản lý script: Duy trì hàng tồn kho các script được tải trên payment page, chỉ cho phép các script đã được ủy quyền và đảm bảo tính toàn vẹn (ví dụ: sử dụng Sub‑resource Integrity, CSP, hoặc các phương pháp tương tự) \n20260327_ENG_PC...ent_6_4.md\n.\n\nBằng cách kết hợp giám sát liên tục, cảnh báo nhanh và quản lý chặt chẽ các script, thực thể có thể ngăn chặn hoặc phát hiện kịp thời mọi thay đổi trái phép trên payment page.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_6.md",
+      "20260327_ENG_PCIDSS_Requirement_11_5.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md"
+    ]
+  },
+  {
+    "question": "What are the requirements for physical console security in sensitive areas?",
+    "id": "Q059",
+    "answer": "Yêu cầu về bảo mật console vật lý ở các khu vực nhạy cảm (theo PCI‑DSS v4.0.1, Sub‑requirement 9.2.4) \n20260327_ENG_PC...ent_9_2.md\n:\n\nKhóa console khi không sử dụng: Mọi console (đầu cuối, thiết bị quản trị…) trong khu vực nhạy cảm phải được khóa (bằng khóa vật lý, khóa điện tử, hoặc cơ chế tương đương) mỗi khi không có người dùng hợp lệ đang làm việc trên đó.\nKiểm tra thực tế: Khi thực hiện kiểm tra, cần quan sát một quản trị viên cố gắng đăng nhập vào console và xác nhận rằng console đang ở trạng thái “locked” để ngăn người không được ủy quyền truy cập.\nMục tiêu tùy chỉnh: Console trong các khu vực nhạy cảm không được phép sử dụng bởi nhân viên hoặc người không được ủy quyền.\nMục đích: Việc khóa console ngăn chặn việc kẻ tấn công hoặc nhân viên không được phép có thể truy cập thông tin nhạy cảm, thay đổi cấu hình, giới thiệu lỗ hổng hoặc phá hủy dữ liệu.\n\nTóm lại, thực thể phải triển khai cơ chế khóa cho mọi console trong khu vực nhạy cảm, duy trì việc kiểm tra thường xuyên để xác nhận rằng console luôn ở trạng thái khóa khi không có người dùng hợp lệ.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260327_ENG_PCIDSS_Requirement_9_1.md",
+      "20260327_ENG_PCIDSS_Requirement_8_4.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md"
+    ]
+  },
+  {
+    "question": "Why must an organization maintain a list of all its system components?",
+    "id": "Q060",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "Explain how the 'deny all' default setting in access control systems supports security.",
+    "id": "Q061",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "What action is required if an entity discovers cardholder data stored in an unauthorized location?",
+    "id": "Q062",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "How often must an entity confirm the scope of its PCI DSS compliance?",
+    "id": "Q063",
+    "answer": "Theo yêu cầu 12.5.2 của PCI‑DSS, thực thể phải xác nhận (xác thực) phạm vi PCI‑DSS ít nhất một lần mỗi 12 tháng và sau mỗi khi có thay đổi đáng kể đối với môi trường nằm trong phạm vi. \n20260327_ENG_PC...nt_12_5.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md"
+    ]
+  },
+  {
+    "question": "What is the requirement for the complexity of passwords or passphrases?",
+    "id": "Q064",
+    "answer": "Yêu cầu độ phức tạp tối thiểu cho mật khẩu / cụm mật khẩu (được sử dụng làm yếu tố xác thực) là:\n\nĐộ dài ít nhất 12 ký tự (nếu hệ thống không hỗ trợ 12 ký tự, tối thiểu 8 ký tự).\nPhải chứa cả ký tự số và ký tự chữ cái.\n\n(Đây là yêu cầu của PCI‑DSS v4.0.1, Sub‑requirement 8.3.6)【2】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_6.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md"
+    ]
+  },
+  {
+    "question": "How does Requirement 4 ensure that only trusted certificates are used for transmission?",
+    "id": "Q065",
+    "answer": "Requirement 4 (Control Objective 4.2 – sub‑requirement 4.2.1) quy định rằng khi truyền dữ liệu, chỉ các khóa và chứng chỉ tin cậy mới được chấp nhận.\n\nCác chứng chỉ phải được xác nhận là hợp lệ, không hết hạn và không bị thu hồi.\nHệ thống chỉ cho phép sử dụng các giao thức và cấu hình bảo mật hỗ trợ các chứng chỉ tin cậy, đồng thời ngăn không cho fallback sang các phiên bản hoặc thuật toán không an toàn.\n\nNhững yêu cầu này buộc tổ chức phải kiểm tra và chỉ chấp nhận các chứng chỉ được phát hành bởi một nhà cung cấp chứng chỉ (CA) đáng tin cậy, đồng thời duy trì danh sách CRL hoặc sử dụng OCSP để xác thực trạng thái của chứng chỉ trước khi thiết lập kết nối.\n\n(Tham khảo: PCI‑DSS v4.0.1, Control Objective 4.2.1 – “Only trusted keys and certificates are accepted” và “Certificates … are confirmed as valid and are not expired or revoked”)【2】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_4_1.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_1.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md"
+    ]
+  },
+  {
+    "question": "What specific events must be captured regarding start-up and shut-down of security logs?",
+    "id": "Q066",
+    "answer": "Các sự kiện cần ghi lại liên quan đến việc khởi động và tắt các audit log bao gồm:\n\nKhởi tạo (initialization) của audit log mới.\nBắt đầu (starting), dừng (stopping) hoặc tạm dừng (pausing) các audit log hiện có.\n\n(Tham khảo: PCI‑DSS v4.0.1, Control Objective 10.2, Sub‑requirement 10.2.1.6)【1】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_1.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "What must be included in a TPSP’s written agreement regarding cardholder data security?",
+    "id": "Q067",
+    "answer": "Trong thỏa thuận bằng văn bản với TPSP, phải có lời xác nhận rằng:\n\nTPSP chịu trách nhiệm bảo mật dữ liệu thẻ (account data) mà nó lưu trữ, xử lý, truyền hoặc bất kỳ dữ liệu nào mà nó có thể ảnh hưởng đến bảo mật của dữ liệu thẻ của khách hàng.\nTPSP công nhận rằng mình chịu trách nhiệm thực hiện các yêu cầu PCI DSS liên quan đến việc bảo vệ dữ liệu thẻ mà nó nắm giữ hoặc có thể tác động tới.\n\n(Theo Control Objective 12.8.2 và 12.9.1, các thỏa thuận viết phải bao gồm các xác nhận này về trách nhiệm bảo mật dữ liệu thẻ)【2】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_1.md"
+    ]
+  },
+  {
+    "question": "Why is it important to synchronize system clocks using a central time source?",
+    "id": "Q068",
+    "answer": "Việc đồng bộ đồng hồ hệ thống với một nguồn thời gian trung tâm là cần thiết vì:\n\nĐảm bảo tính nhất quán của thời gian trên mọi thành phần – khi các hệ thống có cùng một thời gian chuẩn (UTC), các bản ghi audit log sẽ có dấu thời gian đồng bộ, cho phép so sánh và liên kết log giữa các máy khác nhau.\nHỗ trợ phân tích forensic – thời gian chính xác và đồng nhất giúp xác định đúng thứ tự các sự kiện, từ đó nhanh chóng phát hiện và điều tra các hành vi bất thường hoặc vi phạm.\nNgăn chặn kẻ tấn công thay đổi thời gian – nếu thời gian không được kiểm soát, kẻ xâm nhập có thể thay đổi đồng hồ để che dấu hoạt động của mình; một nguồn thời gian trung tâm và được bảo vệ sẽ giảm nguy cơ này.\n\n(Tham khảo: PCI‑DSS v4.0.1, Control Objective 10.6 – “Time synchronization helps correlation log between systems; without proper synchronization it can be difficult, if not impossible, to compare log files and establish an exact sequence of events”)【1】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_6.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_5.md"
+    ]
+  },
+  {
+    "question": "A merchant's wireless network is not used for PAN transmission. Is it still in scope?",
+    "id": "Q069",
+    "answer": "Theo Control Objective 4.2.1.2 của PCI‑DSS v4.0.1, các mạng không dây nếu truyền PAN hoặc nếu được kết nối với CDE phải áp dụng các biện pháp mã hoá mạnh cho việc xác thực và truyền dữ liệu.\n\nVì vậy:\n\nNếu mạng không dây của merchant không truyền PAN nhưng vẫn được kết nối với CDE, nó vẫn nằm trong phạm vi (in‑scope) và phải tuân thủ các yêu cầu bảo mật của Requirement 4.2.\nNếu mạng không dây hoàn toàn tách biệt, không có bất kỳ kết nối nào tới CDE, thì nó có thể được coi là ngoài phạm vi (out‑of‑scope).\n\n(Tham khảo: PCI‑DSS v4.0.1, Control Objective 4.2, Sub‑requirement 4.2.1.2)【1】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md"
+    ]
+  },
+  {
+    "question": "What is the requirement for reviewing system configuration standards?",
+    "id": "Q070",
+    "answer": "Yêu cầu đối với tiêu chuẩn cấu hình hệ thống là:\n\nTiêu chuẩn phải được phát triển, triển khai và duy trì để bao phủ tất cả các thành phần hệ thống, xử lý mọi lỗ hổng bảo mật đã biết và phù hợp với các chuẩn hardening của ngành hoặc khuyến nghị của nhà cung cấp.\nTiêu chuẩn phải được cập nhật mỗi khi có vấn đề lỗ hổng mới được xác định, theo yêu cầu được nêu trong Requirement 6.3.1.\nKhi có hệ thống mới được cấu hình, tiêu chuẩn phải được áp dụng trước hoặc ngay sau khi thành phần hệ thống được kết nối vào môi trường sản xuất.\n\n(Tham khảo: PCI‑DSS v4.0.1, Control Objective 2.2, Sub‑requirement 2.2.1)【2】.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_3.md"
+    ]
+  },
+  {
+    "question": "Describe the security requirements for 'non-console' administrative access.",
+    "id": "Q071",
+    "answer": "Security requirements for ‘non‑console’ administrative access\n\nEncryption of all non‑console administrative sessions\nAll non‑console administrative access must be encrypted using strong cryptography. The organization’s system‑configuration standards must require encryption, and the actual configurations must be verified to ensure that insecure remote‑login services (e.g., plain‑text telnet, HTTP) are not available for administrative use. Strong cryptography should follow industry best‑practice recommendations (e.g., NIST SP 800‑52, SP 800‑57) and must be implemented according to vendor guidance \n20260319_ENG_PC...ent_2_2.md\n.\n\nMulti‑factor authentication (MFA) for administrative users\nMFA is required for every non‑console administrative access into the CDE. The MFA solution must use at least two different authentication factors (something you know, have, or are) and cannot rely on the same factor twice (e.g., two passwords). The requirement applies to all personnel with elevated or administrative privileges who access the CDE via a logical (network) connection rather than a direct physical console \n20260327_ENG_PC...ent_8_4.md\n.\n\nTogether, these controls ensure that administrative credentials cannot be read, intercepted, or used by an attacker when administrators connect remotely or otherwise access systems without a physical console.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_4.md",
+      "20260327_ENG_PCIDSS_Requirement_8_1.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md"
+    ]
+  },
+  {
+    "question": "What is the mandatory action for a service provider when a critical security control fails?",
+    "id": "Q072",
+    "answer": "A service provider must detect the failure, generate an alert, and address the failure promptly — the requirement states that failures of critical security control systems must be detected, alerted and remedied without delay \n20260327_ENG_PC...nt_10_7.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_7.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md"
+    ]
+  },
+  {
+    "question": "How should an entity handle media that is being transported outside of its facility?",
+    "id": "Q073",
+    "answer": "An entity must treat media that leaves the facility as follows:\n\nLog every movement – each instance of media being sent outside must be recorded.\nUse a secure, trackable delivery method – the media must be shipped by a secured courier or another delivery service that can be accurately tracked.\nMaintain off‑site tracking logs – the logs must contain detailed information about the media’s location while it is off‑site.\n\nThese controls ensure that media containing cardholder data is protected and its whereabouts are known while in transit \n20260327_ENG_PC...ent_9_4.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md"
+    ]
+  },
+  {
+    "question": "Why must an organization list all its bespoke and custom software and third-party libraries?",
+    "id": "Q074",
+    "answer": "The organization must inventory every piece of bespoke or custom‑developed application and every third‑party library it uses so that the scope of internal penetration testing can be defined to include all of those components. Without a complete list, the test could miss critical code paths or libraries that might contain exploitable vulnerabilities \n20260327_ENG_PC...nt_11_4.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "Explain the importance of the 'least privilege' concept for administrative accounts.",
+    "id": "Q075",
+    "answer": "The “least‑privilege” principle is critical for administrative accounts because it :\n\nLimits the chance of accidental or intentional misuse. When administrators have only the privileges needed to perform their job, they are less likely to change configurations or security settings they do not fully understand \n20260327_ENG_PC...ent_7_2.md\n.\n\nReduces the impact of a compromised account. If an attacker gains access to an admin ID, the damage is confined to the narrow set of functions that account is allowed to perform, rather than giving the attacker unrestricted control over the environment \n20260327_ENG_PC...ent_7_2.md\n.\n\nSupports consistent, auditable access control. By assigning privileges based on job classification and the minimum required functions, the organization can more easily verify that each admin’s rights are appropriate and justified \n20260327_ENG_PC...ent_7_2.md\n.\n\nFacilitates compliance with PCI‑DSS requirements. Requirement 7.2.2 explicitly mandates that access, including for privileged users, be granted based on the least privileges necessary for job responsibilities \n20260327_ENG_PC...ent_7_2.md\n.\n\nOverall, applying least privilege to administrative accounts helps prevent configuration errors, limits the scope of potential breaches, and ensures that access rights remain aligned with business needs.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md"
+    ]
+  },
+  {
+    "question": "What is required for the annual review of application and system account privileges?",
+    "id": "Q076",
+    "answer": "The entity must periodically review all application and system account privileges (the review frequency is set by the organization’s targeted risk analysis in accordance with Requirement 12.3.1). During each review it must:\n\nVerify that the access rights for each application or system account are still appropriate for the function being performed.\nIdentify and remediate any inappropriate or excessive privileges.\nObtain management acknowledgment that the access remains appropriate.\n\nThese steps ensure that application and system account privileges are kept aligned with job responsibilities and that any gaps are promptly corrected \n20260327_ENG_PC...ent_7_2.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md"
+    ]
+  },
+  {
+    "question": "How must an organization ensure that physical access to sensitive areas is only granted to authorized personnel?",
+    "id": "Q077",
+    "answer": "An organization must put documented, enforceable procedures in place that:\n\nAuthorize access only on the basis of job function – personnel are granted physical entry to sensitive CDE areas only after their need is verified and approved.\nIdentify each individual – use badges, ID cards or other identification methods that clearly distinguish personnel from visitors.\nControl the badge/identification system – limit access to the badge‑issuing process or system to authorized staff only.\nManage changes promptly – when a person’s role changes, their access rights are updated accordingly.\nRevoke access immediately on termination – all physical access mechanisms (keys, access cards, etc.) are returned or disabled as soon as employment ends.\nMonitor entry and exit – install video cameras or physical access‑control devices (or both) at entry/exit points to sensitive areas, protect those monitoring devices from tampering, and retain the collected data for at least three months.\n\nThese controls together ensure that only authorized personnel can enter sensitive areas and that any unauthorized or outdated access is quickly detected and removed \n20260327_ENG_PC...ent_9_3.md +1\n .",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_1.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md"
+    ]
+  },
+  {
+    "question": "A merchant uses an external gateway for all transactions. What is their responsibility regarding the gateway's compliance?",
+    "id": "Q078",
+    "answer": "Ký kết thỏa thuận bằng văn bản – Merchant phải có hợp đồng/điều khoản bằng văn bản với nhà cung cấp cổng thanh toán (TPSP) để xác nhận rằng TPSP chịu trách nhiệm bảo vệ dữ liệu tài khoản và tuân thủ các yêu cầu PCI DSS được nêu trong thỏa thuận \n20260327_ENG_PC...nt_12_8.md\n.\n\nThực hiện thẩm định (due‑diligence) trước khi ký hợp đồng – Trước khi sử dụng cổng thanh toán, merchant phải đánh giá khả năng, ý định và nguồn lực của TPSP trong việc bảo vệ dữ liệu thẻ, bao gồm việc kiểm tra quy trình báo cáo, thông báo vi phạm, cách TPSP xác nhận tuân thủ PCI DSS và bằng chứng mà họ cung cấp \n20260327_ENG_PC...nt_12_8.md\n.\n\nGiám sát trạng thái tuân thủ của TPSP – Merchant phải theo dõi và xác nhận trạng thái PCI DSS của cổng thanh toán ít nhất một lần mỗi 12 tháng. Nếu TPSP có AOC (Attestation of Compliance) thì merchant nên yêu cầu cung cấp; nếu không, merchant cần thu thập bằng chứng khác đủ để chứng minh TPSP đáp ứng các yêu cầu áp dụng \n20260327_ENG_PC...nt_12_8.md\n.\n\nGhi lại và duy trì thông tin về trách nhiệm chia sẻ – Merchant phải lưu trữ thông tin chi tiết về các yêu cầu PCI DSS mà cổng thanh toán chịu trách nhiệm, các yêu cầu mà merchant tự thực hiện và những yêu cầu được chia sẻ giữa hai bên. Thông tin này thường được ghi trong ma trận trách nhiệm (responsibility matrix) \n20260327_ENG_PC...nt_12_9.md\n.\n\nThực hiện các bước thực tiễn tốt (good practice) – Merchant có thể yêu cầu TPSP hỗ trợ trả lời các yêu cầu thông tin theo Requirement 12.9.2, và nếu TPSP sử dụng các TPSP phụ (nested TPSPs) thì merchant cũng cần hiểu và ghi lại trách nhiệm của các bên phụ này \n20260327_ENG_PC...nt_12_9.md\n.\n\nTóm lại, khi sử dụng cổng thanh toán bên ngoài, merchant phải có thỏa thuận bằng văn bản, thực hiện thẩm định trước khi ký, giám sát tuân thủ định kỳ, và duy trì hồ sơ chi tiết về trách nhiệm PCI DSS giữa mình và nhà cung cấp. \n20260327_ENG_PC...nt_12_8.md +1",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md"
+    ]
+  },
+  {
+    "question": "What specific actions are required to 'securely' delete cardholder data when it is no longer needed?",
+    "id": "Q079",
+    "answer": "Áp dụng chính sách lưu trữ và thời gian giữ dữ liệu – Xác định rõ thời gian lưu trữ hợp pháp/kinh doanh và chỉ giữ dữ liệu khi còn cần thiết  \n20260320_ENG_PC...ent_3_2.md\n.\n\nThực hiện xóa an toàn khi dữ liệu hết hạn\n\nSử dụng phương pháp xóa an toàn (secure deletion) hoặc làm dữ liệu không thể khôi phục (render unrecoverable) thay vì chỉ xóa thông thường của hệ điều hành  \n20260320_ENG_PC...ent_3_2.md +1\n .\nÁp dụng công cụ/ứng dụng chuyên dụng để xóa dữ liệu (ví dụ: phần mềm xóa an toàn, tính năng “wipe” của thiết bị, hoặc quy trình tiêu hủy vật lý)  \n20260320_ENG_PC...ent_3_5.md\n.\n\nXác minh việc xóa\n\nKiểm tra và ghi lại kết quả xóa để chứng minh rằng dữ liệu đã được xóa hoàn toàn và không thể khôi phục  \n20260320_ENG_PC...ent_3_2.md\n.\nThực hiện kiểm tra ít nhất mỗi ba tháng để xác nhận không còn dữ liệu vượt quá thời gian lưu trữ  \n20260320_ENG_PC...ent_3_2.md\n.\n\nGhi lại quy trình và bằng chứng\n\nTài liệu hoá quy trình xóa, bao gồm công cụ, phương pháp, và kết quả kiểm tra.\nLưu trữ bằng",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md"
+    ]
+  },
+  {
+    "question": "What is the requirement for internal vulnerability scans after a 'significant change'?",
+    "id": "Q080",
+    "answer": "Sau khi có một thay đổi đáng kể (significant change) trong môi trường, tổ chức phải thực hiện quét lỗ hổng nội bộ với các yêu cầu sau \n20260327_ENG_PC...nt_11_3.md\n:\n\nThực hiện quét ngay sau khi thay đổi được hoàn thành.\nKhắc phục mọi lỗ hổng được xếp hạng cao (high‑risk) hoặc nghiêm trọng (critical) theo bảng xếp hạng rủi ro của Requirement 6.3.1.\nTiến hành quét lại (rescan) khi cần thiết để xác nhận các lỗ hổng đã được khắc phục.\nQuét phải do nhân sự có năng lực thực hiện và phải có tính độc lập tổ chức (không bắt buộc phải là QSA hoặc ASV).\n\nNhững yêu cầu này đảm bảo rằng các thay đổi không tạo ra lỗ hổng mới và mọi lỗ hổng đã tồn tại được xử lý kịp thời.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "Why must an organization perform due diligence before engaging a new TPSP?",
+    "id": "Q081",
+    "answer": "Xác định khả năng bảo vệ dữ liệu thẻ – Do‑diligence cho phép tổ chức đánh giá “khả năng, ý định và nguồn lực” của TPSP tiềm năng để bảo vệ dữ liệu thẻ trước khi ký hợp đồng \n20260327_ENG_PC...nt_12_8.md\n.\n\nHiểu rõ rủi ro liên quan – Khi thực hiện due‑diligence, tổ chức nắm được mức độ rủi ro mà việc hợp tác với TPSP có thể gây ra cho dữ liệu chủ thẻ, từ đó đưa ra quyết định có chấp nhận hay không \n20260327_ENG_PC...nt_12_8.md\n.\n\nXác định và phân định trách nhiệm – Quá trình này giúp xác định rõ các yêu cầu PCI DSS mà TPSP sẽ chịu trách nhiệm, những yêu cầu mà tổ chức tự thực hiện và các trách nhiệm được chia sẻ, tránh trường hợp một yêu cầu bị bỏ sót vì cho rằng bên kia sẽ chịu \n20260327_ENG_PC...nt_12_8.md\n.\n\nĐảm bảo tuân thủ trước khi triển khai – Việc thẩm định trước khi hợp tác giúp tổ chức chắc chắn rằng TPSP đáp ứng các tiêu chuẩn bảo mật cần thiết, giảm khả năng vi phạm PCI DSS sau này.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_12_7.md"
+    ]
+  },
+  {
+    "question": "Explain the purpose of the 'Targeted Risk Analysis' for security control frequencies.",
+    "id": "Q082",
+    "answer": "Mục đích của “Targeted Risk Analysis” (phân tích rủi ro có mục tiêu) đối với tần suất thực hiện các kiểm soát bảo mật \n20260327_ENG_PC...nt_12_3.md\n:\n\nXác định tần suất phù hợp – Khi một yêu cầu PCI DSS cho phép linh hoạt về tần suất thực hiện (ví dụ: quét lỗ hổng, kiểm tra mật khẩu), phân tích rủi ro giúp tổ chức quyết định tần suất nào đủ bảo vệ môi trường của mình và mức rủi ro mà tổ chức sẵn sàng chấp nhận.\n\nĐánh giá các yếu tố rủi ro – Phân tích bao gồm việc xác định tài sản cần bảo vệ, mối đe dọa mà yêu cầu đang bảo vệ, và các yếu tố ảnh hưởng đến khả năng xảy ra (likelihood) và mức độ tác động (impact) của mối đe dọa.\n\nCung cấp cơ sở biện minh – Kết quả phân tích đưa ra lý do hợp lý (justification) cho tần suất hoặc quy trình được chọn, đảm bảo quyết định không dựa trên cảm tính mà dựa trên phương pháp luận có tính nhất quán và phù hợp với chính sách.\n\nĐảm bảo tính hợp lệ và nhất quán – Thực hiện theo một phương pháp chuẩn giúp duy trì tính hợp lệ của tần suất kiểm soát và đảm bảo tính nhất quán với các chính sách và quy trình hiện có.\n\nRà soát định kỳ – Phân tích rủi ro này phải được xem lại ít nhất mỗi 12 tháng và cập nhật khi có thay đổi ảnh hưởng đến rủi ro, để tần suất kiểm soát luôn phản ánh đúng môi trường và các mối đe dọa mới.\n\nTóm lại, Targeted Risk Analysis giúp tổ chức quyết định một cách có căn cứ tần suất thực hiện các kiểm soát bảo mật, cân bằng giữa mức độ rủi ro chấp nhận được và hiệu quả bảo vệ dữ liệu thẻ.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_4_1.md"
+    ]
+  },
+  {
+    "question": "How must an entity verify that its anti-malware solution is protecting the file system during real-time activity?",
+    "id": "Q083",
+    "answer": "The provided context does not contain information about how an entity should verify that its anti‑malware solution is protecting the file system during real‑time activity.\n\nBased on PCI DSS guidance (Requirement 5.1.2 and related best‑practice recommendations), an entity should verify real‑time file‑system protection by:\n\nEnsuring the anti‑malware agent is installed and enabled on all in‑scope systems and that the real‑time (on‑access) scanning feature is turned on for all file‑system activity.\nObserving the solution in action – run a known, harmless test file (e.g., the EICAR test string) and confirm that the anti‑malware software detects and blocks it immediately.\nReviewing logs and alerts – verify that the anti‑malware console or log files show entries for the detection event, including timestamps, file path, and action taken.\nChecking that alerts are generated and escalated to the appropriate personnel or security monitoring system, confirming that the detection is not only logged but also reported.\nPeriodically testing the real‑time function (e.g., quarterly) to ensure the feature remains active after updates, configuration changes, or system patches.\nDocumenting the verification process – maintain evidence (screenshots, log excerpts, test results) that the real‑time protection was validated, and retain this documentation for PCI DSS assessments.\n\nThese steps demonstrate that the anti‑malware solution is actively monitoring and protecting the file system during real‑time activity, satisfying the PCI DSS requirement for continuous anti‑malware protection.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "What constitutes 'unnecessary functionality' that must be removed according to Requirement 2.2.4?",
+    "id": "Q084",
+    "answer": "The provided context does not contain any information about Requirement 2.2.4, so I cannot cite a source for this specific question.\n\nBased on the PCI DSS standard, “unnecessary functionality” refers to any service, feature, protocol, application, or component that is not required for the entity’s business or operational purpose. This includes, for example:\n\nDefault or sample applications, utilities, and services that come with the operating system or software but are never used.\nUnused network services, ports, or protocols (e.g., Telnet, FTP, SNMP, unused web servers).\nTest, development, or debugging tools that remain on production systems.\nDefault accounts, passwords, or administrative interfaces that are not needed.\nLegacy or obsolete software components that are no longer required.\n\nPCI DSS requires that such unnecessary functionality be identified and removed (or disabled) to reduce the attack surface and prevent potential exploitation.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "What is the rule regarding the use of 'shared' authentication credentials for multiple users?",
+    "id": "Q085",
+    "answer": "Quy định về việc sử dụng chứng thực chia sẻ (shared/generic IDs) cho nhiều người dùng được nêu trong Requirement 8.2.2 của PCI‑DSS:\n\nChỉ được phép sử dụng khi thực sự cần thiết và phải dựa trên cơ sở ngoại lệ được quản lý chặt chẽ.\nKhi phải dùng, phải đáp ứng các yêu cầu sau:\nNgăn chặn việc sử dụng trừ khi có điều kiện ngoại lệ hợp lệ.\nGiới hạn thời gian sử dụng chỉ trong khoảng thời gian cần thiết cho ngoại lệ đó.\nLập tài liệu biên luận kinh doanh cho việc sử dụng.\nCó sự phê duyệt rõ ràng của quản lý.\nXác nhận danh tính người dùng trước khi cho phép truy cập vào tài khoản chia sẻ.\nMọi hành động thực hiện bằng tài khoản chia sẻ phải được gán cho một cá nhân để đảm bảo tính trách nhiệm và khả năng truy vết.\n\nNếu phải dùng tài khoản chia sẻ, cần thiết lập các kiểm soát quản lý mạnh (ví dụ: vault mật khẩu, lệnh sudo, “break‑the‑glass” trong trường hợp khẩn cấp) để duy trì trách nhiệm cá nhân và khả năng truy vết các hành động.\n\nNguồn: PCI‑DSS v4.0.1, Requirement 8.2.2 – “Shared/generic accounts” (các chi tiết trên)【1】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md"
+    ]
+  },
+  {
+    "question": "How must an organization protect its audit logs from unauthorized modifications?",
+    "id": "Q086",
+    "answer": "Để ngăn chặn việc sửa đổi trái phép, tổ chức phải bảo vệ các file audit log bằng các biện pháp kiểm soát truy cập và phân tách, bao gồm:\n\nÁp dụng cơ chế kiểm soát truy cập (access‑control) để chỉ cho phép những người có quyền hợp lệ được chỉnh sửa log.\nSử dụng phân tách vật lý hoặc mạng (physical hoặc network segregation) nhằm làm cho log khó bị tìm thấy và khó thay đổi.\nĐảm bảo các thay đổi đối với log (nếu có) đều được ghi lại, giám sát và xem xét để phát hiện hành vi không hợp lệ.\n\n“Audit log files are protected to prevent modifications by individuals.” \n20260327_ENG_PC...nt_10_3.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_1.md",
+      "20260327_ENG_PCIDSS_Requirement_10_6.md"
+    ]
+  },
+  {
+    "question": "What is the requirement for 'manual' key-management operations?",
+    "id": "Q087",
+    "answer": "Yêu cầu đối với các hoạt động quản lý khóa theo cách thủ công (manual clear‑text key‑management) là:\n\nKhi thực hiện các thao tác thủ công liên quan tới khóa ở dạng clear‑text, tổ chức phải có chính sách và quy trình quản lý khóa được tài liệu hoá.\nCác quy trình này phải áp dụng “split knowledge” và “dual control”, nghĩa là không có một cá nhân nào được biết toàn bộ khóa hoặc thực hiện thao tác một mình; ít nhất hai người phải tham gia và mỗi người chỉ biết một phần của khóa.\n\n“Where manual cleartext cryptographic key‑management operations are performed by personnel, key‑management policies and procedures are implemented, including managing these operations using split knowledge and dual control.”【1】",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md"
+    ]
+  },
+  {
+    "question": "Under what condition is an entity exempt from Requirement 3.5.1 (rendering PAN unreadable)?",
+    "id": "Q088",
+    "answer": "Một thực thể được miễn yêu cầu 3.5.1 (rendering PAN unreadable) khi PAN chỉ được truy cập cho mục đích xử lý giao dịch thời gian thực – tức là PAN không được lưu trữ mà chỉ được dùng ngay trong quá trình ủy quyền.\n\n“This requirement does not apply to PANs being accessed for real-time transaction processing.”【1】",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md"
+    ]
+  },
+  {
+    "question": "A merchant has a retail location with POS terminals. What physical security checks must they perform on these terminals?",
+    "id": "Q089",
+    "answer": "Đối với các thiết bị POS (Point‑of‑Interaction) tại một địa điểm bán lẻ, PCI‑DSS yêu cầu thực hiện các kiểm tra an ninh vật lý sau:\n\nDuy trì danh sách thiết bị POI cập nhật\n\nGhi lại model, vị trí và số serial (hoặc cách nhận dạng duy nhất) của mỗi terminal. Danh sách phải được cập nhật ngay khi thiết bị được thêm, di chuyển, hoặc ngừng sử dụng【2】.\n\nKiểm tra định kỳ bề mặt thiết bị để phát hiện tampering hoặc thay thế trái phép\n\nThực hiện kiểm tra theo quy trình đã định, so sánh serial, nhãn, dấu hiệu lắp thêm thiết bị (ví dụ: skimmer, cáp phụ) hoặc thay đổi vỏ ngoài.\nPhương pháp kiểm tra có thể bao gồm: so sánh ảnh “trước‑sau”, dùng bút đánh dấu UV, kiểm tra nhãn bảo mật, kiểm tra serial và các đặc điểm vật lý khác【2】.\n\nXác định tần suất và loại kiểm tra dựa trên phân tích rủi ro\n\nTần suất kiểm tra và cách thực hiện được quyết định trong phân tích rủi ro mục tiêu của thực thể (Requirement 12.3.1) và phải được ghi lại【2】.\n\nĐào tạo nhân viên\n\nĐảm bảo nhân viên tại môi trường POI biết cách nhận diện hành vi đáng ngờ, báo cáo kịp thời các dấu hiệu tampering và xác minh danh tính của bất kỳ bên thứ ba nào (nhân viên bảo trì, nhà cung cấp) trước khi cho phép họ can thiệp vào thiết bị【2】.\n\nKiểm soát truy cập của bên thứ ba\n\nTrước khi cho phép bên thứ ba sửa chữa hoặc bảo trì, phải xác minh danh tính của họ và ghi lại hoạt động này【2】.\n\nTóm lại, merchant cần có danh sách thiết bị chính xác, thực hiện kiểm tra vật lý định kỳ dựa trên rủi ro, và đào tạo nhân viên nhận diện/ báo cáo tampering, đồng thời kiểm soát chặt chẽ việc tiếp cận của bên thứ ba để bảo vệ các terminal POS khỏi việc bị can thiệp hoặc thay thế trái phép.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260327_ENG_PCIDSS_Requirement_9_1.md",
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md"
+    ]
+  },
+  {
+    "question": "What is the 'Defined Approach' purpose for Requirement 6.3.3 (Security Patches)?",
+    "id": "Q090",
+    "answer": "The current knowledge base does not provide enough data to conclude the “Defined Approach” purpose for Requirement 6.3.3 (Security Patches).",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_1.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260327_ENG_PCIDSS_Requirement_5_2.md"
+    ]
+  },
+  {
+    "question": "How does Requirement 11.2 (Wireless APs) protect against 'invisible' entry points?",
+    "id": "Q091",
+    "answer": "Requirement 11.2 yêu cầu tổ chức phát hiện và quản lý cả các wireless access point được ủy quyền và không được ủy quyền.\nBằng cách:\n\nKiểm tra định kỳ (ít nhất mỗi 3 tháng) để phát hiện mọi AP – kể cả những thiết bị có thể được giấu trong máy tính, gắn vào cổng mạng, hoặc lắp vào thẻ mạng không dây.\nDuy trì inventory chi tiết của các AP hợp lệ, kèm lý do nghiệp vụ, để khi phát hiện một AP không có trong danh sách có thể nhanh chóng xác định là “rogue”.\nSử dụng công cụ giám sát tự động (NAC, wireless IDS/IPS, scanner) và/hoặc kiểm tra vật lý để tạo cảnh báo ngay lập tức khi có AP mới xuất hiện.\nĐào tạo nhân viên nhận diện hành vi đáng ngờ và xác minh danh tính của bất kỳ bên thứ ba nào muốn can thiệp vào thiết bị.\n\nNhững biện pháp này giúp phát hiện và loại bỏ các điểm truy cập “ẩn” (rogue hoặc “invisible” AP) trước khi chúng được kẻ tấn công khai thác, giảm thời gian và khả năng các thiết bị không được phép có thể xâm nhập vào mạng và dữ liệu thẻ.\n\n“Implementation and/or exploitation of wireless technology within a network are common paths for malicious users to gain unauthorized access… Unauthorized wireless devices could be hidden… Detecting and removing such unauthorized access points reduces the duration and likelihood of such devices being leveraged for an attack.”【1】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_5.md",
+      "20260327_ENG_PCIDSS_Requirement_11_1.md",
+      "20260319_ENG_PCIDSS_Requirement_2_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md"
+    ]
+  },
+  {
+    "question": "What is the requirement for 'executive management' in PCI DSS compliance?",
+    "id": "Q092",
+    "answer": "Yêu cầu đối với “executive management” (cấp quản lý cao) trong PCI DSS\n\nĐối với service provider, executive management phải thiết lập trách nhiệm bảo vệ dữ liệu chủ thẻ (cardholder data) và chương trình tuân thủ PCI DSS.\nTrách nhiệm này bao gồm:\n• Toàn bộ accountability (chịu trách nhiệm chung) về việc duy trì tuân thủ PCI DSS.\n• Xác định một charter cho chương trình tuân thủ PCI DSS và truyền đạt charter này tới executive management.\nExecutive management có thể bao gồm các vị trí C‑level, hội đồng quản trị hoặc các vị trí tương đương tùy theo cấu trúc tổ chức; trách nhiệm có thể được giao cho một cá nhân hoặc một đơn vị kinh doanh trong tổ chức.\n\n(Tham khảo: PCI‑DSS v4.0.1, Control Objective 12.4, sub‑requirement 12.4.1 – “Executive management responsibility”)\n20260327_ENG_PC...nt_12_4.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md"
+    ]
+  },
+  {
+    "question": "Explain the role of 'Certificate Revocation Lists' in secure data transmission.",
+    "id": "Q093",
+    "answer": "Certificate Revocation Lists (CRLs) là danh sách các chứng chỉ đã bị thu hồi mà một thực thể tin cậy (CA) công bố. Khi một kết nối được thiết lập, hệ thống phải kiểm tra chứng chỉ của đối tác để xác nhận rằng chứng chỉ đó vẫn còn hợp lệ và chưa bị thu hồi. Bằng cách tra cứu CRL (hoặc sử dụng OCSP), thực thể có thể:\n\nXác định nhanh chóng nếu chứng chỉ đã bị thu hồi do lỗ hổng, mất khóa, hoặc vi phạm chính sách.\nTừ chối các kết nối sử dụng chứng chỉ không còn tin cậy, ngăn chặn kẻ tấn công lợi dụng chứng chỉ đã bị thu hồi để thực hiện tấn công “man‑in‑the‑middle”.\nĐảm bảo rằng chỉ các chứng chỉ được phát hành và vẫn còn hiệu lực mới được chấp nhận, từ đó duy trì tính bảo mật của việc truyền dữ liệu qua mạng công cộng.\n\nDo đó, CRL là một thành phần quan trọng trong quá trình xác thực chứng chỉ, giúp bảo vệ dữ liệu truyền tải khỏi việc bị đọc hoặc can thiệp bởi các chứng chỉ không còn hợp lệ. \n20260327_ENG_PC...ent_4_2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_2_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md"
+    ]
+  },
+  {
+    "question": "What constitutes a 'successful' penetration test according to the standards?",
+    "id": "Q094",
+    "answer": "Theo tài liệu chuẩn PCI‑DSS, “penetration test” được định nghĩa là một hoạt động mô phỏng cuộc tấn công thực tế nhằm xác định mức độ mà một kẻ tấn công có thể xâm nhập vào môi trường, tùy thuộc vào lượng thông tin được cung cấp cho người kiểm thử.\n\nMột bài kiểm thử được coi là thành công khi:\n\nThực hiện theo phương pháp đã định nghĩa (theo quy trình nội bộ, ít nhất một lần mỗi 12 tháng và sau mỗi thay đổi quan trọng) và do nguồn lực nội bộ hoặc bên thứ ba đủ tiêu chuẩn thực hiện, với độc lập tổ chức của người kiểm thử \n20260327_ENG_PC...nt_11_4.md\n.\nMô phỏng các kỹ thuật tấn công thực tế (ví dụ: fuzzing, injection, forgery, chaining các lỗ hổng) để xác định các lỗ hổng và khoảng cách mà kẻ tấn công có thể đạt được \n20260327_ENG_PC...nt_11_4.md\n.\nKết quả được xem xét qua các thủ tục kiểm tra (đánh giá phạm vi công việc, kết quả, và xác nhận tính độc lập của người kiểm thử) \n20260327_ENG_PC...nt_11_4.md\n.\nKhông chỉ dựa vào việc quét lỗ hổng; quá trình phải bao gồm việc khai thác, đánh giá các lỗ hổng, và kiểm tra hiệu quả của các biện pháp giám sát, phát hiện an ninh \n20260327_ENG_PC...nt_11_4.md\n.\n\nNếu các yếu tố trên được đáp ứng, bài penetration test đáp ứng yêu cầu chuẩn và được xem là “thành công”.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "How should an entity manage encryption keys for data that has been archived?",
+    "id": "Q095",
+    "answer": "Lưu trữ khóa một cách an toàn – Các khóa được dùng để mã hoá dữ liệu lưu trữ (bao gồm dữ liệu đã được lưu trữ lâu dài/archived) phải được lưu trữ trong môi trường bảo mật (ví dụ: HSM, vault, hoặc thiết bị mã hoá) và chỉ được phân phối cho những custodian được ủy quyền \n20260320_ENG_PC...ent_3_7.md\n.\n\nKiểm soát truy cập – Truy cập vào các khóa phải được giới hạn cho số ít nhân sự cần thiết và phải áp dụng các biện pháp split‑knowledge và dual‑control để không ai có thể sở hữu toàn bộ khóa một mình \n20260320_ENG_PC...ent_3_6.md\n.\n\nQuản lý vòng đời khóa – Khóa phải được định kỳ thay đổi (rotation) theo cryptoperiod đã xác định, và khi khóa hết hạn hoặc bị compromise phải thu hồi / thay thế / hủy kịp thời \n20260320_ENG_PC...ent_3_7.md\n.\n\nTài liệu hoá và trách nhiệm – Tổ chức cần tài liệu hoá quy trình quản lý khóa (tạo, phân phối, lưu trữ, rotation, thu hồi) và xác định rõ vai trò của key custodian để đảm bảo mọi hoạt động đều được giám sát và kiểm tra \n20260320_ENG_PC...ent_3_7.md +1\n .\n\nBảo vệ khóa khỏi lộ – Các khóa phải được bảo vệ khỏi disclosure và misuse bằng cách lưu trữ ở số lượng location tối thiểu, tách riêng key‑encrypting keys khỏi data‑encrypting keys, và sử dụng các biện pháp mã hoá mạnh khi cần truyền hoặc lưu trữ khóa \n20260320_ENG_PC...ent_3_6.md\n.\n\nTóm lại, để quản lý khóa cho dữ liệu đã lưu trữ, thực thể cần lưu trữ khóa trong môi trường an toàn, kiểm soát chặt chẽ quyền truy cập (split‑knowledge/dual‑control), thực hiện rotation và thu hồi định kỳ, và duy trì tài liệu hoá quy trình cùng trách nhiệm rõ ràng của các custodian. \n20260320_ENG_PC...ent_3_7.md +1",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md"
+    ]
+  },
+  {
+    "question": "What is the specific requirement for anti-phishing mechanisms starting March 2025?",
+    "id": "Q096",
+    "answer": "Bắt đầu ngày 31 tháng 3 năm 2025, yêu cầu anti‑phishing sẽ không còn là “best practice” mà trở thành yêu cầu bắt buộc:\n\nTổ chức phải có các quy trình và cơ chế tự động để phát hiện và bảo vệ nhân viên khỏi các cuộc tấn công phishing (điều này được mô tả trong sub‑requirement 5.4.1 của Control Objective 5.4) \n20260327_ENG_PC...ent_5_4.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_5_4.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_6.md",
+      "20260327_ENG_PCIDSS_Requirement_5_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_5.md",
+      "20260327_ENG_PCIDSS_Requirement_5_1.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md"
+    ]
+  },
+  {
+    "question": "Why must an entity maintain an inventory of its 'trusted' keys and certificates?",
+    "id": "Q097",
+    "answer": "The current knowledge base does not provide enough information to explain why an entity must maintain an inventory of its “trusted” keys and certificates.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md"
+    ]
+  },
+  {
+    "question": "How often must service providers validate their segmentation controls?",
+    "id": "Q098",
+    "answer": "Service providers phải kiểm tra lại (validate) các kiểm soát phân đoạn (segmentation controls) ít nhất mỗi 6 tháng một lần và mỗi khi có bất kỳ thay đổi nào đối với các kiểm soát hoặc phương pháp phân đoạn \n20260327_ENG_PC...nt_11_4.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md"
+    ]
+  },
+  {
+    "question": "What must an entity do if a TPSP fails to meet its agreed-upon PCI DSS requirements?",
+    "id": "Q099",
+    "answer": "Nếu một TPSP không đáp ứng các yêu cầu PCI DSS đã thỏa thuận, thực thể phải xem các yêu cầu đó là không được đáp ứng đối với chính mình. Nói cách khác, những yêu cầu PCI DSS mà TPSP không thực hiện sẽ được coi là “không có” (not in place) cho thực thể và thực thể phải xử lý khoảng trống này (ví dụ: làm việc với TPSP để khắc phục, tìm nhà cung cấp khác, hoặc thực hiện các biện pháp bổ sung để đáp ứng yêu cầu).\n\n“Nếu TPSP không đáp ứng các yêu cầu PCI DSS áp dụng, thì các yêu cầu đó cũng sẽ ‘không có’ đối với thực thể.” \n20260327_ENG_PC...nt_12_8.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md"
+    ]
+  },
+  {
+    "question": "What information must be provided to a system administrator to log into a console in a sensitive area?",
+    "id": "Q100",
+    "answer": "The current knowledge base does not provide enough data to answer this question.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_4.md",
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md"
+    ]
+  },
+  {
+    "question": "How does 'Requirement 1.4' control connections between trusted and untrusted networks?",
+    "id": "Q101",
+    "answer": "Requirement 1.4 kiểm soát các kết nối giữa mạng tin cậy (trusted) và mạng không tin cậy (untrusted) thông qua năm biện pháp chính:\n\nTriển khai NSC (Network Security Controls) tại ranh giới – Các thiết bị tường lửa, IDS/IPS, hoặc các giải pháp tương đương phải được đặt giữa mọi kết nối trusted ↔ untrusted để giám sát và kiểm soát lưu lượng. \n20260319_ENG_PC...ent_1_4.md\n\nKiểm soát inbound – Chỉ cho phép lưu lượng vào trusted network khi:\n\nĐược khởi tạo bởi các thành phần hệ thống được ủy quyền cung cấp dịch vụ công khai (ví dụ: web, email, DNS);\nHoặc là phản hồi stateful đối với các kết nối đã được khởi tạo từ trusted network.\nMọi lưu lượng khác phải bị từ chối. \n20260319_ENG_PC...ent_1_4.md\n\nChống giả mạo địa chỉ IP (anti‑spoofing) – Các biện pháp anti‑spoofing được cấu hình để phát hiện và chặn các gói tin có địa chỉ nguồn giả mạo, ngăn chúng vào trusted network. \n20260319_ENG_PC...ent_1_4.md\n\nCấm truy cập trực tiếp tới dữ liệu thẻ – Các thành phần lưu trữ dữ liệu thẻ (CDE) không được phép truy cập trực tiếp từ mạng không tin cậy; chỉ được tiếp cận qua các mạng trusted đã được bảo vệ. \n20260319_ENG_PC...ent_1_4.md\n\nẨn thông tin mạng nội bộ – Thông tin về địa chỉ IP và routing nội bộ chỉ được tiết lộ cho các bên được ủy quyền (ví dụ: qua NAT, proxy, hoặc lọc route), giảm khả năng kẻ tấn công thu thập thông tin mạng. \n20260319_ENG_PC...ent_1_4.md\n\nNhững biện pháp này cùng nhau tạo ra một rào cản bảo mật, ngăn chặn truy cập trái phép và giảm thiểu rủi ro từ các mạng không tin cậy vào môi trường CDE.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_4.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260319_ENG_PCIDSS_Requirement_1_5.md"
+    ]
+  },
+  {
+    "question": "Describe the 'Requirement 2.2.1' process for updating configuration standards.",
+    "id": "Q102",
+    "answer": "Quy trình cập nhật tiêu chuẩn cấu hình của “Requirement 2.2.1”\n\nXây dựng và duy trì tiêu chuẩn: Tiêu chuẩn cấu hình phải bao phủ toàn bộ các thành phần hệ thống, giải quyết mọi lỗ hổng bảo mật đã biết và phải phù hợp với các chuẩn hardening của ngành (ví dụ: CIS, NIST) hoặc khuyến nghị của nhà cung cấp. \n20260319_ENG_PC...ent_2_2.md\n\nCập nhật khi có lỗ hổng mới: Khi phát hiện các vấn đề bảo mật mới, tiêu chuẩn cấu hình phải được cập nhật ngay lập tức, theo quy định trong Requirement 6.3.1. \n20260319_ENG_PC...ent_2_2.md\n\nÁp dụng vào hệ thống mới: Tiêu chuẩn đã cập nhật phải được áp dụng khi cấu hình hệ thống mới, và phải được xác nhận đã có mặt trước hoặc ngay sau khi thành phần hệ thống được kết nối vào môi trường sản xuất. \n20260319_ENG_PC...ent_2_2.md\n\nKiểm tra và xác nhận: Trong quá trình kiểm tra, cần kiểm tra tài liệu tiêu chuẩn cấu hình để xác nhận rằng chúng đã được cập nhật đầy đủ các lỗ hổng mới và đã được thực thi trên các hệ thống mới. \n20260319_ENG_PC...ent_2_2.md\n\nTóm lại, quy trình bao gồm: (1) phát triển tiêu chuẩn dựa trên chuẩn ngành; (2) cập nhật tiêu chuẩn mỗi khi có lỗ hổng mới được xác định; (3) triển khai tiêu chuẩn ngay khi hệ thống mới được đưa vào; và (4) kiểm tra việc áp dụng và cập nhật này trong các hoạt động kiểm toán.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_1.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md"
+    ]
+  },
+  {
+    "question": "What is the 'Good Practice' for protecting against POI device tampering?",
+    "id": "Q103",
+    "answer": "The current knowledge base does not provide enough data to answer this question.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "Why is 'Requirement 7.2.1' (Least Privilege) critical for database security?",
+    "id": "Q104",
+    "answer": "Requirement 7.2.1 – “Least Privilege” là nền tảng để bảo vệ cơ sở dữ liệu vì:\n\nGiới hạn quyền truy cập – Tiêu chuẩn yêu cầu chỉ cấp các quyền tối thiểu cần thiết cho mỗi vai trò công việc (ví dụ: người dùng, quản trị viên) để thực hiện chức năng của họ. Khi quyền được thu hẹp, kẻ tấn công hoặc người dùng không có thẩm quyền khó có thể truy cập, sửa đổi hoặc xóa dữ liệu trong Cơ sở dữ liệu. \n20260327_ENG_PC...ent_7_2.md\n\nNgăn lỗi cấp quyền quá mức – Việc định nghĩa mô hình kiểm soát truy cập dựa trên “least privilege” giúp giảm khả năng lỗi khi cấp quyền, tránh tình trạng người dùng có quyền vượt quá nhu cầu thực tế, từ đó giảm nguy cơ rò rỉ hoặc lạm dụng dữ liệu. \n20260327_ENG_PC...ent_7_2.md\n\nHỗ trợ tách nhiệm vụ (Separation of Duties) – Khi quyền được phân chia tối thiểu, các chức năng quan trọng (ví dụ: quản lý cấu hình, phê duyệt thay đổi) có thể được giao cho các cá nhân khác nhau, ngăn chặn một người có toàn quyền kiểm soát toàn bộ quy trình và giảm khả năng gian lận hoặc hành vi độc hại. \n20260327_ENG_PC...ent_7_2.md\n\nTăng tính chịu trách nhiệm (Accountability) – Với mô hình truy cập dựa trên vai trò và quyền tối thiểu, mọi hành động trên cơ sở dữ liệu có thể gắn với tài khoản cá nhân, giúp truy vết và điều tra khi có sự cố bảo mật. \n20260327_ENG_PC...ent_7_2.md\n\nVì vậy, việc thực hiện Requirement 7.2.1 là cốt lõi để duy trì an toàn cho cơ sở dữ liệu, giảm bề mặt tấn công, ngăn chặn quyền truy cập không cần thiết và đảm bảo rằng chỉ những người có nhu cầu thực sự mới có thể thao tác với dữ liệu thẻ.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_3.md",
+      "20260327_ENG_PCIDSS_Requirement_7_1.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_7.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_3.md"
+    ]
+  },
+  {
+    "question": "What events regarding user account status must be captured in the audit logs?",
+    "id": "Q105",
+    "answer": "The current knowledge base does not provide enough data to answer this question.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "How must an organization verify that its 'Accepted Use Policies' are effective?",
+    "id": "Q106",
+    "answer": "The current knowledge base does not provide enough data to conclude how an organization must verify that its “Accepted Use Policies” are effective.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_6.md",
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md"
+    ]
+  },
+  {
+    "question": "A merchant uses a third-party payment gateway but stores no data. What PCI DSS requirements still apply?",
+    "id": "Q107",
+    "answer": "Theo các quy định của PCI DSS, ngay cả khi thương gia không lưu trữ bất kỳ dữ liệu thẻ nào và chỉ sử dụng cổng thanh toán của bên thứ ba, vẫn phải tuân thủ một số yêu cầu nhất định.\n\nCác yêu cầu vẫn áp dụng (đối với môi trường không lưu trữ dữ liệu):\n\nNHÓM YÊU CẦU\n\t\nNỘI DUNG CHÍNH CẦN THỰC HIỆN\n\n\n1. Mạng và tường lửa\n\t\nThiết lập và duy trì cấu hình tường lửa, phân đoạn mạng để ngăn chặn truy cập trái phép tới bất kỳ hệ thống nào có thể tiếp xúc với dữ liệu thẻ (ngay cả khi dữ liệu không được lưu).\n\n\n2. Cấu hình bảo mật\n\t\nÁp dụng cấu hình bảo mật chuẩn cho tất cả các thiết bị, hệ thống và phần mềm được sử dụng trong môi trường thanh toán.\n\n\n3. Bảo vệ dữ liệu thẻ khi truyền\n\t\nMã hoá dữ liệu thẻ trong quá trình truyền tới cổng thanh toán (TLS 1.2 trở lên, sử dụng các thuật toán mạnh).\n\n\n4. Phòng chống phần mềm độc hại\n\t\nCài đặt, duy trì phần mềm chống virus/antimalware trên mọi thiết bị có thể truy cập internet hoặc nhận dữ liệu thanh toán.\n\n\n5. Bảo trì và cập nhật hệ thống\n\t\nÁp dụng các bản vá bảo mật kịp thời cho hệ điều hành, ứng dụng và thành phần mạng.\n\n\n6. Kiểm soát truy cập\n\t\nHạn chế quyền truy cập dựa trên nguyên tắc “cần biết” (need‑to‑know) và sử dụng tài khoản cá nhân (không dùng tài khoản chung).\n\n\n7. Xác thực và quản lý tài khoản\n\t\nĐảm bảo mọi người dùng có xác thực mạnh (mật khẩu, MFA) và quản lý vòng đời tài khoản (tạo, sửa, xóa) theo quy trình.\n\n\n8. Giám sát vật lý\n\t\nKiểm soát truy cập vật lý tới các thiết bị có thể xử lý hoặc truyền dữ liệu thẻ (ví dụ: máy POS, máy chủ).\n\n\n9. Ghi nhật ký và giám sát\n\t\nGhi lại và bảo quản log truy cập, log hệ thống, log mạng; thực hiện việc giám sát thường xuyên để phát hiện hoạt động bất thường.\n\n\n10. Kiểm tra bảo mật định kỳ\n\t\nThực hiện kiểm tra xâm nhập (penetration testing) và quét lỗ hổng (vulnerability scanning) theo yêu cầu (ít nhất hàng năm).\n\n\n11. Chính sách bảo mật\n\t\nDuy trì chính sách bảo mật thông tin, quy trình quản lý rủi ro và đào tạo nhân viên về an ninh thông tin.\n\n\n12. Thỏa thuận với bên thứ ba\n\t\nKý hợp đồng/điều khoản dịch vụ với cổng thanh toán, trong đó xác nhận rằng nhà cung cấp đã đạt chuẩn PCI DSS và chịu trách nhiệm bảo vệ dữ liệu thẻ.\n\nLưu ý thực tiễn:\n\nKhi không lưu trữ dữ liệu thẻ, thương gia thường áp dụng SAQ A‑EP (Self‑Assessment Questionnaire) – đây là phiên bản SAQ dành cho các môi trường “được chuyển hướng” (redirect) tới cổng thanh toán của bên thứ ba nhưng vẫn có một phần trang thanh toán được hiển thị trên máy của thương gia.\nNếu toàn bộ trang thanh toán được host hoàn toàn trên máy của nhà cung cấp (không có bất kỳ mã nào chạy trên môi trường của thương gia), thì SAQ A (đơn giản hơn) có thể áp dụng, nhưng các yêu cầu về mạng, mã hoá truyền tải, và quản lý bên thứ ba vẫn phải được đáp ứng.\n\nTóm lại:\nMặc dù không lưu trữ dữ liệu thẻ, thương gia vẫn phải tuân thủ hầu hết các yêu cầu PCI DSS liên quan đến bảo vệ mạng, mã hoá truyền tải, kiểm soát truy cập, giám sát, kiểm tra bảo mật và quản lý rủi ro, cùng với việc đảm bảo nhà cung cấp cổng thanh toán đã đạt chuẩn PCI DSS và có thỏa thuận rõ ràng.\n\n(Thông tin này không có trong Knowledge Base được cung cấp; được đưa ra dựa trên hiểu biết chung về PCI DSS.)",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_6.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md"
+    ]
+  },
+  {
+    "question": "What is the requirement for 'Requirement 3.7.1' regarding key generation?",
+    "id": "Q108",
+    "answer": "Requirement 3.7.1 – Key generation\n\nThe organization must have documented key‑management policies and procedures that include the generation of strong cryptographic keys used to protect stored account data. In other words, the key‑generation process must produce keys that meet strong‑cryptography standards and be defined within the entity’s key‑management program【1】.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260327_ENG_PCIDSS_Requirement_7_1.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md"
+    ]
+  },
+  {
+    "question": "Why does 'Requirement 5.3.3' require malware scans of removable media?",
+    "id": "Q109",
+    "answer": "‘Requirement 5.3.3’ yêu cầu quét malware trên removable media vì USB và các thiết bị lưu trữ rời là nguồn lây nhiễm phổ biến. Nếu không kiểm soát, malware có thể được đưa vào môi trường qua các thiết bị này, gây nguy cơ nhiễm hệ thống và vi phạm các biện pháp anti‑malware khác. Do đó, PCI DSS quy định phải thực hiện kiểm soát malware qua removable media để phát hiện và ngăn chặn việc đưa phần mềm độc hại vào mạng nội bộ【1】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260327_ENG_PCIDSS_Requirement_5_2.md",
+      "20260327_ENG_PCIDSS_Requirement_5_1.md",
+      "20260319_ENG_PCIDSS_Requirement_1_5.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_3.md"
+    ]
+  },
+  {
+    "question": "What constitutes 'organizational independence' for a penetration tester?",
+    "id": "Q110",
+    "answer": "“Organizational independence” nghĩa là người thực hiện penetration test phải không phụ thuộc vào hoặc không có mối quan hệ xung đột lợi ích với hệ thống, quy trình hoặc bộ phận đang được kiểm tra.\n\nKiểm thử có thể do nguồn nội bộ đủ năng lực nhưng phải “reasonably independent” – ví dụ, một nhân viên mạng không được giao nhiệm vụ quản lý, cấu hình hoặc bảo trì các thành phần đang được kiểm tra.\nHoặc do bên thứ ba có trình độ (qualified external third‑party) – không bắt buộc phải là QSA hay ASV, chỉ cần người kiểm thử độc lập về mặt tổ chức.\n\nNói cách khác, tester phải được tách rời khỏi các hoạt động vận hành, bảo trì hoặc quản lý của môi trường CDE để đảm bảo kết quả kiểm thử không bị ảnh hưởng bởi lợi ích nội bộ. 【1】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md"
+    ]
+  },
+  {
+    "question": "How must an entity protect the 'integrity' of its stored cardholder data during its retention period?",
+    "id": "Q111",
+    "answer": "Để bảo vệ tính toàn vẹn (integrity) của dữ liệu chủ thẻ được lưu trữ trong suốt thời gian lưu trữ, thực thể phải áp dụng các biện pháp mã hoá và quản lý khóa mạnh, cụ thể:\n\nSử dụng hàm băm có khóa (keyed cryptographic hash) để tạo ra một giá trị băm duy nhất cho toàn bộ PAN. Hàm băm có khóa cung cấp cả khả năng render unreadable (đánh rối dữ liệu) và đảm bảo tính toàn vẹn vì bất kỳ thay đổi nào đối với PAN sẽ làm giá trị băm không khớp.\n“Hashes used to render PAN unreadable … are keyed cryptographic hashes of the entire PAN, with associated key‑management processes and procedures in accordance with Requirements 3.6 and 3.7.”【1】\n\nThực hiện chính sách và quy trình quản lý khóa (Requirements 3.6 và 3.7) để:\n\nGiới hạn quyền truy cập vào khóa chỉ cho những người bảo quản (key custodians) cần thiết.\nLưu trữ khóa riêng biệt (key‑encrypting keys tách biệt với data‑encrypting keys) và bảo vệ chúng trong môi trường an toàn (HSM, KMS, …).\nĐảm bảo khóa được tạo ra, phân phối và lưu trữ một cách an toàn, tránh việc thay thế hoặc rò rỉ khóa.\nKiểm tra định kỳ (a‑b) để xác nhận rằng các quy trình này vẫn được thực hiện.\n“Procedures are defined and implemented to protect cryptographic keys … Access to keys is restricted to the fewest number of custodians … Keys are stored securely in the fewest possible locations.”【2】\n\nKết hợp với chính sách lưu trữ và tiêu hủy dữ liệu (Requirement 3.2.1) để:\n\nĐảm bảo dữ liệu chỉ được giữ lại trong thời gian cần thiết và được xóa an toàn khi hết hạn, tránh việc dữ liệu bị thay đổi hoặc bị tái sử dụng sau khi đã hết thời gian lưu trữ.\n“Processes for secure deletion or rendering account data unrecoverable when no longer needed per the retention policy.”【6】\n\nTóm lại, thực thể phải:\n\nÁp dụng hàm băm có khóa cho PAN (và các dữ liệu chủ thẻ khác) để tạo dấu hiệu kiểm tra toàn vẹn.\nQuản lý khóa theo các yêu cầu 3.6 và 3.7 (giới hạn quyền, lưu trữ an toàn, tạo khóa mạnh).\nTuân thủ chính sách lưu trữ/tiêu hủy để dữ liệu không tồn tại lâu hơn cần thiết và luôn được bảo vệ bằng các biện pháp trên trong suốt thời gian lưu trữ.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md"
+    ]
+  },
+  {
+    "question": "What are the rules for 'group' IDs in a PCI compliant environment?",
+    "id": "Q112",
+    "answer": "The current knowledge base does not contain information about the specific rules for “group” IDs in a PCI‑DSS‑compliant environment. If you can provide more context or details about what aspect of “group” IDs you are referring to (e.g., user‑group permissions, role‑based access control, etc.), I can try to help further.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "What constitutes 'Requirement 12.1' for an information security policy?",
+    "id": "Q113",
+    "answer": "Requirement 12.1 (Control Objective 12.1) quy định rằng tổ chức phải có một chính sách an toàn thông tin tổng thể và phải thực hiện các yếu tố sau:\n\nThiết lập và phổ biến\n\nChính sách được thiết lập, công bố, duy trì và phổ biến tới tất cả nhân sự, nhà cung cấp và đối tác có liên quan.\n\nĐánh giá và cập nhật\n\nChính sách phải được xem xét ít nhất một lần mỗi 12 tháng và cập nhật khi cần để phản ánh các thay đổi về mục tiêu kinh doanh hoặc rủi ro môi trường.\n\nPhân định vai trò và trách nhiệm\n\nChính sách phải rõ ràng xác định vai trò và trách nhiệm an toàn thông tin cho mọi nhân viên, và mọi người phải hiểu và xác nhận trách nhiệm của mình.\n\nChỉ định trách nhiệm ở cấp quản lý\n\nTrách nhiệm an toàn thông tin phải được giao cho một Giám đốc An ninh Thông tin (CISO) hoặc thành viên quản lý điều hành có kiến thức về an ninh thông tin.\n\nNhững yếu tố này đảm bảo rằng chính sách an toàn thông tin được tài liệu hoá, cập nhật, truyền đạt và có người chịu trách nhiệm cao nhất để quản lý và giám sát việc thực hiện.\n\nNguồn: PCI‑DSS v4.0.1, Control Objective 12.1 (sub‑requirements 12.1.1‑12.1.4) – [1].",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_12_6.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md"
+    ]
+  },
+  {
+    "question": "How should an entity handle 'initial' passwords for new users?",
+    "id": "Q114",
+    "answer": "Khi sử dụng mật khẩu làm yếu tố xác thực, thực thể phải đặt mật khẩu khởi tạo (initial password) cho mỗi người dùng là một giá trị duy nhất và buộc người dùng phải thay đổi mật khẩu ngay sau lần đăng nhập đầu tiên.\n\n“Set to a unique value for first‑time use and upon reset. Forced to be changed immediately after the first use.” \n20260327_ENG_PC...ent_8_3.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_6.md"
+    ]
+  },
+  {
+    "question": "What is the requirement for 'Requirement 10.4.3' regarding log anomalies?",
+    "id": "Q115",
+    "answer": "Requirement 10.4.3 yêu cầu thực thể phải xử lý các ngoại lệ và bất thường (anomalies) được phát hiện trong quá trình xem xét log. Cụ thể, phải có quy trình được định nghĩa để đối phó, điều tra và giải quyết mọi ngoại lệ hoặc bất thường được xác định khi thực hiện việc review log. \n20260327_ENG_PC...nt_10_4.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_5.md"
+    ]
+  },
+  {
+    "question": "A developer wants to use a third-party API in a payment application. What must they do?",
+    "id": "Q116",
+    "answer": "Khi muốn tích hợp một API của bên thứ ba vào ứng dụng thanh toán, nhà phát triển phải đảm bảo rằng việc sử dụng dịch vụ của bên thứ ba được quản lý theo các yêu cầu PCI DSS về TPSP. Cụ thể:\n\nThực hiện quy trình due‑diligence trước khi ký hợp đồng – đánh giá khả năng, ý định và nguồn lực của nhà cung cấp để bảo vệ dữ liệu thẻ (Requirement 12.8.3)【1】.\nKý thỏa thuận bằng văn bản với nhà cung cấp, trong đó nhà cung cấp phải xác nhận chịu trách nhiệm bảo mật dữ liệu tài khoản mà họ lưu trữ, xử lý hoặc truyền thay mặt thực thể (Requirement 12.8.2)【1】.\nXác định và ghi lại rõ ràng trách nhiệm PCI DSS giữa thực thể và nhà cung cấp (có thể dùng ma trận trách nhiệm) để biết phần nào do bên thứ ba chịu, phần nào do thực thể chịu, và phần nào là trách nhiệm chung (Requirement 12.8.5)【1】.\nTheo dõi trạng thái tuân thủ PCI DSS của nhà cung cấp ít nhất một lần mỗi 12 tháng (Requirement 12.8.4) và cập nhật thông tin khi có thay đổi (đảm bảo API vẫn đáp ứng các yêu cầu bảo mật)【1】.\n\nTóm lại, trước khi sử dụng API bên thứ ba, nhà phát triển phải thực hiện due‑diligence, ký thỏa thuận có xác nhận trách nhiệm bảo mật, ghi lại và duy trì trách nhiệm chia sẻ, và giám sát tuân thủ PCI DSS của nhà cung cấp.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md"
+    ]
+  },
+  {
+    "question": "How does Requirement 1.5.1 mitigate risks from devices that connect to both the CDE and untrusted networks?",
+    "id": "Q117",
+    "answer": "Requirement 1.5.1 yêu cầu triển khai các biện pháp bảo mật trên mọi thiết bị tính toán (cả thiết bị công ty và thiết bị cá nhân) khi chúng kết nối đồng thời vào mạng không tin cậy (Internet) và môi trường CDE.\n\nCách mà yêu cầu này giảm thiểu rủi ro:\n\nÁp dụng security controls (ví dụ: phần mềm chống malware, tường lửa cá nhân, EDR) để ngăn phần mềm độc hại từ mạng không tin cậy xâm nhập vào CDE.\nĐịnh nghĩa cấu hình bảo mật rõ ràng, ngăn chặn các mối đe dọa được đưa vào mạng nội bộ khi thiết bị chuyển sang môi trường CDE.\nCác controls luôn hoạt động (active) và không thể bị người dùng tắt hoặc thay đổi, trừ khi có sự phê duyệt quản lý và trong thời gian có giới hạn.\nQuy trình quản lý ngoại lệ cho phép tạm thời vô hiệu hoá controls chỉ khi có nhu cầu kỹ thuật hợp pháp và được phê duyệt, giảm khả năng thiết bị bị “điểm yếu” không kiểm soát.\n\nNhững biện pháp này đảm bảo rằng bất kỳ thiết bị nào có khả năng đưa dữ liệu thẻ từ môi trường không tin cậy vào CDE đều được bảo vệ, ngăn chặn việc malware hoặc các mối đe dọa khác lây lan và gây tổn hại cho dữ liệu thẻ. \n20260319_ENG_PC...ent_1_5.md",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_5.md",
+      "20260319_ENG_PCIDSS_Requirement_1_4.md",
+      "20260319_ENG_PCIDSS_Requirement_1_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md"
+    ]
+  },
+  {
+    "question": "What is the mandatory action for 'Requirement 3.3' SAD storage after auth?",
+    "id": "Q118",
+    "answer": "Yêu cầu 3.3 quy định rằng dữ liệu xác thực nhạy cảm (SAD) không được lưu trữ sau khi quá trình ủy quyền hoàn tất.\n\nSAD phải được xóa ngay lập tức hoặc làm không thể khôi phục ngay khi nhận được phản hồi (phê duyệt/ từ chối) của giao dịch.\nViệc lưu trữ SAD, ngay cả khi đã mã hoá, là không được phép.\n\n“SAD is not stored after authorization, even if encrypted… The full contents of any track are not stored upon completion of the authorization process.” \n20260320_ENG_PC...ent_3_3.md",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md"
+    ]
+  },
+  {
+    "question": "Describe the security requirements for 'Requirement 9.4' regarding backup media.",
+    "id": "Q119",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "How does an entity meet 'Requirement 12.8.5' for TPSP management?",
+    "id": "Q120",
+    "answer": "Để đáp ứng Requirement 12.8.5 – “Phân định trách nhiệm PCI DSS với các nhà cung cấp dịch vụ bên thứ ba (TPSP)”, thực thể phải thực hiện các bước sau:\n\nLưu trữ thông tin chi tiết về việc mỗi TPSP chịu trách nhiệm cho những yêu cầu PCI DSS nào, thực thể chịu trách nhiệm cho những yêu cầu nào, và những yêu cầu nào là trách nhiệm chung giữa hai bên.\nTài liệu hoá thông tin này, thường bằng một ma trận trách nhiệm (responsibility matrix) liệt kê toàn bộ các yêu cầu PCI DSS và chỉ rõ bên nào (TPSP, thực thể, hoặc cả hai) phải thực hiện từng yêu cầu.\nXây dựng và duy trì quy trình (policies & procedures) để đảm bảo rằng quá trình xác định, ghi nhận và cập nhật trách nhiệm này được thực hiện một cách có hệ thống và được xem xét định kỳ.\nKiểm tra và phê duyệt tài liệu trách nhiệm bởi các bên liên quan (ví dụ: quản lý cấp cao, bộ phận pháp lý, bộ phận bảo mật) và cập nhật khi có thay đổi dịch vụ, hợp đồng hoặc phạm vi ảnh hưởng tới CDE.\nXem xét các mối quan hệ “nested” – nếu TPSP chính thuê một hoặc nhiều TPSP phụ, thực thể phải hiểu và ghi lại cách mà các TPSP phụ này hỗ trợ việc đáp ứng PCI DSS và ai chịu trách nhiệm cuối cùng.\n\nCác hoạt động này được kiểm tra thông qua:\n\nKiểm tra chính sách và quy trình để xác nhận rằng quy trình duy trì thông tin trách nhiệm đã được định nghĩa (12.8.5.a).\nKiểm tra tài liệu và phỏng vấn nhân sự để xác nhận thực thể thực sự duy trì và cập nhật thông tin về trách nhiệm của mỗi TPSP (12.8.5.b).\n\nNguồn: PCI DSS v4.0.1, Control Objective 12.8, Sub‑requirement 12.8.5 – “Information is maintained about which PCI DSS requirements are managed by each TPSP, which are managed by the entity, and any that are shared between the TPSP and the entity”【1】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_12_3.md"
+    ]
+  },
+  {
+    "question": "What constitutes 'unreadable' authentication factors according to 'Requirement 8.3.2'?",
+    "id": "Q121",
+    "answer": "‘Unreadable’ trong Requirement 8.3.2 có nghĩa là các yếu tố xác thực (password, passphrase, token, chứng chỉ, …) phải được bảo vệ bằng mã hoá mạnh sao cho:\n\nTrong quá trình lưu trữ: các yếu tố xác thực không thể đọc được ở dạng plain‑text; chúng phải được lưu trữ ở dạng đã mã hoá (được render “unreadable”) và không thể trích xuất được giá trị gốc.\nTrong quá trình truyền tải: các yếu tố xác thực phải được truyền qua mạng dưới dạng đã mã hoá; không được phép xuất hiện dưới dạng clear‑text trên các luồng dữ liệu, để tránh việc kẻ tấn công có thể chặn và đọc được chúng.\n\nMục tiêu tùy chỉnh của Requirement 8.3.2 nhấn mạnh: “Cleartext authentication factors cannot be obtained, derived, or reused from the interception of communications or from stored data.” Vì vậy, “unreadable” được định nghĩa là không thể truy cập hoặc tái tạo được giá trị gốc của yếu tố xác thực khi nó được lưu trữ hoặc truyền, nhờ việc áp dụng cryptography mạnh.\n\nNguồn: PCI‑DSS v4.0.1, Control Objective 8.3, Sub‑requirement 8.3.2【1】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_4.md"
+    ]
+  },
+  {
+    "question": "What is the 'Requirement 10.7' rule for critical security control failure response?",
+    "id": "Q122",
+    "answer": "Requirement 10.7 – Quy tắc phản hồi khi có sự cố (failure) của các kiểm soát bảo mật quan trọng\n\nKhi bất kỳ hệ thống kiểm soát bảo mật quan trọng nào (firewall, IDS/IPS, FIM, anti‑malware, kiểm soát truy cập, logging, segmentation, …) gặp sự cố, thực thể phải phản hồi ngay lập tức và thực hiện các bước sau:\n\nKhôi phục chức năng bảo mật của hệ thống bị lỗi.\nGhi lại thời gian bắt đầu và kết thúc của sự cố (ngày‑giờ).\nXác định và ghi nhận nguyên nhân gây ra sự cố, đồng thời tài liệu hoá các biện pháp khắc phục cần thiết.\nXác định và xử lý bất kỳ vấn đề bảo mật nào đã phát sinh trong thời gian hệ thống không hoạt động.\nĐánh giá xem có cần thực hiện các hành động bổ sung (ví dụ: thông báo, kiểm tra lại các hệ thống liên quan).\nTriển khai các kiểm soát để ngăn ngừa nguyên nhân gây ra sự cố tái diễn.\nTiếp tục giám sát các kiểm soát bảo mật sau khi đã khôi phục.\n\nNguồn: PCI‑DSS v4.0.1, Control Objective 10.7, Sub‑requirement 10.7.3 – “Failures of any critical security control systems are responded to promptly, including but not limited to: restoring security functions, documenting duration, identifying cause and remediation, addressing security issues that arose, determining further actions, implementing controls to prevent recurrence, and resuming monitoring”【1】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_7.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_5.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md"
+    ]
+  },
+  {
+    "question": "A merchant's WAF is only configured to alert. Is this compliant?",
+    "id": "Q123",
+    "answer": "Có, điều này có thể đáp ứng được yêu cầu nếu cảnh báo được “ngay lập tức” điều tra.\n\nTrong Requirement 6.4.2, một giải pháp kỹ thuật tự động (ví dụ: WAF) phải được cấu hình để:\n\nchặn các cuộc tấn công web, hoặc\ntạo ra một cảnh báo mà ngay lập tức được điều tra bởi nhân viên.\n\nVì vậy, nếu WAF chỉ phát ra cảnh báo nhưng quy trình điều tra được thực hiện ngay khi nhận được cảnh báo, thì việc cấu hình chỉ “alert” vẫn đáp ứng được yêu cầu này. Nếu không có quy trình điều tra kịp thời, thì sẽ không tuân thủ.\n\nNguồn: PCI‑DSS v4.0.1, Control Objective 6.4, Sub‑requirement 6.4.2 – “Configured to either block web‑based attacks or generate an alert that is immediately investigated.”",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_6.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "Why must an organization maintain a list of all its authorized wireless access points?",
+    "id": "Q124",
+    "answer": "Việc duy trì danh sách (inventory) các wireless access point được ủy quyền là bắt buộc vì:\n\nGiúp nhận diện nhanh khi có thiết bị không được ủy quyền xuất hiện. Khi một AP rogue được phát hiện, danh sách các AP hợp lệ cho phép quản trị viên so sánh ngay lập tức và xác định thiết bị nào là bất hợp pháp.\nGiảm thiểu mức độ phơi nhiễm của CDE (Cardholder Data Environment) trước các cá nhân độc hại, vì các AP không được ủy quyền có thể được phát hiện và loại bỏ kịp thời.\nCung cấp cơ sở cho việc quản lý – danh sách phải kèm theo lý do kinh doanh (business justification), giúp chứng minh rằng mỗi AP được phép tồn tại và đáp ứng các yêu cầu bảo mật.\n\nNhư được nêu trong hướng dẫn của PCI‑DSS: “An inventory of authorized wireless access points can help administrators quickly respond when unauthorized wireless access points are detected. This helps to proactively minimize the exposure of CDE to malicious individuals.”【1】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_1.md",
+      "20260319_ENG_PCIDSS_Requirement_2_3.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260319_ENG_PCIDSS_Requirement_1_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md"
+    ]
+  },
+  {
+    "question": "Explain the importance of 'Requirement 12.6.3.1' for social engineering training.",
+    "id": "Q125",
+    "answer": "Requirement 12.6.3.1 yêu cầu chương trình đào tạo nhận thức bảo mật phải bao gồm nhận thức về các mối đe dọa và lỗ hổng có thể ảnh hưởng đến an ninh dữ liệu thẻ, trong đó phishing và social engineering là những nội dung bắt buộc.\n\nTầm quan trọng đối với đào tạo phòng chống social engineering\nGiảm nguy cơ tấn công xã hội: Khi nhân viên hiểu cách kẻ tấn công sẽ lợi dụng yếu điểm con người (ví dụ: email giả, cuộc gọi lừa đảo), họ sẽ ít bị lừa và không cung cấp thông tin nhạy cảm.\nNâng cao khả năng phát hiện và phản hồi: Đào tạo cung cấp các ví dụ thực tế, cách nhận diện dấu hiệu của phishing và social engineering, và quy trình báo cáo ngay lập tức, giúp tổ chức phản ứng nhanh trước các nỗ lực tấn công.\nBảo vệ dữ liệu thẻ (CDE): Các cuộc tấn công xã hội là kênh thường được dùng để truy cập vào CDE. Khi nhân viên được giáo dục đúng cách, khả năng kẻ tấn công khai thác yếu tố con người để xâm nhập hệ thống giảm đáng kể.\nTuân thủ yêu cầu PCI‑DSS: Requirement 12.6.3.1 là một phần bắt buộc của Control Objective 12.6; nếu không có nội dung này, tổ chức sẽ không đáp ứng được yêu cầu chuẩn và sẽ bị đánh giá không đạt.\n\nVì vậy, việc đưa social‑engineering training vào chương trình đào tạo nhận thức bảo mật là thiết yếu để nâng cao nhận thức, giảm thiểu rủi ro tấn công và duy trì tuân thủ PCI‑DSS.\n\nNguồn: PCI‑DSS v4.0.1, Control Objective 12.6, Sub‑requirement 12.6.3.1 – “Security awareness training includes awareness of threats and vulnerabilities … including phishing and social engineering.”",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_6.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md"
+    ]
+  },
+  {
+    "question": "How must an entity verify the 'organizational independence' of their internal vulnerability scanner?",
+    "id": "Q126",
+    "answer": "Để xác nhận tính độc lập tổ chức (organizational independence) của người thực hiện quét lỗ hổng nội bộ, thực thể phải:\n\nKiểm tra tài liệu (chẳng hạn như bản mô tả quy trình quét, danh sách người thực hiện) để chứng minh rằng công cụ quét được vận hành bởi nhân sự có đủ năng lực nhưng không chịu trách nhiệm quản lý hoặc vận hành các thành phần hệ thống đang được quét.\nPhỏng vấn nhân viên chịu trách nhiệm về việc thực hiện quét để xác nhận rằng người thực hiện không phải là người quản lý, bảo trì hoặc sở hữu các hệ thống, mạng, hoặc ứng dụng đang được kiểm tra, nhằm đảm bảo tính khách quan và không có xung đột lợi ích.\n\nCách thực hiện này được nêu trong các thủ tục kiểm tra của Requirement 11.3.1: “Interview responsible personnel to verify that the scan was performed by a qualified internal resource(s) or qualified external third party and that organizational independence of the tester exists.”【1】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_1.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_1.md",
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md"
+    ]
+  },
+  {
+    "question": "What is the requirement for 'Requirement 3.6' regarding cleartext key components?",
+    "id": "Q127",
+    "answer": "Requirement 3.6 (through sub‑requirement 3.6.1.3) mandates that access to cleartext cryptographic key components must be limited to the fewest number of custodians or personnel necessary – i.e., only those individuals with defined key‑custodian responsibilities should be granted such access【1】.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md"
+    ]
+  },
+  {
+    "question": "Why is 'Requirement 5.2.1' important for protecting systems from malware?",
+    "id": "Q128",
+    "answer": "Requirement 5.2.1 yêu cầu triển khai giải pháp anti‑malware trên tất cả các thành phần hệ thống (trừ những thành phần đã được đánh giá và chứng minh không có rủi ro malware).\n\nKhi mọi thành phần hệ thống đều có anti‑malware, chúng sẽ phát hiện, chặn hoặc loại bỏ các phần mềm độc hại ngay khi xuất hiện.\nĐiều này ngăn chặn việc malware xâm nhập, lây lan và gây hư hại cho mạng hoặc dữ liệu thẻ thanh toán.\nNếu không có giải pháp anti‑malware được cập nhật thường xuyên, các dạng malware mới có thể tấn công hệ thống, làm ngưng hoạt động mạng hoặc đánh cắp dữ liệu (theo mục “Guidance – Purpose” trong tài liệu).\n\nVì vậy, Requirement 5.2.1 là nền tảng bảo vệ hệ thống khỏi malware bằng cách đảm bảo mọi thành phần đều được bảo vệ và giám sát liên tục【1】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_5_2.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260327_ENG_PCIDSS_Requirement_5_1.md",
+      "20260327_ENG_PCIDSS_Requirement_11_5.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md"
+    ]
+  },
+  {
+    "question": "A merchant has one retail location and one cloud-based e-commerce site. How many network diagrams do they need?",
+    "id": "Q129",
+    "answer": "Tiêu chuẩn yêu cầu giữ một (hoặc nhiều) sơ đồ mạng sao cho chúng đúng, đầy đủ và cập nhật để thể hiện mọi kết nối giữa CDE và các mạng khác, bao gồm cả các mạng không dây.\n\nDo đó, không có con số cố định trong PCI‑DSS về “cần bao nhiêu sơ đồ”. Thay vào đó, doanh nghiệp phải duy trì các sơ đồ mạng cần thiết để mô tả toàn bộ môi trường của mình.\n\nVới một địa điểm bán lẻ và một trang thương mại điện tử trên đám mây, doanh nghiệp có thể:\n\nTạo một sơ đồ mạng duy nhất bao gồm cả kết nối của địa điểm bán lẻ và môi trường đám mây, hoặc\nTách thành hai sơ đồ riêng (một cho địa điểm bán lẻ, một cho môi trường đám mây) nếu việc tách biệt giúp mô tả chi tiết hơn.\n\nĐiều quan trọng là mỗi sơ đồ phải phản ánh chính xác tất cả các kết nối giữa CDE và các mạng khác, và phải được duy trì cập nhật khi có thay đổi.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260319_ENG_PCIDSS_Requirement_1_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260319_ENG_PCIDSS_Requirement_1_1.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md"
+    ]
+  },
+  {
+    "question": "What events must be captured regarding 'system-level objects' in audit logs?",
+    "id": "Q130",
+    "answer": "Audit logs phải ghi lại mọi việc tạo và xóa các đối tượng cấp hệ thống (system‑level objects)【2】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_1.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md",
+      "20260327_ENG_PCIDSS_Requirement_10_6.md"
+    ]
+  },
+  {
+    "question": "Describe the 'Requirement 12.3' targeted risk analysis methodology.",
+    "id": "Q131",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "How must an organization handle the security risk of insecure protocols used for business?",
+    "id": "Q132",
+    "answer": "Đối với các giao thức (hoặc dịch vụ, daemon) không an toàn mà doanh nghiệp vẫn cần sử dụng, PCI‑DSS yêu cầu:\n\nCó lập tài liệu biện minh kinh doanh – phải ghi lại lý do kinh doanh hợp lệ cho việc duy trì giao thức không an toàn.\nÁp dụng các tính năng bảo mật bổ sung – các biện pháp bảo vệ (ví dụ: mã hoá, xác thực mạnh, lọc lưu lượng, …) phải được xác định, tài liệu hoá và triển khai để giảm thiểu rủi ro mà giao thức không an toàn gây ra.\n\nCác yêu cầu này được nêu trong Sub‑requirement 2.2.5 (đối với dịch vụ, giao thức, daemon) và Sub‑requirement 1.2.6 (đối với các giao thức, cổng và dịch vụ không an toàn)【1】【2】.\n\nTóm lại, khi một giao thức không an toàn được sử dụng cho mục đích kinh doanh, tổ chức phải:\n\nGhi lại và phê duyệt biện minh kinh doanh.\nXác định, tài liệu và triển khai các tính năng bảo mật bổ sung để giảm thiểu rủi ro liên quan.\n\nNếu không có biện minh hợp lệ hoặc không có biện pháp bảo mật bổ sung, giao thức không an toàn không được phép sử dụng.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md"
+    ]
+  },
+  {
+    "question": "What constitutes a 'successful' audit log review process?",
+    "id": "Q133",
+    "answer": "Một quy trình đánh giá audit log “thành công” phải đáp ứng các yếu tố sau (theo Control Objective 10.4):\n\nThực hiện review định kỳ\n\nReview hàng ngày các log bảo mật, log của mọi thành phần hệ thống lưu, xử lý hoặc truyền CHD, các thành phần quan trọng và các hệ thống thực hiện chức năng bảo mật (10.4.1).\nReview định kỳ các thành phần không quan trọng theo tần suất được xác định trong phân tích rủi ro mục tiêu (10.4.2 & 10.4.2.1).\n\nSử dụng cơ chế tự động để thu thập, phân tích và cảnh báo các sự kiện đáng chú ý (10.4.1.1).\n\nXác định nhanh chóng các hoạt động đáng ngờ hoặc bất thường – việc phát hiện sớm giúp giảm thiểu thời gian và mức độ ảnh hưởng (Guidance – Purpose).\n\nXử lý các ngoại lệ và bất thường\n\nGhi lại, xếp hạng, ưu tiên và báo cáo các ngoại lệ/anhomalies.\nThiết lập quy trình điều tra và khắc phục, chỉ định người chịu trách nhiệm (10.4.3 & Guidance – Good Practice).\n\nDựa trên baseline hoạt động bình thường để phân biệt hành vi bất thường (Guidance – Good Practice).\n\nĐảm bảo tính liên tục – quy trình phải được thực hiện 7 ngày/tuần, 365 ngày/năm, kể cả ngày lễ (Guidance – Good Practice).\n\nKhi một tổ chức đáp ứng đầy đủ các yếu tố trên, audit log review được coi là thành công vì nó liên tục phát hiện, ghi nhận và xử lý kịp thời các dấu hiệu xâm nhập hoặc hành vi bất thường, ngăn chặn việc kẻ tấn công ẩn danh các hoạt động của mình.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_5.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md"
+    ]
+  },
+  {
+    "question": "Why does 'Requirement 6.5.6' require the removal of test accounts before production?",
+    "id": "Q134",
+    "answer": "Requirement 6.5.6 yêu cầu “Test data và test accounts phải được loại bỏ khỏi các thành phần hệ thống trước khi hệ thống đưa vào môi trường production” vì:\n\nDữ liệu và tài khoản test có thể tiết lộ thông tin về cách hoạt động của ứng dụng hoặc hệ thống.\nKhi những thông tin này rơi vào tay kẻ xấu, chúng trở thành mục tiêu dễ dàng để khai thác, cho phép kẻ tấn công truy cập vào hệ thống.\nViệc tồn tại các tài khoản test trong môi trường production tăng nguy cơ bị xâm nhập và có thể dẫn đến việc đánh cắp hoặc phá hoại dữ liệu và tài khoản thực.\n\nDo đó, việc xóa bỏ hoàn toàn test data và test accounts trước khi đưa vào production giúp giảm bớt bề mặt tấn công và ngăn ngừa các kẻ không‑được ủy quyền lợi dụng chúng để xâm nhập hệ thống.\n\nNguồn: PCI‑DSS v4.0.1 Control Objective 6.5, Sub‑requirement 6.5.6 – Guidance – Purpose【1】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md"
+    ]
+  },
+  {
+    "question": "A merchant's data-flow diagram only shows authorization paths. Is this compliant?",
+    "id": "Q135",
+    "answer": "Không. Data‑flow diagram (DFD) phải mô tả tất cả các luồng dữ liệu thẻ trong môi trường, không chỉ các đường dẫn “authorization”.\nTheo hướng dẫn của Requirement 1.2.4, DFD cần bao gồm:\n\nCác điểm kết nối nơi dữ liệu tài khoản được nhận vào và gửi ra mạng (các mạng công cộng, các luồng xử lý ứng dụng, lưu trữ, truyền giữa hệ thống, sao lưu,…).\nTất cả các luồng xử lý của dữ liệu tài khoản, bao gồm authorization, capture, settlement, chargeback và refunds.\n\nNếu chỉ hiển thị các luồng “authorization” thì các luồng khác (capture, settlement, v.v.) sẽ bị bỏ sót, làm cho DFD không đầy đủ và không đáp ứng yêu cầu của PCI‑DSS. Vì vậy, một DFD chỉ có các đường dẫn authorization không tuân thủ yêu cầu 1.2.4.\n\nNguồn: PCI‑DSS v4.0.1, Control Objective 1.2, Sub‑requirement 1.2.4 – Guidance – Good Practice【1】",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_2.md"
+    ]
+  },
+  {
+    "question": "What is the requirement for 'Requirement 8.2.1' regarding user IDs?",
+    "id": "Q136",
+    "answer": "Requirement 8.2.1 quy định rằng mọi người dùng phải được gán một ID duy nhất trước khi được phép truy cập vào bất kỳ thành phần hệ thống nào hoặc dữ liệu chủ thẻ【1】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_1.md",
+      "20260327_ENG_PCIDSS_Requirement_7_2.md"
+    ]
+  },
+  {
+    "question": "How does Requirement 3 protect cardholder data if primary access controls are bypassed?",
+    "id": "Q137",
+    "answer": "Requirement 3 bảo vệ dữ liệu chủ thẻ bằng các biện pháp mã hoá và quản lý khóa, vì vậy ngay cả khi các kiểm soát truy cập chính (access controls) bị bỏ qua, dữ liệu vẫn không thể bị khai thác:\n\nSplit knowledge và dual control – Các khóa rõ văn bản được quản lý sao cho không một cá nhân nào có thể biết toàn bộ khóa. Điều này ngăn một kẻ tấn công, dù đã vượt qua kiểm soát truy cập, không thể tự mình giải mã dữ liệu vì không có đủ thành phần khóa.\n[2]\n\nNgăn chặn việc thay thế khóa không được ủy quyền – Chính sách quản lý khóa phải quy định cách ngăn người không có thẩm quyền thay thế khóa bằng khóa mà họ biết. Khi khóa bị thay thế, dữ liệu vẫn được bảo vệ vì kẻ tấn công không thể dùng khóa giả để giải mã.\n[2]\n\nQuy định vòng đời khóa (key rotation & retirement) – Khi một khóa đạt đến cuối chu kỳ (cryptoperiod) hoặc bị suy yếu/đánh cắp, nó phải được thay đổi hoặc hủy bỏ ngay lập tức. Điều này giảm thiểu thời gian mà một khóa bị lộ có thể được sử dụng để giải mã dữ liệu.\n[2] (key rotation – 3.7.4)\n[2] (key retirement – 3.7.5)\n\nTrách nhiệm và xác nhận của người quản lý khóa – Các custodian phải ký xác nhận họ hiểu và chấp nhận trách nhiệm quản lý khóa, giúp đảm bảo quy trình quản lý khóa được thực thi một cách nhất quán và có kiểm soát.\n[2] (key custodian accountability – 3.7.8)\n\nNhững biện pháp trên tạo ra một lớp bảo vệ mã hoá độc lập với các kiểm soát truy cập truyền thống; ngay khi một kẻ xâm nhập vượt qua lớp truy cập, họ vẫn không có khả năng đọc dữ liệu thẻ nếu không có khóa hợp lệ. Vì vậy, Requirement 3 bảo vệ dữ liệu chủ thẻ ngay cả khi các kiểm soát truy cập chính bị bỏ qua.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "What constitutes 'Requirement 11.4.1' for penetration testing methodology?",
+    "id": "Q138",
+    "answer": "Requirement 11.4.1 yêu cầu tổ chức phải định nghĩa, tài liệu hoá và triển khai một phương pháp penetration testing bao gồm các yếu tố sau:\n\nSử dụng các phương pháp penetration testing được công nhận trong ngành.\nBao phủ toàn bộ périmét CDE và các hệ thống quan trọng.\nThực hiện kiểm thử từ cả bên trong và bên ngoài mạng.\nKiểm tra để xác nhận tính hiệu quả của bất kỳ biện pháp phân đoạn (segmentation) và giảm phạm vi (scope‑reduction) nào.\nThực hiện penetration testing lớp ứng dụng để xác định ít nhất các lỗ hổng được liệt kê trong Requirement 6.2.4.\nThực hiện penetration testing lớp mạng bao gồm tất cả các thành phần hỗ trợ chức năng mạng cũng như hệ điều hành.\nXem xét và cân nhắc các mối đe dọa và lỗ hổng đã xảy ra trong 12 tháng qua.\nCó cách tiếp cận được tài liệu hoá để đánh giá và xử lý rủi ro do các lỗ hổng và điểm yếu có thể khai thác được phát hiện trong quá trình penetration testing.\nLưu trữ kết quả penetration testing và các hoạt động khắc phục ít nhất 12 tháng.\n\nNguồn: PCI‑DSS v4.0.1, Control Objective 11.4, Sub‑requirement 11.4.1【1】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_6.md",
+      "20260327_ENG_PCIDSS_Requirement_11_5.md"
+    ]
+  },
+  {
+    "question": "Why must an organization review its firmware versions regularly?",
+    "id": "Q139",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_4.md"
+    ]
+  },
+  {
+    "question": "Explain the security requirement for 'Requirement 2.2.7' regarding HTTP access.",
+    "id": "Q140",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260327_ENG_PCIDSS_Requirement_4_1.md",
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md"
+    ]
+  },
+  {
+    "question": "What must be included in a 'Requirement 12.10.1' incident response plan?",
+    "id": "Q141",
+    "answer": "Theo PCI‑DSS v4.0.1, Requirement 12.10.1, kế hoạch ứng phó sự cố (incident response plan) phải được xây dựng và sẵn sàng kích hoạt khi có sự cố bảo mật nghi ngờ hoặc đã xác nhận. Kế hoạch này phải bao gồm, ít nhất, các nội dung sau \n20260327_ENG_PC...t_12_10.md\n:\n\nVai trò, trách nhiệm và chiến lược truyền thông/liên lạc trong trường hợp sự cố, bao gồm việc thông báo tối thiểu cho các thương hiệu thẻ và các ngân hàng/acquirer.\nQuy trình ứng phó sự cố với các hoạt động cụ thể về containment (kiềm chế) và mitigation (giảm thiểu) cho các loại sự cố khác nhau.\nQuy trình phục hồi kinh doanh và duy trì hoạt động (business recovery và continuity).\nQuy trình sao lưu dữ liệu (data backup).\nPhân tích các yêu cầu pháp lý liên quan đến việc báo cáo các vụ vi phạm.\nPhạm vi bao phủ và phản hồi cho tất cả các thành phần hệ thống quan trọng.\nTham chiếu hoặc tích hợp các quy trình ứng phó sự cố của các thương hiệu thẻ (payment brands).",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_11_5.md",
+      "20260327_ENG_PCIDSS_Requirement_11_2.md"
+    ]
+  },
+  {
+    "question": "How must an entity verify that its anti-malware solution is 'active' for all systems?",
+    "id": "Q142",
+    "answer": "Để xác nhận rằng giải pháp anti‑malware đang hoạt động (active) trên mọi hệ thống, thực thể phải thực hiện các bước kiểm tra sau \n20260327_ENG_PC...ent_5_2.md\n:\n\nKiểm tra cấu hình và trạng thái của tất cả các thành phần hệ thống để xác nhận rằng anti‑malware đã được cài đặt và bật (active) trên mỗi thành phần.\nNếu có bất kỳ thành phần nào không có anti‑malware, thực thể phải xem xét các đánh giá định kỳ (theo Requirement 5.2.3) để chứng minh rằng thành phần đó đã được đánh giá và kết luận không có rủi ro bị malware, do đó được phép không triển khai giải pháp.\n\nQuy trình này bao gồm việc xem xét tài liệu, cấu hình, và (nếu cần) phỏng vấn nhân viên để đảm bảo rằng mọi hệ thống đều có anti‑malware đang hoạt động, ngoại trừ những hệ thống đã được xác định là không có rủi ro.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_5_2.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260327_ENG_PCIDSS_Requirement_5_1.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md"
+    ]
+  },
+  {
+    "question": "What is the requirement for 'Requirement 7.2.3' regarding privilege approvals?",
+    "id": "Q143",
+    "answer": "The current knowledge base does not provide enough data to conclude what Requirement 7.2.3 specifically states about privilege approvals.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_3.md",
+      "20260327_ENG_PCIDSS_Requirement_7_1.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_1.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_8_4.md"
+    ]
+  },
+  {
+    "question": "Why must an organization track the 'make and model' of its POI devices?",
+    "id": "Q144",
+    "answer": "Theo PCI‑DSS v4.0.1, việc duy trì danh sách POI devices phải bao gồm make (hãng) và model (kiểu) của mỗi thiết bị. Lý do là để:\n\nXác định duy nhất mỗi thiết bị trong môi trường, giúp so sánh với danh sách chuẩn khi thực hiện kiểm tra thực địa.\nPhát hiện nhanh các hành vi tampering (can thiệp) hoặc thay thế trái phép (unauthorized substitution) bằng cách nhận ra thiết bị không khớp với “make‑model” đã ghi nhận.\nQuản lý và bảo vệ thiết bị một cách có hệ thống, hỗ trợ việc duy trì kiểm soát vật lý và an ninh cho các thiết bị POI.\n\nDo đó, việc ghi lại “make và model” là một phần thiết yếu của việc bảo vệ POI devices khỏi việc bị thay đổi hoặc lạm dụng. \n20260327_ENG_PC...ent_9_5.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_11_1.md",
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260327_ENG_PCIDSS_Requirement_10_1.md",
+      "20260327_ENG_PCIDSS_Requirement_9_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_1.md"
+    ]
+  },
+  {
+    "question": "What constitutes 'Requirement 10.2.1.1' for logging user access?",
+    "id": "Q145",
+    "answer": "The current knowledge base does not provide enough data to describe what “Requirement 10.2.1.1” entails for logging user access.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260327_ENG_PCIDSS_Requirement_10_7.md"
+    ]
+  },
+  {
+    "question": "How should an entity handle 'Requirement 12.8.3' regarding TPSP vetting?",
+    "id": "Q146",
+    "answer": "Theo Requirement 12.8.3 (đánh giá và lựa chọn nhà cung cấp dịch vụ bên thứ ba – TPSP), thực thể phải thực hiện một quy trình đánh giá trước khi ký hợp đồng (due‑diligence) cho mọi TPSP mà nó dự định hợp tác.\n\nCụ thể, quy trình này phải:\n\nXác định và ghi lại các bước đánh giá khả năng, ý định và nguồn lực của TPSP để bảo vệ dữ liệu tài khoản trước khi ký hợp đồng.\nKiểm tra các yếu tố như:\nThực tiễn báo cáo và quản lý sự cố của TPSP (reporting practices, breach‑notification và incident‑response procedures).\nCách thức phân chia trách nhiệm PCI DSS giữa thực thể và TPSP.\nCách TPSP xác nhận và chứng minh việc tuân thủ PCI DSS (ví dụ: AOC, bằng chứng khác).\nCác quy trình và công cụ hỗ trợ (ví dụ: quản lý báo cáo, giám sát, kiểm soát truy cập).\nLưu trữ bằng chứng (tài liệu, phỏng vấn nhân sự) chứng minh rằng quy trình due‑diligence đã được thực hiện đầy đủ trước khi ký hợp đồng.\n\nViệc này được mô tả trong tài liệu PCI‑DSS như sau \n20260327_ENG_PC...nt_12_8.md\n:\n\n“An established process is implemented for engaging TPSPs, including proper due diligence prior to engagement.”\n“The capability, intent, and resources of a prospective TPSP to adequately protect account data are assessed before the TPSP is engaged.”\n“Specific due‑diligence processes and goals will vary… include provider’s reporting practices, breach‑notification and incident response procedures, details of how PCI DSS responsibilities are assigned, how the TPSP validates their PCI DSS compliance and what evidence they provide.”",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md"
+    ]
+  },
+  {
+    "question": "What constitutes 'Requirement 4.2' for protecting PAN during transmission?",
+    "id": "Q147",
+    "answer": "Requirement 4.2 (bảo vệ PAN khi truyền tải) yêu cầu thực thể phải áp dụng mã hoá mạnh và giao thức bảo mật cho mọi luồng dữ liệu chứa PAN khi truyền qua các mạng mở, công cộng và các kênh truyền thông khác.\n\nCác yếu tố chính của Requirement 4.2 bao gồm \n20260327_ENG_PC...ent_4_2.md\n:\n\nSử dụng strong cryptography (mã hoá mạnh) và các giao thức bảo mật được thiết kế chỉ hỗ trợ các phiên bản/ cấu hình an toàn; không cho phép fallback hoặc sử dụng các thuật toán, kích thước khóa, hoặc triển khai không an toàn.\nChỉ chấp nhận các khóa và chứng chỉ tin cậy; các chứng chỉ phải được xác nhận là hợp lệ, không hết hạn và không bị thu hồi.\nĐộ mạnh của mã hoá phải phù hợp với phương pháp mã hoá được sử dụng (ví dụ: độ dài khóa, thuật toán).\nBảo vệ PAN trên mọi kênh truyền:\nMạng công cộng (Internet, Wi‑Fi, Bluetooth, cellular, satellite, …) – PAN phải được mã hoá khi truyền.\nMạng không dây – áp dụng các thực tiễn tốt nhất để triển khai mã hoá mạnh cho cả xác thực và truyền dữ liệu (sub‑requirement 4.2.1.2).\nTin nhắn người dùng cuối (email, chat, SMS, …) – PAN phải được mã hoá bằng strong cryptography khi gửi qua các công nghệ này (sub‑requirement 4.2.2).\nDuy trì danh mục (inventory) các khóa và chứng chỉ tin cậy được sử dụng để bảo vệ PAN trong quá trình truyền (sub‑requirement 4.2.1.1). Danh mục này giúp theo dõi thuật toán, giao thức, độ mạnh khóa, người chịu trách nhiệm và ngày hết hạn, từ đó phản hồi nhanh khi có lỗ hổng hoặc thu hồi chứng chỉ.\n\nTóm lại, Requirement 4.2 yêu cầu mã hoá PAN bằng cryptography mạnh, sử dụng chỉ các khóa/chứng chỉ tin cậy, áp dụng giao thức không có khả năng downgrade, và bảo vệ PAN trên mọi kênh truyền (mạng công cộng, không dây, và tin nhắn người dùng cuối), đồng thời duy trì danh mục các khóa/chứng chỉ.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_4_1.md"
+    ]
+  },
+  {
+    "question": "Why does 'Requirement 6.2.1' require security considerations in ALL stages of development?",
+    "id": "Q148",
+    "answer": "Requirement 6.2.1 đòi hỏi phải “incorporate consideration of information security issues during each stage of the software development lifecycle” vì:\n\nNgăn ngừa lỗ hổng sớm – Nếu không đưa bảo mật vào giai đoạn định nghĩa yêu cầu, thiết kế, phân tích và kiểm thử, các lỗ hổng có thể được chèn vào phần mềm một cách vô tình hoặc có chủ đích, khiến chúng xuất hiện trong môi trường production.\nGiảm chi phí và rủi ro – Việc phát hiện và khắc phục lỗi bảo mật sau khi phần mềm đã triển khai tốn kém hơn rất nhiều so với việc xử lý chúng ngay trong quá trình phát triển.\nĐáp ứng yêu cầu PCI DSS – PCI DSS yêu cầu phần mềm nội bộ phải được xây dựng “based on industry standards and/or best practices for secure development” và phải đáp ứng các yêu cầu bảo mật (ví dụ: xác thực an toàn, ghi log) ở mọi giai đoạn, nhằm bảo vệ dữ liệu chủ thẻ.\n\nDo đó, việc xem xét các vấn đề bảo mật ở tất cả các giai đoạn của vòng đời phát triển phần mềm là cần thiết để ngăn chặn việc đưa mã có lỗ hổng vào môi trường sản xuất và để tuân thủ các yêu cầu bảo mật của PCI DSS. \n20260327_ENG_PC...ent_6_2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_4.md"
+    ]
+  },
+  {
+    "question": "What action is required if an entity uses a TPSP for its SIEM services?",
+    "id": "Q149",
+    "answer": "Khi một thực thể sử dụng một bên thứ ba (TPSP) để cung cấp dịch vụ SIEM, phải đưa nhà cung cấp này vào danh sách TPSP của thực thể và mô tả dịch vụ mà họ cung cấp.\n\nControl Objective 12.8 yêu cầu duy trì một danh sách đầy đủ các TPSP, kèm theo mô tả chi tiết về mỗi dịch vụ mà họ cung cấp (ví dụ: “security incident and event management (SIEM)”) \n20260327_ENG_PC...nt_12_8.md\n.\n\nDo đó, hành động cần thực hiện là ghi nhận TPSP cung cấp SIEM trong inventory TPSP và ghi chú mô tả dịch vụ.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_1.md"
+    ]
+  },
+  {
+    "question": "What must an organization do if they find PAN in a debugging log during a scope review?",
+    "id": "Q150",
+    "answer": "Khi trong quá trình rà soát phạm vi (scope review) phát hiện PAN xuất hiện trong một file log gỡ lỗi (debugging log), thực thể phải loại bỏ PAN đó hoặc áp dụng các biện pháp bảo mật thích hợp (ví dụ: xóa, mã hoá, mask) để đảm bảo dữ liệu không còn tồn tại ở dạng có thể đọc được. \n20260327_ENG_PC...nt_12_5.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md"
+    ]
+  }
+]

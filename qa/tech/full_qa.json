@@ -1,0 +1,902 @@
+[
+  {
+    "id": "Q001",
+    "question": "What is the primary objective of maintaining up-to-date network diagrams according to Requirement 1?",
+    "answer": "Accurate network diagrams ensure that all connections and devices are identified, preventing them from being overlooked or left unsecured, which helps verify the organization's PCI DSS scope.",
+    "source": ["Requirement 1.2.3"]
+  },
+  {
+    "id": "Q002",
+    "question": "How do network segmentation (Req 1) and least-privilege access control (Req 7) collaborate to secure the cardholder data environment?",
+    "answer": "Segmentation limits the broad network pathways to the CDE, while least-privilege controls restrict internal user movements, together creating layers that prevent unauthorized lateral movement and data access.",
+    "source": ["Requirement 1.2.1", "Requirement 7.2.2"]
+  },
+  {
+    "id": "Q003",
+    "question": "An administrator forgets to change a default password on a newly deployed cloud virtual network control. Which requirement is violated, and what is the risk?",
+    "answer": "This violates Requirement 2.2.2; the risk is that attackers can use well-known vendor defaults to gain unauthorized administrative access to critical network configurations.",
+    "source": ["Requirement 2.2.2"]
+  },
+  {
+    "id": "Q004",
+    "question": "Why does Requirement 3 strictly prohibit the storage of sensitive authentication data (SAD) after authorization, even if encrypted?",
+    "answer": "SAD, such as full track data or CVV codes, is highly valuable for generating counterfeit cards; prohibiting its storage post-authorization minimizes the risk of fraudulent transaction creation if a breach occurs.",
+    "source": ["Requirement 3.3.1"]
+  },
+  {
+    "id": "Q005",
+    "question": "Contrast the use of masking versus truncation in protecting Primary Account Numbers (PAN).",
+    "answer": "Masking hides digits during display or printing but leaves the full PAN on the system, whereas truncation permanently removes digits so they cannot be retrieved without another source.",
+    "source": ["Requirement 3.4.1"]
+  },
+  {
+    "id": "Q006",
+    "question": "How should an organization verify that all Primary Account Numbers (PAN) are rendered unreadable in their database logs?",
+    "answer": "Testing procedures involve examining data repositories and audit logs to confirm that methods like one-way hashes or strong cryptography are effectively applied to all stored PAN instances.",
+    "source": ["Requirement 3.5.1.b"]
+  },
+  {
+    "id": "Q007",
+    "question": "In a scenario where an entity uses a third-party cloud provider for storage, who is responsible for the inventory of trusted keys and certificates?",
+    "answer": "According to Requirement 4.2.1.1 and its guidance, maintaining an inventory of trusted keys used for transmission is the entity's responsibility, though it may be shared in cloud HSM implementations.",
+    "source": ["Requirement 4.2.1.1", "Requirement 3.6.1.1"]
+  },
+  {
+    "id": "Q008",
+    "question": "Explain the role of 'cryptographic agility' as defined in Requirement 12 in the context of data transmission security.",
+    "answer": "Cryptographic agility allows an entity to monitor and quickly update encryption protocols or cipher suites if they are deprecated or found vulnerable, ensuring ongoing protection of cardholder data during transmission.",
+    "source": ["Requirement 12.3.3"]
+  },
+  {
+    "id": "Q009",
+    "question": "What is the requirement for anti-malware solutions on system components that are not commonly affected by malware?",
+    "answer": "The entity must perform periodic evaluations to identify and evaluate evolving malware threats to confirm whether those systems still do not require an active anti-malware solution.",
+    "source": ["Requirement 5.2.3"]
+  },
+  {
+    "id": "Q010",
+    "question": "How does Requirement 6.2.4 support the defense-in-depth strategy for custom software development?",
+    "answer": "It requires defining software engineering techniques to proactively prevent common attacks like injection and buffer overflows, addressing vulnerabilities at the code level before deployment.",
+    "source": ["Requirement 6.2.4"]
+  },
+  {
+    "id": "Q011",
+    "question": "A developer needs to test a new application feature using live data. What controls must be in place to use live PANs in this pre-production environment?",
+    "answer": "Live PANs can only be used if the pre-production environment is included in the CDE scope and protected by all applicable PCI DSS controls; otherwise, live data is strictly prohibited.",
+    "source": ["Requirement 6.5.5"]
+  },
+  {
+    "id": "Q012",
+    "question": "What is the specific audit procedure to verify that privileged user access is correctly assigned?",
+    "answer": "The auditor must examine access control models, interview personnel, and check that the assigned privileges are restricted to only those necessary for the individual's specific job function.",
+    "source": ["Requirement 7.2.2.c"]
+  },
+  {
+    "id": "Q013",
+    "question": "Why is multi-factor authentication (MFA) required for all non-console access into the CDE?",
+    "answer": "MFA provides an extra layer of security by requiring at least two independent factors, significantly reducing the likelihood that a compromised password alone leads to an environment breach.",
+    "source": ["Requirement 8.4.2"]
+  },
+  {
+    "id": "Q014",
+    "question": "How should an entity handle publicly accessible network jacks to prevent unauthorized physical access?",
+    "answer": "The entity must implement physical or logical controls, such as disabling unused jacks or requiring visitor escorts in areas where network ports are active and accessible.",
+    "source": ["Requirement 9.2.2"]
+  },
+  {
+    "id": "Q015",
+    "question": "What must be captured in audit logs when an administrator elevates their privileges?",
+    "answer": "Logs must record the user identity, the type of event (elevation of privilege), the timestamp, and the origin of the action to ensure full accountability for high-risk changes.",
+    "source": ["Requirement 10.2.1.5", "Requirement 10.2.2"]
+  },
+  {
+    "id": "Q016",
+    "question": "During a quarterly review, an auditor discovers that the internal vulnerability scans were performed but not by an independent resource. Which requirement is affected?",
+    "answer": "This violates Requirement 11.3.1.1 or 11.3.1.3, as internal scans must be performed by a qualified resource who is organizationally independent of the system being scanned.",
+    "source": ["Requirement 11.3.1.1"]
+  },
+  {
+    "id": "Q017",
+    "question": "Describe the relationship between a TPSP’s written agreement and Requirement 12.8.5 regarding shared responsibilities.",
+    "answer": "The written agreement must acknowledge the TPSP's responsibility for data security, while the documentation required by 12.8.5 details exactly which PCI DSS sub-requirements are managed by the TPSP versus the entity.",
+    "source": ["Requirement 12.8.2", "Requirement 12.8.5"]
+  },
+  {
+    "id": "Q018",
+    "question": "What documentation must be updated immediately after a significant change to the network architecture?",
+    "answer": "Both network diagrams and data-flow diagrams must be updated to reflect the new state and ensure that all connections and data paths are accounted for in the security scope.",
+    "source": ["Requirement 1.2.3", "Requirement 1.2.4"]
+  },
+  {
+    "id": "Q019",
+    "question": "Explain the importance of Requirement 2.2.4 (Minimal Services) in reducing the attack surface.",
+    "answer": "Disabling unnecessary services and protocols eliminates potential entry points that malicious actors could exploit, focusing security efforts only on the functionalities required for business.",
+    "source": ["Requirement 2.2.4"]
+  },
+  {
+    "id": "Q020",
+    "question": "A system is configured to auto-decrypt a partition upon user login. Why is this insufficient for protecting stored cardholder data?",
+    "answer": "Disk-level encryption that provides transparent decryption provides no protection once a user account is compromised; Requirement 3.5.1 requires data-level protection like truncation or hashing.",
+    "source": ["Requirement 3.5.1", "Requirement 3.5.1.2"]
+  },
+  {
+    "id": "Q021",
+    "question": "How do Requirement 3 and Requirement 8 work together to protect cryptographic keys?",
+    "answer": "Requirement 3 defines the lifecycle and storage of keys, while Requirement 8 ensures that access to those keys—especially in cleartext form—is restricted to the fewest authorized custodians possible.",
+    "source": ["Requirement 3.6.1.3", "Requirement 8.2.1"]
+  },
+  {
+    "id": "Q022",
+    "question": "An organization uses wireless technology cellular communications to transmit PAN. What specific security measures must be implemented?",
+    "answer": "The organization must use strong cryptography for both authentication and transmission over the wireless network, following industry best practices to prevent eavesdropping and data interception.",
+    "source": ["Requirement 4.2.1.2"]
+  },
+  {
+    "id": "Q023",
+    "question": "What is the required retention period for audit log history, and what portion must be immediately accessible?",
+    "answer": "Audit logs must be retained for at least one year, with a minimum of the last three months of log history kept immediately available for rapid forensic analysis.",
+    "source": ["Requirement 10.5.1"]
+  },
+  {
+    "id": "Q024",
+    "question": "What scenario would trigger an ad-hoc penetration test according to Requirement 11.4?",
+    "answer": "A significant change to the CDE, such as a major software upgrade or network architecture modification, necessitates a targeted penetration test to ensure no new vulnerabilities were introduced.",
+    "source": ["Requirement 11.4.2", "Requirement 11.4.3"]
+  },
+  {
+    "id": "Q025",
+    "question": "How does Requirement 12.3.1 (Targeted Risk Analysis) provide flexibility to organizations?",
+    "answer": "It allows entities to define the frequency of certain security activities based on their specific environment's risk level, provided they use a documented and repeatable risk assessment methodology.",
+    "source": ["Requirement 12.3.1"]
+  },
+  {
+    "id": "Q026",
+    "question": "What is the purpose of anti-spoofing measures in network security controls?",
+    "answer": "Anti-spoofing detects and blocks packets with forged source IP addresses, preventing malicious actors from masquerading as internal or trusted sources to bypass security filters.",
+    "source": ["Requirement 1.4.3"]
+  },
+  {
+    "id": "Q027",
+    "question": "If a system component has two primary functions with different security needs, how must they be secured?",
+    "answer": "The functions should ideally be isolated on different components, but if they share a system, the entire component must be secured to the level required by the function with the highest security need.",
+    "source": ["Requirement 2.2.3"]
+  },
+  {
+    "id": "Q028",
+    "question": "A merchant wants to keep card verification codes (CVV) for post-purchase disputes. Is this allowed?",
+    "answer": "No; Requirement 3.3.1.2 strictly prohibits storing the card verification code once the authorization process is complete, regardless of the business justification.",
+    "source": ["Requirement 3.3.1.2"]
+  },
+  {
+    "id": "Q029",
+    "question": "What must an entity do if they identify an insecure service like Telnet that is necessary for their business operations?",
+    "answer": "The entity must document the business justification, identify the specific risks, and implement additional security features to mitigate the risk of using that insecure protocol.",
+    "source": ["Requirement 1.2.6", "Requirement 2.2.5"]
+  },
+  {
+    "id": "Q030",
+    "question": "How should an administrator verify that only authorized personnel have read access to audit logs?",
+    "answer": "The procedure involves examining the access control settings and privilege lists for the log files to ensure they align with 'need to know' requirements and documented approvals.",
+    "source": ["Requirement 10.3.1"]
+  },
+  {
+    "id": "Q031",
+    "question": "Why does Requirement 5 emphasize protecting against 'zero-day' attacks through behavioral analysis?",
+    "answer": "Zero-day attacks exploit unknown vulnerabilities that lack signatures; behavioral analysis can identify and alert on suspicious activity patterns that deviate from the established norm before a signature is available.",
+    "source": ["Requirement 5.2.3", "Requirement 5.3.2"]
+  },
+  {
+    "id": "Q032",
+    "question": "What is the requirement for reviewing bespoke and custom code prior to release?",
+    "answer": "Code must be reviewed by an individual other than the author who is knowledgeable in secure coding, and the review must be formally approved by management before being deployed.",
+    "source": ["Requirement 6.2.3.1", "Requirement 6.2.3.2"]
+  },
+  {
+    "id": "Q033",
+    "question": "An employee leaves the company. What action must be taken regarding their system access accounts and physical access devices?",
+    "answer": "All system access accounts must be deactivated or removed immediately, and any physical access devices like keys or badges must be returned or disabled upon termination.",
+    "source": ["Requirement 8.2.6", "Requirement 9.3.1.1"]
+  },
+  {
+    "id": "Q034",
+    "question": "How does Requirement 10.6 support forensic investigations?",
+    "answer": "Time-synchronization technology ensures all system clocks are consistent, allowing investigators to accurately sequence events across multiple system logs to reconstruct an attack timeline.",
+    "source": ["Requirement 10.6.1"]
+  },
+  {
+    "id": "Q035",
+    "question": "A TPSP manages an entity’s firewalls. What must the entity confirm regarding the TPSP’s compliance?",
+    "answer": "The entity must monitor the TPSP’s PCI DSS compliance status annually and maintain documentation clearly showing that the TPSP is responsible for meeting specific Requirements 1 and 2.",
+    "source": ["Requirement 12.8.4", "Requirement 12.8.5"]
+  },
+  {
+    "id": "Q036",
+    "question": "What are the rules for managing accounts used by third parties for remote maintenance?",
+    "answer": "These accounts must be enabled only when needed, disabled immediately after use, and proactively monitored for any unexpected or unauthorized activity during the access period.",
+    "source": ["Requirement 8.2.7"]
+  },
+  {
+    "id": "Q037",
+    "question": "Explain 'split knowledge' and 'dual control' in the context of cryptographic key management.",
+    "answer": "Split knowledge ensures no single person knows the whole key; dual control requires two people to authenticate its use, together preventing one person from independently compromising the data.",
+    "source": ["Requirement 3.7.6"]
+  },
+  {
+    "id": "Q038",
+    "question": "An entity uses an automated technical solution to protect its public-facing web applications. What configurations are required?",
+    "answer": "The solution (like a WAF) must be actively running, up to date, generating logs, and configured to either block attacks in real-time or trigger an immediate investigative alert.",
+    "source": ["Requirement 6.4.1", "Requirement 6.4.2"]
+  },
+  {
+    "id": "Q039",
+    "question": "What must be included in the annual security awareness education for personnel?",
+    "answer": "The program must be updated for current threats and include training on social engineering, phishing detection, and the correct usage of end-user technologies according to company policy.",
+    "source": ["Requirement 12.6.2", "Requirement 12.6.3"]
+  },
+  {
+    "id": "Q040",
+    "question": "How often must an organization perform an inventory of its point-of-interaction (POI) devices?",
+    "answer": "POI devices must be checked against an accurate list at a frequency determined by the entity’s risk assessment, though the list itself must be kept up to date continuously.",
+    "source": ["Requirement 9.5.1.1", "Requirement 9.5.1.2.1"]
+  },
+  {
+    "id": "Q041",
+    "question": "What action is required when a critical security control, such as a firewall, fails?",
+    "answer": "The failure must be detected and alerted promptly, and the organization must follow an incident response process to analyze the cause, remediate the issue, and restore the control.",
+    "source": ["Requirement 10.7.2", "Requirement 10.7.3"]
+  },
+  {
+    "id": "Q042",
+    "question": "Why is it important to restrict outbound traffic from the cardholder data environment?",
+    "answer": "Restricting outbound traffic prevents compromised systems within the CDE from communicating with untrusted external hosts, thereby hindering data exfiltration and command-and-control activities.",
+    "source": ["Requirement 1.3.2"]
+  },
+  {
+    "id": "Q043",
+    "question": "How does Requirement 7 enforce the 'need to know' principle for system-to-system accounts?",
+    "answer": "It requires that access rights for application and system accounts are limited to only the minimum permissions necessary for the specific operability of that application or system.",
+    "source": ["Requirement 7.2.5"]
+  },
+  {
+    "id": "Q044",
+    "question": "What is the requirement for changing cryptographic keys that protect stored account data?",
+    "answer": "Keys must be changed periodically according to their defined cryptoperiod or whenever a key is suspected or known to have been compromised.",
+    "source": ["Requirement 3.7.4"]
+  },
+  {
+    "id": "Q045",
+    "question": "What is the role of an Approved Scanning Vendor (ASV) in the PCI DSS framework?",
+    "answer": "An ASV is required to perform and validate external vulnerability scans at least once every three months, ensuring that public-facing infrastructure is tested by a qualified third party.",
+    "source": ["Requirement 11.3.2.1"]
+  },
+  {
+    "id": "Q046",
+    "question": "Under what condition is 'split-tunneling' for VPNs allowed on computing devices connecting to the CDE?",
+    "answer": "Guidance suggests that split-tunneling should be forbidden for devices connecting to both untrusted networks and the CDE to mitigate risks; instead, devices should boot directly into a VPN.",
+    "source": ["Requirement 1.5.1"]
+  },
+  {
+    "id": "Q047",
+    "question": "How must an organization verify the identity of a user before performing a password reset?",
+    "answer": "The organization must implement procedures to positively identify the user, such as using knowledge-based information or a secret question/answer, before allowing a credential change.",
+    "source": ["Requirement 8.3.3"]
+  },
+  {
+    "id": "Q048",
+    "question": "If an entity uses hashes to render PAN unreadable, what additional requirement must they meet starting March 2025?",
+    "answer": "The entity must use keyed cryptographic hashes of the entire PAN, ensuring associated key management processes are in place to prevent brute-force reconstruction.",
+    "source": ["Requirement 3.5.1.1"]
+  },
+  {
+    "id": "Q049",
+    "question": "What documentation is required to describe the overall cryptographic architecture?",
+    "answer": "Service providers must maintain a document detailing the algorithms, protocols, and devices used to protect stored account data, as well as the location and types of HSMs or KMS.",
+    "source": ["Requirement 3.6.1.1"]
+  },
+  {
+    "id": "Q050",
+    "question": "How should an auditor verify that test data is removed before a system goes live?",
+    "answer": "The auditor must examine the production system's code, configuration files, and data stores to verify that any accounts or data used during the testing phase have been deleted.",
+    "source": ["Requirement 6.5.6"]
+  },
+  {
+    "id": "Q051",
+    "question": "What constitutes a 'significant change' that would require a re-validation of the PCI DSS scope?",
+    "answer": "Significant changes include company mergers, acquisitions, or major reassignments of security responsibility that could impact existing controls or introduce new system components.",
+    "source": ["Requirement 12.5.3"]
+  },
+  {
+    "id": "Q052",
+    "question": "Contrast the audit log review frequency for critical systems versus 'all other' system components.",
+    "answer": "Critical systems require daily log reviews, whereas reviews for other system components can occur at a periodic frequency determined by the entity's risk assessment.",
+    "source": ["Requirement 10.4.1", "Requirement 10.4.2"]
+  },
+  {
+    "id": "Q053",
+    "question": "Why is hard-coding passwords in custom source code prohibited?",
+    "answer": "Hard-coded credentials are often easily readable by developers or attackers with access to source files, bypassing encryption and significantly increasing the risk of unauthorized access.",
+    "source": ["Requirement 8.6.2"]
+  },
+  {
+    "id": "Q054",
+    "question": "What information must be recorded in the log for every visitor to a sensitive area?",
+    "answer": "The log must contain the visitor's name, their organization, the personnel authorizing the access, and the date and time of the visit.",
+    "source": ["Requirement 9.3.4"]
+  },
+  {
+    "id": "Q055",
+    "question": "How does Requirement 1.2.5 ensure only necessary network traffic is allowed?",
+    "answer": "It requires that all allowed services, protocols, and ports are identified, approved, and have a clearly defined business justification documented.",
+    "source": ["Requirement 1.2.5"]
+  },
+  {
+    "id": "Q056",
+    "question": "What is the security risk associated with keeping default SNMP communities?",
+    "answer": "Default SNMP settings allow attackers to query network devices for sensitive configuration and routing information, potentially facilitating further network-wide attacks.",
+    "source": ["Requirement 2.2.2"]
+  },
+  {
+    "id": "Q057",
+    "question": "A merchant stores full magnetic stripe data to process recurring payments. Is this compliant?",
+    "answer": "No; Requirement 3.3.1.1 prohibits the storage of the full contents of any card track post-authorization, even for recurring billing purposes.",
+    "source": ["Requirement 3.3.1.1"]
+  },
+  {
+    "id": "Q058",
+    "question": "How should an entity protect against unauthorized changes to their payment pages rendered in a browser?",
+    "answer": "They must use a tamper-detection mechanism that monitors the integrity of the payment page scripts and alerts personnel to any unauthorized modifications.",
+    "source": ["Requirement 11.6.1", "Requirement 6.4.3"]
+  },
+  {
+    "id": "Q059",
+    "question": "What are the requirements for physical console security in sensitive areas?",
+    "answer": "Consoles must be restricted to authorized users and locked automatically or manually when not in use to prevent unauthorized local system manipulation.",
+    "source": ["Requirement 9.2.4"]
+  },
+  {
+    "id": "Q060",
+    "question": "Why must an organization maintain a list of all its system components?",
+    "answer": "A comprehensive inventory ensures that no system component is overlooked during security assessments, configuration hardening, or patch management processes.",
+    "source": ["Requirement 12.5.1"]
+  },
+  {
+    "id": "Q061",
+    "question": "Explain how the 'deny all' default setting in access control systems supports security.",
+    "answer": "A 'deny all' default ensures that no user or system is granted access rights unless a specific rule has been created to permit them, following the least-privilege principle.",
+    "source": ["Requirement 7.3.3"]
+  },
+  {
+    "id": "Q062",
+    "question": "What action is required if an entity discovers cardholder data stored in an unauthorized location?",
+    "answer": "The entity must follow their incident response procedures to identify the source of the leak, remediate the gap, and address the contributory factors to prevent recurrence.",
+    "source": ["Requirement 12.10.7"]
+  },
+  {
+    "id": "Q063",
+    "question": "How often must an entity confirm the scope of its PCI DSS compliance?",
+    "answer": "Scope validation must be documented and confirmed at least once every 12 months and whenever there is a significant change to the CDE.",
+    "source": ["Requirement 12.5.2"]
+  },
+  {
+    "id": "Q064",
+    "question": "What is the requirement for the complexity of passwords or passphrases?",
+    "answer": "Passwords must be strong, resisting brute-force and guessing, often by requiring a minimum length and a combination of different character types as defined by company policy.",
+    "source": ["Requirement 8.3.6"]
+  },
+  {
+    "id": "Q065",
+    "question": "How does Requirement 4 ensure that only trusted certificates are used for transmission?",
+    "answer": "It requires system configurations to be set so that any certificate that cannot be verified as coming from a trusted source is automatically rejected.",
+    "source": ["Requirement 4.2.1.d"]
+  },
+  {
+    "id": "Q066",
+    "question": "What specific events must be captured regarding start-up and shut-down of security logs?",
+    "answer": "Audit logs must capture the initialization of any new logs and every instance of starting, stopping, or pausing the logging functionality.",
+    "source": ["Requirement 10.2.1.6"]
+  },
+  {
+    "id": "Q067",
+    "question": "What must be included in a TPSP’s written agreement regarding cardholder data security?",
+    "answer": "The agreement must include a formal acknowledgment that the TPSP is responsible for the security of account data it possesses or impacts on behalf of the customer.",
+    "source": ["Requirement 12.8.2", "Requirement 12.9.1"]
+  },
+  {
+    "id": "Q068",
+    "question": "Why is it important to synchronize system clocks using a central time source?",
+    "answer": "Synchronization ensures consistent timestamps across all logs, which is vital for correlating events across different systems during an incident investigation.",
+    "source": ["Requirement 10.6.1"]
+  },
+  {
+    "id": "Q069",
+    "question": "A merchant's wireless network is not used for PAN transmission. Is it still in scope?",
+    "answer": "Yes; if a wireless network is connected to the CDE, it is in scope and must be identified, monitored, and protected to prevent it from becoming an entry point for attackers.",
+    "source": ["Requirement 11.2.1"]
+  },
+  {
+    "id": "Q070",
+    "question": "What is the requirement for reviewing system configuration standards?",
+    "answer": "Configuration standards must be updated as new vulnerabilities are identified and applied consistently whenever a new system component is connected to the production environment.",
+    "source": ["Requirement 2.2.1.b", "Requirement 2.2.1.c"]
+  },
+  {
+    "id": "Q071",
+    "question": "Describe the security requirements for 'non-console' administrative access.",
+    "answer": "Non-console administrative access must be secured using strong cryptography to prevent authorization factors (like passwords) from being intercepted by an eavesdropper.",
+    "source": ["Requirement 2.2.7"]
+  },
+  {
+    "id": "Q072",
+    "question": "What is the mandatory action for a service provider when a critical security control fails?",
+    "answer": "They must promptly detect the failure, alert relevant personnel, and follow documented processes to address the failure and restore the control's effectiveness.",
+    "source": ["Requirement 10.7.1"]
+  },
+  {
+    "id": "Q073",
+    "question": "How should an entity handle media that is being transported outside of its facility?",
+    "answer": "Media must be secured during transport, its movement must be authorized by management, and it should be tracked using a reliable delivery method to prevent loss or theft.",
+    "source": ["Requirement 9.4.4"]
+  },
+  {
+    "id": "Q074",
+    "question": "Why must an organization list all its bespoke and custom software and third-party libraries?",
+    "answer": "Maintaining an inventory allows the entity to monitor for and apply patches to vulnerabilities in their own code and in any embedded third-party components they rely on.",
+    "source": ["Requirement 6.3.2"]
+  },
+  {
+    "id": "Q075",
+    "question": "Explain the importance of the 'least privilege' concept for administrative accounts.",
+    "answer": "Assigning least privilege ensures that even if an admin account is compromised, the attacker only gains access to a limited scope of functions, minimizing potential damage.",
+    "source": ["Requirement 7.2.2"]
+  },
+  {
+    "id": "Q076",
+    "question": "What is required for the annual review of application and system account privileges?",
+    "answer": "Management must verify that the assigned privileges are still correct and necessary for the account's function, remediating any nonconformities identified during the review.",
+    "source": ["Requirement 7.2.5.1"]
+  },
+  {
+    "id": "Q077",
+    "question": "How must an organization ensure that physical access to sensitive areas is only granted to authorized personnel?",
+    "answer": "They must implement entry controls like badge readers and maintain an approved list of individuals with access, revoking that access immediately upon their termination.",
+    "source": ["Requirement 9.2.1", "Requirement 9.3.1"]
+  },
+  {
+    "id": "Q078",
+    "question": "A merchant uses an external gateway for all transactions. What is their responsibility regarding the gateway's compliance?",
+    "answer": "The merchant must maintain a list of such TPSPs and monitor their PCI DSS compliance status at least once every 12 months.",
+    "source": ["Requirement 12.8.1", "Requirement 12.8.4"]
+  },
+  {
+    "id": "Q079",
+    "question": "What specific actions are required to 'securely' delete cardholder data when it is no longer needed?",
+    "answer": "The data must be rendered unrecoverable using a dedicated secure deletion tool or application, as standard operating system delete functions may allow data recovery.",
+    "source": ["Requirement 3.2.1"]
+  },
+  {
+    "id": "Q080",
+    "question": "What is the requirement for internal vulnerability scans after a 'significant change'?",
+    "answer": "The entity must perform internal scans by a qualified, independent resource to confirm that all high-risk and critical vulnerabilities were resolved before the change is final.",
+    "source": ["Requirement 11.3.1.3"]
+  },
+  {
+    "id": "Q081",
+    "question": "Why must an organization perform due diligence before engaging a new TPSP?",
+    "answer": "Due diligence ensures that the prospective TPSP has the capability and intent to properly protect cardholder data before a formal relationship is established.",
+    "source": ["Requirement 12.8.3"]
+  },
+  {
+    "id": "Q082",
+    "question": "Explain the purpose of the 'Targeted Risk Analysis' for security control frequencies.",
+    "answer": "It allows entities to scientifically determine and document the most appropriate frequency for security tasks based on the specific threats and assets in their environment.",
+    "source": ["Requirement 12.3.1"]
+  },
+  {
+    "id": "Q083",
+    "question": "How must an entity verify that its anti-malware solution is protecting the file system during real-time activity?",
+    "answer": "They must configure the solution to perform active, on-access scanning that checks files for malware whenever they are opened, closed, or interacted with.",
+    "source": ["Requirement 5.3.2"]
+  },
+  {
+    "id": "Q084",
+    "question": "What constitutes 'unnecessary functionality' that must be removed according to Requirement 2.2.4?",
+    "answer": "This includes unused scripts, drivers, features, file systems, and interfaces like USB or Bluetooth that are not required for the system's primary function.",
+    "source": ["Requirement 2.2.4"]
+  },
+  {
+    "id": "Q085",
+    "question": "What is the rule regarding the use of 'shared' authentication credentials for multiple users?",
+    "answer": "Shared credentials are only permitted on an exceptional, necessary basis and must be managed so that every action is still attributable to a unique individual.",
+    "source": ["Requirement 8.2.2"]
+  },
+  {
+    "id": "Q086",
+    "question": "How must an organization protect its audit logs from unauthorized modifications?",
+    "answer": "By using file integrity monitoring or change-detection software that generates an alert whenever existing log data is altered or deleted.",
+    "source": ["Requirement 10.3.4"]
+  },
+  {
+    "id": "Q087",
+    "question": "What is the requirement for 'manual' key-management operations?",
+    "answer": "Manual operations like key generation or loading must be performed using split knowledge and dual control to ensure no single person can access a key.",
+    "source": ["Requirement 3.7.6"]
+  },
+  {
+    "id": "Q088",
+    "question": "Under what condition is an entity exempt from Requirement 3.5.1 (rendering PAN unreadable)?",
+    "answer": "Requirement 3.5.1 does not apply when the PAN is being accessed for real-time transaction processing; however, it must be protected whenever it is stored for other purposes.",
+    "source": ["Requirement 3.5.1.2"]
+  },
+  {
+    "id": "Q089",
+    "question": "A merchant has a retail location with POS terminals. What physical security checks must they perform on these terminals?",
+    "answer": "They must periodically inspect terminals for evidence of tampering, such as unexpected cables, broken casings, or changed security labels, based on their risk assessment.",
+    "source": ["Requirement 9.5.1.2"]
+  },
+  {
+    "id": "Q090",
+    "question": "What is the 'Defined Approach' purpose for Requirement 6.3.3 (Security Patches)?",
+    "answer": "The purpose is to prioritize the installation of patches for critical systems to prevent attackers from using newly discovered exploits to compromise or disable those systems.",
+    "source": ["Requirement 6.3.3"]
+  },
+  {
+    "id": "Q091",
+    "question": "How does Requirement 11.2 (Wireless APs) protect against 'invisible' entry points?",
+    "answer": "By requiring quarterly scans to detect unauthorized wireless devices that may have been installed without permission, allowing the entity to address them promptly.",
+    "source": ["Requirement 11.2.1"]
+  },
+  {
+    "id": "Q092",
+    "question": "What is the requirement for 'executive management' in PCI DSS compliance?",
+    "answer": "Responsibility for the organization's information security program must be assigned at an executive management level to ensure visibility and strategic support for compliance.",
+    "source": ["Requirement 12.1.2"]
+  },
+  {
+    "id": "Q093",
+    "question": "Explain the role of 'Certificate Revocation Lists' in secure data transmission.",
+    "answer": "CRLs are used to validate that a certificate used for an encrypted connection has not been revoked or expired, ensuring the integrity and trust of the communication.",
+    "source": ["Requirement 4.2.1"]
+  },
+  {
+    "id": "Q094",
+    "question": "What constitutes a 'successful' penetration test according to the standards?",
+    "answer": "A successful test is one that identifies actual vulnerabilities and security weaknesses; finding nothing often indicates an insufficient testing methodology rather than a perfect defense.",
+    "source": ["Requirement 11.4.1"]
+  },
+  {
+    "id": "Q095",
+    "question": "How should an entity manage encryption keys for data that has been archived?",
+    "answer": "Archived keys must be securely stored and only used for decryption or verification purposes, and they must be strongly protected, for example, by using a key-encryption key.",
+    "source": ["Requirement 3.7.5"]
+  },
+  {
+    "id": "Q096",
+    "question": "What is the specific requirement for anti-phishing mechanisms starting March 2025?",
+    "answer": "Entities must implement automated mechanisms, such as link scrubbers or DMARC, to proactively detect and protect their personnel against phishing attacks.",
+    "source": ["Requirement 5.4.1"]
+  },
+  {
+    "id": "Q097",
+    "question": "Why must an entity maintain an inventory of its 'trusted' keys and certificates?",
+    "answer": "An inventory allows the entity to track algorithms and expiry dates, enabling them to respond quickly if an encryption software or certificate is found to be vulnerable.",
+    "source": ["Requirement 4.2.1.1"]
+  },
+  {
+    "id": "Q098",
+    "question": "How often must service providers validate their segmentation controls?",
+    "answer": "Service providers must validate their segmentation controls at least once every six months and whenever a significant change is made to the network.",
+    "source": ["Requirement 11.4.5"]
+  },
+  {
+    "id": "Q099",
+    "question": "What must an entity do if a TPSP fails to meet its agreed-upon PCI DSS requirements?",
+    "answer": "If a TPSP is not compliant for a service it manages, those specific requirements are also considered 'not in place' for the entity being assessed.",
+    "source": ["Requirement 12.8.4"]
+  },
+  {
+    "id": "Q100",
+    "question": "What information must be provided to a system administrator to log into a console in a sensitive area?",
+    "answer": "The console must be locked such that the administrator must provide valid authentication factors to gain access, preventing unauthorized use of an open session.",
+    "source": ["Requirement 9.2.4"]
+  },
+  {
+    "id": "Q101",
+    "question": "How does 'Requirement 1.4' control connections between trusted and untrusted networks?",
+    "answer": "It requires the implementation of NSCs, such as firewalls in a DMZ, at every connection point to monitor and control all incoming and outgoing traffic.",
+    "source": ["Requirement 1.4.1"]
+  },
+  {
+    "id": "Q102",
+    "question": "Describe the 'Requirement 2.2.1' process for updating configuration standards.",
+    "answer": "The standards must be reviewed and updated whenever new vulnerabilities are identified or whenever there is a change that impacts the system's security profile.",
+    "source": ["Requirement 2.2.1"]
+  },
+  {
+    "id": "Q103",
+    "question": "What is the 'Good Practice' for protecting against POI device tampering?",
+    "answer": "Entities should train personnel to recognize suspicious behavior, such as unauthorized attempts to unplug devices, and provide a clear reporting path to a security officer.",
+    "source": ["Requirement 9.5.1.3"]
+  },
+  {
+    "id": "Q104",
+    "question": "Why is 'Requirement 7.2.1' (Least Privilege) critical for database security?",
+    "answer": "It prevents users from accidentally or intentionally altering database configurations or accessing data beyond what is necessary for their specific job role.",
+    "source": ["Requirement 7.2.1"]
+  },
+  {
+    "id": "Q105",
+    "question": "What events regarding user account status must be captured in the audit logs?",
+    "answer": "Logs must capture all account creation, elevation of privilege, and any changes or deletions made to accounts that have administrative capabilities.",
+    "source": ["Requirement 10.2.1.5"]
+  },
+  {
+    "id": "Q106",
+    "question": "How must an organization verify that its 'Accepted Use Policies' are effective?",
+    "answer": "By including the key points of the policy in regular security awareness training and confirming through interviews that personnel understand their responsibilities.",
+    "source": ["Requirement 12.6.3"]
+  },
+  {
+    "id": "Q107",
+    "question": "A merchant uses a third-party payment gateway but stores no data. What PCI DSS requirements still apply?",
+    "answer": "Even without storage, they must maintain an inventory of the TPSP, have a written agreement, and monitor the TPSP's compliance status annually.",
+    "source": ["Requirement 12.8.1", "Requirement 12.8.4"]
+  },
+  {
+    "id": "Q108",
+    "question": "What is the requirement for 'Requirement 3.7.1' regarding key generation?",
+    "answer": "Key-management policies must ensure that only strong cryptographic keys are generated, following industry-accepted methods and standards.",
+    "source": ["Requirement 3.7.1"]
+  },
+  {
+    "id": "Q109",
+    "question": "Why does 'Requirement 5.3.3' require malware scans of removable media?",
+    "answer": "Removable media are common vectors for malware; scanning them upon insertion prevents malicious code from entering and spreading throughout the CDE.",
+    "source": ["Requirement 5.3.3"]
+  },
+  {
+    "id": "Q110",
+    "question": "What constitutes 'organizational independence' for a penetration tester?",
+    "answer": "The tester must be qualified and not have a conflict of interest with the systems being tested, meaning they are not responsible for managing or developing those systems.",
+    "source": ["Requirement 11.4.1"]
+  },
+  {
+    "id": "Q111",
+    "question": "How must an entity protect the 'integrity' of its stored cardholder data during its retention period?",
+    "answer": "By rendering it unreadable using strong cryptography or hashes and ensuring that the data is only stored in authorized locations with restricted access.",
+    "source": ["Requirement 3.2.1", "Requirement 3.5.1"]
+  },
+  {
+    "id": "Q112",
+    "question": "What are the rules for 'group' IDs in a PCI compliant environment?",
+    "answer": "Group or shared IDs are generally prohibited and should only be used on an exception basis where individual accountability can still be proven through other means.",
+    "source": ["Requirement 8.2.2"]
+  },
+  {
+    "id": "Q113",
+    "question": "What constitutes 'Requirement 12.1' for an information security policy?",
+    "answer": "The policy must be comprehensive, governing all assets, reviewed at least annually, and disseminated to all personnel to ensure they know their security roles.",
+    "source": ["Requirement 12.1.1"]
+  },
+  {
+    "id": "Q114",
+    "question": "How should an entity handle 'initial' passwords for new users?",
+    "answer": "They must be unique for each user and required to be changed immediately upon the first use to ensure that the initial credential is no longer valid.",
+    "source": ["Requirement 8.3.5.2"]
+  },
+  {
+    "id": "Q115",
+    "question": "What is the requirement for 'Requirement 10.4.3' regarding log anomalies?",
+    "answer": "The entity must have defined processes to investigate and address any exceptions or anomalies identified during the log-review process to mitigate potential risks.",
+    "source": ["Requirement 10.4.3"]
+  },
+  {
+    "id": "Q116",
+    "question": "A developer wants to use a third-party API in a payment application. What must they do?",
+    "answer": "They must inventory that third-party component and actively monitor for any security patches to ensure the application remains protected from known vulnerabilities.",
+    "source": ["Requirement 6.3.2"]
+  },
+  {
+    "id": "Q117",
+    "question": "How does Requirement 1.5.1 mitigate risks from devices that connect to both the CDE and untrusted networks?",
+    "answer": "It requires specific security controls on those devices to prevent them from introducing threats to the CDE from the untrusted networks they also connect to.",
+    "source": ["Requirement 1.5.1"]
+  },
+  {
+    "id": "Q118",
+    "question": "What is the mandatory action for 'Requirement 3.3' SAD storage after auth?",
+    "answer": "Storage of sensitive authentication data is strictly prohibited once the authorization process is complete, regardless of the encryption or business need.",
+    "source": ["Requirement 3.3.1"]
+  },
+  {
+    "id": "Q119",
+    "question": "Describe the security requirements for 'Requirement 9.4' regarding backup media.",
+    "answer": "Offline backups containing account data must be stored in a secure location and reviewed periodically to confirm the ongoing effectiveness of the physical controls.",
+    "source": ["Requirement 9.4.1"]
+  },
+  {
+    "id": "Q120",
+    "question": "How does an entity meet 'Requirement 12.8.5' for TPSP management?",
+    "answer": "By maintaining clear information on which PCI DSS requirements are managed by the entity, which by the TPSP, and which are shared responsibilities.",
+    "source": ["Requirement 12.8.5"]
+  },
+  {
+    "id": "Q121",
+    "question": "What constitutes 'unreadable' authentication factors according to 'Requirement 8.3.2'?",
+    "answer": "Authentication factors must be rendered unreadable using strong cryptography both during transmission and while stored on any system component.",
+    "source": ["Requirement 8.3.2"]
+  },
+  {
+    "id": "Q122",
+    "question": "What is the 'Requirement 10.7' rule for critical security control failure response?",
+    "answer": "Entities must detect and alert on failures promptly and then follow up with containment, remediation, and root cause analysis to prevent future occurrences.",
+    "source": ["Requirement 10.7.2", "Requirement 10.7.3"]
+  },
+  {
+    "id": "Q123",
+    "question": "A merchant's WAF is only configured to alert. Is this compliant?",
+    "answer": "Yes; Requirement 6.4.1 allows for the solution to be configured to either block attacks OR generate an alert that is investigated immediately.",
+    "source": ["Requirement 6.4.1"]
+  },
+  {
+    "id": "Q124",
+    "question": "Why must an organization maintain a list of all its authorized wireless access points?",
+    "answer": "A list ensures that legitimate APs are not mistaken for unauthorized ones during scans, allowing the entity to quickly identify and remove rogue devices.",
+    "source": ["Requirement 11.2.2"]
+  },
+  {
+    "id": "Q125",
+    "question": "Explain the importance of 'Requirement 12.6.3.1' for social engineering training.",
+    "answer": "Training personnel to report social engineering attempts, such as phishing, is critical for identifying attacks and allowing the organization to remove threats before they succeed.",
+    "source": ["Requirement 12.6.3.1"]
+  },
+  {
+    "id": "Q126",
+    "question": "How must an entity verify the 'organizational independence' of their internal vulnerability scanner?",
+    "answer": "The auditor must interview personnel to verify that the individual performing the scan is not responsible for the day-to-day management of the systems they are scanning.",
+    "source": ["Requirement 11.3.1.3"]
+  },
+  {
+    "id": "Q127",
+    "question": "What is the requirement for 'Requirement 3.6' regarding cleartext key components?",
+    "answer": "Access to cleartext cryptographic key components must be restricted to the absolute fewest number of authorized custodians required for the business function.",
+    "source": ["Requirement 3.6.1.3"]
+  },
+  {
+    "id": "Q128",
+    "question": "Why is 'Requirement 5.2.1' important for protecting systems from malware?",
+    "answer": "It requires the deployment of an anti-malware solution on all systems commonly affected by malware to ensure they are proactively protected from infection.",
+    "source": ["Requirement 5.2.1"]
+  },
+  {
+    "id": "Q129",
+    "question": "A merchant has one retail location and one cloud-based e-commerce site. How many network diagrams do they need?",
+    "answer": "They need diagrams that cover all locations, including retail, cloud providers, and data centers, to fully identify and secure all network segments and security controls.",
+    "source": ["Requirement 1.2.3"]
+  },
+  {
+    "id": "Q130",
+    "question": "What events must be captured regarding 'system-level objects' in audit logs?",
+    "answer": "The logs must capture every instance where a system-level object, such as a critical file or process, is either created or deleted.",
+    "source": ["Requirement 10.2.1.7"]
+  },
+  {
+    "id": "Q131",
+    "question": "Describe the 'Requirement 12.3' targeted risk analysis methodology.",
+    "answer": "The methodology must identify assets and threats, perform a documented risk evaluation, and be formally reviewed and approved by management at least annually.",
+    "source": ["Requirement 12.3.1"]
+  },
+  {
+    "id": "Q132",
+    "question": "How must an organization handle the security risk of insecure protocols used for business?",
+    "answer": "They must explicitly understand and accept the risk, justify the business need, and implement specific security features that mitigate the risk of using those protocols.",
+    "source": ["Requirement 1.2.6"]
+  },
+  {
+    "id": "Q133",
+    "question": "What constitutes a 'successful' audit log review process?",
+    "answer": "A process that identify potentially suspicious activity through manual or automated reviews and ensures that any identified anomalies are promptly investigated and resolved.",
+    "source": ["Requirement 10.4.1", "Requirement 10.4.3"]
+  },
+  {
+    "id": "Q134",
+    "question": "Why does 'Requirement 6.5.6' require the removal of test accounts before production?",
+    "answer": "Test accounts are often weak and lack security controls, providing easy targets for attackers to exploit to gain unauthorized access to the production environment.",
+    "source": ["Requirement 6.5.6"]
+  },
+  {
+    "id": "Q135",
+    "question": "A merchant's data-flow diagram only shows authorization paths. Is this compliant?",
+    "answer": "No; the diagram must show all account data flows across all stages of payment, including capture, settlement, chargebacks, and refunds.",
+    "source": ["Requirement 1.2.4", "Requirement 12.5.2"]
+  },
+  {
+    "id": "Q136",
+    "question": "What is the requirement for 'Requirement 8.2.1' regarding user IDs?",
+    "answer": "Every user must be assigned a unique ID before being allowed to access any system component, ensuring individual accountability for all system actions.",
+    "source": ["Requirement 8.2.1"]
+  },
+  {
+    "id": "Q137",
+    "question": "How does Requirement 3 protect cardholder data if primary access controls are bypassed?",
+    "answer": "By rendering the stored data unreadable through encryption or hashing, it provides a defense-in-depth layer that ensures the data remains useless to an unauthorized intruder.",
+    "source": ["Requirement 3.5.1"]
+  },
+  {
+    "id": "Q138",
+    "question": "What constitutes 'Requirement 11.4.1' for penetration testing methodology?",
+    "answer": "A methodology that uses industry-accepted approaches, covers the CDE perimeter and critical systems, and tests from both inside and outside the network.",
+    "source": ["Requirement 11.4.1"]
+  },
+  {
+    "id": "Q139",
+    "question": "Why must an organization review its firmware versions regularly?",
+    "answer": "Regular reviews ensure that firmware remains current and supported by the vendor, preventing vulnerabilities in older versions from being exploited by attackers.",
+    "source": ["Requirement 12.3.4"]
+  },
+  {
+    "id": "Q140",
+    "question": "Explain the security requirement for 'Requirement 2.2.7' regarding HTTP access.",
+    "answer": "Cleartext protocols like HTTP are prohibited for non-console administrative access because they do not encrypt logon details, making them easy to intercept.",
+    "source": ["Requirement 2.2.7"]
+  },
+  {
+    "id": "Q141",
+    "question": "What must be included in a 'Requirement 12.10.1' incident response plan?",
+    "answer": "The plan must include roles, containment procedures, business continuity processes, and strategies for notifying acquirers and payment brands in case of a breach.",
+    "source": ["Requirement 12.10.1"]
+  },
+  {
+    "id": "Q142",
+    "question": "How must an entity verify that its anti-malware solution is 'active' for all systems?",
+    "answer": "By examining system configurations and audit logs to confirm that the solution is enabled and performing scans in accordance with the entity's defined frequency.",
+    "source": ["Requirement 5.3.2.c"]
+  },
+  {
+    "id": "Q143",
+    "question": "What is the requirement for 'Requirement 7.2.3' regarding privilege approvals?",
+    "answer": "All access privileges must be formally approved by authorized personnel, and the granted permissions must exactly match the roles assigned to the individual.",
+    "source": ["Requirement 7.2.3"]
+  },
+  {
+    "id": "Q144",
+    "question": "Why must an organization track the 'make and model' of its POI devices?",
+    "answer": "Tracking these details helps ensure that devices are not substituted with malicious ones and assists in identifying devices that may be subject to a specific vendor-level recall or vulnerability.",
+    "source": ["Requirement 9.5.1.1"]
+  },
+  {
+    "id": "Q145",
+    "question": "What constitutes 'Requirement 10.2.1.1' for logging user access?",
+    "answer": "The entity must ensure that audit logs capture every instance where an individual user accesses cardholder data to maintain accountability for sensitive information.",
+    "source": ["Requirement 10.2.1.1"]
+  },
+  {
+    "id": "Q146",
+    "question": "How should an entity handle 'Requirement 12.8.3' regarding TPSP vetting?",
+    "answer": "They must have an established process for selecting providers that includes proper due diligence to assess their ability to protect account data before engagement.",
+    "source": ["Requirement 12.8.3"]
+  },
+  {
+    "id": "Q147",
+    "question": "What constitutes 'Requirement 4.2' for protecting PAN during transmission?",
+    "answer": "PAN must be encrypted with strong cryptography whenever it is transmitted over open or public networks to prevent interception and derivation of the cleartext data.",
+    "source": ["Requirement 4.2.1"]
+  },
+  {
+    "id": "Q148",
+    "question": "Why does 'Requirement 6.2.1' require security considerations in ALL stages of development?",
+    "answer": "Incorporating security from the requirements and design phases—'shifting left'—ensures that vulnerabilities are identified and mitigated early, reducing risk and cost.",
+    "source": ["Requirement 6.2.1"]
+  },
+  {
+    "id": "Q149",
+    "question": "What action is required if an entity uses a TPSP for its SIEM services?",
+    "answer": "The entity must monitor the TPSP's compliance status annually and maintain a responsibility matrix showing which logging requirements the SIEM provider is meeting.",
+    "source": ["Requirement 12.8.4", "Requirement 12.8.5"]
+  },
+  {
+    "id": "Q150",
+    "question": "What must an organization do if they find PAN in a debugging log during a scope review?",
+    "answer": "They must immediately address the leak through their incident response process, eliminating the cleartext PAN and correcting the configuration that allowed it to be logged.",
+    "source": ["Requirement 12.10.7"]
+  }
+]

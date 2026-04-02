@@ -1,0 +1,80 @@
+A. Tài liệu gốc của Requirement 1
+https://docs.google.com/document/d/1I03ZuZacXOKn7Y77xS9x3al3wN-Zzpj74UGFiPJXUsQ/edit?usp=drive_link
+B. Summary Overview của Requirement 1
+Tài liệu này mô tả chi tiết Requirement 10 của tiêu chuẩn PCI-DSS v4.0.1, tập trung vào việc Cài đặt và Duy trì các biện pháp kiểm soát an ninh mạng (NSCs) để bảo vệ CDE.
+Mục tiêu là Kiểm soát lưu lượng mạng và Ngăn chặn truy cập trái phép thông qua các chính sách thực thi nghiêm ngặt.
+Cấu trúc bao gồm 5 phân mục chính:
+1.1: Quy trình và cơ chế Xác định & Hiểu rõ NSCs
+1.2: Cấu hình và Duy trì NSCs
+1.3: Hạn chế truy cập mạng vào/ra CDE
+1.4: Kiểm soát kết nối giữa mạng tin cậy và không tin cậy
+1.5: Giảm thiểu rủi ro từ thiết bị đa mạng
+Áp dụng cho toàn bộ Hệ thống, thiết bị và Nhân sự liên quan đến CDE.
+C. Key Points của Requirement 1
+Phạm vi áp dụng:  Nhân sự quản trị mạng, thiết bị công ty và BYOD kết nối vào CDE
+Trách nhiệm: Nhân sự phụ trách phải Thiết lập và Duy trì NSCs để bảo vệ hệ thống khỏi tấn công và kết nối không tin cậy
+Quản lý tài liệu: Tài liệu hóa, Cập nhật và Phổ biến chính sách NSC đến các bên liên quan
+Sơ đồ kỹ thuật:  Duy trì sơ đồ mạng và luồng dữ liệu (data-flow) đầy đủ, bao gồm kết nối giữa CDE và các mạng khác
+Rà soát định kỳ: Kiểm tra và Đánh giá cấu hình NSC ít nhất mỗi "6 tháng"
+Nguyên tắc kiểm soát: Từ chối mặc định, chỉ Cho phép khi có nhu cầu kinh doanh được Phê duyệt
+Thời hạn: Một số yêu cầu mới áp dụng từ 31/03/2025
+D. Deep Summary của Requirement 1
+Bối cảnh: 
+Các mối đe dọa từ mạng không tin cậy (Internet, wireless) ngày càng phức tạp. NSCs là lớp phòng thủ quan trọng để Ngăn chặn truy cập trái phép vào CDE.
+Nội dung cốt lõi:
+Quản lý quy trình: Tài liệu hóa và Thực hiện đầy đủ các chính sách, quy trình vận hành; Phân công rõ ràng vai trò, trách nhiệm.
+Kiểm soát kỹ thuật: Xác định và Triển khai theo ruleset của NSCs . Lưu lượng vào/ra CDE phải bị Từ chối mặc định; Cho phép khi có Phê duyệt hợp lệ.
+Duy trì sơ đồ: Cập nhật liên tục sơ đồ mạng và luồng dữ liệu để đảm bảo không bỏ sót kết nối
+Quản lý thay đổi: Mọi chỉnh sửa kết nối và cấu hình phải được Phê duyệt bởi Nhân sự có thẩm quyền theo đúng quy trình kiểm soát thay đổi.
+Dữ liệu đáng chú ý:
+6 tháng: Chu kỳ tối thiểu rà soát cấu hình NSC
+31/03/2025: Mốc áp dụng một số yêu cầu mới
+Phạm vi thiết bị: Áp dụng cho cả thiết bị thuộc sở hữu của công ty và cá nhân (BYOD) khi kết nối vào CDE
+Rủi ro / Lưu ý:
+Việc sử dụng các dịch vụ, giao thức hoặc cổng không an toàn → rủi ro cao nếu không có kiểm soát bổ sung
+Ngăn chặn truy cập trực tiếp từ mạng không tin cậy thông qua việc sử dụng NSCs và DMZ
+Rủi ro từ việc để lộ địa chỉ IP nội bộ và thông tin định tuyến có thể hỗ trợ attacker phân tích hệ thống
+E. Structured Output của Requirement 1
+Control objectives: 1.3
+Sub-requirement: 1.3.3 (Tag: wireless network segmentation, WiFi isolation, CDE protection)
+Defined Approach Requirements of 1.3.3: NSCs are installed between all wireless networks and the CDE, regardless of whether the wireless network is a CDE, such that:
+• All wireless traffic from wireless networks into the CDE is denied by default.
+• Only wireless traffic with an authorized business is allowed into the CDE.
+Defined Approach Testing Procedures of 1.3.3:
+- "1.3.3": Examine configuration settings and network diagrams to verify that NSCs are implemented between all wireless networks and the CDE, in accordance with all elements specified in this requirement.
+Customized Approach Objective of 1.3.3: Unauthorized traffic cannot traverse network boundaries between any wireless networks and wired environments in the CDE.
+Guidance - Purpose of 1.3.3: The known (or unknown) implementation and exploitation of wireless technology within a network is a common path for malicious individuals to gain access to the network and account data. If a wireless device or network is installed without the entity's knowledge, a malicious individual could easily and "invisibly" enter the network. If NSCs do not restrict access from wireless networks into the CDE, malicious individuals that gain unauthorized access to the wireless network can easily connect to the CDE and compromise account information.
+---
+Control objectives: 1.4
+Sub-requirement: 1.4.1 (Tag: DMZ, network segmentation, trusted-untrusted boundary)
+Defined Approach Requirements of 1.4.1: NSCs are implemented between trusted and untrusted networks.
+Defined Approach Testing Procedures of 1.4.1:
+- "1.4.1.a": Examine configuration standards and network diagrams to verify that NSCs are defined between trusted and untrusted networks.
+- "1.4.1.b": Examine network configurations to verify that NSCs are in place between trusted and untrusted networks, in accordance with the documented configuration standards and network diagrams.
+Customized Approach Objective of 1.4.1: Unauthorized traffic cannot traverse network boundaries between trusted and untrusted networks.
+Guidance - Purpose of 1.4.1: Implementing NSCs at every connection coming into and out of trusted networks allows the entity to monitor and control access and minimizes the chances of a malicious individual obtaining access to the internal network via an unprotected connection.
+Guidance - Examples of 1.4.1: An entity could implement a DMZ, which is a part of the network that manages connections between an untrusted network (for examples of untrusted networks refer to the Requirement 1 Overview) and services that an organization needs to have available to the public, such as a web server. Please note that if an entity's DMZ processes or transmits account data (for example, e-commerce website), it is also considered a CDE.
+---
+Control objectives: 1.4
+Sub-requirement: 1.4.2 (Tag: stateful firewall, public services exposure, inbound filtering)
+Defined Approach Requirements of 1.4.2: Inbound traffic from untrusted networks to trusted networks is restricted to:
+• Communications with system components that are authorized to provide publicly accessible services, protocols, and ports.
+• Stateful responses to communications initiated by system components in a trusted network.
+• All other traffic is denied.
+Defined Approach Testing Procedures of 1.4.2:
+- "1.4.2": Examine vendor documentation and configurations of NSCs to verify that inbound traffic from untrusted networks to trusted networks is restricted in accordance with all elements specified in this requirement.
+Customized Approach Objective of 1.4.2: Only traffic that is authorized or that is a response to a system component in the trusted network can enter a trusted network from an untrusted network.
+Applicability Notes of 1.4.2: The intent of this requirement is to address communication sessions between trusted and untrusted networks, rather than the specifics of protocols. This requirement does not limit the use of UDP or other connectionless network protocols if state is maintained by the NSC.
+Guidance - Purpose of 1.4.2: Ensuring that public access to a system component is specifically authorized reduces the risk of system components being unnecessarily exposed to untrusted networks.
+Guidance - Good Practice of 1.4.2: System components that provide publicly accessible services, such as email, web, and DNS servers, are the most vulnerable to threats originating from untrusted networks. Ideally, such systems are placed within a dedicated trusted network that is public facing (for example, a DMZ) but that is separated via NSCs from more sensitive internal systems, which helps protect the rest of the network in the event these externally accessible systems are compromised. This functionality is intended to prevent malicious actors from accessing the organization's internal network from the Internet, or from using services, protocols, or ports in an unauthorized manner. Where this functionality is provided as a built-in feature of an NSC, the entity should ensure that its configurations do not result in the functionality being disabled or bypassed.
+Guidance - Definitions of 1.4.2: Maintaining the "state" (or status) for each connection into a network means the NSC 'knows' whether an apparent response to a previous connection is a valid, authorized response (since the NSC retains each connection's status) or whether it is malicious traffic trying to fool the NSC into allowing the connection.
+---
+Control objectives: 1.4
+Sub-requirement: 1.4.3 (Tag: anti-spoofing, IP filtering, packet validation)
+Defined Approach Requirements of 1.4.3: Anti-spoofing measures are implemented to detect and block forged source IP addresses from entering the trusted network.
+Defined Approach Testing Procedures of 1.4.3:
+- "1.4.3": Examine vendor documentation and configurations for NSCs to verify that anti-spoofing measures are implemented to detect and block forged source IP addresses from entering the trusted network.
+Customized Approach Objective of 1.4.3: Packets with forged IP source addresses cannot enter a trusted network.
+Guidance - Purpose of 1.4.3: Filtering packets coming into the trusted network helps to, among other things, ensure packets are not 'spoofed' to appear as if they are coming from an organization's own internal network. For example, anti-spoofing measures prevent internal addresses originating from the Internet from passing into the DMZ.
+Guidance - Good Practice of 1.4.3: Products usually come with anti-spoofing set as a default and may not be configurable. Entities should consult the vendor's documentation for more information.
+Guidance - Examples of 1.4.3: Normally, a packet contains the IP address of the computer that originally sent it so other computers in the network know where the packet originated. Malicious individuals will often try to spoof (or imitate) the sending IP address to fool the target system into believing the packet is from a trusted source.

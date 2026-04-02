@@ -1,0 +1,1174 @@
+[
+  {
+    "question": "Has your organization established an enterprise-wide IT security policy, with supporting procedures in place that set forth how your organization will identify and manage its IT security risks?",
+    "answer": "Yes. The organization has established an enterprise‑wide IT security policy, along with supporting procedures that define how IT security risks are identified and managed. \n20260331_ENGR_D...t1_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260327_ENG_PCIDSS_Requirement_5_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260331_ENGR_DS_General_Question_Part2_v1.2.md",
+      "20260331_ENGR_DS_General_Question_Part1_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Does your organization review and update the Information Security Program and Policies annually?",
+    "answer": "Yes, the organization reviews and updates the Information Security Program and Policies annually. \n20260331_ENGR_D...t1_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_6.md",
+      "20260331_ENGR_DS_General_Question_Part1_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md",
+      "20260331_ENGR_DS_General_Question_Part2_v1.2.md"
+    ]
+  },
+  {
+    "question": "Does your organization's IT security policy apply to all of the organization's operating groups and entities, including subsidiaries, joint ventures and geographic regions?",
+    "answer": "Yes. \n20260331_ENGR_D...t1_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260331_ENGR_DS_General_Question_Part1_v1.2.md",
+      "20260331_ENGR_DS_General_Question_Part2_v1.2.md"
+    ]
+  },
+  {
+    "question": "Is your organization's IT security policy linked to other relevant Risk Management policies including Information Security, Business Continuity Management, Outsourcing, New Initiatives, and Change Management?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_1.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260331_ENGR_DS_Design_and_Design_document_requirements_v1.2.md",
+      "20260331_ENGR_DS_Asset_Management_v1.2.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md"
+    ]
+  },
+  {
+    "question": "Does your organization have a strategic and tactical IT security plan with defined roles, responsibilities, coordination of organizational entities and compliance that aligns with business strategy and outlines key initiatives and timelines?",
+    "answer": "Yes. \n20260331_ENGR_D...t2_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260331_ENGR_DS_General_Question_Part2_v1.2.md",
+      "20260331_ENGR_DS_General_Question_Part1_v1.2.md",
+      "20260331_ENGR_DS_Disaster_Recovery_v1.2.md"
+    ]
+  },
+  {
+    "question": "Have the roles and responsibilities for IT Security been clearly defined within your IT security policy?",
+    "answer": "Yes. The IT security policy includes clearly documented, assigned, and understood roles and responsibilities for IT security activities (Control Objective 3.1.2) \n20260320_ENG_PC...ent_3_1.md\n.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_1.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260331_ENGR_DS_Design_and_Design_document_requirements_v1.2.md",
+      "20260331_ENGR_DS_Asset_Management_v1.2.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md"
+    ]
+  },
+  {
+    "question": "Does a security management reporting mechanism exist that informs the board, business and IT management on the status of information security at your organization?",
+    "answer": "Yes. \n20260331_ENGR_D...t2_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260327_ENG_PCIDSS_Requirement_11_6.md",
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260331_ENGR_DS_General_Question_Part2_v1.2.md",
+      "20260331_ENGR_DS_General_Question_Part1_v1.2.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Do general, IT, and security organizational charts exist?",
+    "answer": "Yes【5】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260331_ENGR_DS_General_Question_Part1_v1.2.md",
+      "20260331_ENGR_DS_General_Question_Part2_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Do the organizational charts provide up-to-date, clear illustration of dedicated security functional roles?",
+    "answer": "Yes【4】",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_1.md",
+      "20260331_ENGR_DS_General_Question_Part2_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part1_v1.2.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Does your organization have an established IT Security risk management framework implemented on an enterprise-wide basis?",
+    "answer": "Yes【3】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md",
+      "20260331_ENGR_DS_General_Question_Part2_v1.2.md",
+      "20260331_ENGR_DS_General_Question_Part1_v1.2.md",
+      "20260331_ENGR_DS_Network_Security_Controls_v1.2.md"
+    ]
+  },
+  {
+    "question": "Does your organization conduct internal audits of information security controls?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_2_1.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260331_ENGR_DS_Access_Control_v1.2.md",
+      "20260331_ENGR_DS_Cloud_Services_v1.2.md",
+      "20260331_ENGR_DS_Security_for_Integration_Interface_v1.2.md"
+    ]
+  },
+  {
+    "question": "Is there a cross-organizational committee that meets regularly on cybersecurity issues?",
+    "answer": "Yes【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260331_ENGR_DS_General_Question_Part2_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Does your organization maintain an inventory of assets (both hardware and software) that includes tagging/labeling of assets, asset ownership, and asset criticality?",
+    "answer": "Yes【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260331_ENGR_DS_Asset_Management_v1.2.md",
+      "20260331_ENGR_DS_Secure_Development_Management_v1.2.md",
+      "20260331_ENGR_DS_Operations_Security_Data_Protect_v1.2.md"
+    ]
+  },
+  {
+    "question": "Does your organization have a process in place to review asset inventories at least annually to verify ownership, classification, and criticality?",
+    "answer": "Yes【5】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_4_1.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md",
+      "20260331_ENGR_DS_Asset_Management_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Is there a policy governing removable media including hard drives, backup tapes, CD/DVD, memory sticks, etc.?",
+    "answer": "Yes【4】",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260331_ENGR_DS_Asset_Management_v1.2.md",
+      "20260331_ENGR_DS_Physical_Enviromental_Security_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part4_v1.2.md"
+    ]
+  },
+  {
+    "question": "Are USB ports locked down so information cannot be transferred to removable media?",
+    "answer": "Không, các cổng USB không được khóa để ngăn việc chuyển thông tin sang phương tiện lưu trữ di động; nhân viên vẫn có thể chuyển dữ liệu sang phương tiện rời (removable media) mà không được mã hoá【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Does equipment slated for disposal or reuse (recycle, transferred, sold, returned) have its activity logged and tracked (including certificates of destruction)?",
+    "answer": "Yes【3】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260331_ENGR_DS_Asset_Management_v1.2.md",
+      "20260331_ENGR_DS_Access_Control_v1.2.md",
+      "20260331_ENGR_DS_Network_Security_Controls_v1.2.md"
+    ]
+  },
+  {
+    "question": "Does your enterprise have a Business Continuity Program?",
+    "answer": "The current knowledge base does not provide enough data to conclude whether the enterprise has a Business Continuity Program.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Does your Business Continuity program include a testing program?",
+    "answer": "The current knowledge base does not provide enough data to determine whether the Business Continuity program includes a testing program.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part2_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "What were the results of your most recent test:",
+    "answer": "The current knowledge base does not contain information about the results of the most recent test. Could you please provide more details or specify which test you are referring to?",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Do you have sufficient work from home capabilities to maintain the service(s) being reviewed uninterrupted should employing your work from home strategy be necessary?",
+    "answer": "Yes【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part2_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part5_v1.2.md"
+    ]
+  },
+  {
+    "question": "Are there documented plans or procedures for cryptographic key owners to handle compromised keys and revoke and/or rotate the keys on an emergency basis?",
+    "answer": "Yes【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Are there documented plans or procedures for key rotation?",
+    "answer": "Yes【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Are there procedures for protection from key loss and corruption?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_4_1.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md",
+      "20260331_ENGR_DS_Asset_Management_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Is there an access control policy implemented to limit access to only parties authorized by the key owner?",
+    "answer": "Yes【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Please provide the frequency of the audits, along with the date of the last completed report.",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "What is the maximum allowable downtime (MAD) documented for the Services provided/to be provided?",
+    "answer": "1 %【3】",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md",
+      "20260331_ENGR_DS_Third_Party_Management_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part2_v1.2.md"
+    ]
+  },
+  {
+    "question": "What was the Recovery Time Actual (RTA) of this test?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "What percentage of your staff have work from home capabilities?",
+    "answer": "80 % của nhân viên có khả năng làm việc từ xa. \n20260331_ENGR_D...nt_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md",
+      "20260331_ENGR_DS_Physical_Enviromental_Security_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part2_v1.2.md"
+    ]
+  },
+  {
+    "question": "What protocol(s) does your organization use to encrypt? Please list or explain.",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part2_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "What is the name and version of the encryption software?",
+    "answer": "Tên và phiên bản phần mềm mã hoá là:\n\nSHA‑256\nTripleDes\nJWT\n\n20260331_ENGR_D...rd_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part2_v1.2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md"
+    ]
+  },
+  {
+    "question": "What is the encryption algorithm and key strength used?",
+    "answer": "256 bits \n20260331_ENGR_D...rd_v1.2.md",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Third_Party_Management_v1.2.md",
+      "20260331_ENGR_DS_Data_Encryption_v1.2.md"
+    ]
+  },
+  {
+    "question": "Who is the cloud provider?",
+    "answer": "The cloud provider is AWS (Amazon Web Services) \n20260331_ENGR_D...t3_v1.2.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "What type of cloud-solution will be used to process Manulife/John Hancock data (e.g., SAAS, PAAS, IAAS)?",
+    "answer": "PAAS \n20260331_ENGR_D...es_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260331_ENGR_DS_Cloud_Services_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part1_v1.2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md"
+    ]
+  },
+  {
+    "question": "What is the documented recovery time objective (RTO) for the reviewed service?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "What is the date of your most recent Disaster Recovery exercise?",
+    "answer": "Ngày thực hành Disaster Recovery gần nhất là 12/12/2022 \n20260331_ENGR_D...ry_v1.2.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260331_ENGR_DS_Disaster_Recovery_v1.2.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md",
+      "20260331_ENGR_DS_Information_Security_for_Business_Continuity_and_Disaster_Recovery_v1.2.md"
+    ]
+  },
+  {
+    "question": "What was the recovery time actual (RTA) of your most recent test?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "What was the recovery point actual (RPA) of your most recent test?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_9.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part2_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "What is the documented recovery point objective (RPO) for the reviewed service?",
+    "answer": "The documented recovery point objective (RPO) for the reviewed service is 3 hours \n20260331_ENGR_D...ry_v1.2.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260331_ENGR_DS_Disaster_Recovery_v1.2.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md",
+      "20260331_ENGR_DS_Physical_Enviromental_Security_v1.2.md"
+    ]
+  },
+  {
+    "question": "Please provide the location or region of your primary and alternate site.",
+    "answer": "The primary and alternate sites are located in HN (Hanoi) and HCM (Ho Chi Minh City) \n20260331_ENGR_D...ry_v1.2.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260331_ENGR_DS_Disaster_Recovery_v1.2.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md",
+      "20260331_ENGR_DS_Physical_Enviromental_Security_v1.2.md"
+    ]
+  },
+  {
+    "question": "What is the distance between your primary and alternate site?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "What type of cloud services are employed?",
+    "answer": "The cloud services employed are AWS Cloud \n20260331_ENGR_D...ry_v1.2.md\n.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_4.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260331_ENGR_DS_Disaster_Recovery_v1.2.md",
+      "20260331_ENGR_DS_Cloud_Services_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Who is your cloud service provider?",
+    "answer": "Amazon Web Service (AWS)【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260331_ENGR_DS_Cloud_Services_v1.2.md",
+      "20260331_ENGR_DS_Disaster_Recovery_v1.2.md",
+      "20260331_ENGR_DS_European_Economic_Area_and_United_Kingdom_v1.2.md"
+    ]
+  },
+  {
+    "question": "What is the employee screening (e.g., background checks or equivalent process based on country-specific protocols) frequency for employees, subcontractors or contingent workers?",
+    "answer": "The employee screening (background checks or equivalent process) is performed annually for employees, subcontractors, and contingent workers【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_7.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_5.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part1_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part2_v1.2.md"
+    ]
+  },
+  {
+    "question": "Please describe how this is measured and what the current effectiveness ratings",
+    "answer": "Chúng tôi thực hiện các buổi hỏi‑đáp (Q&A) sau mỗi buổi đào tạo để đo lường hiệu quả, và hiện tại mức độ hiệu quả được đánh giá là 9/10【6】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Who is trained and with what frequency (e.g., employees, contractors, and third parties)?",
+    "answer": "Nhân viên được đào tạo (không đề cập đến tần suất cụ thể)【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md",
+      "20260331_ENGR_DS_Incident_Management_v1.2.md",
+      "20260331_ENGR_DS_Asset_Management_v1.2.md"
+    ]
+  },
+  {
+    "question": "How often is the incident response plan reviewed and updated?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "How often are the key contacts within the plan updated?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "What is your organization's process and timeframe to report to Manulife/John Hancock any security or other event that creates reasonable suspicion of: (a) unauthorized access to any Manulife/John Hancock data or processing environment, (b) misappropriation or alteration of any Manulife/John Hancock data, or (c) theft or loss of Manulife/John Hancock data?",
+    "answer": "The organization reports any such security event to Manulife/John Hancock within 24 hours of the event occurring【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Incident_Management_v1.2.md",
+      "20260331_ENGR_DS_Data_Classification_v1.2.md",
+      "20260331_ENGR_DS_Cloud_Services_v1.2.md"
+    ]
+  },
+  {
+    "question": "What governing policies are established and implemented that ensures only authorized software is installed in the environment? (ie. whitelisting, blacklisting)",
+    "answer": "The organization’s governing policy for software installation is whitelisting – only approved applications are allowed to be installed in the environment. \n20260331_ENGR_D...ls_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_5.md",
+      "20260331_ENGR_DS_Network_Security_Controls_v1.2.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part1_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "How are exceptions to the Information Security Policy and supporting Standards handled and are suc h non conformities reviewed periodically?",
+    "answer": "All exceptions are assessed and reviewed by the ISMS, documented, and then submitted to the Board of Directors for case‑by‑case approval. Once a decision is made, the non‑conformities are not reviewed again after the approval or rejection from the Board. \n20260331_ENGR_D...t2_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260331_ENGR_DS_General_Question_Part2_v1.2.md",
+      "20260331_ENGR_DS_Customer_IAM_Part2_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Describe how you review, update and then communicate those updates to your Information Security Policy to reflect significant changes to the organizational environment, business circumstances, or technical environment.",
+    "answer": "The ISMS team periodically reviews and updates the Information Security Policy, then seeks approval from the Board of Directors (BOD). Once the BOD approves the change, the ISMS team announces the update to all staff and implements it company‑wide. \n20260331_ENGR_D...t2_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260327_ENG_PCIDSS_Requirement_12_1.md",
+      "20260331_ENGR_DS_General_Question_Part2_v1.2.md",
+      "20260331_ENGR_DS_Secure_Development_Management_v1.2.md"
+    ]
+  },
+  {
+    "question": "How are risks from the security risk assessment documented and managed? (e.g., Is there a centralized risk register? Are identified risks addressed with documented and approved risk treatment plans?)",
+    "answer": "The current knowledge base does not provide enough data to conclude how risks from the security risk assessment are documented and managed.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "How does your organization classify risk? (e.g., What criteria (e.g. likelihood, impact) form the foundation of risk assessments in your organization?)",
+    "answer": "The current knowledge base does not provide enough data to conclude how the organization classifies risk or what criteria (e.g., likelihood, impact) are used in its risk assessments.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "How does your organization ensure compliance with legislative requirements of jurisdictions where you operate as those related to data residency and protection of privacy?",
+    "answer": "UrBox ensures compliance with the legislative requirements of the jurisdictions in which it operates—including data‑residency and privacy obligations—by:\n\nAdhering to local law: It complies with the Vietnamese Law on Cybersecurity and all other applicable legal and regulatory requirements issued by the National Assembly of Vietnam.\nRegulatory oversight: The company is overseen by the Ministry of Industry and Trade.\nCompliance committee: A dedicated Compliance Committee monitors regulatory changes and ensures the business stays current.\nProcedures for legislative changes:\nContinuously updates its knowledge base with new regulations and rules from tax authorities, government websites, etc.\nDetermines which regulations affect company operations or services.\nAnalyzes and applies the necessary compliance measures.\nTrains and disseminates information to employees via internal channels.\nNotifies related parties (clients, suppliers, shareholders) of changes through email, postings, etc.\nMonitors and verifies that new compliance requirements are implemented promptly.\n\nThese practices collectively ensure that UrBox meets data‑residency and privacy obligations in its operating jurisdictions. \n20260331_ENGR_D...t2_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_12_6.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260331_ENGR_DS_General_Question_Part2_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part5_v1.2.md",
+      "20260331_ENGR_DS_Network_Security_Controls_v1.2.md"
+    ]
+  },
+  {
+    "question": "Describe how your organization securely handles, transfers, stores, and disposes both removable media (e.g., Hard drives, CD/DVD, memory sticks, etc.) and printed material.",
+    "answer": "Removable‑media devices (hard drives, CD/DVDs, USB flash drives, memory cards, etc.) are not permitted for use under normal operations; any exception requires explicit approval from management.\nWhen such media are authorized, the assigned users and data‑managers are fully responsible for the data stored on them.\nMedia that are no longer needed must be destroyed so that the data cannot be recovered or reused.\nThe destruction process is documented and the records are retained for future reference. \n20260331_ENGR_D...nt_v1.2.md",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260327_ENG_PCIDSS_Requirement_5_3.md",
+      "20260331_ENGR_DS_Asset_Management_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part5_v1.2.md",
+      "20260331_ENGR_DS_Physical_Enviromental_Security_v1.2.md"
+    ]
+  },
+  {
+    "question": "How is media in transport protected against unauthorised access, misuse or corruption, and damage?",
+    "answer": "Media phải được đóng gói đúng cách để tránh hư hỏng vật lý trong quá trình vận chuyển và đáp ứng các yêu cầu kỹ thuật của nhà sản xuất về bảo quản và vận chuyển.\nQuá trình vận chuyển phải được ghi chép đầy đủ, bao gồm thời gian gửi và nhận ở mỗi giai đoạn của quy trình.\nKhi cần sử dụng dịch vụ vận chuyển bên ngoài, công ty sẽ thuê một nhà cung cấp dịch vụ vận chuyển hoặc giao nhận đáng tin cậy.\n\nTham khảo: Q&A “How is media in transport protected against unauthorised access, misuse or corruption, and damage?” trong tài liệu Vendor Questionnaire – Security Assessment Matrix【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260327_ENG_PCIDSS_Requirement_8_6.md",
+      "20260331_ENGR_DS_Asset_Management_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part4_v1.2.md",
+      "20260331_ENGR_DS_Operations_Security_Data_Protect_v1.2.md"
+    ]
+  },
+  {
+    "question": "Describe your encryption key management processes to securely manage keys throughout their lifecycle (generation, transmission , storage, rotation, disposal) and key management solutions used.",
+    "answer": "Quy trình quản lý khóa mã hoá (theo PCI‑DSS v4.0.1)\n\nTạo khóa (Key generation)\n\nCác chính sách và quy trình quản lý khóa quy định việc tạo khóa mạnh bằng thuật toán mật mã mạnh, đảm bảo độ ngẫu nhiên và độ dài đủ (ví dụ AES‑256).\nViệc tạo khóa được thực hiện bởi các nhân viên được ủy quyền (key custodian) và được ghi lại trong tài liệu quản lý khóa.\n[1]\n\nPhân phối / truyền tải khóa (Key distribution / transmission)\n\nKhóa chỉ được phân phối tới các custodian được ủy quyền và không bao giờ được truyền không an toàn.\nPhương thức truyền tải phải được bảo vệ (ví dụ qua kênh mã hoá, sử dụng HSM hoặc KMS) và được ghi lại trong log để truy vết.\n[1]\n\nLưu trữ khóa (Key storage)\n\nKhóa được lưu trữ an toàn trong môi trường hạn chế số lượng vị trí, thường là HSM, thiết bị quản lý khóa (KMS) hoặc vault.\nKiểm soát truy cập nghiêm ngặt (nguyên tắc “least privilege”) và áp dụng split‑knowledge / dual‑control để ngăn một cá nhân có toàn quyền truy cập.\n[1], [2]\n\nXoay vòng khóa (Key rotation)\n\nĐịnh nghĩa cryptoperiod (khoảng thời gian sử dụng hợp lệ) cho mỗi loại khóa và thực hiện xoay vòng khi hết thời gian hoặc khi có rủi ro.\nQuá trình xoay vòng được ghi lại và kiểm soát để đảm bảo không có khóa cũ còn khả dụng.\n[1]\n\nHủy / tiêu hủy khóa (Key disposal)\n\nKhi khóa hết hạn, bị thay thế hoặc bị compromise, thực hiện revocation và hủy bỏ khóa theo quy trình đã định (3.7.5).\nKhóa bị hủy phải được tiêu hủy an toàn để không thể khôi phục lại.\n[1]\n\nGiải pháp quản lý khóa được sử dụng\n\nHSM (Hardware Security Module) và KMS (Key Management System) để tạo, lưu trữ và xoay vòng khóa.\nKiểm kê toàn bộ thiết bị HSM/KMS, mô tả kiến trúc mật mã, các thuật toán, độ mạnh và ngày hết hạn của khóa.\n[2]\n\nTóm lại, quy trình bao gồm: tạo khóa mạnh, truyền tải an toàn chỉ tới các custodian được ủy quyền, lưu trữ trong HSM/KMS với kiểm soát truy cập chặt chẽ, xoay vòng theo cryptoperiod, và hủy bỏ/kết thúc vòng đời khóa một cách an toàn. Các biện pháp này đáp ứng các yêu cầu của PCI‑DSS Requirement 3.7 (tạo, phân phối, lưu trữ, xoay vòng, hủy) và Requirement 3.6 (bảo vệ khóa).",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part2_v1.2.md"
+    ]
+  },
+  {
+    "question": "Please explain how the user provisioning for sourced/cloud services are accomplished.",
+    "answer": "User provisioning for sourced/cloud services is carried out through a three‑step process:\n\nEmployee creates a request for the needed cloud service access.\nHead of department approves the request.\nIT department reviews the request and provisions the required resources.\n\nSource: Q&A “Please explain how the user provisioning for sourced/cloud services are accomplished.”【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_8_1.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_7_2.md",
+      "20260331_ENGR_DS_Cloud_Services_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part2_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Please describe the metrics that are / will be available to Manulife/John Hancock to monitor the security health of the cloud solution(s) managing Manulife data?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Describe items being checked and for whom. (e.g., criminal records, credit history, identity, professional qualifications, work history, business references, etc).",
+    "answer": "The checks performed for our employees include:\n\nIdentity verification\nEducational background verification\nEmployment/professional background verification\nCriminal/police record check\nBusiness references\n\nSource: Q&A “Describe items being checked and for whom.”【4】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_7.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part1_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part2_v1.2.md"
+    ]
+  },
+  {
+    "question": "Describe the security awareness training that you provide to employees, and when relevant, contractors and 3rd party personnel?",
+    "answer": "The security‑awareness training covers the following topics:\n\nSystems vulnerability and abuse – malicious software, hackers and computer crime, including phishing attempts, internal threats, and software vulnerabilities.\nBusiness value of security and control – why security matters to the organization and its operations.\nOrganizational framework for security and control – the structure, policies, and responsibilities that govern security.\nTools and methods for safeguarding information resources – practical techniques and technologies used to protect data.\n\nSource: Q&A “Describe the security awareness training that you provide to employees, and when relevant, contractors and 3rd party personnel?”【2】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_6.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part1_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part3_v1.2.md"
+    ]
+  },
+  {
+    "question": "Describe how you r organization classifies information (i.e. based on its value, legal requirements, sensitivity, or criticality to the organization) and gives employees direction on how information in each classification is to be handled.",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "How are events/incidents classified?",
+    "answer": "Chúng tôi phân loại các sự kiện / sự cố dựa trên mức độ nghiêm trọng (cao, trung bình, thấp) và mức độ khẩn cấp (cao, trung bình, thấp)【4】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260327_ENG_PCIDSS_Requirement_9_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260331_ENGR_DS_Incident_Management_v1.2.md",
+      "20260331_ENGR_DS_Third_Party_Management_v1.2.md",
+      "20260331_ENGR_DS_Technical_Controls_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "How do you ingest that information and how does it trigger actions and remediation?",
+    "answer": "UrBox có một hệ thống cảnh báo bất thường; khi một sự kiện bất thường xảy ra, hệ thống sẽ kích hoạt quy trình xử lý sự cố【4】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_8_3.md",
+      "20260327_ENG_PCIDSS_Requirement_10_4.md",
+      "20260331_ENGR_DS_Incident_Management_v1.2.md",
+      "20260331_ENGR_DS_General_Question_Part2_v1.2.md"
+    ]
+  },
+  {
+    "question": "What network security controls are in place to ensure data in-transit through the network is secure and reliable?",
+    "answer": "Các biện pháp kiểm soát an ninh mạng được triển khai để bảo vệ dữ liệu truyền qua mạng bao gồm:\n\nMạng riêng ảo (VPN)\nTường lửa (Firewalls)\nGiao thức SSL (Secure Sockets Layer) hoặc TLS (Transport Layer Security)\n\n20260331_ENGR_D...ls_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_4_2.md",
+      "20260331_ENGR_DS_Network_Security_Controls_v1.2.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part2_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Where are firewalls (physical or virtual) deployed across the network architecture?",
+    "answer": "Firewalls (both physical and virtual) are deployed using:\n\nCloudflare\nAWS Security Groups\nAWS Network Access Control Lists (NACLs)\n\n20260331_ENGR_D...ls_v1.2.md",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260331_ENGR_DS_Network_Security_Controls_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part5_v1.2.md",
+      "20260331_ENGR_DS_Technical_Controls_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "How does your organization ensure that Internal, Confidential, or Highly Confidential Information is not stored in demilitarized zones (DMZs)?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "What is the process of remediating any findings resulting from these code reviews?",
+    "answer": "When an issue is identified, we create a Jira ticket to track and manage its remediation. \n20260331_ENGR_D...nt_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_4.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260331_ENGR_DS_Secure_Development_Management_v1.2.md",
+      "20260331_ENGR_DS_General_Question_Part2_v1.2.md",
+      "20260331_ENGR_DS_System_Acquisitions_Development_and_Maintenance_v1.2.md"
+    ]
+  },
+  {
+    "question": "Vulnerability Management: What are your vulnerability management and system patching commitments?",
+    "answer": "Our vulnerability‑management and patch‑deployment schedule is:\n\nCritical findings – remedied within 3 days\nHigh findings – remedied within 7 days\nMedium findings – remedied within 30 days\nLow findings – remedied within 90 days\n\n20260331_ENGR_D...t1_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260331_ENGR_DS_Technical_Controls_Part1_v1.2.md",
+      "20260331_ENGR_DS_System_Acquisitions_Development_and_Maintenance_v1.2.md",
+      "20260331_ENGR_DS_Operations_Security_v1.2.md"
+    ]
+  },
+  {
+    "question": "AV/HIDS/HIPS:  What malware and intrusion prevention solutions are deployed in your platform?",
+    "answer": "The platform uses Trend Micro for malware detection and intrusion prevention. \n20260319_ENG_PC...ent_1_2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Restrict Data Access:  How do you restrict access to PII and our sensitive data in your organization?",
+    "answer": "We restrict access to PII and other sensitive data using the following practices:\n\nRole‑Based Access Control (RBAC) – Assign roles and permissions based on job responsibilities so employees only have access to the PII needed for their duties.\nAccess Controls and Permissions – Implement controls within applications, databases, and file systems to limit who can read, modify, or delete PII, and enforce specific permissions for data folders, files, and records.\nNeed‑to‑Know Principle – Grant access only to the specific PII required for a user’s job tasks, minimizing unnecessary exposure.\nLeast Privilege Principle – Provide the minimum level of access required for users to perform their work, with regular reviews to remove excess rights.\nEncryption – Encrypt sensitive data both at rest and in transit to protect it even if other security measures are bypassed.\nAccess Logs and Auditing – Generate logs of user activity and regularly audit them to detect unauthorized or suspicious access.\nTraining and Awareness – Provide security‑focused training to employees on handling PII securely and raise awareness of data‑protection responsibilities.\nIncident Response – Maintain an incident‑response plan to address any unauthorized access events promptly and ensure employees know how to report security incidents.\n\n20260331_ENGR_D...t1_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_3.md",
+      "20260331_ENGR_DS_Technical_Controls_Part1_v1.2.md",
+      "20260331_ENGR_DS_Technical_Controls_Part2_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part2_v1.2.md"
+    ]
+  },
+  {
+    "question": "Logging:  Do you generate and monitor logs for your service?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Describe the methodology or framework applied in security testing",
+    "answer": "Methodology / Framework for Security Testing (Penetration Testing)\n\nPurpose – Simulate a real‑world attack to determine how far an attacker could penetrate the environment, given varying amounts of information supplied to the tester. This helps the organization understand its exposure and develop defensive strategies.\n\nScope of Activities\n\nBegin with a vulnerability scan to identify known weaknesses, but do not stop there.\nPerform active exploitation of identified (and potentially unknown) vulnerabilities.\nUse manual techniques and the tester’s knowledge to chain multiple exploits, moving laterally from one compromised system to another (e.g., gaining access to an application server and then using it as a launch point for further attacks).\nTest security monitoring and detection mechanisms (e.g., logging, file‑integrity monitoring) to verify they can detect the simulated attacks.\n\nTesting Techniques – The methodology can include, as appropriate to the organization’s environment:\n\nFuzzing – feeding malformed or unexpected input to discover handling errors.\nInjection – attempting SQL, command, or other injection attacks.\nForgery – creating forged messages or credentials to bypass controls.\n\nDepth & Complexity – Determined by the specific environment and organizational needs; the testing may be more or less extensive depending on risk, asset criticality, and recent changes.\n\nFrequency & Triggers (as defined for internal penetration testing):\n\nAt least once every 12 months.\nAfter any significant infrastructure or application upgrade or change.\n\nPersonnel – Performed by a qualified internal resource or qualified external third‑party that is organizationally independent from the systems being tested (the tester does not need to be a QSA or ASV).\n\nIndustry‑Accepted Frameworks – The approach can be aligned with recognized methodologies such as:\n\nOSSTMM – Open Source Security Testing Methodology and Manual.\nOWASP – Open Web Application Security Project penetration‑testing programs.\n\nThese elements together constitute the methodology/framework applied to security (penetration) testing.\n\nSource: [1]",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Describe how your solution to compliance with OWASP top 10 security vulnerability. Detail for each of 10 vulnerability",
+    "answer": "OWASP Top 10 compliance in the UrBox solution\n\nA1 – Injection (SQL, NoSQL, OS, LDAP, etc.)\nCloudflare WAF is meticulously configured to scrutin‑ and filter incoming requests, blocking injection attempts across all vectors.\n\nA2 – Broken Authentication\nTwo‑factor authentication (2FA) is enforced via Cloudflare Access, limiting access to authorized personnel only. Cloudflare Access logs are continuously monitored for anomalous authentication activity.\n\nA3 – Sensitive Data Exposure\nAll data in transit is protected with Cloudflare’s SSL/TLS encryption. Regular audits verify that encryption is correctly implemented.\n\nA4 – XML External Entities (XXE)\nCloudflare WAF rules are specifically tailored to detect and block XXE attacks, and XML inputs are continuously monitored for potential abuse.\n\nA5 – Broken Access Control\nCloudflare Access serves as the core access‑control mechanism, ensuring users have only the permissions required. Access‑control configurations are reviewed routinely.\n\nA6 – Security Misconfigurations\nThe WAF is fine‑tuned to minimise misconfigurations, and Cloudflare’s Optimization feature aligns settings with security policies. Ongoing security reviews correct any misconfigurations promptly.\n\nA7 – Cross‑Site Scripting (XSS)\nCloudflare WAF is configured to detect and mitigate XSS attacks. Developers receive continuous training on secure coding to prevent XSS introduction.\n\nA8 – Insecure Deserialization\nCloudflare WAF provides rules that identify and block insecure deserialization attempts. Development teams keep libraries and frameworks up‑to‑date and follow secure coding practices.\n\nA9 – Using Components with Known Vulnerabilities\nCloudflare’s Automatic Platform Optimization (APO) helps mitigate risks from vulnerable components. Regular vulnerability scans are performed and APO settings are adjusted as needed.\n\nA10 – Insufficient Logging & Monitoring\nCloudflare’s logging and monitoring tools capture extensive system activity. Automated alerts notify the security team of suspicious behavior, enabling rapid response.\n\nSource: [5]",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_4.md",
+      "20260327_ENG_PCIDSS_Requirement_10_2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part2_v1.2.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part1_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md"
+    ]
+  },
+  {
+    "question": "If not annually, what is the frequency?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260331_ENGR_DS_Technical_Controls_Part1_v1.2.md",
+      "20260331_ENGR_DS_Secure_Development_Management_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part5_v1.2.md"
+    ]
+  },
+  {
+    "question": "Please specify the subcontractors' location(s).",
+    "answer": "The current knowledge base does not contain any information about the location(s) of subcontractors.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Separate from data replication solutions, Are backups created regularly, encrypted, and stored in an offsite location?",
+    "answer": "The knowledge base indicates that backup data is encrypted (both at rest and in transit) – the encryption keys are tightly controlled and data‑in‑transit uses SFTP/FTPS with TLS 1.2 \n20260331_ENGR_D...t3_v1.2.md\n.\n\nHowever, the provided documents do not specify:\n\nhow often backups are created (regular schedule), or\nwhether the encrypted backups are stored at an off‑site location.\n\nTherefore, based on the current knowledge base, we can confirm encryption of backups, but we cannot confirm regular creation or off‑site storage.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "How frequently is it being sent off site",
+    "answer": "The current knowledge base does not contain information about how frequently data (or backups) are sent off‑site.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "When last did you operate out of the alternate site(s)?",
+    "answer": "The response in the provided information is N/A (not applicable) for the question “When last did you operate out of the alternate site(s)?”【5】",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_3.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md",
+      "20260331_ENGR_DS_Disaster_Recovery_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part2_v1.2.md"
+    ]
+  },
+  {
+    "question": "For how long?",
+    "answer": "The knowledge base does not specify a particular retention period. It states that a formal data‑retention policy must define the length of time data is kept, but it does not provide a concrete “for how long” value. Therefore, the current information is insufficient to answer the question.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part2_v1.2.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part1_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Please describe the exception scenarios.",
+    "answer": "Các trường hợp ngoại lệ (exception scenarios) được nêu trong các yêu cầu PCI‑DSS:\n\nRequirement 3.5.1 – Render PAN unreadable\n\nNgoại lệ: Việc tạo các tệp tạm thời chứa PAN ở dạng cleartext được chấp nhận khi thực hiện quá trình mã hoá hoặc giải mã PAN. Điều này không vi phạm yêu cầu, miễn là PAN được render unreadable trong kho lưu trữ chính.\nNguồn: \n20260320_ENG_PC...ent_3_5.md\n\nRequirement 3.4.1 – Masking PAN khi hiển thị\n\nNgoại lệ: Quy định “mask PAN khi hiển thị” không thay thế các yêu cầu nghiêm ngặt hơn do pháp luật hoặc các thương hiệu thanh toán đặt ra (ví dụ: yêu cầu hiển thị đầy đủ PAN trên biên lai POS). Khi có yêu cầu pháp lý hoặc thương hiệu mạnh hơn, các yêu cầu đó vẫn được áp dụng.\nNguồn: \n20260320_ENG_PC...ent_3_4.md",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_5.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_2.md",
+      "20260331_ENGR_DS_Logging_the_system_must_log_all_activities_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part1_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Please explain why the testing of the procedures for Incident Response plan is not annually.",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "If a mobile device management (MDM) solution is in place, does your organization monitor for external connections that are not managed by the MDM?",
+    "answer": "Có, nhưng trong tài liệu đã ghi câu trả lời là N/A (không áp dụng) cho câu hỏi này. \n20260331_ENGR_D...ls_v1.2.md",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_1_5.md",
+      "20260327_ENG_PCIDSS_Requirement_6_3.md",
+      "20260327_ENG_PCIDSS_Requirement_12_2.md",
+      "20260331_ENGR_DS_Network_Security_Controls_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part5_v1.2.md",
+      "20260331_ENGR_DS_Operations_Security_Data_Protect_v1.2.md"
+    ]
+  },
+  {
+    "question": "Has your organization implemented processes and tools to secure mobile devices and wireless networks?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_4_1.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part2_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "What controls have you implemented to ensure that Organization Information is not saved on a home office PC, printed on a home office printer, or copied to home office external device (e.g. drive/memory stick/CD/DVDs)?",
+    "answer": "The current knowledge base does not provide enough data to answer.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_5.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260319_ENG_PCIDSS_Requirement_1_4.md",
+      "20260331_ENGR_DS_Asset_Management_v1.2.md",
+      "20260331_ENGR_DS_Physical_Enviromental_Security_v1.2.md",
+      "20260331_ENGR_DS_Operations_Security_Data_Protect_v1.2.md"
+    ]
+  },
+  {
+    "question": "Do remote staff sign agreements to secure their home office against unauthorized access?",
+    "answer": "The current knowledge base does not contain an answer to that question.",
+    "source": [
+      "20260319_ENG_PCIDSS_Requirement_2_2.md",
+      "20260327_ENG_PCIDSS_Requirement_8_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260331_ENGR_DS_Physical_Enviromental_Security_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part4_v1.2.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md"
+    ]
+  },
+  {
+    "question": "Describe the physical security controls of that data center. e.g., security guards, cameras, access control system passcards, etc.",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Are climate controls in place in the data center or server room to manage air flow, humidity, temperature, and HVAC and protect IT assets from environmental hazards?",
+    "answer": "The response to this question in the provided data is N/A【3】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_2.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260331_ENGR_DS_Physical_Enviromental_Security_v1.2.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part1_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Are identification cards visibly displayed at all times while on the premises?",
+    "answer": "The response to this question in the provided data is N/A【4】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_9_3.md",
+      "20260327_ENG_PCIDSS_Requirement_9_2.md",
+      "20260320_ENG_PCIDSS_Requirement_3_4.md",
+      "20260331_ENGR_DS_Physical_Enviromental_Security_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part1_v1.2.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Are visitor identification cards easily distinguishable from employee or subcontractor/agent identification cards?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260327_ENG_PCIDSS_Requirement_5_4.md",
+      "20260331_ENGR_DS_Technical_Controls_Part1_v1.2.md",
+      "20260331_ENGR_DS_General_Question_Part1_v1.2.md",
+      "20260331_ENGR_DS_Incident_Management_v1.2.md"
+    ]
+  },
+  {
+    "question": "Is there a Security guard or CCTV at each point of entry?",
+    "answer": "According to the information provided, the access points are equipped with surveillance cameras (CCTV) and fingerprint‑recognition controls, but there is no mention of a security guard being present at each entry point【4】.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Please provide the name(s) of your organization's system(s) your subcontractor(s) have or will have access to.",
+    "answer": "The current knowledge base does not provide the names of the systems that subcontractors have or will have access to.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_5.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260327_ENG_PCIDSS_Requirement_12_8.md",
+      "20260331_ENGR_DS_Third_Party_Management_v1.2.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md",
+      "20260331_ENGR_DS_Cloud_Services_v1.2.md"
+    ]
+  },
+  {
+    "question": "Are Subcontractors included in BCP exercises?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "If so, is analysis performed to determine the maximum allowable downtime?",
+    "answer": "The current knowledge base does not provide enough data to conclude.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md",
+      "20260331_ENGR_DS_Third_Party_Management_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part1_v1.2.md"
+    ]
+  },
+  {
+    "question": "Does Vendor have an internal audit, risk management, or compliance department, or similar management oversight unit with responsibility for assessing, identifying and tracking resolut ion of outstanding regulatory issues?",
+    "answer": "The current knowledge base does not provide enough data to conclude whether the Vendor has an internal audit, risk‑management, or compliance department, or a similar oversight unit responsible for assessing, identifying, and tracking the resolution of outstanding regulatory issues.",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md"
+    ]
+  },
+  {
+    "question": "Describe your secure software development life-cycle",
+    "answer": "Không hiểu. \n20260331_ENGR_D...t1_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part1_v1.2.md",
+      "20260331_ENGR_DS_Secure_Development_Management_v1.2.md",
+      "20260331_ENGR_DS_Policies_and_Risk_v1.2.md"
+    ]
+  },
+  {
+    "question": "Describe your security architecture",
+    "answer": "Is this the architecture for only the integration? \n20260331_ENGR_D...t1_v1.2.md",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part1_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part2_v1.2.md",
+      "20260331_ENGR_DS_Design_and_Design_document_requirements_v1.2.md"
+    ]
+  },
+  {
+    "question": "- Describe access control/authorization mechanism in your solution\n+ Access control for bank user\n+ Access control for customer user\n- How your solution prevent authorization bypass attack as path traversal, bypass authorizarion, privilege escalation; prevent user, hacker access information, bank account of other user, coporate …\n- How Techcombank can apply your authorization mechanism when customize,",
+    "answer": "Is this the architecture for only the integration? \n20260331_ENGR_D...t1_v1.2.md\n\n1\n20260320_ENG_PCIDSS_Requirement_3_6.md\n2\n20260331_ENGR_DS_Security_general_requirements_Part1_v1.2.md\n3\n20260331_ENGR_DS_Vendor_Questionnaire_Part2_v1.2.md\n4\n20260331_ENGR_DS_Design_and_Design_document_requirements_v1.2.md",
+    "source": [
+      "20260327_ENG_PCIDSS_Requirement_12_10.md",
+      "20260327_ENG_PCIDSS_Requirement_12_3.md",
+      "20260320_ENG_PCIDSS_Requirement_3_3.md",
+      "20260331_ENGR_DS_Business_Continuity_Management_v1.2.md",
+      "20260331_ENGR_DS_Third_Party_Management_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part1_v1.2.md",
+      "20260327_ENG_PCIDSS_Requirement_11_4.md",
+      "20260320_ENG_PCIDSS_Requirement_3_7.md",
+      "20260319_ENG_PCIDSS_Requirement_1_2.md",
+      "20260331_ENGR_DS_Cryptographic_Safeguard_v1.2.md",
+      "20260331_ENGR_DS_Owasp_Assessment_Part3_v1.2.md",
+      "20260331_ENGR_DS_Training_Audits_v1.2.md",
+      "20260327_ENG_PCIDSS_Requirement_6_2.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part1_v1.2.md",
+      "20260331_ENGR_DS_Secure_Development_Management_v1.2.md",
+      "20260331_ENGR_DS_Policies_and_Risk_v1.2.md"
+    ]
+  },
+  {
+    "question": "Describe the security communication between customer and Bank system mechanism",
+    "answer": "Is this the architecture for only the integration? \n20260331_ENGR_D...t1_v1.2.md",
+    "source": [
+      "20260320_ENG_PCIDSS_Requirement_3_6.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part1_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Questionnaire_Part2_v1.2.md",
+      "20260331_ENGR_DS_Design_and_Design_document_requirements_v1.2.md"
+    ]
+  }
+]

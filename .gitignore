@@ -1,0 +1,11 @@
+sources/
+.env
+.DS_Store
+.venv/
+venv/
+__pycache__/
+node_modules/
+test-results/
+cache/
+outputs/
+data/sessions/

@@ -1,0 +1,76 @@
+A. Tài liệu gốc của Requirement 1
+https://docs.google.com/document/d/1I03ZuZacXOKn7Y77xS9x3al3wN-Zzpj74UGFiPJXUsQ/edit?usp=drive_link
+B. Summary Overview của Requirement 1
+Tài liệu này mô tả chi tiết Requirement 1 của tiêu chuẩn PCI-DSS v4.0.1, tập trung vào việc Cài đặt và Duy trì các biện pháp kiểm soát an ninh mạng (NSCs) để bảo vệ CDE.
+Mục tiêu là Kiểm soát lưu lượng mạng và Ngăn chặn truy cập trái phép thông qua các chính sách thực thi nghiêm ngặt.
+Cấu trúc bao gồm 5 phân mục chính:
+1.1: Quy trình và cơ chế Xác định & Hiểu rõ NSCs
+1.2: Cấu hình và Duy trì NSCs
+1.3: Hạn chế truy cập mạng vào/ra CDE
+1.4: Kiểm soát kết nối giữa mạng tin cậy và không tin cậy
+1.5: Giảm thiểu rủi ro từ thiết bị đa mạng
+Áp dụng cho toàn bộ Hệ thống, thiết bị và Nhân sự liên quan đến CDE.
+C. Key Points của Requirement 1
+Phạm vi áp dụng:  Nhân sự quản trị mạng, thiết bị công ty và BYOD kết nối vào CDE
+Trách nhiệm: Nhân sự phụ trách phải Thiết lập và Duy trì NSCs để bảo vệ hệ thống khỏi tấn công và kết nối không tin cậy
+Quản lý tài liệu: Tài liệu hóa, Cập nhật và Phổ biến chính sách NSC đến các bên liên quan
+Sơ đồ kỹ thuật:  Duy trì sơ đồ mạng và luồng dữ liệu (data-flow) đầy đủ, bao gồm kết nối giữa CDE và các mạng khác
+Rà soát định kỳ: Kiểm tra và Đánh giá cấu hình NSC ít nhất mỗi "6 tháng"
+Nguyên tắc kiểm soát: Từ chối mặc định, chỉ Cho phép khi có nhu cầu kinh doanh được Phê duyệt
+Thời hạn: Một số yêu cầu mới áp dụng từ 31/03/2025
+D. Deep Summary của Requirement 1
+Bối cảnh: 
+Các mối đe dọa từ mạng không tin cậy (Internet, wireless) ngày càng phức tạp. NSCs là lớp phòng thủ quan trọng để Ngăn chặn truy cập trái phép vào CDE.
+Nội dung cốt lõi:
+Quản lý quy trình: Tài liệu hóa và Thực hiện đầy đủ các chính sách, quy trình vận hành; Phân công rõ ràng vai trò, trách nhiệm.
+Kiểm soát kỹ thuật: Xác định và Triển khai theo ruleset của NSCs . Lưu lượng vào/ra CDE phải bị Từ chối mặc định; Cho phép khi có Phê duyệt hợp lệ.
+Duy trì sơ đồ: Cập nhật liên tục sơ đồ mạng và luồng dữ liệu để đảm bảo không bỏ sót kết nối
+Quản lý thay đổi: Mọi chỉnh sửa kết nối và cấu hình phải được Phê duyệt bởi Nhân sự có thẩm quyền theo đúng quy trình kiểm soát thay đổi.
+Dữ liệu đáng chú ý:
+6 tháng: Chu kỳ tối thiểu rà soát cấu hình NSC
+31/03/2025: Mốc áp dụng một số yêu cầu mới
+Phạm vi thiết bị: Áp dụng cho cả thiết bị thuộc sở hữu của công ty và cá nhân (BYOD) khi kết nối vào CDE
+Rủi ro / Lưu ý:
+Việc sử dụng các dịch vụ, giao thức hoặc cổng không an toàn → rủi ro cao nếu không có kiểm soát bổ sung
+Ngăn chặn truy cập trực tiếp từ mạng không tin cậy thông qua việc sử dụng NSCs và DMZ
+Rủi ro từ việc để lộ địa chỉ IP nội bộ và thông tin định tuyến có thể hỗ trợ attacker phân tích hệ thống
+E. Structured Output của Requirement 1
+Control objectives: 1.4
+Sub-requirement: 1.4.4 (Tag: database isolation, CDE protection, no direct public access)
+Defined Approach Requirements of 1.4.4: System components that store cardholder data are not directly accessible from untrusted networks.
+Defined Approach Testing Procedures of 1.4.4:
+- "1.4.4.a": Examine the data-flow diagram and network diagram to verify that it is documented that system components storing cardholder data are not directly accessible from the untrusted networks.
+- "1.4.4.b": Examine configurations of NSCs to verify that controls are implemented such that system components storing cardholder data are not directly accessible from untrusted networks.
+Customized Approach Objective of 1.4.4: Stored cardholder data cannot be accessed from untrusted networks.
+Applicability Notes of 1.4.4: This requirement is not intended to apply to storage of account data in volatile memory but does apply where memory is being treated as persistent storage (for example, RAM disk). Account data can only be stored in volatile memory during the time necessary to support the associated business process (for example, until completion of the related payment card transaction). 1.4.4.b Examine configurations of NSCs to verify that controls are implemented such that system components storing cardholder data are not directly accessible from untrusted networks.
+Guidance - Purpose of 1.4.4: Cardholder data that is directly accessible from an untrusted network, for example, because it is stored on a system within the DMZ or in a cloud database service, is easier for an external attacker to access because there are fewer defensive layers to penetrate. Using NSCs to ensure that system components that store cardholder data (such as a database or a file) can only be directly accessed from trusted networks can prevent unauthorized network traffic from reaching the system component.
+---
+Control objectives: 1.4
+Sub-requirement: 1.4.5 (Tag: NAT, IP masking, network information disclosure)
+Defined Approach Requirements of 1.4.5: The disclosure of internal IP addresses and routing information is limited to only authorized parties.
+Defined Approach Testing Procedures of 1.4.5:
+- "1.4.5.a": Examine configurations of NSCs to verify that the disclosure of internal IP addresses and routing information is limited to only authorized parties.
+- "1.4.5.b": Interview personnel and examine documentation to verify that controls are implemented such that any disclosure of internal addresses and routing information is limited to only authorized parties.
+Customized Approach Objective of 1.4.5: Internal network information is protected from unauthorized disclosure.
+Guidance - Purpose of 1.4.5: Restricting the disclosure of internal, private, and local IP addresses is useful to prevent a hacker from obtaining knowledge of these IP addresses and using that information to access the network.
+Guidance - Good Practice of 1.4.5: Methods used to meet the intent of this requirement may vary, depending on the specific networking technology being used. For example, the controls used to meet this requirement may be different for IPv4 networks than for IPv6 networks.
+Guidance - Examples of 1.4.5: Methods to obscure IP addressing may include, but are not limited to:
+• IPv4 Network Address Translation (NAT).
+• Placing system components behind proxy servers/NSCs.
+• Removal or filtering of route advertisements for internal networks that use registered addressing.
+• Internal use of RFC 1918 (IPv4) or use IPv6 privacy extension (RFC 4941) when initiating outgoing sessions to the internet.
+---
+Control objectives: 1.5
+Sub-requirement: 1.5.1 (Tag: endpoint security, VPN, split tunneling, device hardening)
+Defined Approach Requirements of 1.5.1: Security controls are implemented on any computing devices, including company- and employee-owned devices, that connect to both untrusted networks (including the Internet) and the CDE as follows:
+• Specific configuration settings are defined to prevent threats being introduced into the entity's network.
+• Security controls are actively running.
+• Security controls are not alterable by users of the computing devices unless specifically documented and authorized by management on a case-by-case basis for a limited period.
+Defined Approach Testing Procedures of 1.5.1:
+- "1.5.1.a": Examine policies and configuration standards and interview personnel to verify security controls for computing devices that connect to both untrusted networks, and the are implemented in accordance with all elements specified in this requirement.
+- "1.5.1.b": Examine configuration settings on computing devices that connect to both untrusted networks and the CDE to verify settings are implemented in accordance with all elements specified in this requirement.
+Customized Approach Objective of 1.5.1: Devices that connect to untrusted environments and also connect to the CDE cannot introduce threats to the entity's CDE. 
+Applicability Notes of 1.5.1: These security controls may be temporarily disabled only if there is legitimate technical need, as authorized by management on a case-by-case basis. If these security controls need to be disabled for a specific
+Guidance - Purpose of 1.5.1: Computing devices that are allowed to connect to the Internet from outside the corporate environment-for example, desktops, laptops, tablets, smartphones, and other mobile computing devices used by employees-are more vulnerable to Internet-based threats. Use of security controls such as host-based controls (for example, personal firewall software or end-point protection solutions), network-based security controls (for example, firewalls, network- based heuristics inspection, and malware simulation), or hardware, helps to protect devices from Internet-based attacks, which could use the device to gain access to the organization's systems and data when the device reconnects to the network.
+Guidance - Good Practice of 1.5.1: The specific configuration settings are determined by the entity and should be consistent with its network security policies and procedures. Where there is a legitimate need to temporarily disable security controls on a company-owned or employee-owned device that connects to both an untrusted network and the CDE-for example, to support a specific maintenance activity or investigation of a technical problem-the reason for taking such action is understood and approved by an appropriate management representative. Any disabling or altering of these security controls, including on administrators' own devices, is performed by authorized personnel. It is recognized that administrators have privileges that may allow them to disable security controls on their own computers, but there should be alerting mechanisms in place when such controls are disabled and follow up that occurs to ensure processes were followed.
+Guidance - Examples of 1.5.1: Practices include forbidding split-tunneling of VPNs for employee-owned or corporate-owned mobile devices and requiring that such devices boot up into a VPN.

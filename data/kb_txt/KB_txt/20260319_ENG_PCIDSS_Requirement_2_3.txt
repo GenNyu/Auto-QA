@@ -1,0 +1,85 @@
+A. Tài liệu gốc của Requirement 2
+https://docs.google.com/document/d/1zw3HaHLJXPy16Aiq_RHPfRSIe2y10V5DEXDOdwPQy7o/edit?usp=sharing
+B. Summary Overview của Requirement 2
+Tài liệu này mô tả chi tiết Requirement 2 của tiêu chuẩn PCI-DSS v4.0.1, tập trung vào việc Áp dụng cấu hình bảo mật cho toàn bộ hệ thống
+Mục tiêu chính là loại bỏ việc sử dụng thông số/mật khẩu mặc định của Nhà cung cấp nhằm giảm rủi ro tấn công
+Cấu trúc gồm 3 phân mục chính:
+	•	2.1: Quy trình và cơ chế áp dụng cấu hình bảo mật
+	•	2.2: Cấu hình và Quản lý an toàn hệ thống
+	•	2.3: Môi trường không dây
+C. Key Points của Requirement 2
+	•	Phạm vi áp dụng: Toàn bộ hệ thống (network, server, cloud, virtualization)
+	•	Trách nhiệm: Nhân sự phải Tài liệu hóa, Phân công, Đảm bảo nhận thức vai trò
+	•	Tiêu chuẩn cấu hình: Dựa trên CIS / ISO / NIST
+	•	Tài khoản mặc định: Phải Thay đổi hoặc Vô hiệu hóa trước khi vận hành
+	•	Dịch vụ không cần thiết: Phải Gỡ bỏ hoặc Vô hiệu hóa
+	•	Thời hạn: Một số yêu cầu mới áp dụng từ 31/03/2025
+D. Deep Summary của Requirement 2
+Bối cảnh: 
+Cấu hình sai là nguyên nhân phổ biến gây lộ dữ liệu. Thiết lập cấu hình an toàn giúp giảm bề mặt tấn công và bảo vệ dữ liệu chủ thẻ
+Nội dung cốt lõi:
+	•	Duy trì tiêu chuẩn cấu hình để xử lý lỗ hổng đã biết
+	•	Áp dụng nguyên tắc một chức năng chính / hệ thống hoặc Cô lập chức năng
+	•	Mã hóa truy cập quản trị non-console bằng mật mã mạnh
+Dữ liệu đáng chú ý:
+	•	Tiêu chuẩn cấu hình phải được Cập nhật ngay khi có lỗ hổng mới
+	•	Thiết bị không dây: thông số mặc định phải Thay đổi ngay khi triển khai
+Rủi ro / Lưu ý:
+	•	Dùng dịch vụ không an toàn mà không có giải trình + kiểm soát bổ sung → lỗi tuân thủ nghiêm trọng
+	•	Nếu dùng tài khoản mặc định: phải Thay đổi mật khẩu theo "8.3.6"
+E. Structured Output của Requirement 2
+Control objectives: 2.2
+Sub-requirement: 2.2.6 (Tag: security parameters, system configuration, secure settings, misconfiguration prevention)
+Defined Approach Requirements of 2.2.6: System security parameters are configured to prevent misuse.
+Defined Approach Testing Procedures of 2.2.6:
+- "2.2.6.a": Examine system configuration standards to verify they include configuring system security parameters to prevent misuse.
+- "2.2.6.b": Interview system administrators and/or security managers to verify they have knowledge of common security parameter settings for system components.
+- "2.2.6.c": Examine system configurations to verify that common security parameters are set appropriately and in accordance with the system configuration standards.
+Customized Approach Objective of 2.2.6: System components cannot be compromised because of incorrect security parameter configuration.
+Guidance - Purpose of 2.2.6: Correctly configuring security parameters provided in system components takes advantage of the capabilities of the system component to defeat malicious attacks.
+Guidance - Good Practice of 2.2.6: System configuration standards and related processes should specifically address security settings and parameters that have known security implications for each type of system in use. For systems to be configured securely, personnel responsible for configuration and/or administering systems should be knowledgeable in the specific security parameters and settings that apply to the system. Considerations should also include secure settings for parameters used to access cloud portals.
+Guidance - Further Information of 2.2.6: Refer to vendor documentation and industry references noted in Requirement 2.2.1 for information about applicable security parameters for each type of system.
+---
+Control objectives: 2.2
+Sub-requirement: 2.2.7 (Tag: encrypted admin access, SSH, TLS, secure remote access, API security)
+Defined Approach Requirements of 2.2.7: All non-console administrative access is encrypted using strong cryptography.
+Defined Approach Testing Procedures of 2.2.7:
+- "2.2.7.a": Examine system configuration standards to verify they include encrypting all non-console administrative access using strong cryptography.
+- "2.2.7.b": Observe an administrator log on to system components and examine system configurations to verify that non-console administrative access is managed in accordance with this requirement.
+- "2.2.7.c": Examine settings for system components and authentication services to verify that insecure remote login services are not available for non- console administrative access.
+- "2.2.7.d": Examine vendor documentation and interview personnel to verify that strong cryptography for the technology in use is implemented according to industry best practices and/or vendor recommendations.
+Customized Approach Objective of 2.2.7: Cleartext administrative authorization factors cannot be read or intercepted from any network transmissions.
+Applicability Notes of 2.2.7: This includes administrative access via browser- based interfaces and application programming interfaces (APIs). 
+Guidance - Purpose of 2.2.7: If non-console (including remote) administration does not use encrypted communications, administrative authorization factors (such as IDs and passwords) can be revealed to an eavesdropper. A malicious individual could use this information to access the network, become administrator, and steal data.
+Guidance - Good Practice of 2.2.7: Whichever security protocol is used, it should be configured to use only secure versions and configurations to prevent use of an insecure connection-for example, by using only trusted certificates, supporting only strong encryption, and not supporting fallback to weaker, insecure protocols or methods.
+Guidance - Examples of 2.2.7: Cleartext protocols (such as HTTP, telnet, etc.) do not encrypt traffic or logon details, making it easy for an eavesdropper to intercept this information. Non-console access may be facilitated by technologies that provide alternative access to systems, including but not limited to, out-of-band (OOB), lights-out management (LOM), Intelligent Platform Management Interface (IPMI), and keyboard, video, mouse (KVM) switches with remote capabilities. These and other non-console access technologies and methods must be secured with strong cryptography.
+Guidance - Further Information of 2.2.7: Refer to industry standards and best practices such as NIST SP 800-52 and SP 800-57 .
+---
+Control objectives: 2.3
+Sub-requirement: 2.3.1 (Tag: wireless security, default credentials, WiFi hardening, SNMP security)
+Defined Approach Requirements of 2.3.1: For wireless environments connected to the CDE or transmitting account data, all wireless vendor defaults are changed at installation or are confirmed to be secure, including but not limited to:
+• Default wireless encryption keys.
+• Passwords on wireless access points.
+• SNMP defaults.
+• Any other security-related wireless vendor defaults.
+Defined Approach Testing Procedures of 2.3.1:
+- "2.3.1.a": Examine policies and procedures and interview responsible personnel to verify that processes are defined for wireless vendor defaults to either change them upon installation or to confirm them to be secure in accordance with all elements of this requirement.
+- "2.3.1.b": Examine vendor documentation and observe a system administrator logging into wireless devices to verify: 
+• SNMP defaults are not used. 
+• Default passwords/passphrases on wireless access points are not used.
+- "2.3.1.c": Examine vendor documentation and configuration settings to verify other security-related wireless vendor defaults were changed, if applicable.
+Customized Approach Objective of 2.3.1: Wireless networks cannot be accessed using vendor default passwords or default configurations.
+Applicability Notes of 2.3.1: This includes, but is not limited to, default wireless encryption keys, passwords on wireless access points, SNMP defaults, and any other security-related wireless vendor defaults. 
+Guidance - Purpose of 2.3.1: If wireless networks are not implemented with sufficient security configurations (including changing default settings), wireless sniffers can eavesdrop on the traffic, easily capture data and passwords, and easily enter and attack the network.
+Guidance - Good Practice of 2.3.1: Wireless passwords should be constructed so that they are resistant to offline brute force attacks.
+---
+Control objectives: 2.3
+Sub-requirement: 2.3.2 (Tag: key rotation, wireless encryption keys, key management, access revocation)
+Defined Approach Requirements of 2.3.2: For wireless environments connected to the CDE or transmitting account data, wireless encryption keys are changed as follows:
+• Whenever personnel with knowledge of the key leave the company or the role for which the knowledge was necessary.
+• Whenever a key is suspected of or known to be compromised. Customized Approach Objective Knowledge of wireless encryption keys cannot allow unauthorized access to wireless networks.
+Defined Approach Testing Procedures of 2.3.2: Interview responsible personnel and examine key-management documentation to verify that wireless encryption keys are changed in accordance with all elements specified in this requirement.
+Customized Approach Objective of 2.3.2: Knowledge of wireless encryption keys cannot allow unauthorized access to wireless networks. 
+Guidance - Purpose of 2.3.2: Changing wireless encryption keys whenever someone with knowledge of the key leaves the organization or moves to a role that no longer requires knowledge of the key, helps keep knowledge of keys limited to only those with a business need to know. Also, changing wireless encryption keys whenever a key is suspected or known to be comprised makes a wireless network more resistant to compromise.
+Guidance - Good Practice of 2.3.2: This goal can be accomplished in multiple ways, including periodic changes of keys, changing keys via a defined 'joiners-movers-leavers' (JML) process, implementing additional technical controls, and not using fixed pre-shared keys. In addition, any keys that are known to be, or suspected of being, compromised should be managed in accordance with the entity's incident response plan at Requirement 12.10.1.
+

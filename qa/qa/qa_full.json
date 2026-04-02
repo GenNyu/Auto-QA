@@ -1,0 +1,502 @@
+[
+    {
+        "level": "LEVEL 1",
+        "question": "Has your organization established an enterprise-wide IT security policy, with supporting procedures in place that set forth how your organization will identify and manage its IT security risks?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Does your organization review and update the Information Security Program and Policies annually?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Does your organization's IT security policy apply to all of the organization's operating groups and entities, including subsidiaries, joint ventures and geographic regions?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Is your organization's IT security policy linked to other relevant Risk Management policies including Information Security, Business Continuity Management, Outsourcing, New Initiatives, and Change Management?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Does your organization have a strategic and tactical IT security plan with defined roles, responsibilities, coordination of organizational entities and compliance that aligns with business strategy and outlines key initiatives and timelines?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Have the roles and responsibilities for IT Security been clearly defined within your IT security policy?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Does a security management reporting mechanism exist that informs the board, business and IT management on the status of information security at your organization?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Do general, IT, and security organizational charts exist?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Do the organizational charts provide up-to-date, clear illustration of dedicated security functional roles?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Does your organization have an established IT Security risk management framework implemented on an enterprise-wide basis?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Does your organization conduct internal audits of information security controls?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Is there a cross-organizational committee that meets regularly on cybersecurity issues?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Does your organization maintain an inventory of assets (both hardware and software) that includes tagging/labeling of assets, asset ownership, and asset criticality?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Does your organization have a process in place to review asset inventories at least annually to verify ownership, classification, and criticality?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Is there a policy governing removable media including hard drives, backup tapes, CD/DVD, memory sticks, etc.?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Are USB ports locked down so information cannot be transferred to removable media?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Does equipment slated for disposal or reuse (recycle, transferred, sold, returned) have its activity logged and tracked (including certificates of destruction)?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Does your enterprise have a Business Continuity Program?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Does your Business Continuity program include a testing program?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "What were the results of your most recent test:",
+        "anwser": "Successful"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Do you have sufficient work from home capabilities to maintain the service(s) being reviewed uninterrupted should employing your work from home strategy be necessary?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Are there documented plans or procedures for cryptographic key owners to handle compromised keys and revoke and/or rotate the keys on an emergency basis?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Are there documented plans or procedures for key rotation?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Are there procedures for protection from key loss and corruption?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 1",
+        "question": "Is there an access control policy implemented to limit access to only parties authorized by the key owner?",
+        "anwser": "Yes"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "Please provide the frequency of the audits, along with the date of the last completed report.",
+        "anwser": "Quarterly"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What is the maximum allowable downtime (MAD) documented for the Services provided/to be provided?",
+        "anwser": "1 %"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What was the Recovery Time Actual (RTA) of this test?",
+        "anwser": "1 day for work from home"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What percentage of your staff have work from home capabilities?",
+        "anwser": "80%"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What protocol(s) does your organization use to encrypt? Please list or explain.",
+        "anwser": "SSL, TLS"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What is the name and version of the encryption software?",
+        "anwser": "SHA-256\nTripleDes\nJWT"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What is the encryption algorithm and key strength used?",
+        "anwser": "256"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "Who is the cloud provider?",
+        "anwser": "Amazon Web Service"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What type of cloud-solution will be used to process Manulife/John Hancock data (e.g., SAAS, PAAS, IAAS)?",
+        "anwser": "PAAS"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What is the documented recovery time objective (RTO) for the reviewed service?",
+        "anwser": "1h"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What is the date of your most recent Disaster Recovery exercise?",
+        "anwser": "12/12/2022"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What was the recovery time actual (RTA) of your most recent test?",
+        "anwser": "10 minutes"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What was the recovery point actual (RPA) of your most recent test?",
+        "anwser": "10 minutes"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What is the documented recovery point objective (RPO) for the reviewed service?",
+        "anwser": "3h"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "Please provide the location or region of your primary and alternate site.",
+        "anwser": "HN + HCM"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What is the distance between your primary and alternate site?",
+        "anwser": "2 hours"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What type of cloud services are employed?",
+        "anwser": "AWS Cloud"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "Who is your cloud service provider?",
+        "anwser": "AWS"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What is the employee screening (e.g., background checks or equivalent process based on country-specific protocols) frequency for employees, subcontractors or contingent workers?",
+        "anwser": "Annually"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "Please describe how this is measured and what the current effectiveness ratings",
+        "anwser": "We conduct Q&A after training and the current rating is 9/10"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "Who is trained and with what frequency (e.g., employees, contractors, and third parties)?",
+        "anwser": "Employees"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "How often is the incident response plan reviewed and updated?",
+        "anwser": "Annualy"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "How often are the key contacts within the plan updated?",
+        "anwser": "Quarterly"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What is your organization's process and timeframe to report to Manulife/John Hancock any security or other event that creates reasonable suspicion of: (a) unauthorized access to any Manulife/John Hancock data or processing environment, (b) misappropriation or alteration of any Manulife/John Hancock data, or (c) theft or loss of Manulife/John Hancock data?",
+        "anwser": "Within 24 hours since the event happens"
+    },
+    {
+        "level": "LEVEL 2",
+        "question": "What governing policies are established and implemented that ensures only authorized software is installed in the environment? (ie. whitelisting, blacklisting)",
+        "anwser": "Whitelisting"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "How are exceptions to the Information Security Policy and supporting Standards handled and are suc h non conformities reviewed periodically?",
+        "anwser": "All exceptions will be assessed and reviewed by ISMS, document and then submit to the Board of Directors to get approval case by case. Such non conformities are not reviewed again after getting the approval/rejection from BOD"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "Describe how you review, update and then communicate those updates to your Information Security Policy to reflect significant changes to the organizational environment, business circumstances, or technical environment.",
+        "anwser": "ISMS team periodically reviews, updates the Information Security Policy, then seek approval from BOD. If BOD approves the change, ISMS team will announce to all staff and implement company-wide."
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "How are risks from the security risk assessment documented and managed? (e.g., Is there a centralized risk register? Are identified risks addressed with documented and approved risk treatment plans?)",
+        "anwser": "Risk will be logged and the assessment will be done on Development Environment"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "How does your organization classify risk? (e.g., What criteria (e.g. likelihood, impact) form the foundation of risk assessments in your organization?)",
+        "anwser": "We classify risk based on risk probability (rare, unlikely, occasionally, highly likely, certain) and risk impact (insignificant, Medium, High, Critical & Extreme)\nAfter identified the probability and the impact of threats/ vulnerabilities, ISMR will identify the level of risk based on the formula:\nLevel of risk = probability x impact"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "How does your organization ensure compliance with legislative requirements of jurisdictions where you operate as those related to data residency and protection of privacy?",
+        "anwser": "UrBox comply with Vietnamese Law on CyberSecurity and other applicable legal and regulatory requirements issued by National Assembly of Vietnam\nOur company is oversight by Ministry of Industry and Trade\nhttp://online.gov.vn/Home/WebDetails/53789\nhttp://online.gov.vn/Home/WebDetails/37462\nUrBox has a Compliance committee to ensure the Company business stays current with regulatory changes.UrBox confirms that adequate procedures are in place to ensure that any legislative changes are implemented on a timely basis:\n+ Constantly updating with newly issued regulations & rules from different channels: Tax authority, publish website of government etc.\n+ Determing which regulations & rules may affect Company operations or services\n+ Analyzing & applying compliance according to legislative changes\n+ Training & disseminating infor mation to employees by internal channels\n+ Noticing changes to related parties such as: clients, suppliers, stockholders etc. through email, post etc.\n+ Monitoring & checking to ensure new compliances are implemented and timely noticed to related parties"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "Describe how your organization securely handles, transfers, stores, and disposes both removable media (e.g., Hard drives, CD/DVD, memory sticks, etc.) and printed material.",
+        "anwser": "1. Removable media storage devices (removable, unfixed devices inside a computer such as magnetic tapes, optical discs, external hard drives, or USB flash drives, memory cards, etc) are not allowed to use. Exceptions need to get the approval of the management team\n2. Users and data managers of these devices must take full responsibility for the data stored on its.\n3. Storage media that are no longer in use must be destroyed to ensure that they cannot be reused and cannot be restored into internal memory.\n4. The process of destroying these devices must be documented and kept on file for retrieval when necessary"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "How is media in transport protected against unauthorised access, misuse or corruption, and damage?",
+        "anwser": "1 . Media must be properly packed to avoid possible physical damage during transportation and in accordance with the manufacturer's technical requirements for preservation and transportation.\n2. The transportation of those devices must be fully recorded, the sending/receiving time of each stage in the transportation process.\n3. If an outside transportation service is needed, UrBox will hire a reliable transportation or delivery service"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "Describe your encryption key management processes to securely manage keys throughout their lifecycle (generation, transmission , storage, rotation, disposal) and key management solutions used.",
+        "anwser": "Encryptuon key will be created by DevOps & Head of Technology and then saved on production system"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "Please explain how the user provisioning for sourced/cloud services are accomplished.",
+        "anwser": "1. Employee creates request\n2. Head of department approves\n3. IT department review request, provide resources"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "Please describe the metrics that are / will be available to Manulife/John Hancock to monitor the security health of the cloud solution(s) managing Manulife data?",
+        "anwser": "All Metric on CloudWatch. Example:\n+ CPUUtilization\n+ DatabaseConnections\n+ ReadLatency\n+ WriteLatency\n+ SlowQuery\n+ Service Status\n..."
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "Describe items being checked and for whom. (e.g., criminal records, credit history, identity, professional qualifications, work history, business references, etc).",
+        "anwser": "Fhe following checks are performed for our employees:\n- Identity verification\n- Educational background verification\n- Employment/professional back ground verification\n- Criminal/police record check\n- Business references"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "Describe the security awareness training that you provide to employees, and when relevant, contractors and 3rd party personnel?",
+        "anwser": "The topics include:\n- Systems vulnerability and abuse: malicious software, hackers and computer crime including phishing attempts, internal threats, software Vulnerability\n- Business value of security and control\n- Organizational framework for security and control\n- Tools and methods for safeguarding information resources"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "Describe how you r organization classifies information (i.e. based on its value, legal requirements, sensitivity, or criticality to the organization) and gives employees direction on how information in each classification is to be handled.",
+        "anwser": "1. Public information: Including information such as company name and address, description of product and service that a company provide. These information can be shared publicly and do not have to follow any guideline.\n2. Internal information: Including information such as email, employee account information, internal working process and work instructions. Employees should only share this information with colleages who have demand and the access right to the information. Non-sensitive information but the source of information can only be found at the company, will be disseminated within the company.\n3. Sensitive/Confidential Information: Includes information such as customer personal information and financial information. This information should be protected from unauthorized access and should only be shared in case there is a demand and legitimate access right."
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "How are events/incidents classified?",
+        "anwser": "We classify events/incidents based on severity (High, medium, low) and urgency (high, medium, low)"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "How do you ingest that information and how does it trigger actions and remediation?",
+        "anwser": "UrBox has an abnomaly warning system, when an unusual event occurs, it will trigger the incident handling process"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "What network security controls are in place to ensure data in-transit through the network is secure and reliable?",
+        "anwser": "1. Virtual Private Networks (VPNs)\n2. Firewalls\n3. Secure Sockets Layer (SSL) or Transport Layer Security (TLS)"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "Where are firewalls (physical or virtual) deployed across the network architecture?",
+        "anwser": "Cloudflare\nAWS Security Group\nAWS NACL (Network Access Control Lists)"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "How does your organization ensure that Internal, Confidential, or Highly Confidential Information is not stored in demilitarized zones (DMZs)?",
+        "anwser": "We have private subnet for Internal, Confidential or Highly Confidential Information"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "What is the process of remediating any findings resulting from these code reviews?",
+        "anwser": "When an issue is found, we will create an issue on Jira to manage"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "Vulnerability Management: What are your vulnerability management and system patching commitments?",
+        "anwser": "Critical within 3 Days\nHigh within 7 Days\nMedium within 30 Days\nLow within 90 Days"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "AV/HIDS/HIPS:  What malware and intrusion prevention solutions are deployed in your platform?",
+        "anwser": "All servers have ClamAV antivirus software installed, and IDS/IPS is integrated into the CloudFlare firewall system."
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "Restrict Data Access:  How do you restrict access to PII and our sensitive data in your organization?",
+        "anwser": "Here are practices and measures that UrBox typically uses to restrict access to PII and sensitive data:\n\n1. Role-Based Access Control (RBAC):\nImplement RBAC to assign specific roles and permissions to users based on their job responsibilities.\nEnsure that employees only have access to the PII necessary to perform their duties.\n2. Access Controls and Permissions:\nImplement access controls within applications, databases, and file systems to restrict who can read, modify, or delete PII.\nDefine and enforce permissions for specific data folders, files, and database records.\n3. Need-to-Know Principle:\nAdhere to the \"\"need-to-know\"\" princi ple, where employees are granted access only to the specific PII required for their job tasks.\nMinimize access to sensitive data by limiting it to individuals who have a legitimate business need.\n4. Least Privilege Principle:\nApply the \"\"least privilege\"\" principle, granting users the minimum level of access required to perform their job tasks.\nReview and update permissions regularly to avoid excessive access rights.\n5. Encryption:\nEncrypt sensitive data at rest and in transit to protect it from unauthorized access, even if physical or network security measures are breached.\n6. Access Logs and Auditing:\n- Generate access logs to record user activities, including data access.\n- Regularly audit access logs to detect unauthorized or suspicious activities.\n7. Training and Awareness:\n- Provide training to employees on data security best practices, including their responsibilities for handling PII securely.\n- Raise awareness about the importance of data protection.\n8. Incident Response:\n- De velop incident response plans to address unauthorized access incidents promptly and effectively.\n- Ensure that employees know how to report security incidents."
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "Logging:  Do you generate and monitor logs for your service?",
+        "anwser": "All log to UrBox services: These logs are stored in Elastic Cloud and retained for the latest 12 months.\nThe logging system captures Nginx access logs at UrBox's ingress. These logs are pushed to Kafka.\nA Logstash process retrieves logs from Kafka, parses them into structured fields, and pushes them to Elastic Cloud."
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "Describe the methodology or framework applied in security testing",
+        "anwser": "- The methodology applied in security testing, we follows:\nInformation Gathering (Reconnaissance) -> Threat Modeling -> Scanning and Enumeration -> Vulnerability Assessment -> Exploitation -> Reporting -> Remediation\n- Framework applied in security test: Owasp Zap, Nessus, Qualys Cloud Platform"
+    },
+    {
+        "level": "LEVEL 3",
+        "question": "Describe how your solution to compliance with OWASP top 10 security vulnerability. Detail for each of 10 vulnerability",
+        "anwser": "UrBox system relies on Cloudflare to adhere to specific OWASP Top 10 vulnerabilities as follows:\n\nInjection (SQL, NoSQL, OS, and LDAP injection):\nCloudflare WAF is meticulously configured to scrutinize and filter incomi ng requests, fortifying our defenses against potential injection threats, encompassing SQL, NoSQL, OS, and LDAP vulnerabilities.\n\nBroken Authentication:\nTwo-factor authentication (2FA) is enforced through Cloudflare Access, ensuring that only authorized personnel can access critical company resources. Furthermore, our team actively monitors Cloudflare Access logs for any irregularities in authentication activities.\n\nSensitive Data Exposure:\nCloudflare's SSL/TLS features are actively employed to encrypt data during transit, establishing a robust defense against potential data exposure. Regular audits are conducted to verify the proper implementation of encryption protocols.\n\nXML External Entities (XXE):\nCloudflare WAF rules are specifically tailored to thwart and mitigate XML External Entity (XXE) attacks. We consistently monitor XML input to promptly identify and rectify any potential XXE vulnerabilities.\n\nBroken Access Control:\nCloudflare Access serves as the linchpin for our access c ontrol strategies, ensuring that employees possess the appropriate permissions to access company resources. Routine reviews of access control configurations are conducted to pinpoint and rectify any potential issues.\n\nSecurity Misconfigurations:\nCloudflare WAF is finely tuned to minimize security misconfigurations, and the Optimization feature is deployed to align Cloudflare settings with our stringent security policies. Regular security reviews are conducted to rectify any misconfigurations promptly.\n\nCross-Site Scripting (XSS):\nCloudflare WAF is configured to detect and mitigate Cross-Site Scripting (XSS) attacks. Ongoing developer training emphasizes secure coding practices to thwart the introduction of XSS vulnerabilities into our company applications.\n\nInsecure Deserialization:\nCloudflare WAF provides specific rules to identify and block insecure deserialization attempts. Our development team is committed to adhering to secure coding practices and promptly updating libraries and f rameworks to mitigate deserialization vulnerabilities.\n\nUsing Components with Known Vulnerabilities:\nCloudflare's Automatic Platform Optimization (APO) is implemented to mitigate the risk associated with using components with known vulnerabilities. Regular vulnerability scans are conducted, and APO settings are adjusted accordingly to address any identified issues.\n\nInsufficient Logging & Monitoring:\nCloudflare's logging and monitoring tools are extensively utilized to track and analyze system activities. Automated alerts are configured to notify the security team promptly of any suspicious behavior, ensuring swift responses to potential security incidents."
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "If not annually, what is the frequency?",
+        "anwser": ""
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Please specify the subcontractors' location(s).",
+        "anwser": ""
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Separate from data replication solutions, Are backups created regularly, encrypted, and stored in an offsite location?",
+        "anwser": "N/A"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "How frequently is it being sent off site",
+        "anwser": "N/A"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "When last did you operate out of the alternate site(s)?",
+        "anwser": "N/A"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "For how long?",
+        "anwser": "N/A"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Please describe the exception scenarios.",
+        "anwser": ""
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Please explain why the testing of the procedures for Incident Response plan is not annually.",
+        "anwser": "N/A"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "If a mobile device management (MDM) solution is in place, does your organization monitor for external connections that are not managed by the MDM?",
+        "anwser": "N/A"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Has your organization implemented processes and tools to secure mobile devices and wireless networks?",
+        "anwser": "N/A"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "What controls have you implemented to ensure that Organization Information is not saved on a home office PC, printed on a home office printer, or copied to home office external device (e.g. drive/memory stick/CD/DVDs)?",
+        "anwser": ""
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Do remote staff sign agreements to secure their home office against unauthorized access?",
+        "anwser": ""
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Describe the physical security controls of that data center. e.g., security guards, cameras, access control system passcards, etc.",
+        "anwser": "N/A"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Are climate controls in place in the data center or server room to manage air flow, humidity, temperature, and HVAC and protect IT assets from environmental hazards?",
+        "anwser": "N/A"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Are identification cards visibly displayed at all times while on the premises?",
+        "anwser": "N/A"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Are visitor identification cards easily distinguishable from employee or subcontractor/agent identification cards?",
+        "anwser": "N/A"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Is there a Security guard or CCTV at each point of entry?",
+        "anwser": ""
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Please provide the name(s) of your organization's system(s) your subcontractor(s) have or will have access to.",
+        "anwser": ""
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Are Subcontractors included in BCP exercises?",
+        "anwser": "N/A"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "If so, is analysis performed to determine the maximum allowable downtime?",
+        "anwser": ""
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Does Vendor have an internal audit, risk management, or compliance department, or similar management oversight unit with responsibility for assessing, identifying and tracking resolut ion of outstanding regulatory issues?",
+        "anwser": "We are not sure about the question, please provide more information"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Describe your secure software development life-cycle",
+        "anwser": "Not understand"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Describe your security architecture",
+        "anwser": "Is this the architecture for only the integration?"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "- Describe access control/authorization mechanism in your solution\n+ Access control for bank user\n+ Access control for customer user\n- How your solution prevent authorization bypass attack as path traversal, bypass authorizarion, privilege escalation; prevent user, hacker access information, bank account of other user, coporate \u2026\n- How Techcombank can apply your authorization mechanism when customize,",
+        "anwser": "Not Relevant"
+    },
+    {
+        "level": "LEVEL 4",
+        "question": "Describe the security communication between customer and Bank system mechanism",
+        "anwser": "Not relevant"
+    }
+]

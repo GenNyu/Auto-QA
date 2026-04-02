@@ -1,0 +1,302 @@
+[
+  {
+    "question": "Has your organization established an enterprise-wide IT security policy, with supporting procedures in place that set forth how your organization will identify and manage its IT security risks?"
+  },
+  {
+    "question": "Does your organization review and update the Information Security Program and Policies annually?"
+  },
+  {
+    "question": "Does your organization's IT security policy apply to all of the organization's operating groups and entities, including subsidiaries, joint ventures and geographic regions?"
+  },
+  {
+    "question": "Is your organization's IT security policy linked to other relevant Risk Management policies including Information Security, Business Continuity Management, Outsourcing, New Initiatives, and Change Management?"
+  },
+  {
+    "question": "Does your organization have a strategic and tactical IT security plan with defined roles, responsibilities, coordination of organizational entities and compliance that aligns with business strategy and outlines key initiatives and timelines?"
+  },
+  {
+    "question": "Have the roles and responsibilities for IT Security been clearly defined within your IT security policy?"
+  },
+  {
+    "question": "Does a security management reporting mechanism exist that informs the board, business and IT management on the status of information security at your organization?"
+  },
+  {
+    "question": "Do general, IT, and security organizational charts exist?"
+  },
+  {
+    "question": "Do the organizational charts provide up-to-date, clear illustration of dedicated security functional roles?"
+  },
+  {
+    "question": "Does your organization have an established IT Security risk management framework implemented on an enterprise-wide basis?"
+  },
+  {
+    "question": "Does your organization conduct internal audits of information security controls?"
+  },
+  {
+    "question": "Is there a cross-organizational committee that meets regularly on cybersecurity issues?"
+  },
+  {
+    "question": "Does your organization maintain an inventory of assets (both hardware and software) that includes tagging/labeling of assets, asset ownership, and asset criticality?"
+  },
+  {
+    "question": "Does your organization have a process in place to review asset inventories at least annually to verify ownership, classification, and criticality?"
+  },
+  {
+    "question": "Is there a policy governing removable media including hard drives, backup tapes, CD/DVD, memory sticks, etc.?"
+  },
+  {
+    "question": "Are USB ports locked down so information cannot be transferred to removable media?"
+  },
+  {
+    "question": "Does equipment slated for disposal or reuse (recycle, transferred, sold, returned) have its activity logged and tracked (including certificates of destruction)?"
+  },
+  {
+    "question": "Does your enterprise have a Business Continuity Program?"
+  },
+  {
+    "question": "Does your Business Continuity program include a testing program?"
+  },
+  {
+    "question": "What were the results of your most recent test:"
+  },
+  {
+    "question": "Do you have sufficient work from home capabilities to maintain the service(s) being reviewed uninterrupted should employing your work from home strategy be necessary?"
+  },
+  {
+    "question": "Are there documented plans or procedures for cryptographic key owners to handle compromised keys and revoke and/or rotate the keys on an emergency basis?"
+  },
+  {
+    "question": "Are there documented plans or procedures for key rotation?"
+  },
+  {
+    "question": "Are there procedures for protection from key loss and corruption?"
+  },
+  {
+    "question": "Is there an access control policy implemented to limit access to only parties authorized by the key owner?"
+  },
+  {
+    "question": "Please provide the frequency of the audits, along with the date of the last completed report."
+  },
+  {
+    "question": "What is the maximum allowable downtime (MAD) documented for the Services provided/to be provided?"
+  },
+  {
+    "question": "What was the Recovery Time Actual (RTA) of this test?"
+  },
+  {
+    "question": "What percentage of your staff have work from home capabilities?"
+  },
+  {
+    "question": "What protocol(s) does your organization use to encrypt? Please list or explain."
+  },
+  {
+    "question": "What is the name and version of the encryption software?"
+  },
+  {
+    "question": "What is the encryption algorithm and key strength used?"
+  },
+  {
+    "question": "Who is the cloud provider?"
+  },
+  {
+    "question": "What type of cloud-solution will be used to process Manulife/John Hancock data (e.g., SAAS, PAAS, IAAS)?"
+  },
+  {
+    "question": "What is the documented recovery time objective (RTO) for the reviewed service?"
+  },
+  {
+    "question": "What is the date of your most recent Disaster Recovery exercise?"
+  },
+  {
+    "question": "What was the recovery time actual (RTA) of your most recent test?"
+  },
+  {
+    "question": "What was the recovery point actual (RPA) of your most recent test?"
+  },
+  {
+    "question": "What is the documented recovery point objective (RPO) for the reviewed service?"
+  },
+  {
+    "question": "Please provide the location or region of your primary and alternate site."
+  },
+  {
+    "question": "What is the distance between your primary and alternate site?"
+  },
+  {
+    "question": "What type of cloud services are employed?"
+  },
+  {
+    "question": "Who is your cloud service provider?"
+  },
+  {
+    "question": "What is the employee screening (e.g., background checks or equivalent process based on country-specific protocols) frequency for employees, subcontractors or contingent workers?"
+  },
+  {
+    "question": "Please describe how this is measured and what the current effectiveness ratings"
+  },
+  {
+    "question": "Who is trained and with what frequency (e.g., employees, contractors, and third parties)?"
+  },
+  {
+    "question": "How often is the incident response plan reviewed and updated?"
+  },
+  {
+    "question": "How often are the key contacts within the plan updated?"
+  },
+  {
+    "question": "What is your organization's process and timeframe to report to Manulife/John Hancock any security or other event that creates reasonable suspicion of: (a) unauthorized access to any Manulife/John Hancock data or processing environment, (b) misappropriation or alteration of any Manulife/John Hancock data, or (c) theft or loss of Manulife/John Hancock data?"
+  },
+  {
+    "question": "What governing policies are established and implemented that ensures only authorized software is installed in the environment? (ie. whitelisting, blacklisting)"
+  },
+  {
+    "question": "How are exceptions to the Information Security Policy and supporting Standards handled and are suc h non conformities reviewed periodically?"
+  },
+  {
+    "question": "Describe how you review, update and then communicate those updates to your Information Security Policy to reflect significant changes to the organizational environment, business circumstances, or technical environment."
+  },
+  {
+    "question": "How are risks from the security risk assessment documented and managed? (e.g., Is there a centralized risk register? Are identified risks addressed with documented and approved risk treatment plans?)"
+  },
+  {
+    "question": "How does your organization classify risk? (e.g., What criteria (e.g. likelihood, impact) form the foundation of risk assessments in your organization?)"
+  },
+  {
+    "question": "How does your organization ensure compliance with legislative requirements of jurisdictions where you operate as those related to data residency and protection of privacy?"
+  },
+  {
+    "question": "Describe how your organization securely handles, transfers, stores, and disposes both removable media (e.g., Hard drives, CD/DVD, memory sticks, etc.) and printed material."
+  },
+  {
+    "question": "How is media in transport protected against unauthorised access, misuse or corruption, and damage?"
+  },
+  {
+    "question": "Describe your encryption key management processes to securely manage keys throughout their lifecycle (generation, transmission , storage, rotation, disposal) and key management solutions used."
+  },
+  {
+    "question": "Please explain how the user provisioning for sourced/cloud services are accomplished."
+  },
+  {
+    "question": "Please describe the metrics that are / will be available to Manulife/John Hancock to monitor the security health of the cloud solution(s) managing Manulife data?"
+  },
+  {
+    "question": "Describe items being checked and for whom. (e.g., criminal records, credit history, identity, professional qualifications, work history, business references, etc)."
+  },
+  {
+    "question": "Describe the security awareness training that you provide to employees, and when relevant, contractors and 3rd party personnel?"
+  },
+  {
+    "question": "Describe how you r organization classifies information (i.e. based on its value, legal requirements, sensitivity, or criticality to the organization) and gives employees direction on how information in each classification is to be handled."
+  },
+  {
+    "question": "How are events/incidents classified?"
+  },
+  {
+    "question": "How do you ingest that information and how does it trigger actions and remediation?"
+  },
+  {
+    "question": "What network security controls are in place to ensure data in-transit through the network is secure and reliable?"
+  },
+  {
+    "question": "Where are firewalls (physical or virtual) deployed across the network architecture?"
+  },
+  {
+    "question": "How does your organization ensure that Internal, Confidential, or Highly Confidential Information is not stored in demilitarized zones (DMZs)?"
+  },
+  {
+    "question": "What is the process of remediating any findings resulting from these code reviews?"
+  },
+  {
+    "question": "Vulnerability Management: What are your vulnerability management and system patching commitments?"
+  },
+  {
+    "question": "AV/HIDS/HIPS:  What malware and intrusion prevention solutions are deployed in your platform?"
+  },
+  {
+    "question": "Restrict Data Access:  How do you restrict access to PII and our sensitive data in your organization?"
+  },
+  {
+    "question": "Logging:  Do you generate and monitor logs for your service?"
+  },
+  {
+    "question": "Describe the methodology or framework applied in security testing"
+  },
+  {
+    "question": "Describe how your solution to compliance with OWASP top 10 security vulnerability. Detail for each of 10 vulnerability"
+  },
+  {
+    "question": "If not annually, what is the frequency?"
+  },
+  {
+    "question": "Please specify the subcontractors' location(s)."
+  },
+  {
+    "question": "Separate from data replication solutions, Are backups created regularly, encrypted, and stored in an offsite location?"
+  },
+  {
+    "question": "How frequently is it being sent off site"
+  },
+  {
+    "question": "When last did you operate out of the alternate site(s)?"
+  },
+  {
+    "question": "For how long?"
+  },
+  {
+    "question": "Please describe the exception scenarios."
+  },
+  {
+    "question": "Please explain why the testing of the procedures for Incident Response plan is not annually."
+  },
+  {
+    "question": "If a mobile device management (MDM) solution is in place, does your organization monitor for external connections that are not managed by the MDM?"
+  },
+  {
+    "question": "Has your organization implemented processes and tools to secure mobile devices and wireless networks?"
+  },
+  {
+    "question": "What controls have you implemented to ensure that Organization Information is not saved on a home office PC, printed on a home office printer, or copied to home office external device (e.g. drive/memory stick/CD/DVDs)?"
+  },
+  {
+    "question": "Do remote staff sign agreements to secure their home office against unauthorized access?"
+  },
+  {
+    "question": "Describe the physical security controls of that data center. e.g., security guards, cameras, access control system passcards, etc."
+  },
+  {
+    "question": "Are climate controls in place in the data center or server room to manage air flow, humidity, temperature, and HVAC and protect IT assets from environmental hazards?"
+  },
+  {
+    "question": "Are identification cards visibly displayed at all times while on the premises?"
+  },
+  {
+    "question": "Are visitor identification cards easily distinguishable from employee or subcontractor/agent identification cards?"
+  },
+  {
+    "question": "Is there a Security guard or CCTV at each point of entry?"
+  },
+  {
+    "question": "Please provide the name(s) of your organization's system(s) your subcontractor(s) have or will have access to."
+  },
+  {
+    "question": "Are Subcontractors included in BCP exercises?"
+  },
+  {
+    "question": "If so, is analysis performed to determine the maximum allowable downtime?"
+  },
+  {
+    "question": "Does Vendor have an internal audit, risk management, or compliance department, or similar management oversight unit with responsibility for assessing, identifying and tracking resolut ion of outstanding regulatory issues?"
+  },
+  {
+    "question": "Describe your secure software development life-cycle"
+  },
+  {
+    "question": "Describe your security architecture"
+  },
+  {
+    "question": "- Describe access control/authorization mechanism in your solution\n+ Access control for bank user\n+ Access control for customer user\n- How your solution prevent authorization bypass attack as path traversal, bypass authorizarion, privilege escalation; prevent user, hacker access information, bank account of other user, coporate …\n- How Techcombank can apply your authorization mechanism when customize,"
+  },
+  {
+    "question": "Describe the security communication between customer and Bank system mechanism"
+  }
+]

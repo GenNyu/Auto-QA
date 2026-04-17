@@ -4,7 +4,7 @@ Configuration defaults for RAG question generation.
 from dataclasses import dataclass
 from typing import Dict, Optional
 
-DEFAULT_PROVIDER = "deepseek"
+DEFAULT_PROVIDER = "anthropic"
 DEFAULT_NUM_QUESTIONS = 20
 DEFAULT_OUTPUT = "outputs/rag/rag_eval.json"
 

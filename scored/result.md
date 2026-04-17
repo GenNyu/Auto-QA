@@ -165,6 +165,15 @@
 
 **Nhận xét:** Hệ thống RAG phản hồi rất tốt về mặt nội dung diễn giải tiếng Việt, tuy nhiên cần cải thiện khả năng Mapping (ánh xạ) chính xác mã Requirement ID theo đúng bảng Gold để tránh các lỗi "Anchor Drift". Các lỗi "Retrieval Failure" tập trung vào các mảng như: Bluetooth, Ransomware, và cập nhật luật GDPR.
 
+### PHÂN BỔ ĐIỂM SỐ (SCORE DISTRIBUTION)
 
-"answer": "Cách đảm bảo các thay đổi đáng kể không làm suy giảm hiệu quả phân vùng CDE và các lỗ hổng mới được phát hiện ngay lập tức\n\nXác nhận phạm vi (scope) định kỳ và sau mỗi thay đổi quan trọng\n\nThực hiện đánh giá lại phạm vi PCI DSS ít nhất một lần mỗi 12 tháng và ngay sau khi có thay đổi đáng kể đối với môi trường trong phạm vi (Requirement 12.5.2)【1】.\nĐối với service provider, việc xác nhận phạm vi phải được thực hiện ít nhất mỗi 6 tháng và sau mỗi thay đổi quan trọng (Requirement 12.5.2.1)【1】.\nĐánh giá này bao gồm:\nKiểm kê các điều khiển phân đoạn (segmentation controls) đang sử dụng.\nXác định tất cả các kết nối từ bên thứ ba có quyền truy cập vào CDE.\nĐảm bảo tất cả các luồng dữ liệu, thành phần hệ thống, và kết nối được đưa vào phạm vi.\n\nKiểm tra kỹ thuật (segmentation testing) sau mỗi thay đổi\n\nThực hiện kiểm tra kỹ thuật phân đoạn để xác nhận rằng các kiểm soát phân đoạn vẫn cách ly CDE khỏi các hệ thống ngoài phạm vi, cả trước và sau khi có thay đổi (sub‑requirement 11.4.6)【3】.\nKiểm tra này nên được thực hiện càng thường xuyên càng tốt (ít nhất mỗi 6 tháng) để phát hiện sớm bất kỳ lỗ hổng nào trong việc cách ly mạng.\n\nSử dụng công cụ và quy trình phát hiện lỗ hổng ngay lập tức\n\nÁp dụng công cụ phát hiện dữ liệu (data discovery) để tìm mọi vị trí chứa PAN (hoặc các thành phần CHD) trong hoặc ngoài CDE, bao gồm cả các file lỗi, dump bộ nhớ, v.v.\nKết hợp quy trình quản lý lỗ hổng (Requirement 6.3) để:\nThu thập thông tin lỗ hổng từ các nguồn tin cậy (NVD, CERT, RSS, vendor alerts).\nĐánh giá mức độ rủi ro (CVSS, FIRST, v.v.) và triển khai vá ngay khi có (Requirement 6.3.3).\nThực hiện quét lỗ hổng định kỳ (Requirements 11.3.1 & 11.3.2) và đánh giá sau mỗi thay đổi để phát hiện các lỗ hổng mới.\n\nQuy trình kiểm tra và chứng minh\n\nKiểm tra tài liệu (scope review reports, segmentation test results) và phỏng vấn nhân sự để xác nhận rằng các hoạt động trên đã được thực hiện đúng thời gian và đầy đủ nội dung (Testing Procedures 12.5.2.a/b, 12.5.2.1.a/b, 11.4.6)【1】【3】.\nLưu trữ bằng chứng (báo cáo kiểm tra, danh sách kiểm soát, kết quả quét) để có thể cung cấp cho assessor hoặc khách hàng khi cần.\n\nThực hành tốt (Good Practice)\n\nTài liệu hoá toàn bộ môi trường (bảng/đồ thị các thành phần, luồng dữ liệu, vị trí lưu trữ PAN, cách bảo vệ dữ liệu).\nThực hiện kiểm tra sau mỗi thay đổi (cấu hình, triển khai, cập nhật phần mềm) thay vì chỉ chờ đến kỳ đánh giá định kỳ.\nĐảm bảo các thay đổi được quản lý qua quy trình Change Management và đánh giá tác động bảo mật trước khi triển khai.\n\nBằng cách kết hợp đánh giá phạm vi định kỳ, kiểm tra kỹ thuật phân đoạn sau mỗi thay đổi, và quy trình quản lý lỗ hổng liên tục, tổ chức có thể đảm bảo rằng các thay đổi mạng không làm suy giảm hiệu quả phân vùng CDE và các lỗ hổng mới được phát hiện và khắc phục ngay lập tức.",
-    "
+```text
+10 điểm: [##################################################] 76 câu
+ 9 điểm: [#########################] 38 câu
+ 8 điểm: [#######] 10 câu
+ 7 điểm: [#] 1 câu
+ 4 điểm: [#] 1 câu
+ 3 điểm: [######] 9 câu
+ 2 điểm: [#] 2 câu
+ 1 điểm: [#########] 13 câu (Lỗi: Q015, Q026, Q047, Q076, Q077, Q084, Q098, Q115, Q120, Q124, Q140, Q145, Q146)
+```

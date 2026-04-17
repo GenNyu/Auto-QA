@@ -1,0 +1,402 @@
+[
+  {
+    "id": "001",
+    "question": "Dựa trên các tiêu chuẩn cấu hình, những thông số kỹ thuật nào trên tường lửa được thiết lập để đảm bảo việc lọc lưu lượng giao dịch VISA diễn ra an toàn?"
+  },
+  {
+    "id": "002",
+    "question": "Trong quy trình phê duyệt kỹ thuật, các bằng chứng kiểm thử nào cho thấy các kết nối mạng mới vào vùng dữ liệu thẻ VISA đã được xác thực bảo mật?"
+  },
+  {
+    "id": "003",
+    "question": "Làm thế nào để xác minh thông qua hồ sơ kỹ thuật rằng một mẫu các kết nối mạng xử lý dữ liệu VISA đã được kiểm tra tính toàn vẹn trước khi vận hành?"
+  },
+  {
+    "id": "004",
+    "question": "Khi đối chiếu cấu hình thực tế với hồ sơ thay đổi, làm thế nào để chứng minh các thay đổi trên router bảo vệ vùng VISA đã được phê duyệt đúng quy định?"
+  },
+  {
+    "id": "005",
+    "question": "Sơ đồ mạng hiện tại thể hiện kỹ thuật các điểm kết nối giữa môi trường dữ liệu chủ thẻ VISA và các mạng không dây (wireless) như thế nào?"
+  },
+  {
+    "id": "006",
+    "question": "Thông qua quan sát cấu hình thực tế, làm thế nào để xác nhận sơ đồ mạng VISA được cập nhật tương ứng với các thay đổi hạ tầng gần nhất?"
+  },
+  {
+    "id": "007",
+    "question": "Dựa trên sơ đồ luồng dữ liệu, hãy chỉ ra các điểm chuyển tiếp kỹ thuật nơi dữ liệu thẻ VISA được truyền qua các phân đoạn mạng khác nhau."
+  },
+  {
+    "id": "008",
+    "question": "Tiêu chuẩn cấu hình quy định cụ thể như thế nào về việc đặt tường lửa tại các điểm kết nối Internet của hệ thống thanh toán VISA?"
+  },
+  {
+    "id": "009",
+    "question": "Làm thế nào để xác minh sự nhất quán về mặt kỹ thuật giữa sơ đồ mạng hiện tại và các quy tắc (rules) thực tế trên tường lửa bảo vệ VISA?"
+  },
+  {
+    "id": "010",
+    "question": "Qua quan sát cấu hình, hãy xác nhận sự tồn tại của tường lửa giữa vùng DMZ và mạng nội bộ chứa các máy chủ xử lý giao dịch VISA."
+  },
+  {
+    "id": "011",
+    "question": "Các nhóm quyền (roles) nào được cấu hình trên thiết bị mạng để thực hiện trách nhiệm quản lý các thành phần hệ thống VISA?"
+  },
+  {
+    "id": "012",
+    "question": "Bằng chứng kỹ thuật nào trong cấu hình hệ thống cho thấy các quyền quản trị mạng VISA được phân bổ đúng theo chức danh công việc?"
+  },
+  {
+    "id": "013",
+    "question": "Trong danh sách cấu hình tường lửa, những dịch vụ và cổng (ports) nào được mở cụ thể để phục vụ truyền tải lưu lượng VISA?"
+  },
+  {
+    "id": "014",
+    "question": "Đối với các giao thức không an toàn được phép sử dụng cho lưu lượng VISA, những tính năng bảo mật bổ trợ nào đã được tài liệu hóa?"
+  },
+  {
+    "id": "015",
+    "question": "Kiểm tra cấu hình router cho thấy các tính năng bảo mật (như SSH hoặc IPsec) đã được triển khai cho các giao thức không an toàn xử lý dữ liệu VISA như thế nào?"
+  },
+  {
+    "id": "016",
+    "question": "Tiêu chuẩn cấu hình quy định tần suất rà soát kỹ thuật các Rule Set của tường lửa bảo vệ VISA như thế nào để đảm bảo tính tối ưu?"
+  },
+  {
+    "id": "017",
+    "question": "Các bản ghi (logs) rà soát nào chứng minh rằng các quy tắc tường lửa cho hệ thống VISA đã được kiểm tra định kỳ ít nhất mỗi 6 tháng?"
+  },
+  {
+    "id": "018",
+    "question": "Cấu hình tường lửa hiện tại thực hiện việc hạn chế kết nối giữa các mạng không tin cậy và vùng CDE của VISA bằng những quy tắc kỹ thuật nào?"
+  },
+  {
+    "id": "019",
+    "question": "Các tiêu chuẩn cấu hình xác định lưu lượng inbound và outbound cần thiết cho môi trường dữ liệu thẻ VISA dựa trên những tiêu chí kỹ thuật nào?"
+  },
+  {
+    "id": "020",
+    "question": "Kiểm tra Rule Set thực tế để xác nhận rằng chỉ những lưu lượng cần thiết cho vận hành giao dịch VISA mới được phép đi qua tường lửa."
+  },
+  {
+    "id": "021",
+    "question": "Làm thế nào để xác minh sự tồn tại của quy tắc 'deny all' ở cuối danh sách ACL trên thiết bị mạng bảo vệ dữ liệu VISA?"
+  },
+  {
+    "id": "022",
+    "question": "Những biện pháp kiểm soát truy cập nào được áp dụng để bảo vệ các tệp cấu hình router xử lý dữ liệu VISA khỏi việc sửa đổi trái phép?"
+  },
+  {
+    "id": "023",
+    "question": "Sử dụng lệnh kiểm tra cấu hình, làm thế nào để xác nhận 'running configuration' và 'startup configuration' trên thiết bị mạng VISA hoàn toàn khớp nhau?"
+  },
+  {
+    "id": "024",
+    "question": "Tường lửa biên giữa mạng không dây và môi trường VISA được cấu hình như thế nào để chặn các truy cập không mong muốn?"
+  },
+  {
+    "id": "025",
+    "question": "Trong trường hợp cần thiết vì mục đích kinh doanh, các quy tắc tường lửa nào cho phép lưu lượng từ mạng không dây đi vào vùng VISA một cách có kiểm soát?"
+  },
+  {
+    "id": "026",
+    "question": "Qua việc kiểm tra cấu hình 'choke router', hãy chứng minh không có sự truy cập công cộng trực tiếp từ Internet vào các thành phần hệ thống VISA nội bộ."
+  },
+  {
+    "id": "027",
+    "question": "Cấu hình DMZ được thiết lập kỹ thuật như thế nào để giới hạn lưu lượng inbound chỉ đến được các máy chủ VISA cung cấp dịch vụ công cộng?"
+  },
+  {
+    "id": "028",
+    "question": "Làm thế nào để xác nhận rằng lưu lượng Internet chỉ được phép đi đến các địa chỉ IP nằm trong vùng DMZ của hệ thống VISA?"
+  },
+  {
+    "id": "029",
+    "question": "Những cơ chế chống giả mạo (anti-spoofing) nào được cấu hình trên tường lửa để chặn các địa chỉ IP nguồn giả mạo xâm nhập mạng VISA?"
+  },
+  {
+    "id": "030",
+    "question": "Các cấu hình kỹ thuật nào đảm bảo rằng lưu lượng outbound từ môi trường VISA ra Internet đã được phê duyệt và giới hạn rõ ràng?"
+  },
+  {
+    "id": "031",
+    "question": "Làm thế nào để kiểm tra tường lửa chỉ cho phép các kết nối 'established' đi vào mạng nội bộ chứa dữ liệu chủ thẻ VISA?"
+  },
+  {
+    "id": "032",
+    "question": "Về mặt vật lý và logic, cơ sở dữ liệu VISA được tách biệt khỏi vùng DMZ thông qua các phân đoạn mạng (segmentation) nào?"
+  },
+  {
+    "id": "033",
+    "question": "Các phương pháp kỹ thuật nào (như NAT) được triển khai trên router để ngăn chặn việc lộ địa chỉ IP nội bộ của hệ thống VISA ra Internet?"
+  },
+  {
+    "id": "034",
+    "question": "Bằng chứng phê duyệt nào cho thấy việc tiết lộ thông tin định tuyến nội bộ của hệ thống VISA cho các đối tác bên ngoài là hợp lệ?"
+  },
+  {
+    "id": "035",
+    "question": "Cấu hình phần mềm tường lửa cá nhân trên các thiết bị di động truy cập vùng VISA được thiết lập để 'luôn chạy' và 'không thể thay đổi' như thế nào?"
+  },
+  {
+    "id": "036",
+    "question": "Kiểm tra một mẫu thiết bị di động để xác nhận phần mềm tường lửa đang hoạt động đúng cấu hình bảo mật khi kết nối với môi trường VISA."
+  },
+  {
+    "id": "037",
+    "question": "Các quy trình vận hành tường lửa cho hệ thống VISA được tài liệu hóa và thực thi kỹ thuật như thế nào trong thực tế?"
+  },
+  {
+    "id": "038",
+    "question": "Thực hiện đăng nhập thử nghiệm để xác nhận rằng tất cả mật khẩu mặc định của nhà sản xuất trên các thiết bị POS VISA đã được thay đổi."
+  },
+  {
+    "id": "039",
+    "question": "Làm thế nào để xác minh trên hệ điều hành của máy chủ VISA rằng các tài khoản mặc định không cần thiết đã bị xóa hoặc vô hiệu hóa?"
+  },
+  {
+    "id": "040",
+    "question": "Quy trình hardening kỹ thuật quy định việc thay đổi thông số mặc định của hệ thống VISA trước khi đưa vào vận hành mạng như thế nào?"
+  },
+  {
+    "id": "041",
+    "question": "Trong môi trường không dây truyền tải dữ liệu VISA, các khóa mã hóa (encryption keys) đã được thay đổi khỏi giá trị mặc định như thế nào?"
+  },
+  {
+    "id": "042",
+    "question": "Các chính sách kỹ thuật yêu cầu thay đổi chuỗi cộng đồng SNMP (community strings) mặc định trên các access point VISA như thế nào?"
+  },
+  {
+    "id": "043",
+    "question": "Kiểm tra thực tế các thiết bị không dây thuộc hệ thống VISA để xác nhận không sử dụng mật khẩu hoặc chuỗi SNMP mặc định."
+  },
+  {
+    "id": "044",
+    "question": "Cấu hình firmware của thiết bị không dây VISA được xác minh như thế nào để đảm bảo hỗ trợ các giao thức xác thực và mã hóa mạnh?"
+  },
+  {
+    "id": "045",
+    "question": "Những thông số bảo mật mặc định khác của nhà sản xuất thiết bị không dây VISA nào đã được thay đổi trong quá trình triển khai kỹ thuật?"
+  },
+  {
+    "id": "046",
+    "question": "Các tiêu chuẩn cấu hình hệ thống cho vùng VISA được đối chiếu như thế nào với các tiêu chuẩn hardening quốc tế (như CIS hoặc NIST)?"
+  },
+  {
+    "id": "047",
+    "question": "Làm thế nào để cập nhật các thông số hardening cho máy chủ VISA khi các lỗ hổng bảo mật mới (vulnerability) được phát hiện?"
+  },
+  {
+    "id": "048",
+    "question": "Quy trình kỹ thuật nào đảm bảo các tiêu chuẩn cấu hình bảo mật được áp dụng triệt để trước khi một máy chủ VISA mới được kết nối vào mạng?"
+  },
+  {
+    "id": "049",
+    "question": "Các tham số bảo mật hệ thống VISA được cấu hình như thế nào để loại bỏ các tính năng không cần thiết như drivers hoặc scripts không dùng đến?"
+  },
+  {
+    "id": "050",
+    "question": "Kiểm tra danh sách tiến trình (processes) trên máy chủ để xác nhận mỗi server trong môi trường VISA chỉ đảm nhận một chức năng chính duy nhất."
+  },
+  {
+    "id": "051",
+    "question": "Trong môi trường ảo hóa, làm thế nào để xác minh sự tách biệt chức năng giữa các thành phần hệ thống VISA trên cùng một phần cứng vật lý?"
+  },
+  {
+    "id": "052",
+    "question": "Kiểm tra danh sách các dịch vụ (services) và daemons đang chạy trên máy chủ VISA để đảm bảo chỉ những dịch vụ cần thiết mới được kích hoạt."
+  },
+  {
+    "id": "053",
+    "question": "Đối với các dịch vụ không an toàn đang chạy trong hệ thống VISA, các tài liệu hardening giải trình về sự cần thiết của chúng như thế nào?"
+  },
+  {
+    "id": "054",
+    "question": "Các thiết lập kỹ thuật cụ thể nào (như cấu hình TLS) được triển khai để bảo vệ các giao thức không an toàn bắt buộc phải dùng cho VISA?"
+  },
+  {
+    "id": "055",
+    "question": "Nếu sử dụng SSL hoặc TLS phiên bản cũ cho các hệ thống VISA di sản, các thủ tục kiểm tra bổ sung tại Phụ lục A2 đã được thực hiện như thế nào?"
+  },
+  {
+    "id": "056",
+    "question": "Các quản trị viên hệ thống VISA thể hiện sự hiểu biết về các tham số cấu hình bảo mật phổ biến thông qua việc thiết lập thực tế như thế nào?"
+  },
+  {
+    "id": "057",
+    "question": "Các tiêu chuẩn cấu hình hệ thống bao gồm những tham số bảo mật chung nào để ngăn chặn việc lạm dụng tài nguyên trong mạng VISA?"
+  },
+  {
+    "id": "058",
+    "question": "Kiểm tra một mẫu máy chủ VISA để xác nhận các tham số bảo mật được thiết lập khớp với tiêu chuẩn hardening của tổ chức."
+  },
+  {
+    "id": "059",
+    "question": "Làm thế nào để xác minh kỹ thuật rằng các web server không cần thiết đã bị gỡ bỏ khỏi các thiết bị đầu cuối của VISA?"
+  },
+  {
+    "id": "060",
+    "question": "Các tài liệu kỹ thuật chứng minh tính bảo mật của các chức năng đang được kích hoạt trên hệ thống VISA như thế nào?"
+  },
+  {
+    "id": "061",
+    "question": "Kiểm tra hệ thống tệp tin (file system) của máy chủ VISA để xác nhận không có các file hoặc tính năng không được tài liệu hóa đang tồn tại."
+  },
+  {
+    "id": "062",
+    "question": "Làm thế nào để xác minh bằng công cụ bắt gói tin rằng mọi truy cập quản trị không thông qua console (non-console) vào hệ thống VISA đều được mã hóa?"
+  },
+  {
+    "id": "063",
+    "question": "Phương thức mã hóa mạnh nào được xác nhận là đã kích hoạt trước khi yêu cầu mật khẩu quản trị viên trên các thiết bị mạng VISA?"
+  },
+  {
+    "id": "064",
+    "question": "Trong danh sách các dịch vụ đang chạy, làm thế nào để đảm bảo các lệnh remote-login không an toàn như Telnet đã bị vô hiệu hóa trên hệ thống VISA?"
+  },
+  {
+    "id": "065",
+    "question": "Xác minh kỹ thuật rằng các giao diện quản trị dựa trên web (web-based management) của hệ thống VISA chỉ hoạt động qua HTTPS với thuật toán mã hóa mạnh."
+  },
+  {
+    "id": "066",
+    "question": "Dựa trên khuyến nghị của nhà sản xuất, các thiết lập mã hóa thực tế cho truy cập quản trị VISA đã được triển khai như thế nào?"
+  },
+  {
+    "id": "067",
+    "question": "Các bước kiểm tra kỹ thuật tại Phụ lục A2 đã xác nhận tính an toàn của việc sử dụng TLS trong quản trị hệ thống VISA như thế nào?"
+  },
+  {
+    "id": "068",
+    "question": "Làm thế nào để đối chiếu danh sách phần cứng thực tế đang hoạt động với bản kiểm kê (inventory) các thiết bị thuộc phạm vi VISA?"
+  },
+  {
+    "id": "069",
+    "question": "Quy trình kỹ thuật nào được sử dụng để đảm bảo bản kiểm kê hệ thống VISA luôn phản ánh đúng trạng thái thực tế của mạng?"
+  },
+  {
+    "id": "070",
+    "question": "Các chính sách bảo mật về quản lý tham số mặc định được phổ biến kỹ thuật và thực thi như thế nào cho đội ngũ vận hành VISA?"
+  },
+  {
+    "id": "071",
+    "question": "Đối với nhà cung cấp dịch vụ lưu trữ chung, các biện pháp cô lập logic (logical segregation) nào được triển khai để bảo vệ môi trường VISA của khách hàng?"
+  },
+  {
+    "id": "072",
+    "question": "Chính sách lưu trữ quy định các yêu cầu kỹ thuật nào về việc xóa dữ liệu thẻ VISA một cách an toàn khi hết thời hạn lưu giữ?"
+  },
+  {
+    "id": "073",
+    "question": "Làm thế nào để xác minh thông qua cấu hình hệ thống rằng quy trình xóa dữ liệu VISA định kỳ (hàng quý) đang hoạt động tự động?"
+  },
+  {
+    "id": "074",
+    "question": "Kiểm tra các tệp tin hệ thống và cơ sở dữ liệu để xác nhận không có dữ liệu thẻ VISA nào vượt quá thời gian lưu giữ cho phép."
+  },
+  {
+    "id": "075",
+    "question": "Đối với các đơn vị phát hành thẻ, giải trình kỹ thuật nào cho phép việc lưu trữ dữ liệu xác thực nhạy cảm của VISA sau khi phê duyệt?"
+  },
+  {
+    "id": "076",
+    "question": "Các biện pháp kiểm soát kỹ thuật nào được áp dụng để bảo mật dữ liệu xác thực nhạy cảm của VISA trong kho lưu trữ của đơn vị phát hành?"
+  },
+  {
+    "id": "077",
+    "question": "Kiểm tra cấu hình ứng dụng để xác nhận dữ liệu xác thực nhạy cảm (như mã CVV) của VISA không được ghi lại trong bất kỳ kho lưu trữ nào sau khi thanh toán."
+  },
+  {
+    "id": "078",
+    "question": "Quy trình xóa dữ liệu xác thực VISA sau khi phê duyệt giao dịch được thực hiện ở mức mã nguồn hoặc mức hệ thống như thế nào để đảm bảo không thể khôi phục?"
+  },
+  {
+    "id": "079",
+    "question": "Thực hiện truy vấn cơ sở dữ liệu và kiểm tra tệp tin log để xác nhận dữ liệu dải từ (track data) của VISA không bị lưu trữ lại."
+  },
+  {
+    "id": "080",
+    "question": "Kiểm tra các tệp tin 'trace files' và 'error logs' để đảm bảo mã xác thực thẻ (CVV2) của VISA không bị lộ lọt trong quá trình xử lý giao dịch."
+  },
+  {
+    "id": "081",
+    "question": "Làm thế nào để xác minh kỹ thuật rằng các khối mã PIN (PIN blocks) của VISA không tồn tại trong hệ thống sau khi đã hoàn tất giao dịch?"
+  },
+  {
+    "id": "082",
+    "question": "Chính sách mặt nạ (masking) được cấu hình như thế nào để đảm bảo chỉ hiển thị tối đa 6 số đầu và 4 số cuối của thẻ VISA cho nhân viên?"
+  },
+  {
+    "id": "083",
+    "question": "Trong cấu hình phần mềm, các quy tắc phân quyền nào đảm bảo chỉ những tài khoản có nhu cầu nghiệp vụ mới xem được số PAN đầy đủ của VISA?"
+  },
+  {
+    "id": "084",
+    "question": "Kiểm tra thực tế các màn hình ứng dụng và biên lai in ấn để xác nhận số thẻ VISA đã được che (masked) đúng quy định."
+  },
+  {
+    "id": "085",
+    "question": "Những thuật toán băm (hashing) hoặc mã hóa mạnh nào được sử dụng để làm cho số PAN của VISA không thể đọc được khi lưu trữ?"
+  },
+  {
+    "id": "086",
+    "question": "Kiểm tra các bảng dữ liệu trong cơ sở dữ liệu để xác nhận số thẻ VISA được lưu trữ dưới dạng bản mã (ciphertext) hoặc giá trị băm."
+  },
+  {
+    "id": "087",
+    "question": "Làm thế nào để xác minh kỹ thuật rằng dữ liệu thẻ VISA trên các phương tiện lưu trữ dự phòng (backup tapes) cũng đã được mã hóa?"
+  },
+  {
+    "id": "088",
+    "question": "Kiểm tra các bản ghi kiểm toán (audit logs) để xác nhận số PAN của VISA không bị ghi lại dưới dạng văn bản rõ (plain-text)."
+  },
+  {
+    "id": "089",
+    "question": "Trong trường hợp cả hai phiên bản băm và cắt cụt (truncated) của cùng một số thẻ VISA đều tồn tại, những biện pháp kỹ thuật nào ngăn chặn việc kết hợp chúng để khôi phục số thẻ gốc?"
+  },
+  {
+    "id": "090",
+    "question": "Nếu sử dụng mã hóa đĩa (disk encryption), làm thế nào để chứng minh cơ chế xác thực quyền truy cập hoàn toàn độc lập với xác thực của hệ điều hành trên máy chủ VISA?"
+  },
+  {
+    "id": "091",
+    "question": "Các khóa mật mã (cryptographic keys) bảo vệ dữ liệu VISA được lưu trữ kỹ thuật như thế nào để đảm bảo tính an toàn?"
+  },
+  {
+    "id": "092",
+    "question": "Làm thế nào để xác nhận thông qua cấu hình hệ thống rằng dữ liệu thẻ VISA trên các thiết bị lưu trữ rời luôn được mã hóa tự động?"
+  },
+  {
+    "id": "093",
+    "question": "Chính sách quản lý khóa quy định việc tách biệt vật lý hoặc logic giữa các khóa bảo vệ dữ liệu (DEK) và khóa mã hóa khóa (KEK) cho dữ liệu VISA như thế nào?"
+  },
+  {
+    "id": "094",
+    "question": "Bản mô tả kiến trúc mật mã hiện tại chi tiết hóa các thuật toán và độ mạnh của khóa được sử dụng để bảo vệ dữ liệu VISA như thế nào?"
+  },
+  {
+    "id": "095",
+    "question": "Kiểm tra danh sách kiểm soát truy cập (ACL) để xác nhận quyền truy cập vào các khóa mật mã VISA chỉ giới hạn cho số lượng tối thiểu nhân viên quản trị?"
+  },
+  {
+    "id": "096",
+    "question": "Làm thế nào để xác minh rằng các khóa mật mã dùng cho dữ liệu VISA không bao giờ xuất hiện dưới dạng rõ (clear-text) trong bộ nhớ hoặc trên đĩa?"
+  },
+  {
+    "id": "097",
+    "question": "Các biện pháp kỹ thuật nào được sử dụng để bảo vệ tính toàn vẹn của các khóa mật mã trong quá trình truyền tải nội bộ hệ thống VISA?"
+  },
+  {
+    "id": "098",
+    "question": "Các khóa mật mã của VISA được lưu trữ trong các thiết bị bảo mật (như HSM) để ngăn chặn việc trích xuất trái phép như thế nào?"
+  },
+  {
+    "id": "099",
+    "question": "Trong cấu hình hệ thống, làm thế nào để xác nhận các khóa mã hóa dữ liệu VISA được lưu trữ dưới dạng các thành phần (key shares) riêng biệt?"
+  },
+  {
+    "id": "100",
+    "question": "Làm thế nào để xác minh kỹ thuật rằng các khóa mã hóa khóa (KEK) bảo vệ dữ liệu VISA có độ mạnh tương đương hoặc cao hơn các khóa mà chúng bảo vệ?"
+  }
+]

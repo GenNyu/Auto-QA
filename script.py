@@ -20,6 +20,7 @@ from config import (
     MAX_RETRY,
     MAX_TOKENS,
     OLLAMA_TIMEOUT,
+    PROVIDER_API_KEYS,
     PROVIDER_CONFIGS,
     PROVIDER_KIND_MAP,
     TEMPERATURE,
@@ -33,6 +34,9 @@ UTC_TS_PATTERN = re.compile(r".*_\d{8}T\d{6}Z$")
 PREVIEW_COUNT = 5
 PREVIEW_CHUNK_LEN = 200
 ENV_FILE = ".env"
+CHUNK_MAX_CHARS = 2000
+CHUNK_MIN_CHARS = 400
+CHUNK_OVERLAP_PARAGRAPHS = 1
 
 
 def append_utc_timestamp(output_path: str) -> str:
@@ -141,7 +145,7 @@ def repair_invalid_json_escapes(raw_json: str) -> str:
 
 
 class QuestionGenerator:
-    """Main generator - no chunking, full document analysis."""
+    """Main generator - chunked document analysis."""
 
     def __init__(
         self,
@@ -165,57 +169,51 @@ class QuestionGenerator:
         print(f"   Provider: {self.provider_name.upper()}")
         
         self.document_content = raw_content
+        self.chunks = build_chunks(raw_content)
+        if not self.chunks:
+            self.chunks = [raw_content]
+        print(f"   Chunks: {len(self.chunks)}")
 
 
     def generate_questions(
         self, num_questions: int = DEFAULT_NUM_QUESTIONS
     ) -> List[QAPair]:
         target = num_questions
-        attempt = 0
         valid_pairs: List[QAPair] = []
-        consecutive_failures = 0
 
         print(f"\nTarget questions: {target}")
+        per_chunk_target = max(1, int(round(target / len(self.chunks))))
 
-        while len(valid_pairs) < target and attempt <= MAX_RETRY:
-            attempt += 1
-            print(f"\nLLM attempt {attempt}")
+        print(f"Chunk strategy: ~{per_chunk_target} questions/chunk")
 
-            remaining = target - len(valid_pairs)
-            
-            if attempt == 1:
-                buffer_multiplier = 1.3
-            elif consecutive_failures > 0:
-                buffer_multiplier = 1.0
-                print(f"   ⚠️  Previous attempt failed, reducing request size")
-            else:
-                buffer_multiplier = 1.5
-            
-            ask_for = max(1, int(remaining * buffer_multiplier))
-            
-            print(f"   Requesting: {ask_for} questions (need {remaining} more)")
-
-            prompt = self._build_prompt(ask_for)
-            messages = self._build_messages(prompt)
-            response_text = self.provider.chat(
-                messages,
-                max_tokens=MAX_TOKENS,
-                temperature=TEMPERATURE,
-            )
-
-            generated = self._parse_questions(response_text)
-            print(f"   Raw generated: {len(generated)}")
-            
-            if len(generated) == 0:
-                consecutive_failures += 1
-            else:
-                consecutive_failures = 0
-
-            self._extend_valid_pairs(generated, target, valid_pairs)
-            print(f"   Valid so far: {len(valid_pairs)}")
-
+        for idx, chunk in enumerate(self.chunks, 1):
             if len(valid_pairs) >= target:
                 break
+
+            remaining = target - len(valid_pairs)
+            ask_for = min(remaining, per_chunk_target)
+            added = self._generate_for_chunk(chunk, idx, ask_for, target, valid_pairs)
+            if added == 0:
+                print("   ⚠️  No valid questions added for this chunk")
+
+        # Retry passes if still short
+        pass_num = 0
+        prev_count = len(valid_pairs)
+        while len(valid_pairs) < target and pass_num < MAX_RETRY:
+            pass_num += 1
+            remaining = target - len(valid_pairs)
+            print(f"\nRetry pass {pass_num} (need {remaining} more)")
+            for idx, chunk in enumerate(self.chunks, 1):
+                if len(valid_pairs) >= target:
+                    break
+                ask_for = min(remaining, max(1, per_chunk_target // 2))
+                self._generate_for_chunk(chunk, idx, ask_for, target, valid_pairs)
+                remaining = target - len(valid_pairs)
+
+            if len(valid_pairs) == prev_count:
+                print("   ⚠️  No progress in retry pass, stopping early")
+                break
+            prev_count = len(valid_pairs)
 
         if len(valid_pairs) < target:
             print(f"\n⚠️  Only generated {len(valid_pairs)}/{target} valid questions")
@@ -228,8 +226,14 @@ class QuestionGenerator:
 
         return valid_pairs
 
-    def _build_prompt(self, remaining: int) -> str:
-        return build_user_prompt(self.document_content, self.filename, remaining)
+    def _build_prompt(self, remaining: int, chunk: str, chunk_id: int) -> str:
+        return build_user_prompt(
+            chunk,
+            self.filename,
+            remaining,
+            chunk_id=chunk_id,
+            total_chunks=len(self.chunks),
+        )
 
     def _build_messages(self, prompt: str) -> List[Dict[str, str]]:
         if self.provider_name == "anthropic":
@@ -260,14 +264,19 @@ class QuestionGenerator:
         return []
 
     def _extend_valid_pairs(
-        self, generated: List[Dict], target: int, valid_pairs: List[QAPair]
-    ) -> None:
+        self,
+        generated: List[Dict],
+        chunk: str,
+        target: int,
+        valid_pairs: List[QAPair],
+    ) -> int:
         rejected_count = 0
         rejected_reasons = {
             'no_answer_location': 0,
             'chunk_not_found': 0,
             'duplicate': 0
         }
+        added = 0
         
         for item in generated:
             if len(valid_pairs) >= target:
@@ -279,8 +288,8 @@ class QuestionGenerator:
                 rejected_reasons['no_answer_location'] += 1
                 continue
 
-            chunk = extract_chunk_verbatim(self.document_content, answer_text)
-            if not chunk:
+            answer_in_chunk = extract_chunk_verbatim(chunk, answer_text)
+            if not answer_in_chunk:
                 rejected_count += 1
                 rejected_reasons['chunk_not_found'] += 1
                 print(f"   ⚠️  Rejected (chunk not found): {item.get('question', '')[:60]}...")
@@ -298,12 +307,40 @@ class QuestionGenerator:
                     chunk=chunk,
                 )
             )
+            added += 1
         
         if rejected_count > 0:
             print(f"   ℹ️  Rejected: {rejected_count} questions")
             for reason, count in rejected_reasons.items():
                 if count > 0:
                     print(f"      - {reason}: {count}")
+        return added
+
+    def _generate_for_chunk(
+        self,
+        chunk: str,
+        chunk_id: int,
+        ask_for: int,
+        target: int,
+        valid_pairs: List[QAPair],
+    ) -> int:
+        if ask_for <= 0:
+            return 0
+
+        print(f"\nChunk {chunk_id}/{len(self.chunks)} | Requesting: {ask_for} questions")
+        prompt = self._build_prompt(ask_for, chunk, chunk_id)
+        messages = self._build_messages(prompt)
+        response_text = self.provider.chat(
+            messages,
+            max_tokens=MAX_TOKENS,
+            temperature=TEMPERATURE,
+        )
+
+        generated = self._parse_questions(response_text)
+        print(f"   Raw generated: {len(generated)}")
+        added = self._extend_valid_pairs(generated, chunk, target, valid_pairs)
+        print(f"   Valid so far: {len(valid_pairs)}")
+        return added
 
     def _print_statistics(self, qa_pairs: List[QAPair]) -> None:
         if not qa_pairs:
@@ -384,6 +421,72 @@ def extract_chunk_verbatim(document_text: str, answer_text: str) -> str:
     return document_text[start : start + len(answer_text)]
 
 
+def split_into_paragraphs(text: str) -> List[str]:
+    """Split text into paragraphs using blank lines as separators."""
+    blocks = re.split(r"\n\s*\n", text)
+    return [b.strip() for b in blocks if b.strip()]
+
+
+def build_chunks(
+    text: str,
+    max_chars: int = CHUNK_MAX_CHARS,
+    min_chars: int = CHUNK_MIN_CHARS,
+    overlap_paragraphs: int = CHUNK_OVERLAP_PARAGRAPHS,
+) -> List[str]:
+    """Build chunks from paragraphs with max/min char limits and overlap."""
+    paragraphs = split_into_paragraphs(text)
+    if not paragraphs:
+        return []
+
+    chunks: List[str] = []
+    current: List[str] = []
+    current_len = 0
+
+    def flush() -> None:
+        nonlocal current, current_len
+        if not current:
+            return
+        chunks.append("\n\n".join(current))
+        if overlap_paragraphs > 0:
+            current = current[-overlap_paragraphs:]
+            current_len = sum(len(p) for p in current) + (2 * (len(current) - 1))
+        else:
+            current = []
+            current_len = 0
+
+    for para in paragraphs:
+        para_len = len(para)
+        if not current:
+            current.append(para)
+            current_len = para_len
+            if current_len >= max_chars:
+                flush()
+            continue
+
+        if current_len + 2 + para_len <= max_chars:
+            current.append(para)
+            current_len += 2 + para_len
+            continue
+
+        if current_len >= min_chars:
+            flush()
+            current.append(para)
+            current_len = para_len
+            if current_len >= max_chars:
+                flush()
+            continue
+
+        # If current is too small, force add even if it exceeds max
+        current.append(para)
+        current_len += 2 + para_len
+        flush()
+
+    if current:
+        chunks.append("\n\n".join(current))
+
+    return chunks
+
+
 def build_arg_parser() -> argparse.ArgumentParser:
     provider_choices = sorted(PROVIDER_CONFIGS.keys()) + ["ollama", "api"]
 
@@ -453,13 +556,22 @@ def resolve_api_key(provider_name: str, cli_key: Optional[str]) -> Optional[str]
     if cli_key:
         return cli_key
     env_key = f"{provider_name.upper()}_API_KEY"
-    return os.getenv(env_key)
+    env_value = os.getenv(env_key)
+    if env_value:
+        return env_value
+    return PROVIDER_API_KEYS.get(provider_name)
 
 
 def resolve_env_override(provider_name: str, suffix: str) -> Optional[str]:
     """Resolve provider-specific env overrides (e.g., OPENAI_MODEL, OPENAI_BASE_URL)."""
     env_key = f"{provider_name.upper()}_{suffix}"
-    return os.getenv(env_key)
+    value = os.getenv(env_key)
+    if value:
+        return value
+    # Backward-compatible alias for Anthropic model name
+    if provider_name == "anthropic" and suffix == "MODEL":
+        return os.getenv("ANTHROPIC_DEFAULT_SONNET_MODEL")
+    return None
 
 
 def preview_dataset(dataset: List[Dict]) -> bool:

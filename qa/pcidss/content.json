@@ -1,0 +1,661 @@
+[
+  {
+    "id": "FM001",
+    "question": "Trong một cuộc đánh giá cho một Nhà cung cấp dịch vụ đám mây (Cloud Service Provider - CSP), kiểm toán viên phát hiện rằng CSP này cung cấp môi trường đa người dùng (multi-tenant). Tuy nhiên, CSP không thực hiện kiểm tra thâm nhập (penetration testing) định kỳ để xác nhận rằng lưu lượng truy cập giữa các khách hàng khác nhau được cách ly hoàn toàn. CSP lập luận rằng họ đã có các quy tắc tường lửa (NSC) nghiêm ngặt. Dựa trên PCI DSS v4.0.1, hãy phân tích rủi ro và các phần liên quan để đưa ra kết luận về sự tuân thủ.",
+    "gold": "Tình huống này cho thấy sự thất bại trong việc kết hợp giữa quản lý phạm vi, kiểm soát kỹ thuật và các yêu cầu bổ sung cho nhà cung cấp dịch vụ. Cụ thể: \n1. **Chương 4 (Phạm vi):** Xác định rằng các thành phần hệ thống có kết nối không hạn chế với CDE hoặc có thể tác động đến bảo mật CDE đều nằm trong phạm vi. \n2. **Yêu cầu 11.4.5:** Yêu cầu các nhà cung cấp dịch vụ phải thực hiện kiểm tra thâm nhập ít nhất 6 tháng một lần để xác nhận các biện pháp phân đoạn (segmentation) là hiệu quả. \n3. **Phụ lục A1 (Multi-tenant):** Nhấn mạnh rằng CSP phải bảo vệ và tách biệt môi trường của từng khách hàng. \n**Lý do kết hợp:** Việc chỉ dựa vào quy tắc NSC (Requirement 1) mà không có sự xác nhận độc lập qua Penetration Testing (Requirement 11) trong một môi trường đa người dùng (Appendix A1) dẫn đến rủi ro 'thoát khỏi phân đoạn'. Nếu một khách hàng bị xâm nhập, kẻ tấn công có thể di chuyển ngang sang các khách hàng khác, làm vô hiệu hóa giả định về phạm vi (Chapter 4). Kết luận: Thực thể không tuân thủ vì thiếu bằng chứng thực nghiệm về sự cách ly.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter4.md",
+      "20260407_ENGR_PCIDSS_Requirement_11_4.md",
+      "20260406_ENGR_PCIDSS_appendixA1.md"
+    ]
+  },
+  {
+    "id": "FM002",
+    "question": "Một tổ chức quyết định sử dụng 'Tiếp cận tùy chỉnh' (Customized Approach) để thay thế cho việc xác thực đa yếu tố (MFA) truyền thống bằng một hệ thống phân tích hành vi dựa trên Zero Trust. Họ đã triển khai kỹ thuật nhưng chưa lập hồ sơ phân tích rủi ro mục tiêu. Dựa trên quy trình đánh giá, thực thể này cần làm gì để đáp ứng tiêu chuẩn?",
+    "gold": "Tình huống này yêu cầu sự hiểu biết về cách thức vận hành của phương pháp tùy chỉnh so với phương pháp định nghĩa sẵn: \n1. **Chương 8 (Các cách tiếp cận):** Giải thích rằng tiếp cận tùy chỉnh dành cho các thực thể có mức độ trưởng thành về rủi ro cao và yêu cầu tài liệu chi tiết hơn. \n2. **Yêu cầu 8.4.2:** Đây là yêu cầu gốc về MFA cho mọi truy cập không trực tiếp vào CDE. \n3. **Phụ lục D (Customized Approach):** Quy định thực thể phải thực hiện và lập hồ sơ Phân tích Rủi ro Mục tiêu (Targeted Risk Analysis - TRA) theo Yêu cầu 12.3.2. \n**Lý do kết hợp:** Tiếp cận tùy chỉnh cho phép đổi mới (Chapter 8) nhưng chỉ khi mục tiêu bảo mật của Requirement 8.4.2 được chứng minh là tương đương thông qua TRA quy định tại Appendix D. Rủi ro ở đây là nếu không có TRA, hệ thống Zero Trust có thể không bao quát hết các kịch bản tấn công mà MFA truyền thống ngăn chặn được. Hành động: Thực thể phải hoàn thành mẫu TRA và ma trận kiểm soát trước khi đánh giá viên có thể đưa ra quy trình kiểm tra riêng biệt.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter8.md",
+      "20260407_ENGR_PCIDSS_Requirement_8_4.md",
+      "20260407_ENGR_PCIDSS_Requirement_11_3.md",
+      "20260406_ENGR_PCIDSS_appendixD.md"
+    ]
+  },
+  {
+    "id": "FM003",
+    "question": "Một thực thể được phân loại là 'Designated Entity' (Thực thể được chỉ định) gặp sự cố rò rỉ dữ liệu do một lỗi cấu hình tường lửa đã tồn tại 4 tháng mà không bị phát hiện. Thực thể này khẳng định họ đã tuân thủ việc kiểm tra tường lửa 6 tháng một lần theo Requirement 1.2.7. Tại sao họ vẫn bị coi là thất bại nghiêm trọng về tuân thủ theo v4.0.1?",
+    "gold": "Đối với các thực thể được chỉ định, các yêu cầu về duy trì hoạt động bình thường (BAU) khắt khe hơn: \n1. **Chương 5 (BAU):** Khuyến nghị tích hợp PCI DSS vào các quy trình hàng ngày để đảm bảo kiểm soát hoạt động liên tục. \n2. **Yêu cầu 10.7.2 (với nhà cung cấp dịch vụ/thực thể DESV):** Yêu cầu phát hiện và báo cáo các lỗi của kiểm soát bảo mật trọng yếu ngay lập tức. \n3. **Phụ lục A3 (DESV):** Mục A3.3.1 yêu cầu các thực thể này phải có quy trình phát hiện và cảnh báo lỗi kiểm soát bảo mật 'càng sớm càng tốt'. \n**Lý do kết hợp:** Mặc dù Requirement 1.2.7 (kiểm tra định kỳ) được đáp ứng, nhưng đối với thực thể DESV (Appendix A3), việc để lỗi tồn tại 4 tháng vi phạm nguyên tắc phát hiện kịp thời của Requirement 10.7 và tiêu chuẩn BAU (Chapter 5). Rủi ro là kẻ tấn công có thời gian dài để khai thác lỗ hổng. Thất bại ở đây là thiếu cơ chế giám sát thời gian thực cho các kiểm soát trọng yếu.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter5.md",
+      "20260407_ENGR_PCIDSS_Requirement_10_7.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part5.md"
+    ]
+  },
+  {
+    "id": "FM004",
+    "question": "Trong quá trình kiểm soát TPSP (Bên thứ ba cung cấp dịch vụ), một công ty phát hiện nhà cung cấp sao lưu dữ liệu của họ có chứng chỉ AOC nhưng không cung cấp 'Ma trận trách nhiệm' (Responsibility Matrix). Công ty này cho rằng họ đã an toàn vì TPSP đã đạt chuẩn PCI. Đánh giá viên nên phản hồi thế nào dựa trên định nghĩa về TPSP?",
+    "gold": "Đây là một sự hiểu lầm phổ biến về trách nhiệm chia sẻ: \n1. **Chương 4 (TPSP):** Khẳng định việc sử dụng TPSP đạt chuẩn không làm giảm trách nhiệm tuân thủ của chính thực thể. \n2. **Yêu cầu 12.8.5:** Yêu cầu duy trì thông tin về việc yêu cầu nào do TPSP quản lý, yêu cầu nào do thực thể quản lý và yêu cầu nào là chia sẻ. \n3. **Phụ lục G (Glossary):** Định nghĩa AOC là bằng chứng về kết quả đánh giá nhưng không thay thế cho thỏa thuận mức độ dịch vụ về trách nhiệm bảo mật cụ thể. \n**Lý do kết hợp:** Một TPSP có thể đạt chuẩn (Appendix G) nhưng thực thể vẫn phải xác định phạm vi dịch vụ cụ thể (Chapter 4). Nếu không có ma trận trách nhiệm (Req 12.8.5), các khoảng trống bảo mật (ví dụ: ai quản lý khóa mã hóa sao lưu) sẽ không được giám sát, dẫn đến rủi ro lộ dữ liệu mà không bên nào chịu trách nhiệm. Khuyến nghị: Thực thể phải yêu cầu hoặc tự xây dựng ma trận trách nhiệm dựa trên dịch vụ thực tế nhận được.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter4.md",
+      "20260407_ENGR_PCIDSS_Requirement_12_8.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM005",
+    "question": "Một ngân hàng (Issuer) lưu trữ dữ liệu xác thực nhạy cảm (SAD) sau khi ủy quyền để xử lý các tranh chấp bồi hoàn. Kiểm toán viên yêu cầu họ xóa ngay lập tức. Ngân hàng phản đối. Ai đúng trong trường hợp này theo PCI DSS v4.0.1 và cần những điều kiện gì?",
+    "gold": "Trong trường hợp này, ngân hàng (Issuer) có thể đúng nhưng cần điều kiện nghiêm ngặt: \n1. **Chương 2 (Khả năng áp dụng):** Xác định tiêu chuẩn áp dụng cho tất cả thực thể liên quan đến xử lý thẻ, bao gồm cả Issuer. \n2. **Yêu cầu 3.3.3:** Cho phép các Issuer (hoặc đơn vị hỗ trợ Issuer) lưu trữ SAD nếu có lý do kinh doanh hợp pháp và dữ liệu được lưu trữ an toàn. \n3. **Phụ lục G (SAD):** Định nghĩa SAD bao gồm nội dung toàn bộ rãnh từ, mã CVV, số PIN. \n**Lý do kết hợp:** Trong khi các Merchant (Chương 2) tuyệt đối không được giữ SAD (Req 3.3.1), thì Issuer có ngoại lệ đặc biệt tại Requirement 3.3.3. Tuy nhiên, rủi ro là cực lớn nếu SAD bị lộ vì nó cho phép tạo thẻ giả. Kết nối: Issuer phải chứng minh được SAD được bảo vệ bằng mật mã mạnh (Req 3.3.2) và chỉ lưu giữ các thành phần cần thiết cho mục đích tranh chấp, đồng thời phải được tách biệt hoàn toàn.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter2.md",
+      "20260407_ENGR_PCIDSS_Requirement_3_3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM006",
+    "question": "Một tổ chức sử dụng giải pháp mã hóa đĩa (disk-level encryption) để bảo vệ số thẻ (PAN) trên các máy chủ cơ sở dữ liệu của họ. Họ lập luận rằng điều này đáp ứng yêu cầu render PAN unreadable. Tuy nhiên, máy chủ này chạy hệ điều hành có tài khoản người dùng chung. Đánh giá viên sẽ xem xét vấn đề này như thế nào?",
+    "gold": "Giải pháp này không đủ để tuân thủ khi kết hợp các yếu tố về kiểm soát truy cập và mã hóa: \n1. **Chương 4 (Phạm vi):** Các hệ thống lưu trữ PAN luôn nằm trong phạm vi đánh giá. \n2. **Yêu cầu 3.5.1.2:** Quy định mã hóa toàn bộ đĩa chỉ được chấp nhận cho các thiết bị lưu trữ điện tử có thể tháo rời HOẶC nếu được sử dụng cho ổ cứng cố định, nó không bảo vệ dữ liệu khỏi những người dùng đã đăng nhập vào hệ điều hành. \n3. **Phụ lục G (Strong Cryptography):** Nhấn mạnh mã hóa phải dựa trên các thuật toán được ngành công nhận và quản lý khóa chặt chẽ. \n**Lý do kết hợp:** Mã hóa đĩa (Requirement 3.5.1.2) tự động giải mã khi hệ thống chạy. Nếu thực thể sử dụng tài khoản chung (vi phạm Requirement 8.2.1 - Chapter 4), bất kỳ ai có quyền truy cập hệ thống đều thấy PAN dưới dạng rõ. Rủi ro là mã hóa đĩa trở nên vô dụng trước các cuộc tấn công nội bộ hoặc chiếm quyền điều khiển tài khoản. Khuyến nghị: Thực thể phải sử dụng mã hóa ở cấp độ cột cơ sở dữ liệu hoặc ứng dụng để đảm bảo tính riêng biệt.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter4.md",
+      "20260407_ENGR_PCIDSS_Requirement_3_5.md",
+      "20260407_ENGR_PCIDSS_Requirement_8_2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM007",
+    "question": "Khi thực hiện thay đổi đáng kể (significant change) đối với hạ tầng mạng, một thực thể không thực hiện quét lỗ hổng bảo mật ngay lập tức mà đợi đến kỳ quét hàng quý tiếp theo. Họ giải thích rằng quy trình BAU của họ là quét 3 tháng/lần. Phân tích lỗi tuân thủ ở đây.",
+    "gold": "Đây là lỗi trong việc hiểu về các mốc thời gian và quản lý thay đổi: \n1. **Chương 12 (Quy trình đánh giá):** Bước 1 yêu cầu xác nhận lại phạm vi sau khi thay đổi. \n2. **Yêu cầu 11.3.1 & 11.3.2:** Yêu cầu quét lỗ hổng nội bộ và bên ngoài sau bất kỳ thay đổi đáng kể nào. \n3. **Chương 7 (Thời gian):** Giải thích rằng các hoạt động định kỳ phải được thực hiện đúng hạn, nhưng các sự kiện kích hoạt (như thay đổi) yêu cầu hành động tức thì. \n**Lý do kết hợp:** Việc thay đổi hạ tầng có thể tạo ra lỗ hổng mới (Requirement 11). Nếu không quét ngay (Chapter 12), thực thể không thể biết liệu kiểm soát bảo mật có còn hiệu lực hay không, vi phạm nguyên tắc BAU (Chapter 7). Rủi ro là lỗ hổng do cấu hình sai trong quá trình thay đổi bị kẻ tấn công khai thác trước kỳ quét định kỳ. Thực thể phải cập nhật quy trình Quản lý Thay đổi để bao gồm quét ASV và nội bộ ngay sau khi triển khai.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter7.md",
+      "20260406_ENGR_PCIDSS_Chapter12.md",
+      "20260407_ENGR_PCIDSS_Requirement_11_3.md",
+      "20260407_ENGR_PCIDSS_Requirement_6_5.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM008",
+    "question": "Một công ty phần mềm phát triển ứng dụng thanh toán tùy chỉnh cho khách hàng. Họ tuyên bố tuân thủ PCI DSS vì họ tuân theo các tiêu chuẩn mã hóa an toàn. Tuy nhiên, họ không có danh mục các thành phần phần mềm bên thứ ba (như thư viện mã nguồn mở) được sử dụng trong mã nguồn. Dựa trên v4.0.1, tại sao đây là một rủi ro tuân thủ?",
+    "gold": "Sự tuân thủ trong phát triển phần mềm không chỉ là mã hóa mà còn là quản lý chuỗi cung ứng: \n1. **Chương 3 (Mối quan hệ với tiêu chuẩn phần mềm):** Nhấn mạnh việc sử dụng khung bảo mật phần mềm (SSF) để hỗ trợ tuân thủ. \n2. **Yêu cầu 6.3.1:** Yêu cầu thực thể phải duy trì danh mục phần mềm tùy chỉnh và các thành phần bên thứ ba được nhúng để quản lý lỗ hổng. \n3. **Phụ lục F (Sử dụng SSF cho Req 6):** Giải thích cách các thực hành Secure SLC giúp đáp ứng Requirement 6. \n**Lý do kết hợp:** Không có danh mục thành phần (Req 6.3.1) đồng nghĩa với việc không thể theo dõi các lỗ hổng (CVE) trong thư viện nguồn mở (Chapter 3). Appendix F chỉ ra rằng việc thiếu kiểm soát này làm hỏng quy trình SLC an toàn. Rủi ro là một thư viện lỗi thời có thể bị khai thác để chiếm quyền điều khiển ứng dụng dù mã nguồn chính được viết rất tốt. Thực thể cần triển khai công cụ phân tích thành phần phần mềm (SCA).",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter3.md",
+      "20260407_ENGR_PCIDSS_Requirement_6_3.md",
+      "20260406_ENGR_PCIDSS_appendixF.md"
+    ]
+  },
+  {
+    "id": "FM009",
+    "question": "Trong một kịch bản ứng phó sự cố, một quản trị viên hệ thống đã sử dụng tài khoản chung 'admin' để truy cập khẩn cấp vào máy chủ CDE nhằm ngăn chặn một cuộc tấn công DDoS. Việc này không được ghi nhật ký riêng biệt cho danh tính của người đó. Phân tích tính tuân thủ khi xét đến các biện pháp bù đắp (Compensating Controls).",
+    "gold": "Tình huống này vi phạm nguyên tắc cơ bản về tính định danh nhưng có thể được xem xét dưới góc độ kiểm soát bù đắp: \n1. **Chương 9 (Bảo vệ thông tin bảo mật):** Nhật ký truy cập là một artifact nhạy cảm phải được bảo vệ. \n2. **Yêu cầu 8.2.2:** Nghiêm cấm sử dụng tài khoản chung trừ trường hợp ngoại lệ được chấp nhận. \n3. **Phụ lục B (Kiểm soát bù đắp):** Cho phép xem xét nếu có ràng buộc kỹ thuật hoặc kinh doanh hợp pháp và rủi ro đã được giảm thiểu. \n**Lý do kết hợp:** Việc dùng tài khoản chung làm mất tính giải trình (Req 8.2.2). Tuy nhiên, nếu thực thể chứng minh được đây là trường hợp 'break the glass' khẩn cấp (Chapter 9) và có các kiểm soát bù đắp như: giám sát video 24/7 tại console, hoặc nhật ký hệ thống ghi lại địa chỉ IP/MAC duy nhất của quản trị viên đó (Appendix B), thì có thể được chấp nhận tạm thời. Rủi ro là không thể quy trách nhiệm nếu xảy ra gian lận. Hành động: Thực thể phải điền vào Worksheet Phụ lục C và thực hiện TRA.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter9.md",
+      "20260407_ENGR_PCIDSS_Requirement_8_2.md",
+      "20260406_ENGR_PCIDSS_appendixB.md",
+      "20260406_ENGR_PCIDSS_appendixC.md"
+    ]
+  },
+  {
+    "id": "FM010",
+    "question": "Một tổ chức Merchant lớn thực hiện phân đoạn mạng bằng VLAN để giảm phạm vi CDE. Tuy nhiên, họ không có sơ đồ luồng dữ liệu (data flow diagram) cập nhật, chỉ có sơ đồ mạng vật lý. Tại sao đánh giá viên không thể xác nhận phạm vi đánh giá chỉ dựa trên sơ đồ mạng?",
+    "gold": "Sơ đồ mạng vật lý không đủ để phản ánh cách dữ liệu thực tế di chuyển qua các phân đoạn logic: \n1. **Chương 4 (Phạm vi):** Yêu cầu hiểu rõ luồng dữ liệu tài khoản là tiền đề để giảm phạm vi CDE. \n2. **Yêu cầu 1.2.4:** Yêu cầu duy trì sơ đồ luồng dữ liệu chính xác hiển thị mọi kết nối đến và đi từ CDE. \n3. **Phụ lục G (Glossary):** Định nghĩa 'Segmentation' là quá trình cô lập CDE khỏi các mạng khác, điều này cần được xác nhận qua cả logic mạng và luồng dữ liệu. \n**Lý do kết hợp:** Sơ đồ vật lý (Appendix G) có thể cho thấy các thiết bị, nhưng chỉ sơ đồ luồng dữ liệu (Req 1.2.4) mới tiết lộ PAN có vô tình 'chảy' sang các VLAN không bảo mật hay không (Chapter 4). Rủi ro là các hệ thống được coi là 'out-of-scope' thực chất lại đang nhận PAN. Đánh giá viên sẽ đánh dấu 'Not in Place' cho đến khi sơ đồ luồng dữ liệu được hoàn thiện và xác minh qua kiểm tra thực tế.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter4.md",
+      "20260407_ENGR_PCIDSS_Requirement_1_2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM011",
+    "question": "Một Merchant sử dụng một thiết bị thanh toán (POI) không dây trong cửa hàng. Họ tin rằng vì dữ liệu đã được mã hóa bởi thiết bị nên họ không cần quan tâm đến các yêu cầu về mạng không dây (Wireless). Dựa trên PCI DSS v4.0.1, hãy đính chính quan điểm này.",
+    "gold": "Đây là một hiểu lầm về tác động của công nghệ đối với phạm vi: \n1. **Chương 4 (Phạm vi - Không dây):** Quy định rõ nếu mạng WLAN là một phần của CDE hoặc được kết nối với CDE, các yêu cầu về không dây phải được thực hiện. \n2. **Yêu cầu 11.2.1:** Yêu cầu kiểm tra sự hiện diện của các điểm truy cập không dây trái phép (rogue WAP) hàng quý. \n3. **Phụ lục G (POI):** Thiết bị tương tác tại điểm thanh toán dù có mã hóa P2PE vẫn không loại bỏ hoàn toàn các yêu cầu giám sát môi trường vật lý xung quanh nó. \n**Lý do kết hợp:** Dù thiết bị POI có mã hóa (Appendix G), nhưng nếu nó kết nối vào mạng cửa hàng qua WLAN (Chapter 4), thì mạng WLAN đó trở thành 'security-impacting' (tác động bảo mật). Nếu không quét rogue WAP (Req 11.2.1), kẻ tấn công có thể thiết lập một WAP giả để thực hiện tấn công Man-in-the-Middle hoặc đánh cắp dữ liệu từ các thiết bị khác trong cùng mạng. Thực thể phải duy trì danh mục WAP và quét định kỳ.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter4.md",
+      "20260407_ENGR_PCIDSS_Requirement_11_2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM012",
+    "question": "Một công ty quyết định không thay đổi mật khẩu của các tài khoản hệ thống (system accounts) vì họ cho rằng các tài khoản này không có khả năng đăng nhập tương tác (interactive login). Tuy nhiên, các mật khẩu này được lưu trữ dưới dạng văn bản rõ trong mã nguồn của ứng dụng nội bộ. Hãy phân tích các vi phạm liên quan.",
+    "gold": "Vi phạm này kết hợp giữa quản lý danh tính và bảo mật mã nguồn: \n1. **Chương 4 (Các hệ thống tác động):** Các công cụ và kho lưu trữ mã nguồn triển khai cho CDE thuộc phạm vi PCI DSS. \n2. **Yêu cầu 8.6.2:** Mật khẩu/passphrase cho các tài khoản ứng dụng và hệ thống không được nhúng trong các file cấu hình hoặc mã nguồn. \n3. **Phụ lục G (Operational Procedures):** Các thủ tục vận hành phải bao gồm việc quản lý an toàn các yếu tố xác thực. \n**Lý do kết hợp:** Việc coi tài khoản hệ thống là an toàn vì không đăng nhập tương tác (Chapter 4) là sai lầm nếu thông tin đăng nhập của nó bị lộ trong mã nguồn (Req 8.6.2). Một kẻ tấn công chiếm được mã nguồn có thể sử dụng các thông tin này để thực hiện các lệnh tự động với quyền hạn cao (Appendix G). Rủi ro là sự thỏa hiệp toàn bộ cơ sở dữ liệu thông qua ứng dụng. Hành động: Di chuyển mật khẩu sang các giải pháp quản lý vault an toàn.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter4.md",
+      "20260407_ENGR_PCIDSS_Requirement_8_6.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM013",
+    "question": "Một tổ chức triển khai hệ thống File Integrity Monitoring (FIM) trên các máy chủ CDE nhưng cấu hình để nó chỉ gửi báo cáo tóm tắt hàng tuần thay vì cảnh báo thời gian thực khi có thay đổi file cấu hình hệ thống. Đánh giá viên sẽ nhận xét gì về tính hiệu quả của kiểm soát này?",
+    "gold": "Tính hiệu quả bị ảnh hưởng nghiêm trọng do không đáp ứng yêu cầu về phản ứng kịp thời: \n1. **Chương 5 (BAU):** Mục tiêu của BAU là đảm bảo kiểm soát luôn hoạt động và được giám sát để phát hiện lỗi. \n2. **Yêu cầu 11.5.2:** Yêu cầu triển khai cơ chế phát hiện thay đổi để cảnh báo nhân sự về các sửa đổi trái phép đối với các file hệ thống quan trọng. \n3. **Phụ lục A3 (DESV):** Nếu là thực thể DESV, yêu cầu A3.5.1 đòi hỏi phản hồi cảnh báo phải tuân theo quy trình ứng phó sự cố đã lập hồ sơ. \n**Lý do kết hợp:** Việc báo cáo hàng tuần (Chapter 5) làm mất đi ý nghĩa của 'phát hiện' (Requirement 11). Trong Appendix A3, sự chậm trễ này bị coi là thất bại trong việc giảm thiểu tác động của sự cố. Rủi ro là kẻ tấn công có thể thay đổi file hệ thống, thực hiện hành vi xấu và xóa dấu vết trong vòng 7 ngày trước khi báo cáo được xem xét. Thực thể phải cấu hình cảnh báo ngay lập tức cho các file 'critical'.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter5.md",
+      "20260407_ENGR_PCIDSS_Requirement_11_5.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part5.md"
+    ]
+  },
+  {
+    "id": "FM014",
+    "question": "Một nhà bán lẻ trực tuyến thuê một TPSP để quản lý trang thanh toán dưới dạng iFrame. Nhà bán lẻ tin rằng họ không còn phạm vi PCI DSS cho Requirement 6. Họ có đúng không? Cần xem xét những gì về script bên thứ ba?",
+    "gold": "Nhà bán lẻ đã sai lầm về việc loại bỏ hoàn toàn phạm vi: \n1. **Chương 2 (Khả năng áp dụng):** Thực thể có thể tác động đến bảo mật dữ liệu chủ thẻ vẫn nằm trong phạm vi. \n2. **Yêu cầu 6.4.3:** Yêu cầu quản lý tất cả các script của trang thanh toán được tải và thực thi trong trình duyệt của người tiêu dùng. \n3. **Phụ lục G (Application):** Định nghĩa ứng dụng bao gồm cả các script được nhúng. \n**Lý do kết hợp:** Dù dùng iFrame (Chapter 2), nhưng trang web mẹ của Merchant vẫn có thể bị tấn công (ví dụ: Magecart) để chèn các script độc hại vào trình duyệt người dùng trước khi iFrame tải (Req 6.4.3). Appendix G làm rõ rằng các script này là một phần của bề mặt tấn công. Rủi ro là script độc hại đánh cắp dữ liệu ngay trên trình duyệt khách hàng. Merchant phải duy trì danh mục script, xác nhận sự cần thiết và kiểm tra tính toàn vẹn của chúng.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter2.md",
+      "20260407_ENGR_PCIDSS_Requirement_6_4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM015",
+    "question": "Trong một cuộc kiểm toán, QSA phát hiện một thực thể lưu trữ khóa mã hóa PAN (DEK) trên cùng một máy chủ với dữ liệu đã mã hóa để tối ưu hiệu suất ứng dụng. Thực thể lập luận khóa đã được bảo vệ bởi quyền hạn người dùng của hệ điều hành. Phân tích vi phạm này.",
+    "gold": "Đây là vi phạm nghiêm trọng về nguyên tắc quản lý khóa và tách biệt: \n1. **Chương 12 (Quy trình đánh giá):** Nhấn mạnh việc kiểm tra các phương pháp quản lý khóa là một phần trọng yếu. \n2. **Yêu cầu 3.6.1.1:** Yêu cầu các khóa mã hóa phải được lưu trữ ở những nơi an toàn nhất có thể và tách biệt khỏi dữ liệu được mã hóa. \n3. **Phụ lục G (HSM):** Đưa ra giải pháp sử dụng Module Bảo mật Phần cứng để lưu trữ khóa an toàn. \n**Lý do kết hợp:** Việc lưu trữ khóa chung với dữ liệu (Req 3.6.1.1) làm vô hiệu hóa toàn bộ nỗ lực mã hóa (Chapter 12). Nếu máy chủ bị xâm nhập, kẻ tấn công có cả khóa và dữ liệu. Rủi ro là PAN bị giải mã ngay lập tức. Appendix G gợi ý rằng việc tách biệt logic hoặc sử dụng HSM là cần thiết. Thực thể phải triển khai KEK (Key Encrypting Key) hoặc lưu trữ DEK trong một vault/HSM riêng biệt.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter12.md",
+      "20260407_ENGR_PCIDSS_Requirement_3_6.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM016",
+    "question": "Một tổ chức áp dụng 'Tiếp cận tùy chỉnh' cho việc lưu trữ nhật ký (log) nhưng không thực hiện việc đồng bộ thời gian (NTP) cho tất cả các thiết bị tạo log. Họ cho rằng hệ thống phân tích log của họ sẽ tự động gán nhãn thời gian (timestamp) khi nhận log. Tại sao điều này không đáp ứng Objective của v4.0.1?",
+    "gold": "Sự sai lệch thời gian làm mất tính chính xác của dữ liệu chứng cứ: \n1. **Chương 10 (Phương pháp kiểm tra):** 'Examine' yêu cầu đánh giá dữ liệu bằng chứng như audit log. \n2. **Yêu cầu 10.6.1:** Yêu cầu các hệ thống quan trọng phải đồng bộ thời gian từ một nguồn tham chiếu chung. \n3. **Phụ lục D (Customized Approach):** Quy định các kiểm soát tùy chỉnh vẫn phải đáp ứng 'Objective' của yêu cầu gốc. \n**Lý do kết hợp:** 'Objective' của Requirement 10 (Appendix D) là hỗ trợ phân tích pháp y khi có sự cố. Nếu các thiết bị có thời gian khác nhau (vi phạm Req 10.6.1), việc gán nhãn tại SIEM sẽ không phản ánh đúng thứ tự các sự kiện xảy ra trên thực tế (Chapter 10). Rủi ro là không thể tái lập lại chuỗi tấn công trong quá trình điều tra sự cố. Thực thể phải cấu hình NTP cho mọi thiết bị trong phạm vi.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter10.md",
+      "20260407_ENGR_PCIDSS_Requirement_10_6.md",
+      "20260406_ENGR_PCIDSS_appendixD.md"
+    ]
+  },
+  {
+    "id": "FM017",
+    "question": "Một đơn vị cung cấp dịch vụ (Service Provider) thực hiện rà quét lỗ hổng ASV hàng quý và đạt kết quả 'Pass'. Tuy nhiên, họ đã bỏ qua việc quét 3 địa chỉ IP mới được thêm vào DMZ cách đây 2 tháng vì cho rằng chúng sẽ được quét vào kỳ tiếp theo. Hãy chỉ ra sai sót.",
+    "gold": "Đây là sự thất bại trong việc kết hợp quản lý phạm vi và quét lỗ hổng theo sự kiện: \n1. **Chương 4 (Phạm vi):** Bất kỳ thành phần mới nào kết nối vào CDE hoặc DMZ đều phải được đưa vào phạm vi đánh giá ngay lập tức. \n2. **Yêu cầu 11.3.2.1:** Yêu cầu quét lỗ hổng ASV bên ngoài sau bất kỳ thay đổi đáng kể nào. \n3. **Phụ lục A3 (DESV):** Yêu cầu A3.2.2 nhấn mạnh các thay đổi phải dẫn đến việc cập nhật phạm vi và thực hiện các kiểm tra bảo mật tương ứng. \n**Lý do kết hợp:** Việc thêm IP vào DMZ (Chapter 4) là một 'thay đổi đáng kể'. Đợi đến kỳ quét định kỳ (Requirement 11) tạo ra một 'cửa sổ rủi ro' 2 tháng mà thực thể không biết IP mới có lỗ hổng hay không. Đối với thực thể DESV (Appendix A3), đây là lỗi nghiêm trọng về quy trình. Thực thể phải thực hiện quét ASV bổ sung ngay khi thêm thiết bị mới.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter4.md",
+      "20260407_ENGR_PCIDSS_Requirement_11_3.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part5.md"
+    ]
+  },
+  {
+    "id": "FM018",
+    "question": "Một tổ chức muốn sử dụng 'Compensating Control' cho Requirement 8.3.6 (độ dài mật khẩu tối thiểu 12 ký tự) vì hệ thống cũ chỉ hỗ trợ tối đa 8 ký tự. Họ đề xuất tăng cường giám sát log làm biện pháp bù đắp. Đánh giá viên cần xem xét những tài liệu nào để phê duyệt?",
+    "gold": "Quy trình này yêu cầu hồ sơ pháp lý và kỹ thuật chặt chẽ: \n1. **Chương 8 (Phân biệt định nghĩa):** Chỉ rõ kiểm soát bù đắp chỉ dùng khi có 'ràng buộc thực sự' không thể vượt qua. \n2. **Yêu cầu 8.3.6:** Yêu cầu mật khẩu tối thiểu 12 ký tự (hoặc 8 ký tự nếu hệ thống không hỗ trợ 12). \n3. **Phụ lục B & C:** Yêu cầu điền 'Compensating Controls Worksheet' để giải trình về ràng buộc, rủi ro gia tăng và cách kiểm soát mới giảm thiểu rủi ro đó. \n**Lý do kết hợp:** Thực thể phải chứng minh hệ thống cũ là 'ràng buộc kỹ thuật' (Chapter 8). Việc chỉ giám sát log (Requirement 10) có thể chưa đủ nếu không có TRA (Phụ lục B) chứng minh rủi ro bẻ khóa mật khẩu 8 ký tự được triệt tiêu hoàn toàn. Khuyến nghị: Thực thể cần thêm các lớp bảo vệ như hạn chế IP truy cập hoặc MFA bắt buộc cho các tài khoản đó để được QSA chấp nhận.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter8.md",
+      "20260407_ENGR_PCIDSS_Requirement_8_3.md",
+      "20260406_ENGR_PCIDSS_appendixB.md",
+      "20260406_ENGR_PCIDSS_appendixC.md"
+    ]
+  },
+  {
+    "id": "FM019",
+    "question": "Một nhân viên hỗ trợ IT sử dụng TeamViewer để truy cập từ xa vào một máy trạm trong CDE nhằm sửa lỗi ứng dụng. Kết nối này được xác thực bằng mật khẩu một lần (OTP) gửi qua SMS nhưng tài khoản TeamViewer lại là tài khoản dùng chung của phòng IT. Hãy phân tích tính tuân thủ.",
+    "gold": "Tình huống này có sự kết hợp giữa xác thực MFA và quản lý định danh người dùng: \n1. **Chương 2 (Khả năng áp dụng):** Mọi nhân viên hỗ trợ từ xa có thể truy cập CDE đều thuộc phạm vi quản lý xác thực. \n2. **Yêu cầu 8.3.11:** Quy định các yếu tố xác thực (như OTP) chỉ được gán cho một cá nhân duy nhất và không được chia sẻ. \n3. **Phụ lục G (MFA):** Giải thích MFA yêu cầu ít nhất 2 yếu tố khác nhau và cả hai phải được liên kết với danh tính người dùng duy nhất. \n**Lý do kết hợp:** Mặc dù có MFA (Req 8.3.1 - Appendix G), nhưng việc dùng tài khoản chung (Requirement 8.3.11) làm mất tính giải trình (Chapter 2). Nếu xảy ra sự cố, không thể biết ai là người thực tế đã dùng OTP đó để vào hệ thống. Rủi ro là không thể thực hiện điều tra pháp y (Requirement 10). Thực thể phải cấp tài khoản TeamViewer riêng biệt cho từng nhân viên IT.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter2.md",
+      "20260407_ENGR_PCIDSS_Requirement_8_3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM020",
+    "question": "Một Merchant phát hiện dữ liệu PAN rõ trong nhật ký lỗi (error logs) của ứng dụng web do lỗi lập trình. Họ đã xóa file log đó và sửa code. Tại sao họ vẫn phải thực hiện các bước theo Phụ lục A3 (nếu họ là thực thể DESV) hoặc quy trình sự cố?",
+    "gold": "Việc xử lý dữ liệu PAN bị rò rỉ yêu cầu quy trình phân tích nguyên nhân gốc rễ và ngăn ngừa tái phát: \n1. **Chương 12 (Quy trình đánh giá):** Yêu cầu thực hiện remediation cho bất kỳ mục nào không đạt chuẩn. \n2. **Yêu cầu 12.10.7:** Yêu cầu có quy trình xử lý khi PAN được tìm thấy ở nơi không mong muốn. \n3. **Phụ lục A3 (DESV):** Mục A3.2.5.2 yêu cầu hành động khắc phục phải bao gồm việc xác định nguồn gốc dữ liệu và lỗ hổng quy trình dẫn đến việc rò rỉ này. \n**Lý do kết hợp:** Xóa log chỉ là khắc phục phần ngọn (Requirement 12). Appendix A3 và Chapter 12 yêu cầu một TRA để đảm bảo PAN không còn tồn tại ở nơi khác (ví dụ: máy chủ log tập trung, backup). Rủi ro là dữ liệu vẫn còn tồn tại âm thầm trong hạ tầng khác. Thực thể phải xác minh lại toàn bộ hệ thống bằng công cụ quét dữ liệu (data discovery).",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter12.md",
+      "20260407_ENGR_PCIDSS_Requirement_12_10.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part5.md"
+    ]
+  },
+  {
+    "id": "FM021",
+    "question": "Một tổ chức triển khai cơ chế kỹ thuật để ngăn chặn phishing (Req 5.4.1) nhưng không thực hiện đào tạo nhận thức định kỳ cho nhân viên (Req 12.6.3.1). Họ lập luận rằng công nghệ đã đủ để bảo vệ. Dựa trên Chapter 5 về BAU và Appendix G, tại sao cách tiếp cận này vi phạm tính bền vững của PCI DSS?",
+    "gold": "Sự kết hợp giữa kiểm soát kỹ thuật và đào tạo là bắt buộc để đảm bảo an ninh: \n1. **Requirement 5.4.1:** Yêu cầu các cơ chế tự động để phát hiện và bảo vệ chống phishing. \n2. **Requirement 12.6.3.1:** Yêu cầu đào tạo nhân viên về phishing và social engineering. \n3. **Chapter 5 (BAU):** Nhấn mạnh rằng các quy trình bảo mật phải được tích hợp vào hoạt động hàng ngày và con người là một mắt xích trọng yếu. \n4. **Appendix G:** Định nghĩa Phishing là một hình thức tấn công dựa trên yếu tố con người. \n**Lý do kết hợp:** Dù có công nghệ (Req 5), kẻ tấn công luôn tìm cách lách qua các bộ lọc bằng các phương thức social engineering mới. Nếu nhân viên không được đào tạo (Req 12), một cuộc tấn công thành công sẽ phá vỡ BAU (Chapter 5). Khuyến nghị: Thực thể phải duy trì cả hai lớp bảo vệ vì công nghệ không thay thế được nhận thức của con người.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter5.md",
+      "20260407_ENGR_PCIDSS_Requirement_5_4.md",
+      "20260407_ENGR_PCIDSS_Requirement_12_6.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM022",
+    "question": "Một Nhà cung cấp dịch vụ đa người dùng (Multi-tenant Service Provider) cho phép khách hàng truy cập vào logs của họ thông qua một cổng thông tin tập trung. Kiểm toán viên nhận thấy hệ thống này không có cơ chế cách ly logic rõ ràng giữa các khách hàng khi truy vấn log. Phân tích lỗi này dựa trên Appendix A1 và Requirement 10.",
+    "gold": "Tình huống này vi phạm nghiêm trọng nguyên tắc tách biệt dữ liệu trong môi trường chia sẻ: \n1. **Requirement A1.1.3 (Appendix A1):** Yêu cầu CSP triển khai các kiểm soát để mỗi khách hàng chỉ có thể truy cập tài nguyên được chỉ định cho họ. \n2. **Requirement 10.2.1.3:** Yêu cầu ghi lại mọi hành vi truy cập vào audit logs. \n3. **Chapter 4 (Phạm vi):** Khẳng định các hệ thống quản lý an ninh cho khách hàng phải nằm trong phạm vi. \n**Lý do kết hợp:** Nếu không có cách ly logic (Appendix A1), khách hàng A có thể xem log của khách hàng B (vi phạm tính bảo mật CHD). Điều này cũng làm hỏng tính chính xác của audit trail (Requirement 10) vì log truy cập không phản ánh đúng quyền hạn thực tế. Khuyến nghị: Cần cấu hình IAM và phân đoạn logic nghiêm ngặt cho hệ thống quản lý log tập trung.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter4.md",
+      "20260407_ENGR_PCIDSS_Requirement_10_2.md",
+      "20260406_ENGR_PCIDSS_appendixA1.md"
+    ]
+  },
+  {
+    "id": "FM023",
+    "question": "Một quản trị viên hệ thống sử dụng VPN để làm việc từ xa và thường xuyên copy dữ liệu PAN từ máy chủ CDE vào ổ cứng local của laptop cá nhân để phân tích lỗi. Anh ta khẳng định mình có quyền 'admin'. Dựa trên Requirement 3.4.2 và Chapter 9, rủi ro ở đây là gì?",
+    "gold": "Việc copy dữ liệu này tạo ra rủi ro mở rộng phạm vi đánh giá một cách mất kiểm soát: \n1. **Requirement 3.4.2:** Yêu cầu các kiểm soát kỹ thuật ngăn chặn việc sao chép PAN lên ổ cứng local khi truy cập từ xa, trừ khi có phê duyệt kinh doanh cụ thể. \n2. **Chapter 9 (Posture Protection):** Nhấn mạnh việc bảo vệ các thông tin nhạy cảm về cấu trúc bảo mật. \n3. **Appendix G:** Định nghĩa Media bao gồm các thiết bị lưu trữ điện tử có thể tháo rời hoặc laptop. \n**Lý do kết hợp:** Quyền 'admin' không mặc nhiên cho phép sao chép dữ liệu (Req 3.4.2). Việc sao chép này đưa laptop cá nhân vào phạm vi PCI DSS (Chapter 9), thường là nơi không đáp ứng các tiêu chuẩn hardened (Req 2). Nếu laptop bị mất, PAN sẽ bị lộ rõ. Khuyến nghị: Cấm sao chép dữ liệu và sử dụng môi trường VDI có kiểm soát.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter9.md",
+      "20260407_ENGR_PCIDSS_Requirement_3_4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM024",
+    "question": "Một cửa hàng bán lẻ vẫn sử dụng giao thức SSL v3.0 cho các thiết bị POI card-present. Họ cho biết đã có kế hoạch chuyển đổi (Migration Plan) nhưng chưa thực hiện xong. Đánh giá viên cần kiểm tra những gì theo Appendix A2 và Requirement 12.3.3?",
+    "gold": "Thực thể phải chứng minh nỗ lực giảm thiểu rủi ro trong giai đoạn chuyển đổi: \n1. **Requirement A2.1.1 (Appendix A2):** Yêu cầu xác nhận các thiết bị POI không bị ảnh hưởng bởi các lỗ hổng SSL đã biết. \n2. **Requirement 12.3.3:** Yêu cầu duy trì danh mục cipher suites và có kế hoạch phản ứng với các thay đổi về lỗ hổng mã hóa. \n3. **Chapter 14 (Versions):** Nhắc lại việc các phiên bản cũ bị loại bỏ do thiếu an toàn. \n**Lý do kết hợp:** SSL v3.0 là giao thức không an toàn (Chapter 14). Appendix A2 cho phép sử dụng tạm thời chỉ khi có Migration Plan (Req 12.3.3) và bằng chứng kỹ thuật rằng các lỗ hổng (như POODLE) đã được cấu hình chặn đứng tại thiết bị. Khuyến nghị: Thực thể phải cung cấp bản đánh giá rủi ro cho các thiết bị chưa nâng cấp.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter14.md",
+      "20260407_ENGR_PCIDSS_Requirement_12_3.md",
+      "20260406_ENGR_PCIDSS_appendixA2.md"
+    ]
+  },
+  {
+    "id": "FM025",
+    "question": "Một công ty sử dụng 'Keyed Cryptographic Hash' để rendered PAN unreadable. Tuy nhiên, họ lưu trữ secret key trên một file văn bản rõ trong cùng server ứng dụng. Phân tích sự không tuân thủ này thông qua Requirement 3.5.1.1 và Chapter 12.",
+    "gold": "Vi phạm này nằm ở khâu quản lý khóa liên kết với băm dữ liệu: \n1. **Requirement 3.5.1.1:** Yêu cầu các hash dùng để bảo vệ PAN phải là keyed hash và khóa phải được quản lý theo Req 3.6 và 3.7. \n2. **Requirement 3.6.1.2:** Yêu cầu khóa mã hóa phải được lưu trữ an toàn (ví dụ: encrypt bằng KEK hoặc trong HSM). \n3. **Chapter 12 (Assessment Process):** Yêu cầu xác minh tính hợp lệ của các cơ chế bảo vệ dữ liệu. \n4. **Appendix G:** Định nghĩa Key Management bao gồm toàn bộ vòng đời của khóa. \n**Lý do kết hợp:** Băm PAN mà không bảo vệ khóa (Req 3.5.1.1) cũng giống như để cửa mở (Chapter 12). Kẻ tấn công lấy được khóa có thể thực hiện tấn công brute-force offline để tìm lại PAN gốc. Khuyến nghị: Chuyển khóa vào HSM hoặc Key Vault và tách biệt quyền hạn truy cập.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter12.md",
+      "20260407_ENGR_PCIDSS_Requirement_3_5.md",
+      "20260407_ENGR_PCIDSS_Requirement_3_6.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM026",
+    "question": "Trong một trang thanh toán e-commerce, Merchant sử dụng script của bên thứ ba để phân tích hành vi người dùng. Đánh giá viên yêu cầu danh mục scripts và bằng chứng kiểm tra tính toàn vẹn (integrity). Merchant nói rằng họ chỉ dùng iFrame nên không cần quản lý script của trang mẹ. Phân tích dựa trên Requirement 6.4.3.",
+    "gold": "Đây là lỗ hổng về phạm vi bảo mật phía trình duyệt (Client-side): \n1. **Requirement 6.4.3:** Yêu cầu quản lý tất cả scripts trên trang thanh toán được tải vào trình duyệt người dùng. \n2. **Chapter 2 (Applicability):** Tiêu chuẩn áp dụng cho bất kỳ thực thể nào có thể ảnh hưởng đến an ninh CHD. \n3. **Appendix G:** Định nghĩa Application bao gồm cả scripts chạy phía client. \n**Lý do kết hợp:** Mặc dù dùng iFrame (Chapter 2), nhưng script độc hại trên trang mẹ (Req 6.4.3) vẫn có thể thực hiện 'skimming' bằng cách ghi đè hoặc đánh cắp dữ liệu trước khi nó đi vào iFrame (Appendix G). Khuyến nghị: Merchant phải triển khai cơ chế Content Security Policy (CSP) hoặc Subresource Integrity (SRI) để kiểm soát scripts.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter2.md",
+      "20260407_ENGR_PCIDSS_Requirement_6_4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM027",
+    "question": "Một thực thể DESV (Appendix A3) thực hiện rà soát quyền truy cập người dùng hàng năm. Kiểm toán viên tuyên bố họ không tuân thủ vì DESV yêu cầu khắt khe hơn về BAU. Hãy giải thích dựa trên Requirement 12.4.2.",
+    "gold": "Thực thể DESV phải tuân thủ các mốc thời gian BAU nhanh hơn: \n1. **Requirement 12.4.2:** Yêu cầu nhà cung cấp dịch vụ/DESV kiểm tra việc thực hiện các tác vụ bảo mật ít nhất 3 tháng một lần. \n2. **Requirement A3.4.1 (Appendix A3):** Yêu cầu thực thể được chỉ định phải rà soát quyền truy cập ít nhất 6 tháng một lần (thay vì 12 tháng như thực thể thường). \n3. **Chapter 7 (Timeframes):** Định nghĩa rõ các khoảng thời gian 'Quarterly' và 'Semi-annually'. \n**Lý do kết hợp:** Đối với DESV (Appendix A3), rủi ro từ việc thừa quyền hạn là rất lớn do khối lượng giao dịch cao. Việc đợi 12 tháng (Chapter 7) vi phạm nguyên tắc giám sát liên tục của Requirement 12. Khuyến nghị: Cập nhật quy trình nhân sự để rà soát định kỳ mỗi quý hoặc mỗi nửa năm.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter7.md",
+      "20260407_ENGR_PCIDSS_Requirement_12_4.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part5.md"
+    ]
+  },
+  {
+    "id": "FM028",
+    "question": "Một nhóm phát triển phần mềm nội bộ sử dụng các thư viện mã nguồn mở để xây dựng ứng dụng thanh toán nhưng không kiểm tra các lỗ hổng trong các thư viện này. Họ cho biết chỉ đào tạo lập trình an toàn là đủ (Req 6.2.2). Tại sao Requirement 6.3.2 và Appendix F lại yêu cầu nhiều hơn thế?",
+    "gold": "Bảo mật phần mềm hiện đại đòi hỏi quản lý chuỗi cung ứng (Supply Chain): \n1. **Requirement 6.2.2:** Đào tạo lập trình viên về kỹ thuật secure coding. \n2. **Requirement 6.3.2:** Yêu cầu duy trì danh mục phần mềm bên thứ ba và các thành phần nhúng để quản lý vá lỗi. \n3. **Appendix F (Software Framework):** Giải thích cách Secure SLC bảo vệ ứng dụng khỏi các thành phần không an toàn. \n4. **Chapter 3 (Relationship with Software Standards):** Khuyến khích tích hợp các chuẩn phần mềm vào PCI DSS. \n**Lý do kết hợp:** Đào tạo (Req 6.2) giúp viết code tốt, nhưng không giúp phát hiện lỗ hổng trong thư viện có sẵn (Req 6.3). Nếu không có danh mục (Appendix F), thực thể sẽ bỏ lỡ các bản vá quan trọng, dẫn đến rủi ro bị khai thác qua các dependency (Chapter 3).",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter3.md",
+      "20260407_ENGR_PCIDSS_Requirement_6_3.md",
+      "20260407_ENGR_PCIDSS_Requirement_6_2.md",
+      "20260406_ENGR_PCIDSS_appendixF.md"
+    ]
+  },
+  {
+    "id": "FM029",
+    "question": "Một quản trị viên truy cập vào server cơ sở dữ liệu CDE thông qua SSH (non-console admin access) bằng mật khẩu đơn yếu tố từ một máy trạm trong mạng nội bộ tin cậy. Họ cho rằng không cần MFA vì không phải truy cập từ xa (Remote Access). Phân tích dựa trên Requirement 8.4.1.",
+    "gold": "Đây là sự hiểu nhầm về đối tượng áp dụng MFA trong v4.0.1: \n1. **Requirement 8.4.1:** Yêu cầu MFA cho TẤT CẢ các truy cập phi console (non-console) vào CDE dành cho nhân viên có quyền quản trị. \n2. **Chapter 2 (Applicability):** Xác định các kiểm soát truy cập áp dụng cho mọi tài khoản có đặc quyền. \n3. **Appendix G:** Định nghĩa Non-console access là truy cập qua giao diện mạng (như SSH), bất kể vị trí vật lý. \n**Lý do kết hợp:** Khác với Remote Access (Req 8.4.2), Requirement 8.4.1 tập trung vào bảo vệ tài khoản admin (Chapter 2). Dù quản trị viên đang ngồi tại văn phòng (Appendix G), việc dùng SSH vẫn yêu cầu MFA để ngăn chặn tấn công di chuyển ngang (lateral movement). Khuyến nghị: Cấu hình SSH để yêu cầu cả mật khẩu và public key hoặc mã OTP.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter2.md",
+      "20260407_ENGR_PCIDSS_Requirement_8_4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM030",
+    "question": "Một tổ chức có 5 trung tâm dữ liệu (DC) riêng biệt phục vụ các khu vực khác nhau. Khi thực hiện đánh giá, QSA chỉ chọn mẫu (sampling) tại 1 DC duy nhất vì cấu hình giống hệt nhau. Dựa trên Chapter 6 và Appendix G, quyết định này có hợp lệ không?",
+    "gold": "Quyết định này vi phạm nguyên tắc chọn mẫu đại diện: \n1. **Chapter 6 (Sampling):** Quy định rõ mẫu phải bao gồm mọi loại và sự kết hợp của các thành phần hệ thống. Nếu có nhiều CDE, mẫu phải bao quát toàn bộ. \n2. **Requirement 12.5.2:** Yêu cầu xác nhận phạm vi hàng năm cho tất cả địa điểm. \n3. **Appendix G:** Định nghĩa 'Standardized process' phải được xác minh tại chỗ. \n**Lý do kết hợp:** Dù cấu hình giống nhau trên lý thuyết (Appendix G), nhưng việc triển khai thực tế và vận hành (BAU) tại mỗi DC có thể khác nhau (Chapter 6). Việc chỉ kiểm tra 1 DC bỏ sót rủi ro tại 4 DC còn lại (ví dụ: lỗi vật lý, quản lý nhân sự địa phương). Khuyến nghị: QSA phải chọn mẫu tại tất cả các DC hoặc giải trình chi tiết lý do mẫu nhỏ hơn trong ROC.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter6.md",
+      "20260407_ENGR_PCIDSS_Requirement_12_5.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM031",
+    "question": "Sau một lần quét lỗ hổng, công ty phát hiện một lỗ hổng 'Medium' trên máy chủ web CDE. Họ quyết định không vá lỗi vì Requirement 6.3.3 chỉ yêu cầu vá 'Critical' và 'High' trong vòng 1 tháng. Hãy phân tích rủi ro này dựa trên Targeted Risk Analysis (TRA) và Chapter 7.",
+    "gold": "Cách tiếp cận này thiếu linh hoạt và không phản ánh đúng rủi ro thực tế: \n1. **Requirement 6.3.3:** Đưa ra mốc 1 tháng cho Critical/High, nhưng các lỗi khác phải được vá trong khung thời gian do thực thể xác định. \n2. **Requirement 12.3.1 (TRA):** Yêu cầu thực thể tự phân tích rủi ro để xác định tần suất vá lỗi cho các mục không phải Critical. \n3. **Chapter 7 (Timeframes):** Giải thích rằng 'Periodically' phải dựa trên phân tích rủi ro có tài liệu. \n4. **Appendix G:** Định nghĩa Vulnerability Ranking là quá trình liên tục. \n**Lý do kết hợp:** Một lỗi Medium có thể trở thành High nếu kết hợp với các cấu hình sai khác (Appendix G). Nếu không có TRA (Req 12.3.1) để chứng minh thời gian trì hoãn là an toàn (Chapter 7), thực thể sẽ không tuân thủ Requirement 6.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter7.md",
+      "20260407_ENGR_PCIDSS_Requirement_6_3.md",
+      "20260407_ENGR_PCIDSS_Requirement_12_3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM032",
+    "question": "Một tổ chức đề xuất biện pháp bù đắp cho việc không thể sử dụng mật khẩu 12 ký tự (Req 8.3.6). Họ đề xuất sử dụng MFA cho tất cả tài khoản đó. Đánh giá viên phản đối vì MFA đã là yêu cầu bắt buộc của Requirement 8.4.2. Ai đúng dựa trên Appendix B?",
+    "gold": "Đánh giá viên đúng dựa trên tiêu chuẩn của kiểm soát bù đắp: \n1. **Appendix B (Compensating Controls):** Mục 4.a quy định rõ các yêu cầu PCI DSS hiện tại KHÔNG ĐƯỢC coi là kiểm soát bù đắp nếu chúng vốn dĩ đã được yêu cầu cho đối tượng đó. \n2. **Requirement 8.3.6:** Yêu cầu mật khẩu mạnh. \n3. **Requirement 8.4.2:** MFA cho truy cập vào CDE. \n4. **Chapter 8 (Approaches):** Giải thích về 'Defined Approach' và các ràng buộc. \n**Lý do kết hợp:** Vì MFA đã là bắt buộc theo Req 8.4.2 (Chapter 8), thực thể không thể dùng nó để 'bù' cho lỗi mật khẩu yếu (Appendix B). Biện pháp bù đắp phải là thứ gì đó 'vượt trên mức yêu cầu' (above and beyond), ví dụ: chỉ cho phép login từ một máy trạm duy nhất được hardened đặc biệt.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter8.md",
+      "20260407_ENGR_PCIDSS_Requirement_8_3.md",
+      "20260407_ENGR_PCIDSS_Requirement_8_4.md",
+      "20260406_ENGR_PCIDSS_appendixB.md"
+    ]
+  },
+  {
+    "id": "FM033",
+    "question": "Hàng năm, một Merchant thực hiện 'Data Discovery' (Req 12.5.2) để xác nhận không có PAN bị rò rỉ. Tuy nhiên, họ chỉ quét các ổ đĩa server mà bỏ qua các file backup và logs cũ. Tại sao Chapter 4 về Scoping và Appendix G lại coi đây là thất bại trong việc xác nhận phạm vi?",
+    "gold": "Việc quét thiếu sót dẫn đến bỏ lọt các khu vực rủi ro cao: \n1. **Chapter 4 (Scope):** Khẳng định các file backup và logs chứa CHD đều nằm trong phạm vi đánh giá. \n2. **Requirement 12.5.2:** Yêu cầu xác nhận mọi vị trí lưu trữ CHD, bao gồm cả những nơi bên ngoài CDE hiện tại. \n3. **Appendix G:** Định nghĩa Media bao gồm cả băng từ sao lưu và các bản lưu trữ logs. \n**Lý do kết hợp:** Dữ liệu PAN thường rò rỉ vào logs do lỗi debug hoặc tồn tại lâu trong các bản backup quên chưa xóa (Appendix G). Nếu không quét các nơi này (Req 12.5.2), thực thể không thể khẳng định phạm vi CDE là chính xác (Chapter 4). Rủi ro là dữ liệu nhạy cảm tồn tại ở các vùng bảo mật thấp.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter4.md",
+      "20260407_ENGR_PCIDSS_Requirement_12_5.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM034",
+    "question": "Một Nhà cung cấp dịch vụ (Service Provider) tuyên bố họ có kiến trúc mã hóa an toàn nhưng không duy trì tài liệu mô tả thuật toán, giao thức và ngày hết hạn của các keys. Họ cho rằng chỉ cần keys được lưu trong HSM là đủ. Phân tích dựa trên Requirement 3.6.1.1 dành riêng cho SP.",
+    "gold": "Tài liệu hóa kiến trúc mật mã là yêu cầu bổ sung quan trọng cho SP: \n1. **Requirement 3.6.1.1 (Additional requirement for SP only):** Yêu cầu mô tả chi tiết thuật toán, độ dài khóa và ngày hết hạn. \n2. **Chapter 12 (Assessment Process):** Yêu cầu SP phải cung cấp bằng chứng cụ thể về việc quản lý an ninh cho khách hàng. \n3. **Appendix G:** HSM chỉ là công cụ lưu trữ, không thay thế được quy trình quản lý vòng đời khóa. \n**Lý do kết hợp:** SP phục vụ nhiều khách hàng (Chapter 12), nếu không có tài liệu (Req 3.6.1.1), khách hàng và QSA không thể đánh giá được liệu mã hóa có còn đủ mạnh theo thời gian hay không (Appendix G). Rủi ro là sử dụng các thuật toán đã lỗi thời mà không biết.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter12.md",
+      "20260407_ENGR_PCIDSS_Requirement_3_6.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM035",
+    "question": "Một công ty cấu hình hệ thống tự động xóa các tài khoản không hoạt động sau 100 ngày. Kiểm toán viên cho rằng họ không tuân thủ Requirement 8.2.6. Công ty đề xuất thực hiện TRA để bảo vệ con số 100 ngày này. TRA có áp dụng được ở đây không theo Chapter 7 và Appendix D?",
+    "gold": "TRA không thể dùng để thay đổi một tham số thời gian đã được định nghĩa cứng: \n1. **Requirement 8.2.6:** Quy định rõ các tài khoản phải bị xóa hoặc vô hiệu hóa trong vòng 90 ngày. \n2. **Chapter 7 (Timeframes):** Giải thích rằng các mốc thời gian cụ thể (như 90 ngày) phải được tuân thủ nghiêm ngặt. \n3. **Appendix D (Customized Approach):** Cho phép phương pháp tùy chỉnh cho 'Objective' nhưng không được vi phạm các mốc thời gian bắt buộc nếu yêu cầu gốc đã ghi rõ số ngày. \n**Lý do kết hợp:** PCI DSS v4.0.1 (Chapter 7) đặt ngưỡng 90 ngày là ranh giới an toàn tối đa. Việc dùng TRA (Appendix D) để kéo dài lên 100 ngày (vi phạm Req 8.2.6) làm tăng cửa sổ cơ hội cho kẻ tấn công sử dụng các tài khoản 'dormant'.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter7.md",
+      "20260407_ENGR_PCIDSS_Requirement_8_2.md",
+      "20260406_ENGR_PCIDSS_appendixD.md"
+    ]
+  },
+  {
+    "id": "FM036",
+    "question": "Trong môi trường Cloud, một CSP cung cấp dịch vụ FIM cho khách hàng nhưng khách hàng không bao giờ nhận được cảnh báo (alerts) khi file cấu hình server bị thay đổi. CSP nói họ chỉ có trách nhiệm duy trì phần mềm FIM chạy, còn việc xem alert là của khách hàng. Phân tích dựa trên Appendix A1 và Requirement 12.8.5.",
+    "gold": "Đây là sự thất bại trong việc xác định trách nhiệm chia sẻ: \n1. **Requirement 12.8.5:** Yêu cầu duy trì ma trận trách nhiệm rõ ràng về việc ai quản lý từng phần của yêu cầu PCI DSS. \n2. **Requirement A1.2.3 (Appendix A1):** Yêu cầu CSP phải phản hồi và hỗ trợ các yêu cầu của khách hàng về điều tra sự cố. \n3. **Chapter 4 (TPSP):** Khẳng định TPSP phải hỗ trợ khách hàng tuân thủ. \n**Lý do kết hợp:** FIM vô dụng nếu không có cảnh báo (Req 10.7.1). Ma trận trách nhiệm (Req 12.8.5) phải ghi rõ CSP cấu hình alerts và khách hàng tiếp nhận xử lý. Nếu CSP không đẩy alert đi (Appendix A1), họ đang làm hỏng khả năng tuân thủ của khách hàng (Chapter 4).",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter4.md",
+      "20260407_ENGR_PCIDSS_Requirement_12_8.md",
+      "20260407_ENGR_PCIDSS_Requirement_10_7.md",
+      "20260406_ENGR_PCIDSS_appendixA1.md"
+    ]
+  },
+  {
+    "id": "FM037",
+    "question": "Một Merchant lớn sở hữu hàng ngàn thiết bị POI tại các siêu thị. Họ thực hiện kiểm tra thiết bị 1 lần/năm. Đánh giá viên yêu cầu họ thực hiện TRA để xác định tần suất này. Merchant từ chối vì cho rằng 1 năm là 'Annually' hợp lệ theo Chapter 7. Hãy giải thích dựa trên Requirement 9.5.1.2.1.",
+    "gold": "Tần suất kiểm tra POI không phải là mặc định hàng năm mà phải dựa trên rủi ro: \n1. **Requirement 9.5.1.2.1:** Yêu cầu tần suất kiểm tra định kỳ POI phải được xác định qua TRA (Targeted Risk Analysis). \n2. **Chapter 7 (Timeframes):** Định nghĩa 'Periodically' là tần suất do thực thể tự quyết định nhưng PHẢI dựa trên TRA. \n3. **Appendix G:** Định nghĩa POI là các thiết bị dễ bị gắn skimmer nhất. \n**Lý do kết hợp:** POI đặt tại nơi công cộng (Appendix G) có rủi ro bị tráo đổi rất cao. Việc Merchant tự ý chọn mốc 1 năm (Chapter 7) mà không có TRA (Req 9) là vi phạm, vì TRA có thể chỉ ra rằng tại các siêu thị đông đúc, việc kiểm tra cần diễn ra hàng tuần hoặc hàng ngày.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter7.md",
+      "20260407_ENGR_PCIDSS_Requirement_9_5.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM038",
+    "question": "Một thực thể duy trì sơ đồ mạng vật lý rất chi tiết nhưng không có sơ đồ luồng dữ liệu (Data-flow diagram). Họ khẳng định từ sơ đồ vật lý có thể suy ra luồng dữ liệu. Đánh giá viên không đồng ý. Tại sao Chapter 4 và Requirement 1.2.4 lại yêu cầu tách biệt hai loại sơ đồ này?",
+    "gold": "Sơ đồ vật lý và luồng dữ liệu phục vụ các mục đích đánh giá khác nhau: \n1. **Requirement 1.2.4:** Yêu cầu sơ đồ luồng dữ liệu chính xác hiển thị cách CHD di chuyển qua các hệ thống. \n2. **Chapter 4 (Scope):** Xác định CHD di chuyển đến đâu thì phạm vi đánh giá mở rộng đến đó. \n3. **Appendix G:** Phân biệt rõ sơ đồ mạng (topology) và sơ đồ luồng dữ liệu (logic luân chuyển). \n**Lý do kết hợp:** Sơ đồ vật lý (Appendix G) cho thấy các dây cáp và thiết bị kết nối, nhưng không cho thấy CHD có bị 'chảy' vào các server log hoặc backup không (Req 1). Nếu không có sơ đồ luồng CHD (Chapter 4), QSA không thể xác nhận phạm vi đã bao quát hết mọi nơi lưu trữ PAN hay chưa.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter4.md",
+      "20260407_ENGR_PCIDSS_Requirement_1_2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM039",
+    "question": "Một tổ chức cho phép các nhân viên IT chia sẻ mật khẩu tài khoản 'root' để quản lý máy chủ CDE nhanh chóng. Họ lập luận rằng việc này được ghi vào một sổ nhật ký viết tay để đối soát. Tại sao Requirement 8.2.2 và Chapter 9 coi đây là một điểm yếu nghiêm trọng?",
+    "gold": "Sổ nhật ký viết tay không đảm bảo tính toàn vẹn và định danh điện tử: \n1. **Requirement 8.2.2:** Nghiêm cấm dùng tài khoản chung trừ trường hợp ngoại lệ cực kỳ hạn chế và phải có kiểm soát bù đắp mạnh mẽ. \n2. **Chapter 9 (Posture Protection):** Yêu cầu bảo vệ các phương thức xác thực và quản lý chúng một cách an toàn. \n3. **Appendix G:** Định nghĩa Audit Trail phải là các bản ghi điện tử không thể chối bỏ. \n**Lý do kết hợp:** Việc chia sẻ mật khẩu (Req 8) làm mất tính danh tính cá nhân. Sổ tay (Chapter 9) rất dễ bị giả mạo hoặc bỏ sót, không thể đồng bộ với audit logs điện tử (Appendix G). Khuyến nghị: Sử dụng hệ thống Privileged Access Management (PAM) để cấp quyền tạm thời và định danh từng người dùng.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter9.md",
+      "20260407_ENGR_PCIDSS_Requirement_8_2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM040",
+    "question": "Một thực thể sử dụng 'Tiếp cận tùy chỉnh' để thay thế MFA bằng một hệ thống nhận diện sinh trắc học khuôn mặt kết hợp với vị trí địa lý. Tuy nhiên, họ chưa mô tả cách thức hệ thống này đáp ứng 'Objective' của Requirement 8.4.2. Họ cần cung cấp bằng chứng gì theo Appendix D?",
+    "gold": "Thực thể phải hoàn thành quy trình chứng minh sự tương đương về bảo mật: \n1. **Requirement 8.4.2:** Mục tiêu là đảm bảo truy cập vào CDE yêu cầu ít nhất 2 yếu tố xác thực. \n2. **Appendix D (Customized Approach):** Yêu cầu lập Ma trận kiểm soát (Controls Matrix) và thực hiện TRA để chứng minh giải pháp mới đáp ứng đúng 'Objective'. \n3. **Chapter 8 (Approaches):** Nhấn mạnh rằng trách nhiệm chứng minh hiệu quả thuộc về thực thể. \n**Lý do kết hợp:** Giải pháp tùy chỉnh (Chapter 8) chỉ được chấp nhận nếu Ma trận (Appendix D) cho thấy sinh trắc học (something you are) và vị trí (something you have/are) là hai yếu tố độc lập và thành công của cả hai là bắt buộc (Req 8.4.2).",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter8.md",
+      "20260407_ENGR_PCIDSS_Requirement_8_4.md",
+      "20260406_ENGR_PCIDSS_appendixD.md"
+    ]
+  },
+  {
+    "id": "FM041",
+    "question": "Tại một công ty, các quản trị viên hệ thống có quyền xóa (delete) chính nhật ký hoạt động (audit logs) của họ trên các máy chủ CDE. Họ cho rằng vì họ cần dọn dẹp ổ đĩa. Hãy chỉ ra sự không tuân thủ dựa trên Requirement 10.3.2 và Chapter 9.",
+    "gold": "Sự vi phạm nằm ở nguyên tắc bảo vệ tính toàn vẹn của bằng chứng: \n1. **Requirement 10.3.2:** Yêu cầu audit logs phải được bảo vệ để ngăn chặn sự thay đổi hoặc xóa bởi bất kỳ cá nhân nào. \n2. **Chapter 9 (Posture Protection):** Audit logs là một thành phần nhạy cảm phản ánh tư thế bảo mật, phải được bảo vệ nghiêm ngặt. \n3. **Appendix G:** Định nghĩa Separation of Duties yêu cầu người tạo log không được có quyền quản lý log. \n**Lý do kết hợp:** Quyền xóa log (Req 10) cho phép quản trị viên thực hiện hành vi xấu và xóa dấu vết (Chapter 9). Việc dọn dẹp ổ đĩa (Appendix G) phải được thực hiện tự động qua quy trình lưu trữ (archiving) thay vì xóa thủ công.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter9.md",
+      "20260407_ENGR_PCIDSS_Requirement_10_3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM042",
+    "question": "Một tổ chức triển khai anti-malware trên các máy chủ nhưng không cấu hình để nó tự động quét các thiết bị lưu trữ di động (USB) khi chúng được cắm vào. Họ lập luận rằng chính sách của họ là cấm dùng USB. Phân tích rủi ro dựa trên Requirement 5.3.3.",
+    "gold": "Chính sách không thay thế được kiểm soát kỹ thuật đối với các vector tấn công vật lý: \n1. **Requirement 5.3.3:** Yêu cầu anti-malware phải tự động quét các phương tiện lưu trữ di động khi chúng được kết nối/mount. \n2. **Chapter 5 (BAU):** Các quy trình BAU phải bao gồm việc thực thi kiểm soát kỹ thuật liên tục. \n3. **Appendix G:** Định nghĩa Removable Electronic Media bao gồm USB, ổ cứng di động. \n**Lý do kết hợp:** Mặc dù có chính sách cấm (Chapter 5), nhưng nếu một nhân viên vô tình hoặc hữu ý cắm USB (Appendix G), mã độc có thể lây lan ngay lập tức nếu thiếu cơ chế quét tự động (Req 5.3.3). Thực thể phải kích hoạt tính năng auto-scan hoặc chặn cổng USB về mặt kỹ thuật.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter5.md",
+      "20260407_ENGR_PCIDSS_Requirement_5_3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM043",
+    "question": "Một công ty thay đổi toàn bộ hệ thống SIEM (logging & monitoring) nhưng không thực hiện đánh giá rủi ro (risk assessment) cho thay đổi này vì cho rằng hệ thống mới hiện đại hơn. Tại sao Chapter 5 về BAU và Requirement 1.2.2 lại yêu cầu điều này?",
+    "gold": "Thay đổi hạ tầng hỗ trợ (supporting infrastructure) là một 'Significant Change': \n1. **Chapter 5 (BAU):** Mục 5.3 quy định việc đánh giá tác động bảo mật trước khi hoàn thành các thay đổi đáng kể. \n2. **Requirement 1.2.2:** Yêu cầu mọi thay đổi kết nối mạng và cấu hình NSC phải tuân theo quy trình quản lý thay đổi (Req 6.5.1). \n3. **Requirement 10.7 (Appendix G):** SIEM là một kiểm soát bảo mật trọng yếu. \n**Lý do kết hợp:** Thay đổi SIEM (Chapter 5) có thể dẫn đến việc mất các rules cảnh báo cũ hoặc không tương thích với nguồn log hiện tại (Requirement 1). Nếu không có risk assessment (Req 12.3.1), thực thể có thể lâm vào tình trạng 'mù' an ninh mà không biết.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter5.md",
+      "20260407_ENGR_PCIDSS_Requirement_1_2.md",
+      "20260407_ENGR_PCIDSS_Requirement_12_3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM044",
+    "question": "Một TPSP cung cấp dịch vụ hosting cho Merchant, TPSP này lại thuê một bên thứ ba khác để quản lý bảo mật vật lý DC (nested TPSP). Merchant chỉ có AOC của TPSP trực tiếp. Tại sao Merchant vẫn không tuân thủ theo Requirement 12.8.5 và Chapter 4?",
+    "gold": "Trách nhiệm giám sát chuỗi cung ứng dịch vụ thuộc về thực thể cuối cùng: \n1. **Requirement 12.8.5:** Yêu cầu hiểu rõ các mối quan hệ 'nested' và cách TPSP chính giám sát các nhà thầu phụ của họ. \n2. **Chapter 4 (TPSP):** Khẳng định việc dùng TPSP đạt chuẩn không làm Merchant hết trách nhiệm giám sát. \n3. **Appendix G:** AOC chỉ có giá trị cho các dịch vụ được liệt kê cụ thể trong phạm vi của nó. \n**Lý do kết hợp:** Nếu TPSP chính không chứng minh được họ đã kiểm tra nhà thầu phụ (nested TPSP), thì các kiểm soát vật lý (Requirement 9) tại DC được coi là chưa xác minh (Chapter 4). Merchant phải yêu cầu Ma trận trách nhiệm mở rộng bao gồm cả bên thứ tư.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter4.md",
+      "20260407_ENGR_PCIDSS_Requirement_12_8.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM045",
+    "question": "Hệ thống NTP của một tổ chức bị tấn công dẫn đến sai lệch thời gian 10 phút trên toàn mạng CDE. Tổ chức này không phát hiện ra cho đến khi QSA đến kiểm tra. Tại sao đây là lỗi tuân thủ nghiêm trọng theo Requirement 10.6.3 và Appendix A3?",
+    "gold": "Sự sai lệch thời gian phá hủy tính toàn vẹn của chứng cứ pháp y: \n1. **Requirement 10.6.3:** Yêu cầu bảo vệ cài đặt NTP và ghi nhật ký mọi thay đổi thời gian trên các hệ thống quan trọng. \n2. **Requirement A3.5.1 (Appendix A3):** Đối với DESV, yêu cầu phát hiện nhanh các hành vi bất thường. \n3. **Chapter 10 (Testing Methods):** QSA sẽ kiểm tra tính nhất quán của timestamps giữa các server. \n**Lý do kết hợp:** Nếu NTP bị can thiệp (Req 10), kẻ tấn công có thể làm xáo trộn trình tự sự kiện trong logs (Chapter 10). Đối với DESV (Appendix A3), việc không phát hiện lỗi NTP kịp thời cho thấy quy trình giám sát BAU bị hỏng. Khuyến nghị: Triển khai cảnh báo khi độ lệch thời gian vượt quá ngưỡng cho phép.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter10.md",
+      "20260407_ENGR_PCIDSS_Requirement_10_6.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part5.md"
+    ]
+  },
+  {
+    "id": "FM046",
+    "question": "Một ứng dụng web công khai xử lý thẻ tín dụng được bảo vệ bởi WAF (Requirement 6.4.2) nhưng Merchant không thực hiện quét ASV hàng quý cho địa chỉ IP đó. Merchant nói WAF đã chặn mọi cuộc tấn công rồi. Phân tích dựa trên Chapter 12.",
+    "gold": "WAF và ASV scan là hai lớp bảo vệ bổ trợ, không thể thay thế nhau: \n1. **Requirement 6.4.2:** WAF bảo vệ ứng dụng trước các cuộc tấn công thời gian thực (như SQLi, XSS). \n2. **Requirement 11.3.2:** Quét ASV để tìm các lỗ hổng tầng mạng và ứng dụng chưa được vá. \n3. **Chapter 12 (Assessment Process):** Yêu cầu thực hiện tất cả các bước kiểm tra độc lập. \n**Lý do kết hợp:** WAF (Req 6) có thể bị bypass nếu có lỗ hổng zero-day hoặc cấu hình sai. ASV scan (Requirement 11) cung cấp cái nhìn khách quan từ bên ngoài về 'bề mặt tấn công' (Chapter 12). Khuyến nghị: Phải thực hiện cả hai để đạt trạng thái 'In Place'.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter12.md",
+      "20260407_ENGR_PCIDSS_Requirement_6_4.md",
+      "20260407_ENGR_PCIDSS_Requirement_11_3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM047",
+    "question": "Một công ty DESV (Appendix A3) vừa trải qua một đợt sáp nhập (merger). Họ quyết định để đến kỳ đánh giá năm sau mới cập nhật sơ đồ mạng và phạm vi. Tại sao Requirement A3.2.3 và Chapter 5 lại coi đây là vi phạm?",
+    "gold": "Thay đổi cấu trúc tổ chức yêu cầu rà soát tuân thủ tức thì: \n1. **Requirement A3.2.3 (Appendix A3):** Các thay đổi về cấu trúc tổ chức phải dẫn đến việc rà soát chính thức tác động đến phạm vi PCI DSS. \n2. **Chapter 5 (BAU):** Yêu cầu duy trì tuân thủ như một phần của hoạt động hàng ngày, không phải sự kiện hàng năm. \n3. **Requirement 12.5.2:** Yêu cầu xác nhận phạm vi sau 'Significant Change'. \n**Lý do kết hợp:** Việc sáp nhập (Chapter 5) có thể mang theo các mạng không an toàn kết nối vào CDE hiện tại. Nếu không rà soát ngay (Appendix A3), thực thể đang hoạt động trong trạng thái rủi ro không xác định (Requirement 12). Khuyến nghị: Thực hiện đánh giá tác động trong vòng 30 ngày sau sáp nhập.",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter5.md",
+      "20260407_ENGR_PCIDSS_Requirement_12_5.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixA3_Part5.md"
+    ]
+  },
+  {
+    "id": "FM048",
+    "question": "Một thực thể sử dụng phần mềm được phát triển theo chuẩn PCI Secure SLC. Họ lập luận rằng họ không cần thực hiện rà soát mã nguồn (code review) cho các bản cập nhật hàng tháng. Dựa trên Appendix F và Requirement 6.2.3.1, điều này có đúng không?",
+    "gold": "Việc sử dụng Secure SLC giảm tải một số bước nhưng không loại bỏ hoàn toàn trách nhiệm rà soát: \n1. **Appendix F:** Giải thích rằng phần mềm đạt Secure SLC có thể hỗ trợ các yêu cầu của Requirement 6 nhưng thực thể vẫn phải đảm bảo quy trình vận hành an toàn. \n2. **Requirement 6.2.3.1:** Yêu cầu rà soát mã nguồn cho mọi thay đổi trước khi release. \n3. **Chapter 3 (Relationship with Software Standards):** Khuyến khích tận dụng các artifact từ chuẩn phần mềm để giảm nỗ lực đánh giá. \n**Lý do kết hợp:** Mặc dù khung làm việc (Appendix F) là an toàn, nhưng mỗi dòng code mới (Req 6) vẫn tiềm ẩn sai sót logic hoặc lỗi cấu hình. Thực thể có thể dùng kết quả từ Secure SLC để chứng minh quy trình rà soát của họ là tự động và hiệu quả (Chapter 3).",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter3.md",
+      "20260407_ENGR_PCIDSS_Requirement_6_2.md",
+      "20260406_ENGR_PCIDSS_appendixF.md"
+    ]
+  },
+  {
+    "id": "FM049",
+    "question": "Công ty sử dụng mã hóa đĩa cứng (Disk Encryption) để bảo vệ PAN trong cơ sở dữ liệu. Tuy nhiên, họ cấp quyền 'Administrator' cho tất cả lập trình viên trên server đó. Phân tích lỗi dựa trên Requirement 3.5.1.2 và Appendix G.",
+    "gold": "Mã hóa đĩa không bảo vệ dữ liệu khi hệ thống đang chạy và có quyền truy cập lỏng lẻo: \n1. **Requirement 3.5.1.2:** Quy định mã hóa đĩa không đủ để bảo vệ PAN khỏi những người dùng đã đăng nhập vào hệ điều hành. \n2. **Requirement 7.2.1:** Yêu cầu quyền truy cập dựa trên 'Need to know'. \n3. **Appendix G:** Định nghĩa Disk Encryption chỉ rendered data unreadable khi ổ đĩa bị tháo rời hoặc máy tắt. \n**Lý do kết hợp:** Vì lập trình viên có quyền admin (Req 7), họ có thể xem PAN dưới dạng rõ do OS đã tự động giải mã đĩa (Appendix G). Đây là lỗi thiết kế bảo mật (Req 3). Khuyến nghị: Phải dùng mã hóa cấp ứng dụng hoặc cột dữ liệu (Column-level encryption).",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter4.md",
+      "20260407_ENGR_PCIDSS_Requirement_3_5.md",
+      "20260407_ENGR_PCIDSS_Requirement_7_2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  },
+  {
+    "id": "FM050",
+    "question": "Một tổ chức có kế hoạch ứng phó sự cố (IR Plan) rất chi tiết nhưng lần cuối cùng họ diễn tập (testing) là 18 tháng trước. Họ nói rằng vì không có sự cố nào xảy ra nên không cần test lại. Tại sao Requirement 12.10.2 và Chapter 7 lại coi đây là lỗi tuân thủ?",
+    "gold": "Sẵn sàng ứng phó sự cố yêu cầu sự duy trì định kỳ và cập nhật kiến thức: \n1. **Requirement 12.10.2:** Yêu cầu kế hoạch IR phải được test ít nhất một lần mỗi 12 tháng. \n2. **Chapter 7 (Timeframes):** Định nghĩa 'Annually' là ít nhất một lần mỗi 365 ngày. \n3. **Appendix G:** Định nghĩa Incident Response là quá trình liên tục thích ứng với các mối đe dọa mới. \n**Lý do kết hợp:** Sau 18 tháng (Chapter 7), nhân sự có thể đã thay đổi và các vector tấn công mới (như Ransomware thế hệ mới) có thể không nằm trong kịch bản cũ (Req 12). Việc không diễn tập làm giảm khả năng phục hồi khi có sự cố thực tế (Appendix G).",
+    "file": [
+      "20260406_ENGR_PCIDSS_Chapter7.md",
+      "20260407_ENGR_PCIDSS_Requirement_12_10.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part1.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part2.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part3.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part4.md",
+      "20260406_ENGR_PCIDSS_appendixG_Part5.md"
+    ]
+  }
+]

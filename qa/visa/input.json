@@ -1,0 +1,394 @@
+[
+  {
+    "id": "001",
+    "question": "Những tham số kỹ thuật cụ thể nào được quy định trong tiêu chuẩn cấu hình tường lửa và bộ định tuyến để đảm bảo mọi thiết lập bảo mật được triển khai đầy đủ?"
+  },
+  {
+    "id": "002",
+    "question": "Làm thế nào để xác minh về mặt kỹ thuật rằng mọi kết nối mạng và thay đổi cấu hình thiết bị mạng đều đã được kiểm tra và phê duyệt trước khi áp dụng?"
+  },
+  {
+    "id": "003",
+    "question": "Những bản ghi cấu hình hoặc nhật ký hệ thống nào xác nhận rằng các kết nối mạng được chọn mẫu đã được phê duyệt và kiểm tra kỹ thuật trước khi triển khai?"
+  },
+  {
+    "id": "004",
+    "question": "Làm thế nào để so sánh và xác minh sự khớp nối giữa cấu hình đang chạy (running configuration) thực tế với các bản ghi thay đổi đã được phê duyệt?"
+  },
+  {
+    "id": "005",
+    "question": "Những phương pháp kỹ thuật nào được sử dụng để đối soát sơ đồ mạng hiện tại với cấu hình mạng thực tế nhằm xác nhận mọi kết nối đến dữ liệu chủ thẻ đều được ghi nhận?"
+  },
+  {
+    "id": "006",
+    "question": "Quy trình kỹ thuật nào đảm bảo sơ đồ mạng được cập nhật chính xác ngay sau khi có sự thay đổi trong cấu hình thiết bị?"
+  },
+  {
+    "id": "007",
+    "question": "Làm thế nào để xác minh sơ đồ luồng dữ liệu dựa trên các kết nối hệ thống và luồng lưu lượng thực tế qua mạng?"
+  },
+  {
+    "id": "008",
+    "question": "Những quy tắc cấu hình cụ thể nào quy định việc đặt tường lửa tại mỗi kết nối Internet và giữa vùng DMZ với vùng mạng nội bộ?"
+  },
+  {
+    "id": "009",
+    "question": "Làm thế nào để đối soát kỹ thuật giữa sơ đồ mạng hiện tại với các tệp cấu hình tường lửa để đảm bảo tính nhất quán?"
+  },
+  {
+    "id": "010",
+    "question": "Những cấu hình giao diện (interface) và quy tắc định tuyến nào thực thi ranh giới kỹ thuật giữa Internet, vùng DMZ và vùng mạng nội bộ?"
+  },
+  {
+    "id": "011",
+    "question": "Những nhóm và vai trò quản trị nào được định nghĩa cụ thể trong tệp cấu hình thiết bị mạng để quản lý các thành phần hệ thống?"
+  },
+  {
+    "id": "012",
+    "question": "Làm thế nào để xác minh rằng các vai trò và quyền hạn quản trị được gán trong cấu hình thiết bị khớp chính xác với trách nhiệm đã phân công?"
+  },
+  {
+    "id": "013",
+    "question": "Những cổng và giao thức cụ thể nào được cho phép trong ACL của tường lửa và cơ sở lý luận kỹ thuật nào cho việc duy trì các dịch vụ này?"
+  },
+  {
+    "id": "014",
+    "question": "Làm thế nào để xác định các dịch vụ không an toàn trong cấu hình và những tính năng bảo mật bổ sung nào đã được ghi nhận kỹ thuật cho chúng?"
+  },
+  {
+    "id": "015",
+    "question": "Những tính năng bảo mật nào, như đường hầm mã hóa hoặc IPsec, được triển khai thực tế trong cấu hình tường lửa để bảo vệ các giao thức không an toàn?"
+  },
+  {
+    "id": "016",
+    "question": "Những thiết lập kiểm toán (audit settings) nào được sử dụng để xác nhận rằng các tập quy tắc tường lửa và bộ định tuyến được rà soát định kỳ ít nhất 6 tháng một lần?"
+  },
+  {
+    "id": "017",
+    "question": "Những nhật ký rà soát hoặc báo cáo cấu hình nào chứng minh tập quy tắc tường lửa hiện tại đã được phân tích kỹ thuật trong vòng 6 tháng qua?"
+  },
+  {
+    "id": "018",
+    "question": "Những quy tắc tường lửa hoặc mục nhập ACL cụ thể nào thực thi việc hạn chế kết nối giữa các mạng không tin cậy và môi trường dữ liệu chủ thẻ?"
+  },
+  {
+    "id": "019",
+    "question": "Những tham số cấu hình nào xác định cụ thể các luồng lưu lượng inbound và outbound cần thiết được phép cho môi trường dữ liệu chủ thẻ?"
+  },
+  {
+    "id": "020",
+    "question": "Làm thế nào để xác minh từ cấu hình đang chạy của thiết bị mạng rằng lưu lượng inbound/outbound được giới hạn ở mức tối thiểu cần thiết?"
+  },
+  {
+    "id": "021",
+    "question": "Quy tắc 'deny all' rõ ràng hoặc từ chối ngầm định (implicit deny) được cấu hình ở vị trí nào trong ACL để chặn mọi lưu lượng không được phép?"
+  },
+  {
+    "id": "022",
+    "question": "Những quyền hạn hoặc ACL nào được áp dụng trực tiếp cho các tệp cấu hình bộ định tuyến để ngăn chặn truy cập trái phép?"
+  },
+  {
+    "id": "023",
+    "question": "Lệnh hoặc phương pháp kỹ thuật nào được sử dụng để xác minh rằng cấu hình đang chạy (running config) khớp hoàn toàn với cấu hình khởi động (startup config)?"
+  },
+  {
+    "id": "024",
+    "question": "Những cấu hình quy tắc nào trên tường lửa biên đảm bảo sự phân tách kỹ thuật giữa tất cả các mạng không dây và môi trường dữ liệu chủ thẻ?"
+  },
+  {
+    "id": "025",
+    "question": "Làm thế nào để xác minh qua các tập quy tắc tường lửa rằng chỉ có lưu lượng được ủy quyền mới được phép đi từ môi trường không dây vào CDE?"
+  },
+  {
+    "id": "026",
+    "question": "Những cấu hình cụ thể nào trên bộ định tuyến biên và tường lửa DMZ đảm bảo không có truy cập trực tiếp từ Internet vào mạng dữ liệu chủ thẻ nội bộ?"
+  },
+  {
+    "id": "027",
+    "question": "Làm thế nào để xác minh trong ACL của tường lửa rằng vùng DMZ được cấu hình để chỉ cho phép lưu lượng đến các hệ thống cung cấp dịch vụ công cộng?"
+  },
+  {
+    "id": "028",
+    "question": "Những quy tắc tường lửa hoặc tham số định tuyến nào giới hạn lưu lượng Internet inbound chỉ được phép đến các địa chỉ IP cụ thể thuộc vùng DMZ?"
+  },
+  {
+    "id": "029",
+    "question": "Những cơ chế chống giả mạo (anti-spoofing) nào, như bộ lọc ingress, được cấu hình để chặn các gói tin từ Internet có IP nguồn nội bộ?"
+  },
+  {
+    "id": "030",
+    "question": "Lưu lượng outbound từ môi trường dữ liệu chủ thẻ ra Internet được kiểm soát kỹ thuật như thế nào để đảm bảo chỉ các kết nối được ủy quyền mới được phép?"
+  },
+  {
+    "id": "031",
+    "question": "Những tham số cấu hình nào, chẳng hạn như kiểm tra trạng thái gói tin, đảm bảo tường lửa chỉ cho phép các kết nối inbound đã được thiết lập trước đó?"
+  },
+  {
+    "id": "032",
+    "question": "Làm thế nào để xác minh sự phân tách kỹ thuật giữa vùng mạng nội bộ chứa dữ liệu chủ thẻ với vùng DMZ và các mạng không tin cậy khác?"
+  },
+  {
+    "id": "033",
+    "question": "Những thiết lập NAT hoặc PAT nào được thực thi trong cấu hình tường lửa để ngăn chặn việc lộ địa chỉ IP nội bộ ra Internet?"
+  },
+  {
+    "id": "034",
+    "question": "Làm thế nào để xác minh về mặt kỹ thuật rằng mọi việc tiết lộ IP nội bộ và thông tin định tuyến cho bên thứ ba đều đã được ủy quyền?"
+  },
+  {
+    "id": "035",
+    "question": "Phần mềm tường lửa cá nhân trên các thiết bị di động được cấu hình kỹ thuật như thế nào để đảm bảo nó luôn chạy và người dùng không thể can thiệp?"
+  },
+  {
+    "id": "036",
+    "question": "Những kiểm tra kỹ thuật nào trên mẫu thiết bị di động xác nhận rằng tường lửa cá nhân đang hoạt động đúng theo tiêu chuẩn cấu hình?"
+  },
+  {
+    "id": "037",
+    "question": "Những nhật ký vận hành hoặc hồ sơ kỹ thuật nào chứng minh quy trình quản lý tường lửa đang được thực thi trên thực tế?"
+  },
+  {
+    "id": "038",
+    "question": "Làm thế nào để xác minh thông qua cấu hình thiết bị rằng tất cả các mật khẩu mặc định của nhà cung cấp và chuỗi SNMP đã được thay đổi?"
+  },
+  {
+    "id": "039",
+    "question": "Những lệnh hệ thống hoặc kiểm tra cấu hình nào xác nhận rằng các tài khoản mặc định không cần thiết đã bị xóa bỏ hoặc vô hiệu hóa?"
+  },
+  {
+    "id": "040",
+    "question": "Làm thế nào để xác minh qua hồ sơ hệ thống rằng các tham số mặc định của nhà cung cấp đã được thay đổi trước khi thiết bị được kết nối vào mạng?"
+  },
+  {
+    "id": "041",
+    "question": "Những tham số kỹ thuật nào trong cấu hình không dây xác nhận rằng các khóa mã hóa mặc định đã được thay đổi ngay khi lắp đặt?"
+  },
+  {
+    "id": "042",
+    "question": "Làm thế nào để xác minh trong cấu hình điểm truy cập rằng chuỗi cộng đồng SNMP mặc định và mật khẩu quản trị đã được thay đổi?"
+  },
+  {
+    "id": "043",
+    "question": "Làm thế nào để xác minh từ cấu hình đang chạy của thiết bị không dây rằng các mật khẩu và chuỗi SNMP mặc định không còn tồn tại?"
+  },
+  {
+    "id": "044",
+    "question": "Những thiết lập cấu hình không dây nào xác nhận rằng thiết bị hỗ trợ và đã kích hoạt mã hóa mạnh cho cả quá trình xác thực và truyền tải?"
+  },
+  {
+    "id": "045",
+    "question": "Những tham số mặc định liên quan đến bảo mật nào khác của nhà cung cấp thiết bị không dây đã được thay đổi trong cấu hình?"
+  },
+  {
+    "id": "046",
+    "question": "Những tham số kỹ thuật cụ thể nào được định nghĩa trong tiêu chuẩn cấu hình để thực thi việc làm cứng hệ thống (system hardening)?"
+  },
+  {
+    "id": "047",
+    "question": "Làm thế nào để xác minh rằng tiêu chuẩn cấu hình hệ thống được cập nhật kỹ thuật ngay khi các lỗ hổng mới được xác định?"
+  },
+  {
+    "id": "048",
+    "question": "Quy trình kiểm tra kỹ thuật nào đảm bảo các tiêu chuẩn làm cứng hệ thống được áp dụng và xác minh trước khi hệ thống mới kết nối vào mạng?"
+  },
+  {
+    "id": "049",
+    "question": "Những thiết lập cấu hình nào được quy định để thực thi việc chỉ chạy một chức năng chính và vô hiệu hóa các dịch vụ không cần thiết trên hệ thống?"
+  },
+  {
+    "id": "050",
+    "question": "Làm thế nào để xác minh qua cấu hình hệ thống và các tiến trình đang chạy rằng chỉ có một chức năng chính duy nhất được thực thi trên mỗi máy chủ?"
+  },
+  {
+    "id": "051",
+    "question": "Đối với môi trường ảo hóa, những tham số cấu hình nào đảm bảo chỉ có một chức năng chính trên mỗi thành phần hệ thống ảo?"
+  },
+  {
+    "id": "052",
+    "question": "Những phương pháp kỹ thuật nào, như quét cổng, được dùng để xác nhận chỉ có các dịch vụ, giao thức và daemon cần thiết đang hoạt động?"
+  },
+  {
+    "id": "053",
+    "question": "Làm thế nào để xác định các dịch vụ không an toàn đang chạy và xác minh sự tồn tại của các tài liệu kỹ thuật biện minh cho chúng?"
+  },
+  {
+    "id": "054",
+    "question": "Những tính năng bảo mật bổ sung nào được cấu hình cụ thể để bảo vệ các dịch vụ hoặc giao thức bắt buộc nhưng không an toàn?"
+  },
+  {
+    "id": "055",
+    "question": "Những thiết lập mật mã cụ thể nào được áp dụng nếu hệ thống vẫn sử dụng SSL hoặc TLS phiên bản cũ theo yêu cầu tại Phụ lục A2?"
+  },
+  {
+    "id": "056",
+    "question": "Làm thế nào để xác minh rằng các quản trị viên hệ thống có kiến thức kỹ thuật để cấu hình chính xác các tham số bảo mật?"
+  },
+  {
+    "id": "057",
+    "question": "Những tham số bảo mật hệ thống phổ biến nào, như giới hạn phiên hoặc quyền truy cập, được quy định trong tiêu chuẩn cấu hình?"
+  },
+  {
+    "id": "058",
+    "question": "Làm thế nào có thể xác minh qua cấu hình hệ thống thực tế rằng các tham số bảo mật đã được thiết lập đúng theo tiêu chuẩn làm cứng?"
+  },
+  {
+    "id": "059",
+    "question": "Những lệnh hệ thống hoặc quy trình gỡ bỏ nào xác nhận rằng các script, driver và hệ thống tệp không cần thiết đã bị loại bỏ hoàn toàn?"
+  },
+  {
+    "id": "060",
+    "question": "Làm thế nào để xác minh từ cấu hình hệ thống rằng tất cả các chức năng đang hoạt động đều đã được ghi nhận trong tài liệu bảo mật?"
+  },
+  {
+    "id": "061",
+    "question": "Những kiểm tra kỹ thuật nào xác nhận rằng không có chức năng ngoài danh mục tài liệu xuất hiện trên các thành phần hệ thống được chọn mẫu?"
+  },
+  {
+    "id": "062",
+    "question": "Những giao thức mã hóa mạnh nào được thực thi trong cấu hình hệ thống cho mọi truy cập quản trị không qua bảng điều khiển (non-console)?"
+  },
+  {
+    "id": "063",
+    "question": "Những tham số cấu hình mật mã nào đảm bảo phương thức mã hóa mạnh được kích hoạt trước khi hệ thống yêu cầu mật khẩu quản trị?"
+  },
+  {
+    "id": "064",
+    "question": "Làm thế nào để xác minh từ cấu hình dịch vụ và trạng thái cổng rằng các lệnh đăng nhập từ xa không an toàn như Telnet đã bị vô hiệu hóa?"
+  },
+  {
+    "id": "065",
+    "question": "Những thiết lập cấu hình nào đảm bảo mọi truy cập quản trị qua giao diện web đều được mã hóa bằng các thuật toán mật mã mạnh?"
+  },
+  {
+    "id": "066",
+    "question": "Làm thế nào để xác minh từ cấu hình rằng các thuật toán mật mã đang dùng phù hợp với khuyến nghị của nhà cung cấp và tiêu chuẩn ngành?"
+  },
+  {
+    "id": "067",
+    "question": "Những tham số bảo mật bổ sung nào được cấu hình kỹ thuật nếu SSL hoặc TLS phiên bản cũ được sử dụng cho truy cập quản trị?"
+  },
+  {
+    "id": "068",
+    "question": "Những công cụ kỹ thuật hoặc lệnh hệ thống nào được sử dụng để duy trì danh mục kiểm kê phần cứng và phần mềm trong phạm vi PCI DSS?"
+  },
+  {
+    "id": "069",
+    "question": "Làm thế nào để đối soát kỹ thuật giữa danh mục kiểm kê hệ thống hiện tại với các thiết bị thực tế đang hoạt động trên mạng?"
+  },
+  {
+    "id": "070",
+    "question": "Những nhật ký hệ thống hoặc vết kiểm toán nào xác nhận các quy trình quản lý tham số bảo mật đang được thực thi đầy đủ?"
+  },
+  {
+    "id": "071",
+    "question": "Những cơ chế cô lập kỹ thuật nào được triển khai để bảo vệ môi trường và dữ liệu của từng thực thể trong hệ thống lưu trữ chia sẻ?"
+  },
+  {
+    "id": "072",
+    "question": "Những cấu hình lưu trữ hoặc script xóa dữ liệu nào được thiết lập để thực thi việc xóa an toàn dữ liệu chủ thẻ theo chính sách lưu giữ?"
+  },
+  {
+    "id": "073",
+    "question": "Công cụ quét dữ liệu nhạy cảm nào được sử dụng hàng quý để xác định và xóa bỏ dữ liệu chủ thẻ vượt quá thời gian lưu giữ quy định?"
+  },
+  {
+    "id": "074",
+    "question": "Cơ chế kỹ thuật nào, như lệnh xóa an toàn ở cấp độ tệp tin, đảm bảo dữ liệu chủ thẻ không thể khôi phục sau khi thực hiện quy trình xóa?"
+  },
+  {
+    "id": "075",
+    "question": "Đối với các hệ thống lưu trữ SAD, những thiết lập bảo mật kỹ thuật nào được áp dụng để bảo vệ dữ liệu này theo biện minh kinh doanh?"
+  },
+  {
+    "id": "076",
+    "question": "Những tham số mã hóa hoặc thiết lập cơ sở dữ liệu nào đảm bảo dữ liệu xác thực nhạy cảm được bảo vệ an toàn đối với các dịch vụ phát hành thẻ?"
+  },
+  {
+    "id": "077",
+    "question": "Làm thế nào để xác minh qua cấu hình hệ thống rằng dữ liệu xác thực nhạy cảm không được lưu giữ lại sau khi quá trình ủy quyền hoàn tất?"
+  },
+  {
+    "id": "078",
+    "question": "Quy trình kỹ thuật nào được sử dụng để xác nhận rằng dữ liệu xác thực nhạy cảm đã được xóa bỏ hoàn toàn và không thể khôi phục sau khi xử lý?"
+  },
+  {
+    "id": "079",
+    "question": "Những lược đồ cơ sở dữ liệu hoặc nhật ký vết (trace files) nào được kiểm tra để xác nhận dữ liệu toàn bộ dải từ không bị lưu trữ sau ủy quyền?"
+  },
+  {
+    "id": "080",
+    "question": "Làm thế nào để xác minh từ nhật ký giao dịch và nội dung cơ sở dữ liệu rằng mã xác thực thẻ (CVV2/CVC2) không bị lưu trữ?"
+  },
+  {
+    "id": "081",
+    "question": "Những kiểm tra kỹ thuật nào trên bảng cơ sở dữ liệu và tệp lịch sử xác nhận mã PIN và khối mã PIN đã mã hóa không bị lưu lại?"
+  },
+  {
+    "id": "082",
+    "question": "Những tham số cấu hình ứng dụng nào thực thi việc che dấu số PAN khi hiển thị cho các vai trò người dùng khác nhau?"
+  },
+  {
+    "id": "083",
+    "question": "Làm thế nào để xác minh từ cấu hình hệ thống rằng số PAN được che dấu kỹ thuật (chỉ hiện 6 số đầu và 4 số cuối) cho các tài khoản không có quyền?"
+  },
+  {
+    "id": "084",
+    "question": "Phương pháp kỹ thuật nào được dùng để xác nhận số PAN được che dấu chính xác trên tất cả các màn hình hiển thị và biên lai in ấn?"
+  },
+  {
+    "id": "085",
+    "question": "Những thuật toán mã hóa hoặc băm mạnh cụ thể nào đang được sử dụng để đảm bảo số PAN không thể đọc được tại nơi lưu trữ?"
+  },
+  {
+    "id": "086",
+    "question": "Những lệnh truy vấn cơ sở dữ liệu hoặc kiểm tra tệp tin nào xác nhận rằng số PAN không được lưu trữ dưới dạng văn bản rõ (plain-text)?"
+  },
+  {
+    "id": "087",
+    "question": "Làm thế nào để xác minh qua cấu hình thiết bị lưu trữ rằng số PAN trên các phương tiện sao lưu đã được mã hóa và không thể đọc được?"
+  },
+  {
+    "id": "088",
+    "question": "Những cấu hình hệ thống nào đảm bảo số PAN trong các nhật ký kiểm toán (audit logs) đã được xóa bỏ hoặc làm cho không thể đọc được?"
+  },
+  {
+    "id": "089",
+    "question": "Những kiểm soát kỹ thuật nào ngăn chặn việc đối chiếu giữa phiên bản băm và phiên bản cắt bớt của cùng một số PAN để khôi phục dữ liệu gốc?"
+  },
+  {
+    "id": "090",
+    "question": "Cơ chế mã hóa đĩa được cấu hình như thế nào để quản lý truy cập logic độc lập hoàn toàn với xác thực của hệ điều hành gốc?"
+  },
+  {
+    "id": "091",
+    "question": "Những thiết lập kỹ thuật nào đảm bảo các khóa mật mã được lưu trữ an toàn trên các phương tiện có kiểm soát truy cập mạnh?"
+  },
+  {
+    "id": "092",
+    "question": "Những tham số cấu hình nào đảm bảo dữ liệu chủ thẻ trên các phương tiện di động luôn được mã hóa bất kể vị trí lưu trữ?"
+  },
+  {
+    "id": "093",
+    "question": "Làm thế nào để xác minh từ cấu hình rằng các khóa mã hóa khóa (KEK) có độ mạnh tối thiểu bằng các khóa mã hóa dữ liệu (DEK)?"
+  },
+  {
+    "id": "094",
+    "question": "Những chi tiết kỹ thuật nào về thuật toán, giao thức và độ mạnh của khóa được định nghĩa trong kiến trúc mật mã bảo vệ dữ liệu?"
+  },
+  {
+    "id": "095",
+    "question": "Làm thế nào để xác minh qua danh sách điều khiển truy cập (ACL) rằng quyền tiếp cận các khóa mật mã được giới hạn ở mức tối thiểu?"
+  },
+  {
+    "id": "098",
+    "question": "Những tham số cấu hình trong thiết bị bảo mật mật mã (HSM) đảm bảo các khóa bí mật chỉ tồn tại dưới dạng mã hóa hoặc các thành phần khóa?"
+  },
+  {
+    "id": "099",
+    "question": "Làm thế nào để xác minh từ cấu hình hệ thống rằng các khóa mật mã được lưu trữ dưới dạng các thành phần khóa hoặc được mã hóa bởi KEK?"
+  },
+  {
+    "id": "100",
+    "question": "Làm thế nào để xác minh về mặt kỹ thuật rằng các khóa mã hóa khóa được lưu trữ tách biệt hoàn toàn với các khóa mã hóa dữ liệu trong cấu hình?"
+  }
+]

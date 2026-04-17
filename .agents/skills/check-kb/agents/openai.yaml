@@ -1,0 +1,7 @@
+interface:
+  display_name: "Check KB"
+  short_description: "Audit KB questions and remove bad fits"
+  default_prompt: "Use $check-kb to review the question bank against its source files, remove any unsupported or poor-fit question objects, and keep the JSON valid."
+
+policy:
+  allow_implicit_invocation: true

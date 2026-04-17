@@ -1,0 +1,7 @@
+interface:
+  display_name: "Format Text KB"
+  short_description: "Normalize KB files into A-E sections with Markdown-first E blocks"
+  default_prompt: "Use $format-text-kb to convert this markdown knowledge-base file into A-E format, rewrite B, C, D naturally in Vietnamese, and format E as compact Markdown-first labeled blocks without raw HTML tables."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,18 @@
+[  {
+    "id": "700",
+    "question": "Tại sao việc 'Rà soát vai trò nhân viên' (Requirement 12.1.3) lại cần phối hợp với 'Access Control Model' tại Requirement 7.2.1?",
+    "answer": "Việc phối hợp giữa ‘Rà soát vai trò nhân viên’ (Requirement 12.1.3) và ‘Access Control Model’ (Requirement 7.2.1) là cần thiết để đảm bảo tính nhất quán và hiệu quả của hệ thống kiểm soát truy cập, dựa trên các nguyên tắc sau:\n\n1. Đảm bảo quyền truy cập phản ánh chính xác vai trò thực tế (Requirement 7.2.1)\nRequirement 7.2.1 quy định rằng mô hình kiểm soát truy cập phải được định nghĩa dựa trên phân loại công việc và chức năng (job classification and functions) của người dùng \n20260407_ENGR_P...ent_7_2.md\n. Việc rà soát vai trò nhân viên (thường nằm trong quy trình quản lý nhân sự theo Requirement 12) cung cấp đầu vào chính xác để xác định chức năng công việc hiện tại. Nếu không có sự phối hợp này, Access Control Model có thể cấp quyền dựa trên chức năng cũ hoặc không còn phù hợp, vi phạm nguyên tắc cấp quyền đúng theo nhu cầu kinh doanh.\n\n2. Thực thi nguyên tắc đặc quyền tối thiểu (Least Privilege)\nCả hai yêu cầu đều hướng tới mục tiêu giảm thiểu rủi ro thông qua nguyên tắc đặc quyền tối thiểu:\n\nRequirement 7.2.1 yêu cầu cấp quyền truy cập ở mức đặc quyền tối thiểu cần thiết để thực hiện công việc \n20260407_ENGR_P...ent_7_2.md\n.\nRequirement 12.1.3 (liên quan đến chính sách nhân sự) đảm bảo rằng vai trò và trách nhiệm được tài liệu hóa và phân công rõ ràng \n20260407_ENGR_P...ent_7_1.md\n.\nSự phối hợp giúp đảm bảo rằng khi vai trò của nhân viên thay đổi (ví dụ: thăng chức, chuyển bộ phận), quyền truy cập trong hệ thống được điều chỉnh ngay lập tức để phù hợp với trách nhiệm mới, ngăn chặn việc tích lũy quyền thừa (privilege creep).\n\n3. Duy trì tính chính xác của chính sách và quy trình (Requirement 7.1)\nRequirement 7.1 nhấn mạnh rằng các chính sách và quy trình kiểm soát truy cập phải được \"giữ cập nhật\" (kept up to date) và \"đang được sử dụng\" (in use) \n20260407_ENGR_P...ent_7_1.md\n. Khi Requirement 12.1.3 thực hiện rà soát và cập nhật vai trò nhân sự, thông tin này phải được chuyển sang Requirement 7.2.1 để cập nhật mô hình truy cập. Nếu thiếu sự liên kết này, chính sách truy cập sẽ trở nên lỗi thời, dẫn đến việc nhân viên có quyền truy cập vào các tài nguyên mà họ không còn cần hoặc không còn có trách nhiệm quản lý.\n\nTóm lại: Requirement 12.1.3 cung cấp nền tảng về con người và vai trò trách nhiệm, trong khi Requirement 7.2.1 chuyển hóa các vai trò đó thành các quyền truy cập kỹ thuật. Sự phối hợp đảm bảo rằng hệ thống kỹ thuật luôn đồng bộ với thực tế tổ chức và nhân sự, từ đó duy trì môi trường an toàn theo nguyên tắc \"nhu cầu biết\" (need-to-know) và \"đặc quyền tối thiểu\" \n20260407_ENGR_P...ent_7_2.md +1\n .",
+    "file": [
+      "Requirement_12.md",
+      "Requirement_07.md"
+    ],
+    "sources": [
+      "20260407_ENGR_PCIDSS_Requirement_7_2.md",
+      "20260407_ENGR_PCIDSS_Requirement_7_1.md",
+      "20260407_ENGR_PCIDSS_Requirement_12_7.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part2_v1.2.md",
+      "20260331_ENGR_DS_Vendor_Asssessment_Part1_v1.2.md",
+      "20260331_ENGR_DS_Security_general_requirements_Part1_v1.2.md"
+    ]
+  }
+]

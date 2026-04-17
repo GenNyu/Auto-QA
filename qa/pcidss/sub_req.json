@@ -1,0 +1,902 @@
+[
+  {
+    "id": "531",
+    "question": "Một nhà cung cấp dịch vụ đám mây (Multi-tenant) phát hiện lỗi cấu hình làm rò rỉ log của khách hàng A sang khách hàng B. Những yêu cầu nào bị vi phạm và cần thực hiện hành động gì?",
+    "answer": "Sự cố này vi phạm Appendix A1.2.1 (log phải tách biệt và chỉ khách hàng sở hữu mới được xem) và Requirement 10.3.1 (giới hạn quyền đọc log). Thực thể phải: 1. Kích hoạt kế hoạch ứng phó sự cố (Requirement 12.10.1). 2. Thông báo cho khách hàng bị ảnh hưởng theo Appendix A1.2.3. 3. Khắc phục lỗi tách biệt logic (Requirement 1.4.1) và thực hiện Pentest để xác nhận lại tính cách ly (Appendix A1.1.4).",
+    "source": ["Requirement_10.md", "20260406_ENGR_PCIDSS_appendixA1.md", "Requirement_12.md", "Requirement_01.md"]
+  },
+  {
+    "id": "532",
+    "question": "Khi một Merchant thực hiện di chuyển từ SSL sang TLS 1.2 cho các máy POS cũ, họ cần chuẩn bị những bằng chứng nào để đối soát với Appendix A2 và Requirement 12?",
+    "answer": "Merchant cần: 1. Bản 'Risk Mitigation and Migration Plan' (Kế hoạch di chuyển và giảm thiểu rủi ro) theo Appendix A2.1.2. 2. Danh mục (inventory) các giao thức mật mã đang dùng (Requirement 12.3.3). 3. Tài liệu chứng minh các thiết bị POS hiện tại không bị ảnh hưởng bởi lỗ hổng SSL/early TLS đã biết (Appendix A2.1.1). 4. Quy trình giám sát lỗ hổng mới cho các thiết bị chưa kịp chuyển đổi (Requirement 6.3.1).",
+    "source": ["20260406_ENGR_PCIDSS_appendixA2.md", "Requirement_12.md", "Requirement_06.md"]
+  },
+  {
+    "id": "533",
+    "question": "Một 'Thực thể được chỉ định' (Designated Entity - A3) phát hiện một máy chủ chưa được Hardening trong vùng CDE. Chuỗi kiểm soát nào cần được rà soát lại?",
+    "answer": "Cần rà soát: 1. Quy trình Hardening theo tiêu chuẩn (Requirement 2.2.1). 2. Quy trình rà soát BAU định kỳ 3 tháng/lần của thực thể A3 để xem tại sao lỗi này bị bỏ lọt (Appendix A3.3.3). 3. Quy trình quản lý thay đổi (Requirement 6.5.1) nếu máy chủ này mới được thêm vào. 4. Phải báo cáo lỗi kiểm soát bảo mật này cho cấp quản lý cấp cao theo Appendix A3.1.1.",
+    "source": ["Requirement_02.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md", "Requirement_06.md", "20260406_ENGR_PCIDSS_appendixA3_Part1.md"]
+  },
+  {
+    "id": "534",
+    "question": "Doanh nghiệp không thể thực hiện khóa tài khoản sau 10 lần login sai (Req 8.3.4) trên một hệ thống mainframe cũ. Họ nên áp dụng biện pháp bù đắp (Compensating Control) như thế nào theo Appendix B?",
+    "answer": "Dựa trên Appendix B và C, doanh nghiệp phải: 1. Giải trình hạn chế kỹ thuật của mainframe. 2. Triển khai biện pháp thay thế 'vượt trên mức quy định', ví dụ: giới hạn truy cập mainframe chỉ từ 1 jump-host cố định (Requirement 7.2.2) phối hợp với giám sát log login thời gian thực và cảnh báo ngay lập tức (Requirement 10.4.1). 3. Đánh giá rủi ro cho giải pháp này (Requirement 12.3.1).",
+    "source": ["Requirement_08.md", "20260406_ENGR_PCIDSS_appendixB.md", "20260406_ENGR_PCIDSS_appendixC.md", "Requirement_10.md", "Requirement_12.md"]
+  },
+  {
+    "id": "535",
+    "question": "Việc sử dụng phần mềm đạt chuẩn PCI Secure SLC Standard giúp doanh nghiệp đơn giản hóa những yêu cầu nào trong Requirement 6?",
+    "answer": "Theo Appendix F, nếu phần mềm đạt chuẩn Secure SLC, doanh nghiệp có thể coi Requirement 6.2 (Phát triển phần mềm an toàn) là 'Đã thực hiện' mà không cần đánh giá chi tiết thêm. Ngoài ra, nó cũng hỗ trợ Phương pháp tiếp cận tùy chỉnh (Customized Approach) cho Requirement 6.3.3 (quản lý bản vá) và 6.5.1 (quản lý thay đổi) bằng cách tận dụng các quy trình bảo mật của chính vendor đó.",
+    "source": ["Requirement_06.md", "20260406_ENGR_PCIDSS_appendixF.md"]
+  },
+  {
+    "id": "536",
+    "question": "Làm thế nào để kết hợp giữa định nghĩa 'Media' tại Appendix G với các yêu cầu tiêu hủy dữ liệu tại Requirement 9 và Requirement 3?",
+    "answer": "Appendix G định nghĩa Media bao gồm cả vật lý và điện tử. 1. Đối với dữ liệu thẻ không còn nhu cầu kinh doanh, phải xóa an toàn theo Requirement 3.2.1. 2. Đối với các vật mang tin (như ổ cứng, giấy in lỗi) khi tiêu hủy vật lý, phải theo Requirement 9.4.6 (giấy) và 9.4.7 (điện tử) để đảm bảo không thể khôi phục (unrecoverable). Rủi ro: Tiêu hủy không hết dẫn đến rò rỉ dữ liệu qua rác thải.",
+    "source": ["20260406_ENGR_PCIDSS_appendixG_Part3.md", "Requirement_09.md", "Requirement_03.md"]
+  },
+  {
+    "id": "537",
+    "question": "Một tổ chức muốn tự xây dựng giải pháp xác thực MFA thay vì mua sẵn. Họ cần tuân thủ những yêu cầu bổ sung nào?",
+    "answer": "Họ phải tuân thủ: 1. Các tiêu chí kỹ thuật MFA tại Requirement 8.5.1 (chống replay attack, dùng 2 yếu tố khác biệt). 2. Nếu đi theo Phương pháp tiếp cận tùy chỉnh, phải lập Ma trận kiểm soát và Phân tích rủi ro (Appendix D và E). 3. Đảm bảo giải pháp này được Pentest kỹ lưỡng trước khi vận hành (Requirement 11.4.1). 4. Tài liệu hóa hướng dẫn sử dụng cho nhân viên (Requirement 8.3.8).",
+    "source": ["Requirement_08.md", "20260406_ENGR_PCIDSS_appendixD.md", "20260406_ENGR_PCIDSS_appendixE.md", "Requirement_11.md"]
+  },
+  {
+    "id": "538",
+    "question": "Đối với một Service Provider, việc rà soát phạm vi (Scope) 6 tháng/lần (Req 12.5.2.1) cần lưu ý gì nếu họ cung cấp dịch vụ Multi-tenant?",
+    "answer": "Cần kết hợp: 1. Xác nhận tính chính xác của các phân vùng khách hàng (Requirement 12.5.2). 2. Theo Appendix A1.1.4, phải thực hiện Pentest xác nhận cách ly logic mỗi 6 tháng. 3. Rà soát lại danh sách các kết nối của bên thứ ba vào hạ tầng dùng chung (Requirement 12.8.1). 4. Cập nhật sơ đồ luồng dữ liệu cho từng loại dịch vụ cung cấp (Requirement 1.2.4).",
+    "source": ["Requirement_12.md", "20260406_ENGR_PCIDSS_appendixA1.md", "Requirement_01.md"]
+  },
+  {
+    "id": "539",
+    "question": "Một Designated Entity (A3) phát hiện có dấu hiệu Hacker 'thám mã' (reconnaissance) qua log hệ thống. Họ phải thực hiện chuỗi phản ứng nào?",
+    "answer": "1. Sử dụng phương pháp nhận diện hành vi bất thường theo Appendix A3.5.1. 2. Truy vết qua audit log tập trung (Requirement 10.2.1). 3. Kích hoạt Incident Response Plan (Requirement 12.10.1). 4. Thực hiện rà soát lại toàn bộ quyền truy cập của các tài khoản liên quan (Requirement 7.2.4 và Appendix A3.4.1). 5. Báo cáo tình hình cho ban giám đốc (Appendix A3.1.1).",
+    "source": ["20260406_ENGR_PCIDSS_appendixA3_Part5.md", "Requirement_10.md", "Requirement_12.md", "Requirement_07.md", "20260406_ENGR_PCIDSS_appendixA3_Part1.md"]
+  },
+  {
+    "id": "540",
+    "question": "Tại sao việc đồng bộ thời gian (NTP) lại là điều kiện tiên quyết để đạt tuân thủ Appendix A1.2.2 về điều tra pháp y (forensics)?",
+    "answer": "Appendix A1.2.2 yêu cầu hỗ trợ điều tra nhanh chóng khi có sự cố. Nếu thời gian không đồng bộ (vi phạm Requirement 10.6), nhà cung cấp không thể xâu chuỗi các sự kiện xảy ra xuyên suốt các máy chủ ảo của các tenant khác nhau. Điều này làm sai lệch kết quả forensics, không thể xác định được nguyên nhân gốc rễ và thời điểm dữ liệu bị lấy đi.",
+    "source": ["Requirement_10.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "541",
+    "question": "Nếu một Merchant lưu trữ số thẻ (PAN) đã được Truncate nhưng đồng thời cũng lưu bản Hash của chính số thẻ đó, rủi ro và yêu cầu kiểm soát là gì?",
+    "answer": "Rủi ro là 'Correlation' (so khớp) để tìm lại PAN đầy đủ. Theo Requirement 3.5.1.2 và Appendix G, Merchant phải: 1. Triển khai kiểm soát bổ sung để ngăn chặn việc kết hợp hai dạng dữ liệu này. 2. Đảm bảo khóa băm (nếu dùng keyed-hash) được bảo vệ theo Requirement 3.6 và 3.7. 3. Phải thực hiện Targeted Risk Analysis để chứng minh tính an toàn (Requirement 12.3.1).",
+    "source": ["Requirement_03.md", "20260406_ENGR_PCIDSS_appendixG_Part1.md", "Requirement_12.md"]
+  },
+  {
+    "id": "542",
+    "question": "Một công ty thực hiện thay đổi cấu trúc tổ chức (M&A). Những bước rà soát tuân thủ nào là bắt buộc theo v4.0.1?",
+    "answer": "Theo Requirement 12.5.3 và Appendix A3.2.3 (nếu là Designated Entity), thực thể phải: 1. Thực hiện rà soát nội bộ chính thức về tác động đến phạm vi (Scope) PCI DSS. 2. Xác định các hệ thống mới từ công ty được mua lại có kết nối vào CDE không. 3. Cập nhật sơ đồ mạng (Req 1.2.3) và luồng dữ liệu (Req 1.2.4). 4. Thông báo kết quả rà soát cho cấp quản lý cao nhất.",
+    "source": ["Requirement_12.md", "20260406_ENGR_PCIDSS_appendixA3_Part3.md", "Requirement_01.md"]
+  },
+  {
+    "id": "543",
+    "question": "Khi thuê một đơn vị bảo vệ quản lý cổng ra vào Data Center, doanh nghiệp cần đáp ứng những yêu cầu phối hợp nào?",
+    "answer": "1. Quản lý đối tác TPSP (Requirement 12.8). 2. Đảm bảo đơn vị bảo vệ thực hiện đúng quy trình quản lý khách truy cập (Requirement 9.3.2) và giám sát camera (Requirement 9.2.1). 3. Ký thỏa thuận trách nhiệm bảo mật (Requirement 12.8.2). 4. Định nghĩa rõ trong Responsibility Matrix ai là người lưu giữ và rà soát nhật ký ra vào (Requirement 12.8.5).",
+    "source": ["Requirement_12.md", "Requirement_09.md"]
+  },
+  {
+    "id": "544",
+    "question": "Làm thế nào để sử dụng Appendix D để giải quyết yêu cầu về 'Phishing Resistant Authentication' cho các tài khoản đặc quyền?",
+    "answer": "Do đây là một mục tiêu bảo mật cao, doanh nghiệp có thể thiết kế một cơ chế xác thực riêng (ví dụ dùng FIDO2/WebAuthn). Họ phải: 1. Sử dụng Template tại Appendix E để mô tả giải pháp. 2. Thực hiện TRA (Requirement 12.3.2) để chứng minh giải pháp này chống được tấn công giả mạo (Requirement 8.4.1 guidance). 3. Đánh giá viên (QSA) sẽ tự xây dựng quy trình kiểm tra riêng cho giải pháp này thay vì dùng quy trình mặc định.",
+    "source": ["Requirement_08.md", "20260406_ENGR_PCIDSS_appendixD.md", "20260406_ENGR_PCIDSS_appendixE.md", "Requirement_12.md"]
+  },
+  {
+    "id": "545",
+    "question": "Một hệ thống phát hiện thay đổi file (FIM) gửi cảnh báo về một file thực thi (executable) bị sửa đổi trên Web Server. Quy trình xử lý đa lớp là gì?",
+    "answer": "1. Phát hiện: Qua Requirement 11.5.2 (FIM). 2. Ứng phó: Theo Incident Response Plan (Requirement 12.10.1). 3. Kiểm tra: Đối soát với nhật ký thay đổi (Requirement 6.5.1) xem có phải là thay đổi đã phê duyệt không. 4. Điều tra: Xem audit log (Requirement 10.2.1.2) để biết tài khoản nào đã thực hiện sửa đổi file đó. 5. Designated Entity (A3) phải cảnh báo ngay cho quản trị viên theo Appendix A3.3.1.",
+    "source": ["Requirement_11.md", "Requirement_12.md", "Requirement_06.md", "Requirement_10.md", "20260406_ENGR_PCIDSS_appendixA3_Part4.md"]
+  },
+  {
+    "id": "546",
+    "question": "Để bảo vệ các thiết bị POI khỏi bị đánh tráo tại một cửa hàng bán lẻ lớn, thực thể cần thực hiện các bước nào?",
+    "answer": "1. Duy trì inventory chi tiết (serial, location) theo Requirement 9.5.1.1. 2. Thực hiện kiểm tra vật lý định kỳ theo tần suất dựa trên rủi ro (Requirement 9.5.1.2 và 12.3.1). 3. Đào tạo nhân viên nhận diện kẻ giả danh nhân viên kỹ thuật (Requirement 9.5.1.3 và Appendix G - Visitor definition). 4. Designated Entity (A3) phải lắp camera giám sát trực diện các thiết bị này theo Appendix A3.3.1.",
+    "source": ["Requirement_09.md", "Requirement_12.md", "20260406_ENGR_PCIDSS_appendixG_Part5.md", "20260406_ENGR_PCIDSS_appendixA3_Part4.md"]
+  },
+  {
+    "id": "547",
+    "question": "Tại sao việc quản lý lỗ hổng của các thư viện phần mềm bên thứ ba (Third-party libraries) lại liên quan đến cả Requirement 6 và 11?",
+    "answer": "Vì: 1. Requirement 6.3.2 yêu cầu duy trì danh mục (inventory) các thư viện này. 2. Requirement 6.3.1 yêu cầu theo dõi lỗ hổng cho chúng từ các nguồn CERT/Vendor. 3. Requirement 11.3.1 (quét lỗ hổng) giúp xác nhận các thư viện đang chạy có chứa mã độc đã biết không. 4. Appendix F khuyến nghị sử dụng phần mềm đạt chuẩn Secure SLC để giảm thiểu rủi ro từ chuỗi cung ứng phần mềm.",
+    "source": ["Requirement_06.md", "Requirement_11.md", "20260406_ENGR_PCIDSS_appendixF.md"]
+  },
+  {
+    "id": "548",
+    "question": "Một Service Provider cung cấp dịch vụ quản lý Log (SIEM) cho nhiều khách hàng. Họ cần làm gì để đáp ứng Appendix A1 và Requirement 10?",
+    "answer": "1. Bật logging theo Requirement 10.2.1 cho từng khách hàng. 2. Đảm bảo khách hàng A không thể xem log của khách hàng B (Appendix A1.2.1). 3. Cung cấp thông báo rõ ràng về vị trí lưu trữ log cho khách hàng (Requirement 10.5.1). 4. Duy trì hạ tầng SIEM an toàn, khó bị thay đổi (Requirement 10.3.2) và thực hiện Pentest tách biệt môi trường (Appendix A1.1.4).",
+    "source": ["Requirement_10.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "549",
+    "question": "Quy trình Onboarding một máy chủ ảo (VM) mới vào vùng CDE trên Cloud đòi hỏi những bước kiểm soát nào?",
+    "answer": "1. Xác định phạm vi: Cập nhật sơ đồ mạng và luồng dữ liệu (Requirement 1.2.3, 1.2.4). 2. Cấu hình: Hardening VM theo chuẩn (Requirement 2.2.1) và đổi mật khẩu mặc định (Requirement 2.2.2). 3. Bảo vệ: Cài đặt Anti-malware (Requirement 5.2.1) và FIM (Requirement 11.5.2). 4. Kiểm thử: Quét lỗ hổng nội bộ trước khi cho phép giao dịch (Requirement 11.3.1.3). 5. Designated Entity (A3) phải xác nhận việc này trong bản review BAU 3 tháng/lần (Appendix A3.3.3).",
+    "source": ["Requirement_01.md", "Requirement_02.md", "Requirement_05.md", "Requirement_11.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md"]
+  },
+  {
+    "id": "550",
+    "question": "Làm thế nào để kết hợp giữa việc đào tạo nhận thức bảo mật (Requirement 12.6) và các yêu cầu cụ thể cho Designated Entities (A3)?",
+    "answer": "Requirement 12.6 yêu cầu đào tạo chung cho toàn bộ nhân sự (bao gồm Phishing, Social Engineering). Đối với Designated Entity (A3), theo Appendix A3.1.4, họ phải bổ sung đào tạo **chuyên sâu về kỹ năng tuân thủ và quy trình BAU** cho những nhân sự trực tiếp vận hành chương trình PCI DSS. Rủi ro: Nếu không đào tạo sâu, nhân viên sẽ không biết cách rà soát log hoặc quét lỗ hổng đúng chuẩn.",
+    "source": ["Requirement_12.md", "20260406_ENGR_PCIDSS_appendixA3_Part2.md"]
+  },
+  {
+    "id": "551",
+    "question": "Tại sao việc 'Tách biệt chức năng' (Requirement 2.2.3) lại cực kỳ quan trọng đối với các nhà cung cấp Cloud Multi-tenant theo Appendix A1?",
+    "answer": "Requirement 2.2.3 yêu cầu chỉ cài đặt một chức năng chính trên mỗi thành phần hệ thống để giảm rủi ro lây lan. Trong môi trường Cloud Multi-tenant (A1), việc tách biệt này giúp đảm bảo nếu một máy ảo của khách hàng A bị hack, hacker không thể từ đó khai thác các dịch vụ dùng chung (như DNS, NTP của provider) để tấn công khách hàng B (Appendix A1.1.2).",
+    "source": ["Requirement_02.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "552",
+    "question": "Khi thực hiện Targeted Risk Analysis (TRA) cho tần suất rà soát log (Requirement 10.4.2), doanh nghiệp cần sử dụng Template nào?",
+    "answer": "Doanh nghiệp có thể tự xây dựng định dạng nhưng phải bao gồm đầy đủ các trường thông tin từ **Sample Template tại Appendix E**. Các thông tin bắt buộc gồm: Tài sản cần bảo vệ (Asset), Mối đe dọa (Threat), Khả năng xảy ra (Likelihood) và Tác động (Impact) để đưa ra tần suất rà soát log phù hợp nhất với rủi ro của hệ thống đó.",
+    "source": ["Requirement_10.md", "20260406_ENGR_PCIDSS_appendixE.md", "Requirement_12.md"]
+  },
+  {
+    "id": "553",
+    "question": "Một lỗi bảo mật được phát hiện trên một thiết bị mạng đang chạy giao thức SSL cũ. Chuỗi yêu cầu xử lý là gì?",
+    "answer": "1. Khắc phục: Cập nhật firmware hoặc thay đổi cấu hình sang TLS 1.2+ theo Appendix A2.1.1. 2. Nếu không thể cập nhật ngay: Phải có Kế hoạch di chuyển (Migration Plan) theo Appendix A2.1.2. 3. Đánh giá rủi ro: Thực hiện TRA theo Requirement 12.3.1. 4. Giám sát bổ sung: Tăng cường IDS/IPS cho thiết bị đó (Requirement 11.5.1) cho đến khi lỗi được vá hoàn toàn.",
+    "source": ["20260406_ENGR_PCIDSS_appendixA2.md", "Requirement_12.md", "Requirement_11.md"]
+  },
+  {
+    "id": "554",
+    "question": "Tại sao việc duy trì sơ đồ luồng dữ liệu (Data-flow) chính xác lại giúp giảm tải cho việc quét lỗ hổng ASV?",
+    "answer": "Sơ đồ luồng dữ liệu (Requirement 1.2.4) giúp xác định chính xác các điểm tiếp xúc với Internet. Nếu Merchant sử dụng phân vùng mạng tốt (Requirement 1.4.1) và chứng minh được dữ liệu thẻ chỉ đi qua một vài cổng nhất định, họ có thể giới hạn danh sách IP cần quét ASV (Requirement 11.3.2), từ đó tiết kiệm chi phí và thời gian đánh giá hàng quý.",
+    "source": ["Requirement_01.md", "Requirement_11.md", "20260406_ENGR_PCIDSS_appendixG_Part1.md"]
+  },
+  {
+    "id": "555",
+    "question": "Một Designated Entity (A3) thực hiện rà soát quyền người dùng (Requirement 7.2.4). Họ cần thực hiện thêm bước nào so với Merchant thông thường?",
+    "answer": "Ngoài việc rà soát định kỳ 6 tháng, thực thể A3 phải đảm bảo: 1. Việc rà soát được ký duyệt bởi quản lý (Appendix A3.1.1). 2. Kết quả rà soát phải được đưa vào báo cáo tuân thủ BAU hàng quý (Appendix A3.3.3). 3. Phải đặc biệt chú trọng đến việc thu hồi quyền truy cập vật lý ngay khi nhân sự nghỉ việc (Requirement 9.3.1.1 và Appendix A3.4.1).",
+    "source": ["Requirement_07.md", "20260406_ENGR_PCIDSS_appendixA3_Part1.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md", "Requirement_09.md"]
+  },
+  {
+    "id": "556",
+    "question": "Hệ thống xác thực sinh trắc học bị lỗi phần cứng và cho phép người dùng bypass MFA. Lỗi này vi phạm những yêu cầu nào?",
+    "answer": "Vi phạm: 1. Requirement 8.5.1 (MFA không được phép bị bypass). 2. Requirement 10.7.2 (Failure của security control quan trọng phải được phát hiện). 3. Thực thể phải thực hiện quy trình phục hồi và phân tích nguyên nhân gốc rễ (Requirement 10.7.3) và báo cáo sự cố nếu là Service Provider (Appendix A1.2.3).",
+    "source": ["Requirement_08.md", "Requirement_10.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "557",
+    "question": "Tại sao việc quản lý 'Application and System Accounts' (Requirement 8.6) lại cần tham chiếu định nghĩa tại Appendix G?",
+    "answer": "Appendix G giải thích đây là các tài khoản dịch vụ (service accounts) chạy tiến trình tự động. Việc hiểu đúng giúp doanh nghiệp áp dụng đúng Requirement 8.6.1 (ngăn interactive login cho tài khoản hệ thống) và Requirement 7.2.5 (cấp quyền tối thiểu cho ứng dụng). Nếu không phân biệt được với user account, doanh nghiệp dễ để lộ mật khẩu đặc quyền trong script hoặc file cấu hình.",
+    "source": ["Requirement_08.md", "20260406_ENGR_PCIDSS_appendixG_Part1.md", "Requirement_07.md"]
+  },
+  {
+    "id": "558",
+    "question": "Một tổ chức sử dụng 'Tokenization' của bên thứ ba để xử lý thanh toán. Họ cần giám sát điều gì để đảm bảo tuân thủ Requirement 12.8 và 3.5?",
+    "answer": "Họ phải: 1. Giám sát trạng thái tuân thủ PCI DSS của đơn vị cung cấp Token hàng năm (Requirement 12.8.4). 2. Yêu cầu bản AOC chứng minh hệ thống Tokenization render PAN unreadable (Requirement 3.5.1). 3. Đảm bảo quy trình 'De-tokenization' (lấy lại số thẻ) chỉ dành cho số ít nhân sự có business need (Requirement 7.2.2 và Appendix G definition).",
+    "source": ["Requirement_12.md", "Requirement_03.md", "Requirement_07.md", "20260406_ENGR_PCIDSS_appendixG_Part3.md"]
+  },
+  {
+    "id": "559",
+    "question": "Tại sao việc tiêu hủy ổ cứng (Requirement 9.4.7) lại cần có sự chứng kiến của 2 người (Dual Control)?",
+    "answer": "Mặc dù Requirement 9.4.7 không ghi rõ dual control, nhưng theo nguyên tắc 'Separation of Duties' (Appendix G) và để đảm bảo tính chịu trách nhiệm, việc tiêu hủy media chứa dữ liệu thẻ nên có 2 người chứng kiến để ngăn chặn việc một nhân viên bí mật giữ lại ổ cứng chứa PAN cleartext trước khi nó kịp vào máy hủy. Mọi hành động này phải được ghi log (Requirement 10.2.1.2).",
+    "source": ["Requirement_09.md", "20260406_ENGR_PCIDSS_appendixG_Part5.md", "Requirement_10.md"]
+  },
+  {
+    "id": "560",
+    "question": "Khi áp dụng 'Phương pháp tiếp cận tùy chỉnh' (Customized Approach) cho Requirement 5.4.1 về chống Phishing, doanh nghiệp cần lưu ý gì về tính độc lập?",
+    "answer": "Theo Appendix D, đánh giá viên (QSA) không được tham gia thiết kế giải pháp tùy chỉnh đó để đảm bảo tính khách quan (Organizational Independence tại Appendix G). Doanh nghiệp phải tự xây dựng bộ bằng chứng và chứng minh giải pháp của mình (ví dụ dùng AI filter) đạt được mục tiêu ngăn chặn threat phishing hiệu quả hơn hoặc tương đương phương pháp truyền thống.",
+    "source": ["20260406_ENGR_PCIDSS_appendixD.md", "20260406_ENGR_PCIDSS_appendixG_Part4.md", "Requirement_05.md"]
+  },
+  {
+    "id": "561",
+    "question": "Hệ thống FIM (Requirement 11.5.2) phát hiện file cấu hình của Tường lửa bị thay đổi. Những bước điều tra chéo nào cần thực hiện?",
+    "answer": "1. Kiểm tra Requirement 1.2.2 xem có yêu cầu thay đổi (Change Request) nào được phê duyệt không. 2. Xem log Requirement 10.2.1.2 để định danh tài khoản quản trị đã sửa file. 3. Nếu là Designated Entity (A3), phải báo cáo cho cấp quản lý nếu đây là thay đổi trái phép (Appendix A3.3.1). 4. Thực hiện quét lỗ hổng ngay sau thay đổi nếu đây được coi là thay đổi lớn (Requirement 11.3.1.3).",
+    "source": ["Requirement_11.md", "Requirement_01.md", "Requirement_10.md", "20260406_ENGR_PCIDSS_appendixA3_Part4.md"]
+  },
+  {
+    "id": "562",
+    "question": "Tại sao việc 'Xác nhận phạm vi mỗi 3 tháng' (A3.2.1) lại giúp doanh nghiệp phản ứng nhanh hơn với các sự cố lộ dữ liệu thẻ ngoài mong muốn (Req 12.10.7)?",
+    "answer": "Appendix A3.2.1 bắt buộc rà soát scope định kỳ ngắn (3 tháng). Quá trình này bao gồm việc tìm kiếm PAN (Data Discovery) trên toàn hệ thống. Nếu phát hiện PAN nằm ngoài vùng CDE, thực thể A3 sẽ kích hoạt ngay quy trình xử lý theo Requirement 12.10.7, giúp ngăn chặn rò rỉ dữ liệu diện rộng trước khi hacker kịp khai thác.",
+    "source": ["20260406_ENGR_PCIDSS_appendixA3_Part2.md", "Requirement_12.md"]
+  },
+  {
+    "id": "563",
+    "question": "Một tổ chức sử dụng 'Cloud HSM' để quản lý khóa mã hóa. Họ cần đối soát những yêu cầu nào tại Requirement 3 và Appendix A1?",
+    "answer": "1. Requirement 3.6.1: Giới hạn quyền tiếp cận khóa cho Key Custodian. 2. Requirement 3.7.3: Lưu trữ khóa an toàn trong HSM. 3. Appendix A1.1.3: Nếu HSM là môi trường chia sẻ, provider phải chứng minh khách hàng khác không thể truy cập vào phân vùng khóa của doanh nghiệp. 4. Requirement 12.8.5: Xác định rõ trách nhiệm quản lý vòng đời khóa giữa doanh nghiệp và Cloud provider.",
+    "source": ["Requirement_03.md", "20260406_ENGR_PCIDSS_appendixA1.md", "Requirement_12.md"]
+  },
+  {
+    "id": "564",
+    "question": "Tại sao việc đào tạo nhân sự về 'Tampering' trên máy POS (Req 9.5.1.3) lại liên quan đến định nghĩa 'Skimmer' tại Appendix G?",
+    "answer": "Nhân viên cần hiểu bản chất kỹ thuật của 'Skimmer' (Appendix G) là các thiết bị gắn đè hoặc thay thế để đánh cắp dữ liệu. Kiến thức này giúp họ thực hiện hiệu quả Requirement 9.5.1.3: biết quan sát các dấu hiệu như keo dán lạ, dây cáp dư thừa hoặc vỏ máy POS bị lỏng lẻo khi kiểm tra hàng ngày.",
+    "source": ["Requirement_09.md", "20260406_ENGR_PCIDSS_appendixG_Part2.md"]
+  },
+  {
+    "id": "565",
+    "question": "Một Service Provider phát hiện hệ thống IDS bị treo trong 4 giờ. Những yêu cầu báo cáo nào cần tuân thủ?",
+    "answer": "1. Requirement 10.7.2: Phát hiện failure. 2. Requirement 10.7.3: Khôi phục và phân tích tác động. 3. Appendix A1.2.3: Phải thông báo cho những khách hàng bị ảnh hưởng về việc hệ thống giám sát của họ bị ngắt quãng. 4. Appendix A3.3.1.1 (nếu là A3): Tài liệu hóa chi tiết thời gian bắt đầu và kết thúc lỗi để báo cáo kiểm toán.",
+    "source": ["Requirement_10.md", "20260406_ENGR_PCIDSS_appendixA1.md", "20260406_ENGR_PCIDSS_appendixA3_Part4.md"]
+  },
+  {
+    "id": "566",
+    "question": "Khi sử dụng TLS 1.2, tại sao thực thể vẫn phải rà soát 'Cipher Suites' theo Requirement 12.3.3 và Appendix A2?",
+    "answer": "TLS 1.2 là giao thức an toàn nhưng các 'Cipher Suites' (thuật toán mã hóa đi kèm) có thể bị coi là yếu theo thời gian. Requirement 12.3.3 yêu cầu duy trì inventory và theo dõi xu hướng mật mã. Nếu một Cipher Suite trong TLS 1.2 bị bẻ khóa, thực thể phải cập nhật cấu hình ngay lập tức để tránh rủi ro tương tự như SSL/early TLS đã nêu tại Appendix A2.",
+    "source": ["Requirement_12.md", "20260406_ENGR_PCIDSS_appendixA2.md"]
+  },
+  {
+    "id": "567",
+    "question": "Tại sao việc 'Mã hóa log' (Requirement 10.3.2) lại cần kết hợp với kiểm soát vật lý tại Requirement 9?",
+    "answer": "Mã hóa log bảo vệ dữ liệu khỏi bị sửa đổi logic. Tuy nhiên, nếu server lưu log bị lấy trộm (vi phạm Requirement 9.2.1), hacker có thể thực hiện tấn công offline để giải mã. Do đó, log phải được bảo vệ đa lớp: mã hóa phần mềm phối hợp với khóa tủ rack và camera giám sát khu vực lưu trữ log.",
+    "source": ["Requirement_10.md", "Requirement_09.md"]
+  },
+  {
+    "id": "568",
+    "question": "Một Designated Entity (A3) thực hiện quét mã độc (malware scan) định kỳ. Tần suất này được quy định như thế nào?",
+    "answer": "Thay vì tần suất cố định, thực thể A3 phải thực hiện Targeted Risk Analysis (Requirement 12.3.1) phối hợp với hướng dẫn tại Appendix A3.5.1 để xác định tần suất quét phù hợp với mức độ nhạy cảm của từng vùng mạng, đảm bảo phát hiện sớm các hành vi bất thường.",
+    "source": ["Requirement_12.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md", "Requirement_05.md"]
+  },
+  {
+    "id": "569",
+    "question": "Làm thế nào để phân biệt giữa 'Masking' và 'Truncation' trong quy trình xử lý báo cáo thẻ theo Appendix G?",
+    "answer": "Appendix G giải thích: 1. Masking (Requirement 3.4.1) dùng để bảo vệ khi hiển thị (như trên màn hình cho nhân viên xem). 2. Truncation (Requirement 3.5.1) dùng để bảo vệ khi lưu trữ vĩnh viễn trong database. Nếu báo cáo được in ra, nó phải được masked, nhưng nếu file báo cáo đó được lưu vào ổ cứng lâu dài, nó phải được truncated hoặc mã hóa.",
+    "source": ["20260406_ENGR_PCIDSS_appendixG_Part1.md", "20260406_ENGR_PCIDSS_appendixG_Part3.md", "Requirement_03.md"]
+  },
+  {
+    "id": "570",
+    "question": "Một tổ chức bị mất chứng chỉ tuân thủ (Compliance status) do lỗ hổng từ nhà cung cấp Cloud. Trách nhiệm pháp lý được phân định như thế nào?",
+    "answer": "Dựa trên Requirement 12.8.2 (Hợp đồng văn bản) và 12.8.5 (Ma trận trách nhiệm). Nếu Ma trận trách nhiệm ghi rõ Cloud provider chịu trách nhiệm vá lỗi Hypervisor mà họ không làm, Provider sẽ vi phạm cam kết hỗ trợ khách hàng (Requirement 12.9.1). Tuy nhiên, khách hàng vẫn chịu trách nhiệm giám sát đối tác (Requirement 12.8.4).",
+    "source": ["Requirement_12.md"]
+  },
+  {
+    "id": "571",
+    "question": "Tại sao việc đào tạo 'Secure Coding' (Req 6.2.2) lại cần cập nhật theo 'Threat Landscape' tại Requirement 12.6.2?",
+    "answer": "Lỗ hổng phần mềm thay đổi liên tục. Requirement 12.6.2 yêu cầu chương trình nhận thức phải cập nhật theo threat mới (như các kiểu tấn công AI-driven phishing). Việc này giúp lập trình viên (theo Requirement 6.2.2) biết cách viết code chống lại các kỹ thuật khai thác mới nhất mà hacker đang sử dụng.",
+    "source": ["Requirement_06.md", "Requirement_12.md"]
+  },
+  {
+    "id": "572",
+    "question": "Một Designated Entity (A3) thay đổi chính sách mật khẩu. Họ cần thực hiện những bước BAU nào theo Appendix A3?",
+    "answer": "1. Cập nhật tiêu chuẩn cấu hình (Requirement 2.2.1). 2. Thực hiện rà soát BAU 3 tháng/lần để đảm bảo chính sách mật khẩu mới đã được áp dụng đồng nhất trên tất cả hệ thống (Appendix A3.3.3). 3. Ghi lại biên bản phê duyệt của cấp quản lý cho sự thay đổi này (Appendix A3.1.1).",
+    "source": ["Requirement_02.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md", "20260406_ENGR_PCIDSS_appendixA3_Part1.md"]
+  },
+  {
+    "id": "573",
+    "question": "Tại sao 'Split Knowledge' (Appendix G) lại là yêu cầu bắt buộc khi thực hiện 'Manual Key Operations' (Req 3.7.6)?",
+    "answer": "Để ngăn chặn gian lận nội bộ. Appendix G định nghĩa Split Knowledge là việc chia khóa thành nhiều phần mà một người không thể biết toàn bộ. Requirement 3.7.6 bắt buộc áp dụng kỹ thuật này để đảm bảo không một quản trị viên đơn lẻ nào có thể tự ý giải mã dữ liệu thẻ của khách hàng.",
+    "source": ["20260406_ENGR_PCIDSS_appendixG_Part5.md", "Requirement_03.md"]
+  },
+  {
+    "id": "574",
+    "question": "Hệ thống IDS phát hiện traffic từ một IP thuộc danh sách 'Blacklist'. Chuỗi phản ứng phối hợp là gì?",
+    "answer": "1. Phát hiện: Qua Requirement 11.5.1 (IDS). 2. Ngăn chặn: Tường lửa tự động chặn IP đó (Requirement 1.3.1). 3. Nhật ký: Log lại sự kiện tấn công (Requirement 10.2.1.4). 4. Designated Entity (A3) phải thực hiện điều tra chéo xem có tài khoản nội bộ nào đang giao tiếp với IP đó không (Appendix A3.5.1).",
+    "source": ["Requirement_11.md", "Requirement_01.md", "Requirement_10.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md"]
+  },
+  {
+    "id": "575",
+    "question": "Khi Merchant sử dụng giải pháp 'P2PE' (Mã hóa đầu cuối) được chứng nhận, phạm vi tuân thủ (Scope) thay đổi như thế nào?",
+    "answer": "Dựa trên Hình 1 (PCI DSS Scoping) và Appendix G. Giải pháp P2PE giúp dữ liệu thẻ được mã hóa ngay tại thiết bị POS và Merchant không có khóa giải mã. Do đó, các hệ thống mạng và server trung gian của Merchant sẽ nằm ngoài phạm vi (Out-of-scope) đối với hầu hết các yêu cầu, ngoại trừ kiểm soát vật lý máy POS (Requirement 9.5).",
+    "source": ["Tài liệu tiêu chuẩn PCI-DSS-v4_0_1.pdf", "20260406_ENGR_PCIDSS_appendixG_Part5.md", "Requirement_09.md"]
+  },
+  {
+    "id": "576",
+    "question": "Tại sao việc 'Xóa test data' (Requirement 6.5.6) lại cần phối hợp với quy trình tiêu hủy media tại Requirement 9?",
+    "answer": "Dữ liệu test đôi khi chứa cấu hình hệ thống thật. Nếu file test data được lưu trên USB hoặc băng từ, khi xóa logic (Req 6.5.6) vẫn có thể bị khôi phục. Vì vậy, media chứa các file test này khi không còn dùng phải được tiêu hủy vật lý theo Requirement 9.4.7.",
+    "source": ["Requirement_06.md", "Requirement_09.md"]
+  },
+  {
+    "id": "577",
+    "question": "Một tổ chức áp dụng 'Zero Trust' yêu cầu MFA cho mọi kết nối nội bộ. Điều này hỗ trợ những phụ lục nào?",
+    "answer": "Hỗ trợ đắc lực cho: 1. Appendix A1 (Cách ly khách hàng trong môi trường chia sẻ). 2. Appendix A3.4.1 (Kiểm soát truy cập logic chặt chẽ cho Designated Entities). 3. Giảm bớt sự phụ thuộc vào các biện pháp bù đắp (Appendix B) cho các hệ thống cũ.",
+    "source": ["20260406_ENGR_PCIDSS_appendixA1.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md", "20260406_ENGR_PCIDSS_appendixB.md"]
+  },
+  {
+    "id": "578",
+    "question": "Tại sao việc kiểm tra lý lịch nhân viên (Requirement 12.7.1) lại cần đặc biệt khắt khe với các 'Key Custodians' (Appendix G)?",
+    "answer": "Key Custodians (người nắm giữ khóa) là vị trí có đặc quyền cao nhất, có khả năng giải mã toàn bộ dữ liệu thẻ (Account Data). Theo Requirement 12.7.1 và Appendix G, việc sàng lọc kỹ giúp giảm thiểu rủi ro 'Insider Threat', đảm bảo những người nắm giữ 'bí mật quốc gia' của doanh nghiệp là những người đáng tin cậy.",
+    "source": ["Requirement_12.md", "20260406_ENGR_PCIDSS_appendixG_Part3.md"]
+  },
+  {
+    "id": "579",
+    "question": "Hệ thống WAF phát hiện tấn công SQL Injection vào trang web thanh toán. Những yêu cầu nào được kích hoạt để xử lý tận gốc?",
+    "answer": "1. Ngăn chặn: WAF chặn request độc hại (Requirement 6.4.1). 2. Ứng phó: Theo IR Plan (Requirement 12.10.5). 3. Sửa lỗi: Lập trình viên phải rà soát lại code và áp dụng kỹ thuật input validation (Requirement 6.2.4). 4. Kiểm thử: Thực hiện Pentest lại ứng dụng web để xác nhận lỗ hổng đã được vá (Requirement 11.4.1).",
+    "source": ["Requirement_06.md", "Requirement_12.md", "Requirement_11.md"]
+  },
+  {
+    "id": "580",
+    "question": "Tại sao một 'Designated Entity' (A3) phải duy trì danh sách Inventory (Req 12.5.1) cập nhật hơn so với Merchant thông thường?",
+    "answer": "Vì theo Appendix A3.2.1, họ phải xác nhận phạm vi 3 tháng/lần. Nếu Inventory không cập nhật hàng ngày/hàng tuần (Requirement 12.5.1), việc rà soát phạm vi hàng quý sẽ không thể chính xác, dẫn đến rủi ro bỏ sót các thiết bị mới được thêm vào mạng mà chưa được quét lỗ hổng (Requirement 11.3.1.3).",
+    "source": ["Requirement_12.md", "20260406_ENGR_PCIDSS_appendixA3_Part2.md", "Requirement_11.md"]
+  },
+  {
+    "id": "581",
+    "question": "Một tổ chức sử dụng 'Biometrics' (vân tay) làm yếu tố xác thực thứ hai cho VPN. Họ cần tuân thủ thêm điều gì tại Requirement 8 và Appendix G?",
+    "answer": "1. Appendix G định nghĩa Biometrics là một yếu tố 'Something you are'. 2. Requirement 8.4.3: MFA là bắt buộc cho truy cập từ xa. 3. Requirement 8.5.1: Hệ thống vân tay phải chống lại việc sử dụng ảnh chụp vân tay giả (Replay/Spoofing attack). 4. Requirement 8.2.1: Phải gán ID duy nhất cho người dùng trước khi lấy mẫu vân tay.",
+    "source": ["20260406_ENGR_PCIDSS_appendixG_Part1.md", "Requirement_08.md"]
+  },
+  {
+    "id": "582",
+    "question": "Khi thực hiện Pentest cho môi trường Cloud Multi-tenant, tại sao cần phối hợp giữa Requirement 11 và Appendix A1?",
+    "answer": "Requirement 11.4.1 quy định phương pháp Pentest. Tuy nhiên, trong môi trường Cloud (A1), Pentest phải bao gồm cả việc thử nghiệm 'vượt rào' giữa các tenant (Appendix A1.1.4) để chứng minh lỗi cấu hình của khách hàng này không thể gây nguy hiểm cho dữ liệu của khách hàng khác.",
+    "source": ["Requirement_11.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "583",
+    "question": "Tại sao việc 'Khóa console' (Requirement 9.2.4) lại liên quan mật thiết đến việc bảo vệ mật khẩu Admin tại Requirement 8?",
+    "answer": "Nếu console của server không được khóa vật lý (Req 9.2.4), kẻ xấu có thể khởi động lại máy vào chế độ khôi phục để reset mật khẩu quản trị mà không cần biết mật khẩu cũ. Điều này vô hiệu hóa mọi kiểm soát về độ phức tạp mật khẩu (Requirement 8.3.6) và MFA (Requirement 8.4.1).",
+    "source": ["Requirement_09.md", "Requirement_08.md"]
+  },
+  {
+    "id": "584",
+    "question": "Một 'Service Provider' thay đổi cấu trúc của hệ thống Firewall dùng chung cho 100 khách hàng. Những yêu cầu nào bị ảnh hưởng?",
+    "answer": "1. Quản lý thay đổi: Đánh giá tác động cho toàn bộ 100 khách hàng (Requirement 6.5.1). 2. Rà soát phạm vi: Xác nhận lại tính cách ly của các tenant sau thay đổi (Appendix A1.1.4). 3. Quét lỗ hổng: Thực hiện quét ASV cho tất cả các IP ngoại vi bị ảnh hưởng (Requirement 11.3.2.1). 4. Thông báo: Gửi thông tin cập nhật cho khách hàng theo Requirement 12.9.2.",
+    "source": ["Requirement_06.md", "20260406_ENGR_PCIDSS_appendixA1.md", "Requirement_11.md", "Requirement_12.md"]
+  },
+  {
+    "id": "585",
+    "question": "Tại sao việc rà soát log hàng ngày (Requirement 10.4.1) lại là bằng chứng quan trọng cho quy trình BAU của Designated Entities (A3)?",
+    "answer": "Theo Appendix A3.3.3, thực thể phải chứng minh các hoạt động BAU đang được thực hiện. Nhật ký rà soát log hàng ngày (có chữ ký xác nhận) chính là bằng chứng sống cho thấy hệ thống giám sát đang hoạt động liên tục và nhân sự đang thực hiện đúng trách nhiệm bảo mật đã phân công tại Appendix A3.1.3.",
+    "source": ["Requirement_10.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md", "20260406_ENGR_PCIDSS_appendixA3_Part1.md"]
+  },
+  {
+    "id": "586",
+    "question": "Làm thế nào để kết hợp Requirement 4.2.1 và Appendix A2 khi truyền dữ liệu thẻ qua mạng không dây (Wireless)?",
+    "answer": "1. Requirement 4.2.1 yêu cầu dùng mật mã mạnh khi truyền qua mạng mở. 2. Nếu thiết bị Wireless cũ chỉ hỗ trợ giao thức yếu, thực thể phải áp dụng kế hoạch di chuyển theo Appendix A2. 3. Phải đảm bảo không thể dùng các giao thức cũ này cho các thiết bị mới được thêm vào mạng (Requirement A2.1.2).",
+    "source": ["Requirement_04.md", "20260406_ENGR_PCIDSS_appendixA2.md"]
+  },
+  {
+    "id": "587",
+    "question": "Tại sao việc 'Tiêu hủy bản in' (Requirement 9.4.6) lại cần tham chiếu định nghĩa 'Cardholder Data' tại Appendix G?",
+    "answer": "Dữ liệu thẻ (Appendix G) bao gồm tên chủ thẻ và ngày hết hạn khi đi kèm với số PAN. Nhân viên thường nghĩ chỉ cần hủy tờ giấy có số thẻ, nhưng nếu tờ giấy đó in rời tên chủ thẻ và ngày hết hạn của cùng một giao dịch, nó vẫn mang rủi ro lớn và cần được tiêu hủy an toàn theo Requirement 9.4.6.",
+    "source": ["Requirement_09.md", "20260406_ENGR_PCIDSS_appendixG_Part1.md"]
+  },
+  {
+    "id": "588",
+    "question": "Một thực thể sử dụng 'Customized Approach' (Appendix D) cho việc lưu giữ log 1 năm. Họ cần thực hiện TRA như thế nào?",
+    "answer": "Họ phải thực hiện Targeted Risk Analysis định kỳ 12 tháng/lần theo Requirement 12.3.2. Bản phân tích phải chứng minh giải pháp lưu trữ log tùy chỉnh (ví dụ dùng công nghệ nén/blockchain) vẫn đảm bảo tính toàn vẹn (Requirement 10.3.2) và khả năng truy xuất nhanh 3 tháng gần nhất (Requirement 10.5.1).",
+    "source": ["20260406_ENGR_PCIDSS_appendixD.md", "Requirement_12.md", "Requirement_10.md"]
+  },
+  {
+    "id": "589",
+    "question": "Hệ thống Anti-malware phát hiện một loại virus mới nhưng không thể tự động xóa. Những hành động nào cần thực hiện phối hợp?",
+    "answer": "1. Kích hoạt IR Plan để cách ly máy nhiễm (Requirement 12.10.1). 2. Ghi log lại sự kiện malware (Requirement 5.3.4). 3. Thực hiện quét lỗ hổng hệ thống đó để xem virus vào qua con đường nào (Requirement 11.3.1). 4. Nếu là Designated Entity (A3), phải thực hiện phân tích rủi ro xem có dữ liệu thẻ nào bị virus lấy đi không (Appendix A3.2.6).",
+    "source": ["Requirement_12.md", "Requirement_05.md", "Requirement_11.md", "20260406_ENGR_PCIDSS_appendixA3_Part4.md"]
+  },
+  {
+    "id": "590",
+    "question": "Tại sao 'Phân tách môi trường' (Requirement 6.5.3) lại giúp giảm gánh nặng tuân thủ cho Requirement 10 và 11?",
+    "answer": "Việc tách biệt môi trường Test/Dev (Req 6.5.3) giúp đưa các hệ thống này ra khỏi phạm vi PCI DSS (Out-of-scope). Nhờ đó, doanh nghiệp không phải thực hiện rà soát log hàng ngày (Requirement 10.4.1) hay Pentest hàng năm (Requirement 11.4.1) cho các máy chủ thử nghiệm, giúp tập trung nguồn lực vào vùng CDE thật.",
+    "source": ["Requirement_06.md", "Requirement_10.md", "Requirement_11.md"]
+  },
+  {
+    "id": "591",
+    "question": "Một tổ chức thuê nhà cung cấp TPSP quản lý Tường lửa (NSC). Ai là người chịu trách nhiệm rà soát rule mỗi 6 tháng theo Req 1.2.7?",
+    "answer": "Cả hai. 1. TPSP thực hiện rà soát kỹ thuật. 2. Doanh nghiệp phải xác nhận kết quả rà soát khớp với lý do nghiệp vụ (Requirement 1.2.5). Trách nhiệm này phải được ghi rõ trong Responsibility Matrix (Requirement 12.8.5) để tránh việc cả hai bên đều bỏ quên nhiệm vụ này.",
+    "source": ["Requirement_01.md", "Requirement_12.md"]
+  },
+  {
+    "id": "592",
+    "question": "Tại sao việc đồng bộ thời gian (NTP) lại quan trọng đối với việc 'Xử lý báo động' (Requirement 12.10.5) tại các Designated Entities (A3)?",
+    "answer": "Appendix A3.3.1 yêu cầu cảnh báo và xử lý lỗi kiểm soát ngay lập tức. Nếu thời gian bị sai lệch (Requirement 10.6), đội ứng cứu sẽ không biết báo động nào xảy ra trước, dẫn đến việc xử lý sai trình tự ưu tiên và hacker có thể tận dụng 'khoảng trống thời gian' để xóa dấu vết.",
+    "source": ["Requirement_10.md", "Requirement_12.md", "20260406_ENGR_PCIDSS_appendixA3_Part4.md"]
+  },
+  {
+    "id": "593",
+    "question": "Làm thế nào để áp dụng 'Least Privilege' (Appendix G) khi thực hiện Requirement 3.6.1 về Key Custodians?",
+    "answer": "Appendix G định nghĩa Least Privilege là cấp quyền tối thiểu cần thiết. 1. Chỉ chọn số ít nhân sự làm Key Custodians (Requirement 3.6.1). 2. Mỗi Custodian chỉ giữ một phần khóa (Split Knowledge). 3. Quyền thao tác khóa chỉ được kích hoạt khi có dual control (Requirement 3.7.6), đảm bảo không ai có đặc quyền dư thừa.",
+    "source": ["20260406_ENGR_PCIDSS_appendixG_Part1.md", "Requirement_03.md"]
+  },
+  {
+    "id": "594",
+    "question": "Khi di chuyển dữ liệu thẻ từ Media vật lý sang lưu trữ Cloud, những rủi ro nào cần kiểm soát chéo?",
+    "answer": "1. Dữ liệu: Phải mã hóa unreadable cả trên media cũ và trên Cloud (Requirement 3.5.1). 2. Tiêu hủy: Media vật lý sau khi chuyển dữ liệu xong phải được hủy an toàn (Requirement 9.4.7). 3. Phạm vi: Xác nhận lại scope CDE mới trên Cloud (Requirement 12.5.2). 4. Đối tác: Kiểm tra tính tuân thủ tách biệt tenant của Cloud provider (Appendix A1.1.1).",
+    "source": ["Requirement_03.md", "Requirement_09.md", "Requirement_12.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "595",
+    "question": "Tại sao 'Targeted Risk Analysis' (Req 12.3.1) lại là cơ sở để xác định tần suất 'Data Discovery' cho Designated Entities (A3)?",
+    "answer": "Appendix A3.2.5 yêu cầu quét tìm PAN cleartext ít nhất 3 tháng/lần. Tuy nhiên, nếu TRA (Requirement 12.3.1) cho thấy một vùng mạng thường xuyên có dữ liệu 'rác' chảy qua, thực thể A3 nên tăng tần suất quét lên hàng tháng hoặc hàng tuần để giảm thiểu rủi ro tích tụ dữ liệu trái phép.",
+    "source": ["Requirement_12.md", "20260406_ENGR_PCIDSS_appendixA3_Part3.md"]
+  },
+  {
+    "id": "596",
+    "question": "Một ứng dụng web sử dụng API của bên thứ ba để xử lý thanh toán. Những yêu cầu nào cần được kiểm soát phối hợp?",
+    "answer": "1. Requirement 6.3.2: Duy trì danh mục API bên thứ ba. 2. Requirement 6.4.3: Giám sát các script/API gọi từ trình duyệt khách hàng. 3. Requirement 12.8.2: Hợp đồng với đơn vị cung cấp API. 4. Appendix A1.2.3: Đảm bảo bên thứ ba có quy trình báo cáo lỗi bảo mật cho doanh nghiệp.",
+    "source": ["Requirement_06.md", "Requirement_12.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "597",
+    "question": "Tại sao việc rà soát 'Inactive Accounts' mỗi 90 ngày (Req 8.2.6) lại quan trọng đối với kế hoạch điều tra sự cố (Req 12.10.1)?",
+    "answer": "Hacker thường chiếm quyền các tài khoản 'ngủ quên' để xâm nhập âm thầm. Việc khóa tài khoản inactive (Req 8.2.6) giúp thu hẹp attack surface. Khi có sự cố (Req 12.10.1), việc điều tra log sẽ dễ dàng hơn vì không bị nhiễu bởi các tài khoản cũ không còn sử dụng.",
+    "source": ["Requirement_08.md", "Requirement_12.md"]
+  },
+  {
+    "id": "598",
+    "question": "Làm thế nào để kết hợp giữa Requirement 11.2.1 và Appendix A3 để chống lại các thiết bị Wireless độc hại?",
+    "answer": "1. Requirement 11.2.1 yêu cầu quét Rogue AP mỗi 3 tháng. 2. Designated Entity (A3) phải tích hợp các cảnh báo từ quá trình quét này vào hệ thống giám sát tập trung và phản hồi ngay lập tức (Appendix A3.3.1). 3. Mọi thiết bị Wireless mới được phát hiện phải được đối soát với Inventory hợp lệ (Requirement 11.2.2).",
+    "source": ["Requirement_11.md", "20260406_ENGR_PCIDSS_appendixA3_Part4.md"]
+  },
+  {
+    "id": "599",
+    "question": "Tại sao việc 'Xác thực người dùng duy nhất' (Req 8.2.1) lại là nền tảng cho việc đạt chuẩn 'Organizational Independence' tại Appendix G?",
+    "answer": "Organizational Independence yêu cầu người đánh giá và người thực hiện phải tách biệt. Nếu không có ID duy nhất (Req 8.2.1) và ghi log định danh (Req 10.2.2), chúng ta không thể chứng minh được ai là người đã thực hiện cấu hình và ai là người đã rà soát, dẫn đến xung đột lợi ích và vi phạm nguyên tắc độc lập.",
+    "source": ["Requirement_08.md", "20260406_ENGR_PCIDSS_appendixG_Part4.md", "Requirement_10.md"]
+  },
+  {
+    "id": "600",
+    "question": "Một nhà cung cấp Cloud (A1) thay đổi Hypervisor. Họ cần thực hiện những bước Pentest nào theo PCI v4.0.1?",
+    "answer": "1. Thực hiện Pentest lớp mạng và ứng dụng sau thay đổi lớn (Requirement 11.4.1). 2. Đặc biệt chú trọng Pentest tính cách ly giữa các máy ảo của các khách hàng (Appendix A1.1.4). 3. Lưu giữ kết quả Pentest ít nhất 12 tháng để cung cấp cho khách hàng khi họ yêu cầu (Requirement 11.4.7).",
+    "source": ["Requirement_11.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "601",
+    "question": "Khi áp dụng Requirement 3.5.1 về mã hóa ổ đĩa (Disk Encryption), tại sao doanh nghiệp vẫn cần quan tâm đến quyền truy cập database (Requirement 7.2.2)?",
+    "answer": "Mã hóa ổ đĩa chỉ bảo vệ dữ liệu khi máy chủ bị tắt hoặc ổ cứng bị tháo rời. Khi hệ thống đang chạy, dữ liệu sẽ ở dạng cleartext đối với ứng dụng và người dùng có quyền truy cập. Do đó, phải kết hợp với Requirement 7.2.2 để giới hạn quyền truy vấn dữ liệu thẻ chỉ cho những ai thực sự cần thiết, ngăn chặn rò rỉ dữ liệu qua các tài khoản hợp lệ.",
+    "source": ["Requirement_03.md", "Requirement_07.md"]
+  },
+  {
+    "id": "602",
+    "question": "Một Designated Entity (A3) phát hiện hệ thống Anti-malware ngừng cập nhật signature trong 2 ngày. Quy trình xử lý theo Appendix A3 là gì?",
+    "answer": "1. Phát hiện & Báo động: Hệ thống phải tự động cảnh báo cho nhân sự trực 24/7 (Appendix A3.3.1). 2. Phục hồi: Khôi phục chức năng cập nhật ngay lập tức. 3. Đánh giá: Thực hiện quét toàn bộ các máy chủ bị ảnh hưởng để xem có mã độc nào lọt lưới trong 2 ngày đó không (Requirement 5.3.2). 4. Hồ sơ: Ghi lại sự cố và biện pháp phòng ngừa vào báo cáo BAU hàng quý (Appendix A3.3.3).",
+    "source": ["20260406_ENGR_PCIDSS_appendixA3_Part4.md", "Requirement_05.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md"]
+  },
+  {
+    "id": "603",
+    "question": "Tại sao việc quản lý 'Physical Access Mechanisms' (như chìa khóa, thẻ từ - Req 9.3.1.1) lại liên quan đến chính sách thay đổi mật khẩu tại Requirement 8?",
+    "answer": "Cả hai đều là 'Yếu tố xác thực' (Authentication Credentials - Appendix G). Chìa khóa vật lý tương đương với mật khẩu logic. Nếu một nhân viên bị sa thải, Requirement 9.3.1.1 yêu cầu thu hồi thẻ từ ngay lập tức, tương tự như việc vô hiệu hóa tài khoản login tại Requirement 8.2.5, nhằm ngăn chặn mọi khả năng truy cập trái phép sau khi thôi việc.",
+    "source": ["Requirement_09.md", "Requirement_08.md", "20260406_ENGR_PCIDSS_appendixG_Part1.md"]
+  },
+  {
+    "id": "604",
+    "question": "Làm thế nào để sử dụng Appendix F để chứng minh tuân thủ Requirement 6.5.2 về xác nhận tuân thủ sau thay đổi lớn?",
+    "answer": "Nếu thay đổi liên quan đến một phần mềm bespoke đạt chuẩn Secure SLC, doanh nghiệp có thể tận dụng tài liệu kiểm thử của nhà cung cấp phần mềm (Appendix F) để chứng minh các chức năng bảo mật lõi vẫn ổn định. Tuy nhiên, doanh nghiệp vẫn phải tự thực hiện quét lỗ hổng (Requirement 11.3.1.3) cho toàn bộ hạ tầng mạng xung quanh sau khi cài đặt bản cập nhật đó.",
+    "source": ["Requirement_06.md", "20260406_ENGR_PCIDSS_appendixF.md", "Requirement_11.md"]
+  },
+  {
+    "id": "605",
+    "question": "Tại sao việc 'Che mặt nạ PAN' (Requirement 3.4.1) lại cần được đào tạo cho nhân viên chăm sóc khách hàng (Requirement 12.6)?",
+    "answer": "Nhân viên thường vô tình 'unmask' (hiển thị đầy đủ) số thẻ khi khách hàng nhờ tra cứu giao dịch. Đào tạo nhận thức (Requirement 12.6.1) giúp họ hiểu rủi ro và tuân thủ đúng Requirement 3.4.1: chỉ được xem tối đa 6 số đầu và 4 số cuối, trừ khi có lý do nghiệp vụ đặc biệt đã được phê duyệt.",
+    "source": ["Requirement_03.md", "Requirement_12.md"]
+  },
+  {
+    "id": "606",
+    "question": "Một Service Provider Cloud (A1) cung cấp tính năng 'Snapshot' máy ảo. Họ cần bảo vệ tính năng này như thế nào?",
+    "answer": "1. Quyền hạn: Chỉ Admin được ủy quyền mới có quyền tạo/xem snapshot (Requirement 7.2.2). 2. Bảo mật dữ liệu: Các tệp snapshot chứa bộ nhớ RAM (có thể có PAN) phải được mã hóa unreadable (Requirement 3.5.1). 3. Tách biệt: Snapshot của khách hàng A phải được cách ly hoàn toàn với khách hàng B (Appendix A1.1.2). 4. Nhật ký: Log lại mọi hành động thao tác với snapshot (Requirement 10.2.1.2).",
+    "source": ["Requirement_07.md", "Requirement_03.md", "20260406_ENGR_PCIDSS_appendixA1.md", "Requirement_10.md"]
+  },
+  {
+    "id": "607",
+    "question": "Tại sao 'Vulnerability Scanning' (Req 11.3) lại là đầu vào cho quy trình 'Patch Management' (Req 6.3.3)?",
+    "answer": "Kết quả quét (Requirement 11.3.1) cung cấp danh sách các lỗ hổng thực tế. Doanh nghiệp sử dụng tiêu chí xếp hạng rủi ro (Requirement 6.3.1) để phân loại. Các lỗ hổng 'Critical' từ kết quả quét phải được cài bản vá trong vòng 1 tháng theo Requirement 6.3.3. Sau đó, phải quét lại (Rescan) để xác nhận lỗi đã hết.",
+    "source": ["Requirement_11.md", "Requirement_06.md"]
+  },
+  {
+    "id": "608",
+    "question": "Làm thế nào để kết hợp Requirement 1.5.1 và Appendix G khi quản lý thiết bị di động (Tablets) dùng để thanh toán?",
+    "answer": "1. Appendix G định nghĩa đây là 'Payment Card Form Factor' hoặc thiết bị di động. 2. Requirement 1.5.1 yêu cầu cài đặt firewall và security controls trên tablet vì nó kết nối cả Internet và CDE. 3. Phải đảm bảo nhân viên không thể tự ý tắt các lớp bảo vệ này (Requirement 1.5.1.c). 4. Nếu dùng Wi-Fi, phải tuân thủ các chuẩn mật mã mạnh (Requirement 4.2.1.2).",
+    "source": ["Requirement_01.md", "20260406_ENGR_PCIDSS_appendixG_Part4.md", "Requirement_04.md"]
+  },
+  {
+    "id": "609",
+    "question": "Một Designated Entity (A3) phát hiện một máy chủ cũ không còn hỗ trợ từ vendor (End-of-life). Họ phải xử lý như thế nào?",
+    "answer": "1. Thực hiện rà soát công nghệ hàng năm theo Requirement 12.3.4. 2. Lập kế hoạch thay thế hoặc nâng cấp máy chủ đó. 3. Trong thời gian chờ thay thế, phải áp dụng các 'Biện pháp bù đắp' (Appendix B) để bảo vệ hệ thống không thể vá lỗi. 4. Báo cáo rủi ro này cho hội đồng quản trị theo Appendix A3.1.1.",
+    "source": ["Requirement_12.md", "20260406_ENGR_PCIDSS_appendixB.md", "20260406_ENGR_PCIDSS_appendixA3_Part1.md"]
+  },
+  {
+    "id": "610",
+    "question": "Tại sao việc 'Dán nhãn media' (Requirement 9.4.2) lại cần phối hợp với chính sách bảo mật dữ liệu tại Requirement 12.1?",
+    "answer": "Chính sách bảo mật (Requirement 12.1.1) định nghĩa các cấp độ phân loại dữ liệu (Bí mật, Nội bộ, Công khai). Việc dán nhãn media (Requirement 9.4.2) thực thi chính sách này trên thực tế, giúp nhân viên biết cách xử lý media 'Bí mật' (chứa dữ liệu thẻ) cẩn trọng hơn các loại khác.",
+    "source": ["Requirement_09.md", "Requirement_12.md"]
+  },
+  {
+    "id": "611",
+    "question": "Hệ thống IDS phát hiện hành vi 'Brute-force' mật khẩu Admin. Chuỗi kiểm soát nào sẽ ngăn chặn hacker thành công?",
+    "answer": "1. Khóa tài khoản sau 10 lần login sai (Requirement 8.3.4). 2. Yêu cầu MFA cho mọi lần đăng nhập Admin (Requirement 8.4.1). 3. Tường lửa chặn IP nguồn sau khi phát hiện tấn công (Requirement 11.5.1). 4. Designated Entity (A3) sẽ tự động nhận alert và phản hồi theo Appendix A3.5.1.",
+    "source": ["Requirement_08.md", "Requirement_11.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md"]
+  },
+  {
+    "id": "612",
+    "question": "Tại sao việc rà soát 'User Privileges' (Req 7.2.4) lại cần sự tham gia của bộ phận nhân sự (HR) theo Appendix A3?",
+    "answer": "HR nắm giữ tình trạng làm việc của nhân viên (nghỉ việc, chuyển bộ phận). Theo Appendix A3.4.1, thực thể phải đối soát quyền truy cập logic với dữ liệu nhân sự để đảm bảo Requirement 8.2.5 (thu hồi quyền khi nghỉ việc) được thực hiện triệt để, không để lại tài khoản 'ma' có đặc quyền.",
+    "source": ["Requirement_07.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md", "Requirement_08.md"]
+  },
+  {
+    "id": "613",
+    "question": "Khi Merchant dùng 'Virtual Terminal' (Appendix G), họ cần quan tâm đến những yêu cầu bảo mật máy trạm nào?",
+    "answer": "Appendix G định nghĩa Virtual Terminal là trình duyệt web để nhập thẻ thủ công. 1. Máy tính dùng trình duyệt đó phải được Hardening (Requirement 2.2.1). 2. Phải có Anti-malware mạnh để chống Keylogger (Requirement 5.2.1). 3. Không được lưu số thẻ vào bộ nhớ tạm hoặc file Excel trên chính máy tính đó (Requirement 3.2.1).",
+    "source": ["20260406_ENGR_PCIDSS_appendixG_Part5.md", "Requirement_02.md", "Requirement_05.md", "Requirement_03.md"]
+  },
+  {
+    "id": "614",
+    "question": "Tại sao việc 'Phân tách vai trò' (Separation of Duties - Appendix G) lại áp dụng cho cả việc quản lý Khóa (Req 3.7.6) và Phát triển (Req 6.5.4)?",
+    "answer": "Cả hai đều nhằm ngăn chặn gian lận tự thân. 1. Trong quản lý khóa (Req 3.7.6), Dual control ngăn 1 người biết toàn bộ khóa. 2. Trong phát triển (Req 6.5.4), ngăn lập trình viên tự phê duyệt và đẩy code của mình lên Production. Appendix G thống nhất đây là cơ chế kiểm soát rủi ro con người tối thượng.",
+    "source": ["20260406_ENGR_PCIDSS_appendixG_Part5.md", "Requirement_03.md", "Requirement_06.md"]
+  },
+  {
+    "id": "615",
+    "question": "Một tổ chức phát hiện bản backup dữ liệu thẻ bị mã hóa bởi Ransomware. Họ có thể phục hồi nhờ những yêu cầu nào?",
+    "answer": "1. Nếu họ tuân thủ Requirement 9.4.1, bản backup sẽ được lưu trữ vật lý tách biệt (Offline), giúp nó không bị lây nhiễm từ mạng chính. 2. Quy trình phục hồi dữ liệu trong IR Plan (Requirement 12.10.1) sẽ hướng dẫn các bước khôi phục. 3. Sau khi phục hồi, họ phải thực hiện đánh giá rủi ro xem khóa mã hóa có bị lộ không (Requirement 3.7.5).",
+    "source": ["Requirement_09.md", "Requirement_12.md", "Requirement_03.md"]
+  },
+  {
+    "id": "616",
+    "question": "Tại sao 'Phishing Resistant Authentication' lại quan trọng đối với các Service Provider quản lý Multi-tenant (A1)?",
+    "answer": "Trong môi trường A1, một Admin của provider quản lý hạ tầng cho hàng trăm khách hàng. Nếu Admin bị phishing chiếm tài khoản (vi phạm Requirement 8.4.1), hacker có thể bypass tính năng cách ly logic (Appendix A1.1.1) và đánh cắp dữ liệu của tất cả khách hàng cùng lúc. Xác thực chống giả mạo là chốt chặn cuối cùng cho rủi ro hệ thống này.",
+    "source": ["Requirement_08.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "617",
+    "question": "Khi thực hiện 'Code Review' (Req 6.2.3), tại sao cần kiểm tra cả việc 'Sử dụng Log' (Req 10.2.1)?",
+    "answer": "Để đảm bảo ứng dụng ghi lại đầy đủ các sự kiện quan trọng (login, truy cập dữ liệu) theo Requirement 10.2.1, đồng thời rà soát (Requirement 6.2.3) để ngăn ứng dụng vô tình ghi đè số thẻ (PAN) rõ vào trong tệp log, gây vi phạm Requirement 3.5.1.",
+    "source": ["Requirement_06.md", "Requirement_10.md", "Requirement_03.md"]
+  },
+  {
+    "id": "618",
+    "question": "Một Designated Entity (A3) thực hiện Pentest segmentation mỗi 6 tháng. Họ cần cung cấp bằng chứng gì cho QSA?",
+    "answer": "1. Phương pháp Pentest đã phê duyệt (Requirement 11.4.1). 2. Kết quả Pentest chứng minh các vùng ngoài scope không thể 'thấy' vùng CDE (Requirement 11.4.5). 3. Biên bản rà soát BAU của quý đó xác nhận Pentest đã diễn ra đúng hạn (Appendix A3.3.3). 4. Tài liệu khắc phục các lỗ hổng (nếu có) được tìm thấy trong quá trình test (Requirement 11.4.4).",
+    "source": ["Requirement_11.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md"]
+  },
+  {
+    "id": "619",
+    "question": "Tại sao việc 'Ẩn địa chỉ IP nội bộ' (Requirement 1.4.5) lại liên quan đến việc bảo mật trang web tại Requirement 6?",
+    "answer": "Nếu trang web thanh toán bị lỗi và hiển thị 'Error message' chứa IP nội bộ hoặc cấu trúc thư mục server (vi phạm Requirement 6.2.4 về thông tin nhạy cảm), hacker sẽ có dữ liệu để thực hiện tấn công trực diện vào mạng nội bộ, phá vỡ lớp bảo vệ ẩn danh IP tại Requirement 1.4.5.",
+    "source": ["Requirement_01.md", "Requirement_06.md"]
+  },
+  {
+    "id": "620",
+    "question": "Làm thế nào để kết hợp giữa Requirement 12.8.3 (Due Diligence) và Appendix A1 khi chọn nhà cung cấp Cloud?",
+    "answer": "Khi đánh giá đối tác (Due Diligence - 12.8.3), doanh nghiệp phải yêu cầu Provider cung cấp chứng chứng minh họ đạt chuẩn Appendix A1. Cụ thể là bản Pentest cách ly tenant (A1.1.4) và quy trình hỗ trợ forensics (A1.2.2). Nếu Provider không có các bằng chứng này, doanh nghiệp không nên ký hợp đồng vì rủi ro mất an toàn dữ liệu khách hàng.",
+    "source": ["Requirement_12.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "621",
+    "question": "Tại sao 'Targeted Risk Analysis' (Req 12.3.1) cho các lỗ hổng rủi ro thấp (Req 11.3.1.1) lại cần rà soát hàng năm?",
+    "answer": "Một lỗ hổng được coi là rủi ro thấp năm nay có thể trở thành 'Critical' vào năm sau nếu có công cụ khai thác mới được công bố. Requirement 12.3.1 yêu cầu rà soát TRA ít nhất 12 tháng/lần để đảm bảo các lỗ hổng 'Low' vẫn thực sự là 'Low' và không cần phải ưu tiên vá gấp.",
+    "source": ["Requirement_12.md", "Requirement_11.md"]
+  },
+  {
+    "id": "622",
+    "question": "Một tổ chức sử dụng 'Keyed-hashing' để bảo vệ PAN. Họ cần quản lý khóa này như thế nào theo Appendix G và Requirement 3.7?",
+    "answer": "1. Khóa phải có độ mạnh mật mã ít nhất 128-bit (Appendix G). 2. Khóa phải được tạo bằng nguồn ngẫu nhiên mạnh (Requirement 3.7.1). 3. Phải áp dụng Dual Control khi nhập khóa vào hệ thống (Requirement 3.7.6). 4. Phải rotate (thay đổi) khóa định kỳ hoặc khi có nghi ngờ lộ (Requirement 3.7.4).",
+    "source": ["20260406_ENGR_PCIDSS_appendixG_Part3.md", "Requirement_03.md"]
+  },
+  {
+    "id": "623",
+    "question": "Tại sao việc 'Giới hạn kết nối NSC' (Requirement 1.3.1) lại giúp thực thi nguyên tắc 'Need-to-know' (Appendix G)?",
+    "answer": "Need-to-know không chỉ áp dụng cho con người mà còn cho hệ thống. Bằng cách thiết lập 'Default Deny' trên NSC (Req 1.3.1), chúng ta đảm bảo máy chủ A chỉ có thể 'biết' và kết nối với máy chủ B nếu thực sự có nhu cầu nghiệp vụ, ngăn chặn việc hacker dùng máy chủ bị chiếm quyền để thám thính toàn bộ mạng.",
+    "source": ["Requirement_01.md", "20260406_ENGR_PCIDSS_appendixG_Part1.md"]
+  },
+  {
+    "id": "624",
+    "question": "Một Designated Entity (A3) thực hiện thay đổi cấu hình 'Security Parameters' (Req 2.2.6). Họ cần lưu giữ bằng chứng gì cho BAU?",
+    "answer": "1. Tài liệu cấu hình cũ và mới (Requirement 2.2.6). 2. Biên bản phê duyệt thay đổi (Requirement 6.5.1). 3. Kết quả rà soát BAU hàng quý (Appendix A3.3.3) xác nhận thay đổi này không làm suy giảm mức độ bảo mật chung và đã được kiểm tra tính hiệu quả.",
+    "source": ["Requirement_02.md", "Requirement_06.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md"]
+  },
+  {
+    "id": "625",
+    "question": "Tại sao việc 'Mã hóa bộ nhớ' (RAM Encryption) lại được khuyến nghị cho các Service Provider Cloud (A1)?",
+    "answer": "Trong môi trường Multi-tenant (A1), rủi ro lớn nhất là 'Side-channel attack' nơi khách hàng A cố gắng đọc bộ nhớ RAM của khách hàng B qua các lỗi của chip xử lý. Việc mã hóa RAM (phối hợp Requirement 3.5.1 và Appendix A1.1.2) là lớp phòng thủ kỹ thuật cao cấp nhất để ngăn chặn rò rỉ dữ liệu thẻ giữa các máy ảo dùng chung CPU.",
+    "source": ["Requirement_03.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "626",
+    "question": "Khi thực hiện 'External Penetration Testing' (Req 11.4.3), Merchant cần phối hợp gì với nhà cung cấp dịch vụ ASV?",
+    "answer": "1. Cung cấp danh sách IP public chính xác (Requirement 12.5.1). 2. Đảm bảo ASV được cấp quyền quét qua tường lửa (Requirement 1.4.2). 3. Nếu ASV phát hiện lỗ hổng CVSS >= 4.0, Merchant phải vá lỗi và yêu cầu quét lại để đạt trạng thái 'Passing scan' (Requirement 11.3.2 và Appendix G definition).",
+    "source": ["Requirement_11.md", "Requirement_12.md", "Requirement_01.md", "20260406_ENGR_PCIDSS_appendixG_Part1.md"]
+  },
+  {
+    "id": "627",
+    "question": "Tại sao việc 'Quản lý mật khẩu hệ thống' (Req 8.6) lại liên quan đến việc bảo vệ Log tại Requirement 10?",
+    "answer": "Các tài khoản hệ thống (System Accounts) thường được dùng để gửi log tự động về server tập trung. Nếu mật khẩu của các tài khoản này bị hard-coded (vi phạm Req 8.6.2), hacker có thể chiếm quyền tài khoản đó để sửa đổi hoặc xóa audit log (vi phạm Req 10.3.2) nhằm che giấu vết tích tấn công.",
+    "source": ["Requirement_08.md", "Requirement_10.md"]
+  },
+  {
+    "id": "628",
+    "question": "Một tổ chức áp dụng 'Customized Approach' (Appendix D) cho việc kiểm soát thiết bị lưu trữ rời (USB). Họ cần chuẩn bị gì cho kỳ đánh giá?",
+    "answer": "Họ phải có: 1. Ma trận kiểm soát giải trình cách họ chặn USB trái phép (ví dụ dùng AI camera giám sát thay vì khóa cổng software). 2. Bản TRA (Requirement 12.3.2) chứng minh giải pháp này đạt mục tiêu của Requirement 5.3.3. 3. Nhật ký vận hành giải pháp này trong suốt 12 tháng qua để chứng minh tính hiệu quả liên tục.",
+    "source": ["20260406_ENGR_PCIDSS_appendixD.md", "Requirement_12.md", "Requirement_05.md"]
+  },
+  {
+    "id": "629",
+    "question": "Tại sao việc 'Phân loại Media' (Req 9.4.2) lại giúp ích cho quy trình 'Data Retention' (Req 3.2.1)?",
+    "answer": "Khi Media (băng từ, ổ cứng) được dán nhãn phân loại kèm ngày tạo, bộ phận vận hành sẽ dễ dàng thực hiện Requirement 3.2.1: xác định chính xác media nào đã quá hạn lưu giữ (ví dụ > 7 năm) để mang đi tiêu hủy an toàn, tránh việc lưu trữ dữ liệu thừa thãi không cần thiết.",
+    "source": ["Requirement_09.md", "Requirement_03.md"]
+  },
+  {
+    "id": "630",
+    "question": "Hệ thống FIM phát hiện một Driver mới được cài đặt trên máy POS. Những yêu cầu bảo mật nào cần được kiểm tra ngay?",
+    "answer": "1. Kiểm tra Requirement 9.5.1.2: Thiết bị POS có dấu hiệu bị cạy mở để cài phần cứng mới không? 2. Kiểm tra Requirement 6.5.1: Có phê duyệt thay đổi cho việc cập nhật driver này không? 3. Nếu là Designated Entity (A3), phải thực hiện Data Discovery (Appendix A3.2.5) để xem driver này có đang bí mật thu thập và lưu PAN cleartext vào thư mục ẩn không.",
+    "source": ["Requirement_09.md", "Requirement_06.md", "20260406_ENGR_PCIDSS_appendixA3_Part3.md"]
+  },
+  {
+    "id": "631",
+    "question": "Tại sao việc rà soát 'NSC Ruleset' mỗi 6 tháng (Req 1.2.7) lại cần đối soát với danh sách 'TPSP Services' (Req 12.8.1)?",
+    "answer": "Nhiều rule trên tường lửa được mở để phục vụ kết nối với bên thứ ba (TPSP). Nếu một dịch vụ của TPSP đã ngưng (xóa khỏi danh sách 12.8.1), thì rule tương ứng trên NSC phải được gỡ bỏ trong kỳ rà soát 1.2.7 để đóng các 'cửa ngõ' không còn lý do nghiệp vụ (Business Justification).",
+    "source": ["Requirement_01.md", "Requirement_12.md"]
+  },
+  {
+    "id": "632",
+    "question": "Một Service Provider Cloud (A1) gặp sự cố làm gián đoạn việc ghi Log của khách hàng. Họ phải làm gì theo v4.0.1?",
+    "answer": "1. Phát hiện và báo động ngay (Requirement 10.7.2). 2. Khôi phục dịch vụ và phân tích rủi ro (Requirement 10.7.3). 3. Thông báo cho khách hàng về khoảng thời gian mất log để họ có biện pháp ứng phó (Appendix A1.2.3). 4. Cung cấp bằng chứng về sự cố này trong kỳ đánh giá PCI tiếp theo của khách hàng.",
+    "source": ["Requirement_10.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "633",
+    "question": "Làm thế nào để kết hợp Requirement 8.3.6 và Appendix G khi quản lý mật khẩu của 'Administrative Access'?",
+    "answer": "1. Appendix G định nghĩa Administrative Access là quyền quản trị cao cấp (Root/Admin). 2. Requirement 8.3.6 yêu cầu mật khẩu tối thiểu 12 ký tự. 3. Do rủi ro của quyền Admin là tối thượng, doanh nghiệp nên phối hợp với Requirement 12.3.1 (TRA) để tăng độ phức tạp (thêm ký tự đặc biệt) hoặc yêu cầu MFA (Req 8.4.1) cho mọi lần login.",
+    "source": ["Requirement_08.md", "20260406_ENGR_PCIDSS_appendixG_Part1.md", "Requirement_12.md"]
+  },
+  {
+    "id": "634",
+    "question": "Tại sao việc 'Cập nhật sơ đồ mạng' (Req 1.2.3) lại là bước bắt buộc của quy trình BAU cho Designated Entities (A3)?",
+    "answer": "Sơ đồ mạng (Requirement 1.2.3) là cơ sở để xác định phạm vi. Theo Appendix A3.3.3, thực thể A3 phải rà soát BAU hàng quý để đảm bảo mọi thay đổi trong 3 tháng qua đều được phản ánh trên sơ đồ. Nếu sơ đồ sai, các cuộc quét lỗ hổng (Requirement 11.3.1) sẽ bỏ sót các vùng mạng mới, tạo ra lỗ hổng tuân thủ nghiêm trọng.",
+    "source": ["Requirement_01.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md", "Requirement_11.md"]
+  },
+  {
+    "id": "635",
+    "question": "Một tổ chức sử dụng 'Passphrase' (cụm mật khẩu) thay vì 'Password'. Họ cần tuân thủ những gì?",
+    "answer": "1. Appendix G định nghĩa Passphrase là một chuỗi ký tự dài. 2. Phải đảm bảo độ dài ít nhất 12 ký tự (Requirement 8.3.6). 3. Phải hướng dẫn người dùng cách chọn passphrase mạnh nhưng dễ nhớ (Requirement 8.3.8). 4. Nếu dùng xác thực đơn yếu tố, vẫn phải thay đổi ít nhất mỗi 90 ngày (Requirement 8.3.9).",
+    "source": ["20260406_ENGR_PCIDSS_appendixG_Part4.md", "Requirement_08.md"]
+  },
+  {
+    "id": "636",
+    "question": "Hệ thống IDS phát hiện traffic đi ra (Outbound) tới một quốc gia lạ chứa dung lượng lớn. Chuỗi xử lý là gì?",
+    "answer": "1. Phát hiện: Qua Requirement 11.5.1. 2. Ứng phó: Chặn kết nối ngay lập tức (Requirement 1.3.2 - Outbound control). 3. Điều tra: Xem audit log (Requirement 10.2.1.1) để xác định dữ liệu bị lấy đi là gì. 4. Nếu là Designated Entity (A3), phải báo cáo đây là hành vi 'Undesirable behavior' (Appendix A3.5.1).",
+    "source": ["Requirement_11.md", "Requirement_01.md", "Requirement_10.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md"]
+  },
+  {
+    "id": "637",
+    "question": "Tại sao việc 'Quản lý khóa mật mã' (Req 3.7) lại quan trọng đối với các nhà cung cấp dịch vụ Multi-tenant (A1)?",
+    "answer": "Trong môi trường A1, Provider thường quản lý khóa thay khách hàng. Nếu quy trình tạo khóa (Req 3.7.1) hoặc phân phối (Req 3.7.2) bị lỗi, một khách hàng có thể vô tình nhận được khóa của khách hàng khác. Provider phải chứng minh tính tách biệt tuyệt đối trong hệ thống quản lý khóa (KMS) theo Appendix A1.1.3.",
+    "source": ["Requirement_03.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "638",
+    "question": "Một ứng dụng thanh toán bị phát hiện có lỗi 'Hard-coded Credentials' trong mã nguồn. Quy trình khắc phục là gì?",
+    "answer": "1. Vi phạm Requirement 8.6.2. 2. Khắc phục: Chuyển thông tin xác thực vào một giải pháp quản lý bí mật (Secret Vault) theo Requirement 8.6.3. 3. Rà soát: Thực hiện Code Review lại toàn bộ module (Requirement 6.2.3.1). 4. Đào tạo: Huấn luyện lại lập trình viên về kỹ thuật lập trình an toàn (Requirement 6.2.2).",
+    "source": ["Requirement_08.md", "Requirement_06.md"]
+  },
+  {
+    "id": "639",
+    "question": "Tại sao 'Targeted Risk Analysis' (Req 12.3.1) lại cần thiết cho việc triển khai 'Anti-phishing' (Req 5.4.1)?",
+    "answer": "Lừa đảo qua email (Phishing) liên tục thay đổi hình thức. TRA (Requirement 12.3.1) giúp doanh nghiệp xác định xem các bộ lọc hiện tại (Requirement 5.4.1) có đủ mạnh để chống lại các đợt tấn công mới không, từ đó quyết định nâng cấp công nghệ hoặc tăng cường diễn tập giả lập cho nhân viên.",
+    "source": ["Requirement_12.md", "Requirement_05.md"]
+  },
+  {
+    "id": "640",
+    "question": "Một Designated Entity (A3) thực hiện thay đổi nhà cung cấp 'MSSP' (Dịch vụ bảo mật thuê ngoài). Họ cần làm gì?",
+    "answer": "1. Thực hiện Due Diligence với MSSP mới (Requirement 12.8.3). 2. Cập nhật Responsibility Matrix (Requirement 12.8.5). 3. Thực hiện rà soát phạm vi chính thức do đây là thay đổi cấu trúc vận hành lớn (Requirement 12.5.3 và Appendix A3.2.3). 4. Đảm bảo MSSP mới hỗ trợ quy trình BAU 3 tháng/lần (Appendix A3.3.3).",
+    "source": ["Requirement_12.md", "20260406_ENGR_PCIDSS_appendixA3_Part3.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md"]
+  },
+  {
+    "id": "641",
+    "question": "Tại sao việc 'Bảo vệ tập tin cấu hình' (Requirement 1.2.8) lại liên quan đến việc giám sát 'System-level objects' tại Requirement 10?",
+    "answer": "File cấu hình mạng là một dạng 'System-level object' (Appendix G). Requirement 1.2.8 yêu cầu bảo vệ các file này khỏi thay đổi trái phép. Requirement 10.2.1.7 yêu cầu ghi log mọi hành động tạo/xóa các object này. Nếu một hacker sửa file config để redirect traffic, log 10.2.1.7 sẽ là bằng chứng duy nhất để truy vết.",
+    "source": ["Requirement_01.md", "Requirement_10.md", "20260406_ENGR_PCIDSS_appendixG_Part1.md"]
+  },
+  {
+    "id": "642",
+    "question": "Làm thế nào để kết hợp Requirement 4.2.2 và Appendix G khi nhân viên gửi số thẻ qua email cho khách hàng?",
+    "answer": "1. Appendix G định nghĩa PAN là dữ liệu chủ thẻ nhạy cảm. 2. Requirement 4.2.2 nghiêm cấm gửi PAN không mã hóa qua email (end-user messaging). 3. Nếu khách hàng yêu cầu, thực thể phải dùng các giải pháp email mã hóa mạnh (Requirement 4.2.1) hoặc cổng thông tin an toàn (Secure Portal) và đào tạo nhân viên không được vi phạm quy trình này (Requirement 12.6.1).",
+    "source": ["Requirement_04.md", "20260406_ENGR_PCIDSS_appendixG_Part1.md", "Requirement_12.md"]
+  },
+  {
+    "id": "643",
+    "question": "Tại sao việc 'Rà soát tài khoản Admin' (Req 7.2.4) lại khắt khe hơn đối với 'Multi-tenant Service Providers' (A1)?",
+    "answer": "Trong môi trường A1, tài khoản Admin của provider có 'vạn năng' trên nhiều tenant. Theo Appendix A1.1.1, provider không được vào môi trường khách hàng nếu không được ủy quyền. Việc rà soát (Req 7.2.4) định kỳ giúp đảm bảo chỉ những Admin thực sự có trách nhiệm hỗ trợ khách hàng đó mới có quyền truy cập, ngăn chặn lạm dụng quyền hạn diện rộng.",
+    "source": ["Requirement_07.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "644",
+    "question": "Một tổ chức bị tấn công 'E-skimming' thành công trên trang web. Họ đã thất bại ở những kiểm soát nào?",
+    "answer": "1. Phát triển: Không áp dụng Secure Coding để chặn chèn script độc (Requirement 6.2.4). 2. Giám sát: Không có cơ chế phát hiện thay đổi script trên trang thanh toán (Requirement 11.6.1). 3. Ứng phó: Không phản hồi kịp thời với các alert bất thường (Requirement 12.10.5). 4. Đối tác: Nếu dùng dịch vụ của bên thứ ba, có thể đã thiếu Due Diligence (Requirement 12.8.3).",
+    "source": ["Requirement_06.md", "Requirement_11.md", "Requirement_12.md"]
+  },
+  {
+    "id": "645",
+    "question": "Tại sao 'Targeted Risk Analysis' (Req 12.3.1) lại là bắt buộc trước khi doanh nghiệp quyết định ngưng dùng Anti-malware cho một hệ thống (Req 5.2.3)?",
+    "answer": "Requirement 5.2.3 cho phép loại trừ một số hệ thống khỏi Anti-malware nếu 'không có rủi ro'. Tuy nhiên, để khẳng định điều này, doanh nghiệp phải thực hiện TRA (Requirement 12.3.1) để chứng minh bằng dữ liệu rằng hệ thống đó (ví dụ máy chủ DB biệt lập) không có nguy cơ bị nhiễm mã độc trong môi trường hiện tại.",
+    "source": ["Requirement_05.md", "Requirement_12.md"]
+  },
+  {
+    "id": "646",
+    "question": "Một Designated Entity (A3) thực hiện 'Data Discovery' (A3.2.5). Kết quả phát hiện PAN cleartext trong file log của App thanh toán. Họ cần làm gì?",
+    "answer": "1. Kích hoạt IR Plan xử lý dữ liệu ngoài phạm vi (Requirement 12.10.7). 2. Xóa an toàn file log đó (Requirement 3.2.1). 3. Sửa lỗi App để không ghi log PAN rõ nữa (Requirement 6.2.4). 4. Thực hiện quét lại toàn bộ server đó sau 1 tuần để đảm bảo lỗi đã được khắc phục hoàn toàn (Appendix A3.3.3).",
+    "source": ["20260406_ENGR_PCIDSS_appendixA3_Part3.md", "Requirement_12.md", "Requirement_03.md", "Requirement_06.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md"]
+  },
+  {
+    "id": "647",
+    "question": "Tại sao việc 'Mã hóa kết nối quản trị' (Req 2.2.7) lại cần thiết cho việc đạt tuân thủ Appendix A1.1.3?",
+    "answer": "Appendix A1.1.3 yêu cầu ngăn chặn khách hàng A tác động đến tài nguyên của khách hàng B. Nếu Admin của provider sử dụng kết nối không mã hóa (như HTTP) để quản lý hạ tầng (vi phạm Req 2.2.7), hacker có thể đánh chặn mật khẩu Admin và từ đó chiếm quyền điều khiển tài nguyên của toàn bộ khách hàng trên Cloud.",
+    "source": ["Requirement_02.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "648",
+    "question": "Làm thế nào để kết hợp Requirement 11.4.1 và Appendix G khi xây dựng 'Penetration Testing Methodology'?",
+    "answer": "1. Appendix G định nghĩa Pentest là mô phỏng tấn công thực tế. 2. Doanh nghiệp phải xây dựng phương pháp luận bao quát cả lớp ứng dụng (OWASP) và lớp mạng (Requirement 11.4.1). 3. Phải bao gồm các kịch bản tấn công vào CDE từ cả bên trong và bên ngoài (Requirement 11.4.2, 11.4.3). 4. Phải xác định rõ tiêu chí 'Exploitable vulnerability' để ưu tiên vá lỗi.",
+    "source": ["Requirement_11.md", "20260406_ENGR_PCIDSS_appendixG_Part4.md"]
+  },
+  {
+    "id": "649",
+    "question": "Tại sao việc 'Quản lý khóa' (Req 3.7) lại liên quan mật thiết đến kế hoạch 'Business Continuity' (Req 12.10.1)?",
+    "answer": "Nếu xảy ra thảm họa làm hỏng máy chủ chính, doanh nghiệp phải phục hồi từ bản backup. Nếu họ làm mất khóa mật mã (vi phạm Requirement 3.7.5), toàn bộ dữ liệu backup sẽ trở nên vô dụng vì không thể giải mã. Do đó, kế hoạch khôi phục kinh doanh (Req 12.10.1) phải bao gồm cả quy trình phục hồi khóa an toàn.",
+    "source": ["Requirement_03.md", "Requirement_12.md"]
+  },
+  {
+    "id": "650",
+    "question": "Một 'Service Provider' cung cấp dịch vụ POS đầu cuối vẫn dùng TLS 1.0 cho một số khách hàng cũ. Họ cần làm gì để không bị phạt?",
+    "answer": "1. Phải có bản 'Risk Mitigation and Migration Plan' chính thức (Appendix A2.1.2). 2. Chứng minh các máy POS này không bị ảnh hưởng bởi lỗ hổng TLS 1.0 hiện tại (Appendix A2.1.1). 3. Thực hiện TRA hàng năm (Requirement 12.3.1). 4. Phải luôn có sẵn tùy chọn TLS 1.2+ cho khách hàng nếu họ muốn nâng cấp (Requirement A2.1.3).",
+    "source": ["20260406_ENGR_PCIDSS_appendixA2.md", "Requirement_12.md"]
+  },
+  {
+    "id": "651",
+    "question": "Tại sao việc 'Xóa mật khẩu mặc định' (Req 2.2.2) lại là chốt chặn đầu tiên để bảo vệ 'Account Data' (Appendix G)?",
+    "answer": "Account Data (Dữ liệu tài khoản) là mục tiêu cuối cùng của hacker. Hầu hết các cuộc xâm nhập bắt đầu từ việc hacker dùng mật khẩu mặc định của vendor (vi phạm Req 2.2.2) để vào được thiết bị mạng, từ đó tạo bàn đạp tấn công sâu vào database chứa dữ liệu thẻ khách hàng.",
+    "source": ["Requirement_02.md", "20260406_ENGR_PCIDSS_appendixG_Part1.md"]
+  },
+  {
+    "id": "652",
+    "question": "Một Designated Entity (A3) thực hiện thay đổi 'Log Retention Period'. Họ cần làm gì theo v4.0.1?",
+    "answer": "1. Đảm bảo thời gian lưu trữ vẫn tối thiểu 12 tháng (Requirement 10.5.1). 2. Thực hiện TRA (Requirement 12.3.1) để chứng minh thời gian lưu trữ mới vẫn đáp ứng nhu cầu điều tra sự cố. 3. Phê duyệt chính sách mới bởi cấp điều hành (Appendix A3.1.1). 4. Cập nhật quy trình BAU hàng quý để giám sát việc thực thi chính sách mới (Appendix A3.3.3).",
+    "source": ["Requirement_10.md", "Requirement_12.md", "20260406_ENGR_PCIDSS_appendixA3_Part1.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md"]
+  },
+  {
+    "id": "653",
+    "question": "Tại sao việc 'Giới hạn truy cập vật lý' (Req 9.2.1) lại giúp giảm rủi ro nhiễm 'Malware' (Req 5.2.1)?",
+    "answer": "Nhiều loại mã độc (như phần mềm gián điệp) được cài đặt trực tiếp qua cổng USB hoặc thiết bị ngoại vi. Bằng cách khóa chặt phòng máy chủ (Req 9.2.1) và giám sát người lạ (Req 9.3.2), doanh nghiệp ngăn chặn được các cuộc tấn công vật lý 'gắn mã độc tại chỗ', hỗ trợ hiệu quả cho các lớp bảo vệ phần mềm tại Requirement 5.",
+    "source": ["Requirement_09.md", "Requirement_05.md"]
+  },
+  {
+    "id": "654",
+    "question": "Làm thế nào để kết hợp giữa Requirement 6.3.3 (vá lỗi) và Appendix C khi bản vá gây lỗi hệ thống?",
+    "answer": "Doanh nghiệp điền vào Worksheet Appendix C: 1. Constraints: Giải thích bản vá gây sập hệ thống thanh toán. 2. Definition: Đưa ra kiểm soát bù đắp (ví dụ: dùng WAF chặn chính xác signature của lỗ hổng đó - Requirement 6.4.1). 3. Objective: Đạt được mục tiêu ngăn chặn khai thác lỗ hổng mà không cần cài bản vá ngay lập tức.",
+    "source": ["Requirement_06.md", "20260406_ENGR_PCIDSS_appendixC.md"]
+  },
+  {
+    "id": "655",
+    "question": "Tại sao việc 'Quản lý Identity' (Req 8.2.4) lại quan trọng đối với các Service Provider Multi-tenant (A1)?",
+    "answer": "Provider quản lý danh tính cho cả nhân viên nội bộ và tài khoản đặc quyền của khách hàng. Nếu quy trình tạo/sửa ID (Req 8.2.4) bị lỏng lẻo, hacker có thể tạo một tài khoản 'Shadow Admin' để bí mật theo dõi dữ liệu của nhiều khách hàng khác nhau mà không bị phát hiện qua các cơ chế cách ly logic của Appendix A1.",
+    "source": ["Requirement_08.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "656",
+    "question": "Một Designated Entity (A3) phát hiện IP của một 'Visitor' cố gắng truy cập vào vùng CDE. Chuỗi xử lý là gì?",
+    "answer": "1. Ngăn chặn: NSC chặn kết nối từ vùng Wi-Fi khách (Requirement 1.3.3). 2. Phát hiện: IDS gửi alert hành vi bất thường (Appendix A3.5.1). 3. Điều tra: Xem camera giám sát xem visitor đó là ai (Requirement 9.2.1). 4. Báo cáo: Ghi nhận sự cố vào nhật ký BAU hàng quý (Appendix A3.3.3).",
+    "source": ["Requirement_01.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md", "Requirement_09.md"]
+  },
+  {
+    "id": "657",
+    "question": "Tại sao việc 'Mã hóa truyền tải' (Req 4.2.1) lại cần tham chiếu định nghĩa 'Trusted Keys' tại Appendix G?",
+    "answer": "Mã hóa chỉ an toàn nếu khóa/chứng chỉ là đáng tin cậy. Appendix G định nghĩa Trusted Keys là các khóa được cấp bởi CA uy tín. Nếu doanh nghiệp dùng 'Self-signed certificate' (không đáng tin cậy) để truyền PAN (vi phạm Req 4.2.1), hacker có thể dễ dàng thực hiện tấn công Man-in-the-middle để lấy cắp dữ liệu.",
+    "source": ["Requirement_04.md", "20260406_ENGR_PCIDSS_appendixG_Part1.md"]
+  },
+  {
+    "id": "658",
+    "question": "Làm thế nào để sử dụng Appendix F để hỗ trợ Requirement 6.2.4 về phòng chống tấn công Web phổ biến?",
+    "answer": "Nếu ứng dụng web được phát triển bởi đơn vị đạt chuẩn PCI Secure Software Standard, Appendix F cho phép coi Requirement 6.2.4 là 'Đã thực hiện'. Lý do là tiêu chuẩn đó vốn yêu cầu phần mềm phải có khả năng tự phòng thủ (self-protection) chống lại các lỗi như SQLi, XSS ngay từ thiết kế lõi.",
+    "source": ["Requirement_06.md", "20260406_ENGR_PCIDSS_appendixF.md"]
+  },
+  {
+    "id": "659",
+    "question": "Tại sao việc 'Đồng bộ thời gian' (Req 10.6) lại cần phối hợp với 'Security Awareness Training' (Req 12.6)?",
+    "answer": "Nhân viên IT cần hiểu **tại sao** thời gian lại quan trọng cho việc điều tra. Đào tạo nhận thức (Req 12.6.1) giúp họ không tự ý thay đổi giờ hệ thống để 'tiện làm việc' (vi phạm Req 10.6.3), đảm bảo tính nhất quán của audit log phục vụ cho việc truy vết sau này.",
+    "source": ["Requirement_10.md", "Requirement_12.md"]
+  },
+  {
+    "id": "660",
+    "question": "Một tổ chức sử dụng 'Biện pháp bù đắp' (Appendix B) cho việc lưu giữ log. Họ có được dùng 'Customized Approach' (Appendix D) cho cùng yêu cầu đó không?",
+    "answer": "Tuyệt đối không. Theo Appendix D và B, đây là hai con đường tách biệt hoàn toàn. Nếu doanh nghiệp đã chọn tự thiết kế kiểm soát (Customized Approach), họ không được dùng biện pháp bù đắp vì bản thân giải pháp tùy chỉnh đó đã phải đáp ứng đầy đủ mục tiêu bảo mật ban đầu.",
+    "source": ["20260406_ENGR_PCIDSS_appendixD.md", "20260406_ENGR_PCIDSS_appendixB.md"]
+  },
+  {
+    "id": "661",
+    "question": "Tại sao việc 'Rà soát NSC Ruleset' (Req 1.2.7) lại quan trọng đối với các Designated Entities (A3) thực hiện BAU?",
+    "answer": "Vì theo Appendix A3.3.3, họ phải xác nhận các hoạt động bảo mật đang diễn ra. Việc rà soát rule tường lửa 6 tháng/lần (Req 1.2.7) nếu được thực hiện hàng quý hoặc phối hợp với các đợt xác nhận phạm vi (Appendix A3.2.1) sẽ giúp loại bỏ sớm các rule 'tạm thời' nguy hiểm.",
+    "source": ["Requirement_01.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md", "20260406_ENGR_PCIDSS_appendixA3_Part2.md"]
+  },
+  {
+    "id": "662",
+    "question": "Một Service Provider Cloud (A1) phát hiện lỗi tại lớp 'Hypervisor'. Họ cần thực hiện những yêu cầu nào?",
+    "answer": "1. Vá lỗi lỗ hổng Critical trong vòng 1 tháng (Requirement 6.3.3). 2. Thông báo rủi ro cho tất cả khách hàng đang dùng hạ tầng đó (Appendix A1.2.3). 3. Đánh giá xem lỗi này có cho phép 'Tenant escape' (khách hàng này vào máy ảo khách hàng kia) không (Appendix A1.1.1). 4. Thực hiện Pentest lại toàn bộ lớp ảo hóa (Requirement 11.4.1).",
+    "source": ["Requirement_06.md", "20260406_ENGR_PCIDSS_appendixA1.md", "Requirement_11.md"]
+  },
+  {
+    "id": "663",
+    "question": "Tại sao việc 'Quản lý tài khoản Admin' (Req 8.2.2) lại cần phối hợp với 'Access Control System' (Req 7.3.1)?",
+    "answer": "Requirement 8.2.2 nghiêm cấm dùng chung tài khoản. Hệ thống kiểm soát truy cập (Requirement 7.3.1) giúp thực thi việc này bằng cách tự động hóa việc gán quyền theo ID cá nhân, đảm bảo mọi hành động quản trị đều được định danh và không thể chia sẻ mật khẩu Admin cho người khác.",
+    "source": ["Requirement_08.md", "Requirement_07.md"]
+  },
+  {
+    "id": "664",
+    "question": "Khi Merchant dùng 'Mobile Device' để nhận thẻ, họ cần tuân thủ những yêu cầu bổ sung nào tại Requirement 9?",
+    "answer": "1. Thiết bị di động là media điện tử, phải được bảo vệ vật lý khi không dùng (Requirement 9.4.1). 2. Phải có inventory chi tiết (serial, nhân viên giữ máy) theo Requirement 9.5.1.1. 3. Khi máy bị hỏng, phải xóa dữ liệu an toàn trước khi mang đi sửa (Requirement 9.4.7). 4. Đào tạo nhân viên không để máy ở nơi công cộng không giám sát (Requirement 9.5.1.3).",
+    "source": ["Requirement_09.md"]
+  },
+  {
+    "id": "665",
+    "question": "Làm thế nào để kết hợp giữa Requirement 12.3.1 và Appendix E khi xây dựng tần suất Pentest nội bộ?",
+    "answer": "Mặc dù 11.4.2 yêu cầu Pentest hàng năm, doanh nghiệp có thể dùng TRA (Requirement 12.3.1) và mẫu tại Appendix E để chứng minh rằng do hệ thống thay đổi liên tục, họ cần thực hiện Pentest 6 tháng/lần để đảm bảo an toàn, từ đó đưa vào kế hoạch tuân thủ chính thức của tổ chức.",
+    "source": ["Requirement_12.md", "20260406_ENGR_PCIDSS_appendixE.md", "Requirement_11.md"]
+  },
+  {
+    "id": "666",
+    "question": "Tại sao việc 'Giám sát Script' (Req 6.4.3) lại quan trọng đối với các 'Designated Entities' (A3)?",
+    "answer": "Thực thể A3 thường là các tổ chức lớn, mục tiêu chính của e-skimming. Theo Appendix A3.5.1, họ phải nhận diện hành vi bất thường. Việc script trang thanh toán bị thay đổi hoặc load từ một domain mới (vi phạm Req 6.4.3) là một dấu hiệu 'Undesirable behavior' cực kỳ nghiêm trọng cần báo động ngay lập tức.",
+    "source": ["Requirement_06.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md"]
+  },
+  {
+    "id": "667",
+    "question": "Một tổ chức bị lộ dữ liệu thẻ do nhân viên IT cũ dùng VPN vào mạng. Lỗi kiểm soát nào đã xảy ra?",
+    "answer": "1. Thất bại tại Requirement 8.2.5: Không thu hồi quyền ngay khi nghỉ việc. 2. Thất bại tại Requirement 8.4.3: Có thể VPN không áp dụng MFA. 3. Thất bại tại Requirement 10.4.1: Không rà soát log đăng nhập hàng ngày để phát hiện tài khoản cũ đang hoạt động. 4. Nếu là Designated Entity (A3), đã vi phạm quy trình review quyền nhân sự nghỉ việc tại Appendix A3.4.1.",
+    "source": ["Requirement_08.md", "Requirement_10.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md"]
+  },
+  {
+    "id": "668",
+    "question": "Tại sao việc 'Hardening thiết bị Wireless' (Req 2.3.1) lại liên quan mật thiết đến việc bảo vệ CDE tại Requirement 1?",
+    "answer": "Thiết bị Wireless cấu hình yếu là cửa ngõ để bypass tường lửa. Nếu không đổi mật khẩu mặc định (Req 2.3.1), hacker sẽ vào được mạng Wi-Fi và từ đó dùng các kết nối được phép (Requirement 1.3.3) để xâm nhập thẳng vào vùng dữ liệu thẻ (CDE).",
+    "source": ["Requirement_02.md", "Requirement_01.md"]
+  },
+  {
+    "id": "669",
+    "question": "Làm thế nào để sử dụng Appendix G để phân loại 'Sensitive Authentication Data' (SAD) cho Requirement 3.3?",
+    "answer": "Appendix G định nghĩa SAD gồm CVV, PIN, Track data. Nhân viên thường nhầm SAD với PAN. Việc hiểu đúng giúp doanh nghiệp thực thi Requirement 3.3.1: Tuyệt đối không lưu trữ SAD sau authorization, kể cả khi đã mã hóa, vì đây là thông tin 'chìa khóa' để tạo thẻ giả.",
+    "source": ["20260406_ENGR_PCIDSS_appendixG_Part5.md", "Requirement_03.md"]
+  },
+  {
+    "id": "670",
+    "question": "Tại sao 'Targeted Risk Analysis' (Req 12.3.1) lại là bắt buộc cho mọi giải pháp 'Customized Approach' (Appendix D)?",
+    "answer": "Vì giải pháp tùy chỉnh không theo tiêu chuẩn định sẵn, nên doanh nghiệp phải dùng TRA (Requirement 12.3.1) để **tự chứng minh** với đánh giá viên rằng giải pháp đó đủ mạnh để chống lại các mối đe dọa thực tế, đảm bảo an toàn tương đương hoặc hơn so với yêu cầu gốc.",
+    "source": ["Requirement_12.md", "20260406_ENGR_PCIDSS_appendixD.md"]
+  },
+  {
+    "id": "671",
+    "question": "Một thực thể phát hiện tệp tin 'Memory Dump' sau khi server bị crash chứa số thẻ rõ. Quy trình phối hợp là gì?",
+    "answer": "1. Appendix G định nghĩa Dump file là media chứa dữ liệu. 2. Xử lý như sự cố rò rỉ dữ liệu ngoài phạm vi (Requirement 12.10.7). 3. Xóa an toàn tệp dump (Requirement 3.2.1). 4. Thực hiện Hardening OS để ngăn việc tự động tạo dump file chứa dữ liệu nhạy cảm trong tương lai (Requirement 2.2.1).",
+    "source": ["20260406_ENGR_PCIDSS_appendixG_Part3.md", "Requirement_12.md", "Requirement_03.md", "Requirement_02.md"]
+  },
+  {
+    "id": "672",
+    "question": "Tại sao việc 'Quản lý Security Officer' (Req 12.1.4) lại quan trọng đối với các Service Provider Cloud (A1)?",
+    "answer": "Security Officer là người chịu trách nhiệm cuối cùng. Trong môi trường A1, họ phải điều phối việc tuân thủ trên toàn hạ tầng Multi-tenant. Nếu không có người chịu trách nhiệm cấp cao, các xung đột về tài nguyên bảo mật giữa các khách hàng sẽ không được giải quyết, gây vi phạm Appendix A1.1.3.",
+    "source": ["Requirement_12.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "673",
+    "question": "Khi thực hiện 'Internal Vulnerability Scanning' (Req 11.3.1), tại sao cần dùng 'Authenticated Scan'?",
+    "answer": "Quét có xác thực (Requirement 11.3.1.2) cho phép công cụ quét 'vào bên trong' hệ điều hành để tìm các lỗi cấu hình yếu mà quét từ ngoài không thấy được. Điều này giúp doanh nghiệp tuân thủ Requirement 2.2.1 (Hardening) triệt để hơn bằng cách phát hiện các dịch vụ thừa hoặc bản vá lỗi OS bị thiếu.",
+    "source": ["Requirement_11.md", "Requirement_02.md"]
+  },
+  {
+    "id": "674",
+    "question": "Làm thế nào để kết hợp giữa Requirement 8.3.1 (Yếu tố xác thực) và Appendix G khi dùng 'Smart Card'?",
+    "answer": "1. Appendix G định nghĩa Smart Card là yếu tố 'Something you have'. 2. Requirement 8.3.1 yêu cầu dùng ít nhất 1 yếu tố xác thực. 3. Để đạt chuẩn MFA (Req 8.4.2), doanh nghiệp phải kết hợp Smart Card với mã PIN (Something you know). 4. Phải đảm bảo thẻ này là duy nhất cho từng người dùng (Requirement 8.2.1).",
+    "source": ["Requirement_08.md", "20260406_ENGR_PCIDSS_appendixG_Part1.md"]
+  },
+  {
+    "id": "675",
+    "question": "Tại sao việc 'Phân tách môi trường Dev/Prod' (Req 6.5.3) lại giúp đạt chuẩn 'Designated Entity' (A3) về BAU?",
+    "answer": "Theo Appendix A3.3.3, thực thể A3 phải xác nhận các quy trình vận hành đang được tuân thủ. Việc tách biệt môi trường (Req 6.5.3) giúp quy trình vận hành trở nên minh bạch: mọi thay đổi trên Prod đều phải qua phê duyệt chính thức, giúp việc rà soát BAU hàng quý trở nên dễ dàng và chính xác hơn.",
+    "source": ["Requirement_06.md", "20260406_ENGR_PCIDSS_appendixA3_Part5.md"]
+  },
+  {
+    "id": "676",
+    "question": "Một tổ chức bị 'SQL Injection' do thư viện bên thứ ba bị lỗi. Họ cần làm gì theo v4.0.1?",
+    "answer": "1. Requirement 6.3.2: Xác định tất cả các app đang dùng thư viện đó qua Inventory. 2. Requirement 6.3.3: Cập nhật bản vá cho thư viện ngay lập tức. 3. Requirement 11.4.4: Pentest lại để xác nhận lỗi đã hết. 4. Appendix F: Nếu thư viện đạt chuẩn Secure SLC, hãy liên hệ vendor để nhận hướng dẫn cấu hình an toàn.",
+    "source": ["Requirement_06.md", "Requirement_11.md", "20260406_ENGR_PCIDSS_appendixF.md"]
+  },
+  {
+    "id": "677",
+    "question": "Tại sao việc 'Ghi log admin action' (Req 10.2.1.2) lại cực kỳ quan trọng cho các Service Provider Cloud (A1)?",
+    "answer": "Trong môi trường A1, Admin của provider có thể vô tình hoặc cố ý vào dữ liệu của khách hàng. Việc ghi log (Req 10.2.1.2) mọi hành động của Admin provider là bằng chứng pháp lý duy nhất để khách hàng tin tưởng (Appendix A1.1.1) và để provider chứng minh tính minh bạch trong quản lý hạ tầng dùng chung.",
+    "source": ["Requirement_10.md", "20260406_ENGR_PCIDSS_appendixA1.md"]
+  },
+  {
+    "id": "678",
+    "question": "Một thực thể phát hiện thiết bị mạng bị mất cấu hình và quay về 'Default Settings'. Những yêu cầu nào bị vi phạm?",
+    "answer": "1. Requirement 2.2.2: Mật khẩu mặc định quay trở lại. 2. Requirement 1.2.8: File cấu hình an toàn bị mất. 3. Requirement 10.7.2: Phải phát hiện và alert ngay lỗi kiểm soát này. 4. Thực thể phải phục hồi từ bản backup cấu hình an toàn gần nhất (Requirement 1.2.8.b).",
+    "source": ["Requirement_02.md", "Requirement_01.md", "Requirement_10.md"]
+  },
+  {
+    "id": "679",
+    "question": "Làm thế nào để sử dụng Appendix G để giải thích tầm quan trọng của 'Strong Cryptography' cho Requirement 3.5.1?",
+    "answer": "Appendix G định nghĩa Strong Cryptography phải dựa trên các chuẩn được công nhận (như AES, RSA) với độ dài khóa phù hợp. Việc hiểu đúng định nghĩa này giúp doanh nghiệp tránh dùng các thuật toán cũ (như DES) đã bị bẻ khóa, từ đó đảm bảo Requirement 3.5.1: PAN lưu trữ thực sự không thể đọc được bởi hacker.",
+    "source": ["20260406_ENGR_PCIDSS_appendixG_Part1.md", "Requirement_03.md"]
+  },
+  {
+    "id": "680",
+    "question": "Tại sao việc 'Rà soát vai trò nhân viên' (Requirement 12.1.3) lại cần phối hợp với 'Access Control Model' tại Requirement 7.2.1?",
+    "answer": "Chính sách (Req 12.1.3) định nghĩa ai làm việc gì. Mô hình truy cập (Req 7.2.1) thực thi chính sách đó trên hệ thống. Nếu không phối hợp, nhân viên có thể có chức danh mới nhưng vẫn giữ quyền truy cập cũ (vi phạm Least Privilege), tạo ra kẽ hở cho rò rỉ dữ liệu thẻ.",
+    "source": ["Requirement_12.md", "Requirement_07.md"]
+  }
+]

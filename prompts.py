@@ -8,7 +8,7 @@ SYSTEM_MESSAGE: Final[str] = (
 )
 
 USER_PROMPT_TEMPLATE: Final[str] = """
-Bạn đang làm việc với MỘT TÀI LIỆU CỤ THỂ.
+Bạn đang làm việc với MỘT ĐOẠN TRÍCH từ TÀI LIỆU CỤ THỂ.
 
 METADATA TÀI LIỆU (cực kỳ quan trọng):
 - Tên file: "{document_name}"
@@ -143,7 +143,7 @@ YÊU CẦU NGÔN NGỮ (BẮT BUỘC - CỰC KỲ QUAN TRỌNG):
 - Nếu một câu hỏi không thể viết bằng tiếng Việt → KHÔNG tạo câu hỏi đó
 
 YÊU CẦU ĐẦU RA:
-- answer_location PHẢI là bản sao NGUYÊN VĂN từ tài liệu
+- answer_location PHẢI là bản sao NGUYÊN VĂN từ đoạn trích
 - Không chỉnh sửa, không diễn giải
 
 YÊU CẦU TÍNH DUY NHẤT (CRITICAL):
@@ -158,7 +158,7 @@ YÊU CẦU SỐ LƯỢNG (BẮT BUỘC):
 - KHÔNG tạo câu hỏi nếu không tìm được câu trả lời rõ ràng
 - Nếu một câu hỏi không chắc chắn → chọn câu khác
 
-TÀI LIỆU:
+ĐOẠN TRÍCH (chunk {chunk_id}/{total_chunks}):
 ---
 {document_content}
 ---
@@ -183,7 +183,11 @@ NHẮC LẠI: MỌI CÂU HỎI PHẢI BẰNG TIẾNG VIỆT.
 
 
 def build_user_prompt(
-    document_content: str, document_name: str, num_questions: int
+    document_content: str,
+    document_name: str,
+    num_questions: int,
+    chunk_id: int = 1,
+    total_chunks: int = 1,
 ) -> str:
     """Fill the prompt template with document metadata and content."""
 
@@ -191,4 +195,6 @@ def build_user_prompt(
         document_name=document_name,
         num_questions=num_questions,
         document_content=document_content,
+        chunk_id=chunk_id,
+        total_chunks=total_chunks,
     )

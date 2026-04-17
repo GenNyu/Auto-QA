@@ -29,7 +29,7 @@ DEFAULT_TEMPERATURE = 0.0
 DEFAULT_SLEEP = 0.3
 ENV_FILE = ".env"
 UTC_TS_PATTERN = re.compile(r".*_\d{8}T\d{6}Z$")
-QA_PROMPT_FILE = Path("qa/qa_prompt.txt")
+QA_PROMPT_FILE = Path("qa/qa_prompt_v2.txt")
 
 
 def load_system_prompt() -> str:

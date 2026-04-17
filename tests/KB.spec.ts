@@ -25,10 +25,19 @@ const BOT_BLOCK_SELECTOR = [
   "div[data-testid='assistant-message']",
   "article[data-message-author-role='assistant']",
 ].join(", ");
+const USER_BLOCK_SELECTOR = [
+  "div.chat-user",
+  "div.chat-message.user",
+  "div[data-message-role='user']",
+  "div[data-role='user']",
+  "div[data-message-author-role='user']",
+  "div[data-testid='user-message']",
+  "article[data-message-author-role='user']",
+].join(", ");
 
 // Account test
-const EMAIL = "2khoa@yopmail.com";
-const PASSWORD = "khoa2";
+const EMAIL = "3khoa@yopmail.com";
+const PASSWORD = "khoa3";
 
 // Input + Output JSON
 const INPUT_FILE = process.env.QA_INPUT || "qa_input.json";
@@ -40,6 +49,45 @@ const MAX_PER_SESSION = 7;
 /* ============================
    HELPER FUNCTIONS
 ============================ */
+
+function cleanBotText(text: string): string {
+  return text
+    .replace(/Thought for .*?seconds?\s*/gi, "")
+    .replace(/Thought for less than a second\s*/gi, "")
+    .replace(/\(Nguồn:.*?\)\s*/gs, "")
+    .replace(/\d+\s*Sources?\s*/gi, "")
+    .replace(/Nguồn\s*:?/gi, "")
+    .replace(/Sources?\s*:?/gi, "")
+    .trim();
+}
+
+function isTrivialBotText(text: string): boolean {
+  const cleaned = cleanBotText(text).trim().toLowerCase();
+  if (!cleaned) return true;
+  if (cleaned === "querying" || cleaned.startsWith("querying")) return true;
+  if (cleaned === "searching" || cleaned.startsWith("searching")) return true;
+  return false;
+}
+
+function looksIncompleteBotText(text: string): boolean {
+  const cleaned = cleanBotText(text);
+  if (!cleaned) return true;
+
+  const boldCount = (cleaned.match(/\*\*/g) || []).length;
+  if (boldCount % 2 === 1) return true;
+
+  const fenceCount = (cleaned.match(/```/g) || []).length;
+  if (fenceCount % 2 === 1) return true;
+
+  const lastLine = cleaned.split("\n").pop() || "";
+  const trimmedLast = lastLine.trim();
+  if (trimmedLast.length > 0) {
+    const endsWithPunct = /[.!?…)"'\]]$/.test(trimmedLast);
+    if (!endsWithPunct && trimmedLast.length < 20) return true;
+  }
+
+  return false;
+}
 
 /**
  * Login vào chatbot
@@ -124,19 +172,79 @@ async function getLatestBotBlock(page: Page): Promise<ReturnType<Page["locator"]
 
     if (!text) continue;
 
-    const cleaned = text
-      .replace(/Thought for .*?seconds?\s*/gi, "")
-      .replace(/Thought for less than a second\s*/gi, "")
-      .replace(/\(Nguồn:.*?\)\s*/gs, "")
-      .replace(/\d+\s*Sources?\s*/gi, "")
-      .replace(/Nguồn\s*:?/gi, "")
-      .replace(/Sources?\s*:?/gi, "")
-      .trim();
-
-    if (cleaned.length > 0) return block;
+    if (!isTrivialBotText(text)) return block;
   }
 
   return null;
+}
+
+async function getUserBlockCount(page: Page): Promise<number> {
+  const userBlocks = page.locator(USER_BLOCK_SELECTOR);
+  return await userBlocks.count();
+}
+
+async function getBotBlockAfterUserIndex(
+  page: Page,
+  userIndex: number,
+  prevBotText?: string
+): Promise<ReturnType<Page["locator"]> | null> {
+  const idx = await page.evaluate(
+    ({ userSel, botSel, uIndex, prevText }) => {
+      const bots = Array.from(document.querySelectorAll(botSel));
+      const users = Array.from(document.querySelectorAll(userSel));
+      if (!bots.length || users.length <= uIndex) return null;
+
+      const userEl = users[uIndex];
+      const followingIdxs: number[] = [];
+      for (let i = 0; i < bots.length; i++) {
+        const bot = bots[i];
+        if (
+          userEl.compareDocumentPosition(bot) &
+          Node.DOCUMENT_POSITION_FOLLOWING
+        ) {
+          followingIdxs.push(i);
+        }
+      }
+
+      if (!followingIdxs.length) return null;
+
+      const clean = (txt: string) =>
+        txt
+          .replace(/Thought for .*?seconds?\s*/gi, "")
+          .replace(/Thought for less than a second\s*/gi, "")
+          .replace(/\(Nguồn:.*?\)\s*/gs, "")
+          .replace(/\d+\s*Sources?\s*/gi, "")
+          .replace(/Nguồn\s*:?/gi, "")
+          .replace(/Sources?\s*:?/gi, "")
+          .trim()
+          .toLowerCase();
+
+      // Prefer the newest bot after user that is not trivial or same as previous text
+      for (let k = followingIdxs.length - 1; k >= 0; k--) {
+        const i = followingIdxs[k];
+        const raw = (bots[i] as HTMLElement).innerText.trim();
+        const cleaned = clean(raw);
+        if (!cleaned) continue;
+        if (cleaned === "querying" || cleaned.startsWith("querying")) continue;
+        if (cleaned === "searching" || cleaned.startsWith("searching")) continue;
+        if (prevText && cleaned === prevText.toLowerCase()) continue;
+        return i;
+      }
+
+      // Fallback: last bot following the user
+      return followingIdxs[followingIdxs.length - 1];
+    },
+    {
+      userSel: USER_BLOCK_SELECTOR,
+      botSel: BOT_BLOCK_SELECTOR,
+      uIndex: userIndex,
+      prevText: cleanBotText(prevBotText?.trim() || ""),
+    }
+  );
+
+  if (idx === null) return null;
+  const botBlocks = page.locator(BOT_BLOCK_SELECTOR);
+  return botBlocks.nth(idx);
 }
 
 async function dumpDebug(page: Page, reason: string) {
@@ -175,12 +283,142 @@ async function waitBotDone(page: Page) {
   const stopBtn = page.locator('button:has-text("Stop")');
 
   if (await stopBtn.isVisible().catch(() => false)) {
-    await stopBtn.waitFor({ state: "hidden", timeout: 300000 });
+    await stopBtn.waitFor({ state: "hidden", timeout: 450000 });
   }
 
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(20000);
 
   console.log("✅ Bot finished!");
+}
+
+async function getBotBlockCount(page: Page): Promise<number> {
+  const botBlocks = page.locator(BOT_BLOCK_SELECTOR);
+  return await botBlocks.count();
+}
+
+async function getLatestBotText(page: Page): Promise<string> {
+  const lastBot = await getLatestBotBlock(page);
+  if (!lastBot) return "";
+  try {
+    return (await lastBot.innerText()).trim();
+  } catch {
+    return "";
+  }
+}
+
+async function waitForNewBotMessageOrTextChange(
+  page: Page,
+  prevCount: number,
+  prevText: string
+) {
+  console.log("⏳ Waiting for new bot message or text change...");
+
+  try {
+    await page.waitForFunction(
+      (selector, count, lastText) => {
+        const bots = document.querySelectorAll(selector);
+        if (bots.length > count) return true;
+
+        if (!bots.length) return false;
+
+        let lastBot: HTMLElement | null = null;
+        for (let i = bots.length - 1; i >= 0; i--) {
+          const el = bots[i] as HTMLElement;
+          const txt = el.innerText.trim();
+          if (txt.length > 0) {
+            lastBot = el;
+            break;
+          }
+        }
+        if (!lastBot) return false;
+
+        const text = lastBot.innerText.trim();
+        if (!text) return false;
+
+        return text !== lastText;
+      },
+      BOT_BLOCK_SELECTOR,
+      prevCount,
+      prevText,
+      { timeout: 360000 }
+    );
+  } catch {
+    console.log("⚠️ Wait for new bot message timed out, continue...");
+  }
+
+  console.log("✅ New bot message or text change detected!");
+}
+
+async function waitLatestBotStable(page: Page) {
+  console.log("⏳ Waiting latest bot text to stabilize...");
+
+  const start = Date.now();
+  const timeoutMs = 450000;
+  const stableMs = 15000;
+  let lastCleaned = "";
+  let lastChange = Date.now();
+
+  while (Date.now() - start < timeoutMs) {
+    const block = await getLatestBotBlock(page);
+    if (!block) {
+      await page.waitForTimeout(1000);
+      continue;
+    }
+
+    let text = "";
+    try {
+      text = (await block.innerText()).trim();
+    } catch {
+      text = "";
+    }
+
+    if (isTrivialBotText(text)) {
+      await page.waitForTimeout(1000);
+      continue;
+    }
+
+    const cleaned = cleanBotText(text);
+
+    if (cleaned !== lastCleaned) {
+      lastCleaned = cleaned;
+      lastChange = Date.now();
+      await page.waitForTimeout(1000);
+      continue;
+    }
+
+    if (Date.now() - lastChange >= stableMs) {
+      if (!looksIncompleteBotText(text)) break;
+      lastChange = Date.now();
+    }
+
+    await page.waitForTimeout(1000);
+  }
+
+  console.log("✅ Latest bot text stable!");
+}
+
+async function waitForBotStart(page: Page, prevCount: number) {
+  console.log("⏳ Waiting bot to start responding...");
+  try {
+    await page.waitForFunction(
+      (selector, count) => {
+        const bots = document.querySelectorAll(selector);
+        if (bots.length > count) return true;
+
+        for (let i = bots.length - 1; i >= 0; i--) {
+          const el = bots[i] as HTMLElement;
+          const txt = el.innerText.trim();
+          if (txt.length > 0) return true;
+        }
+        return false;
+      },
+      BOT_BLOCK_SELECTOR,
+      prevCount,
+      { timeout: 450000 }
+    );
+  } catch {
+    console.log("⚠️ Wait bot start timed out, continue...");
+  }
 }
 
 /**
@@ -210,10 +448,17 @@ async function sendQuestion(page: Page, question: string) {
    EXTRACT ANSWER
 ============================ */
 
-async function getLatestBotAnswer(page: Page): Promise<string> {
+async function getLatestBotAnswer(
+  page: Page,
+  userIndex?: number,
+  prevBotText?: string
+): Promise<string> {
   console.log("📝 Extracting answer...");
 
-  const lastBot = await getLatestBotBlock(page);
+  const lastBot =
+    userIndex !== undefined
+      ? await getBotBlockAfterUserIndex(page, userIndex, prevBotText)
+      : await getLatestBotBlock(page);
   if (!lastBot) {
     await dumpDebug(page, "no_bot_messages_found");
     return "❌ No bot messages found";
@@ -278,10 +523,17 @@ async function getLatestBotAnswer(page: Page): Promise<string> {
    EXTRACT SOURCES
 ============================ */
 
-async function getLatestBotSources(page: Page): Promise<string[]> {
+async function getLatestBotSources(
+  page: Page,
+  userIndex?: number,
+  prevBotText?: string
+): Promise<string[]> {
   console.log("📌 Extracting sources...");
 
-  const lastBot = await getLatestBotBlock(page);
+  const lastBot =
+    userIndex !== undefined
+      ? await getBotBlockAfterUserIndex(page, userIndex, prevBotText)
+      : await getLatestBotBlock(page);
   if (!lastBot) return ["❌ No bot blocks found"];
 
   // Try to reveal message actions if UI uses hover
@@ -356,12 +608,14 @@ async function getLatestBotSources(page: Page): Promise<string[]> {
 }
 
 function isBadAnswer(answer: string): boolean {
-  return (
-    !answer ||
-    answer.startsWith("❌") ||
-    answer.trim().length === 0 ||
-    answer.trim().toLowerCase() === "querying"
-  );
+  if (!answer || answer.startsWith("❌")) return true;
+  if (answer.trim().length === 0) return true;
+  const cleaned = cleanBotText(answer).toLowerCase();
+  if (!cleaned) return true;
+  if (cleaned === "querying" || cleaned.startsWith("querying")) return true;
+  if (cleaned === "searching" || cleaned.startsWith("searching")) return true;
+  if (looksIncompleteBotText(answer)) return true;
+  return false;
 }
 
 function isBadSources(sources: string[]): boolean {
@@ -443,7 +697,7 @@ test("KB JSON Auto Answer + Source Extract (Restart every 10)", async ({
 
     // Login again
     await login(page);
-    // ✅ Chọn model ENG Test
+    // ✅ Chọn model 
     await selectENGTestModel(page);
 
     // Ask up to MAX_PER_SESSION questions
@@ -460,77 +714,53 @@ test("KB JSON Auto Answer + Source Extract (Restart every 10)", async ({
 
       await scrollToBottom(page);
 
+      const prevBotCount = await getBotBlockCount(page);
+      const prevBotText = await getLatestBotText(page);
+      const prevUserCount = await getUserBlockCount(page);
+
       // Send question
       await sendQuestion(page, question);
+
+      // Wait bot start responding
+      await waitForBotStart(page, prevBotCount);
 
       // Wait bot response done
       await waitBotDone(page);
 
-// // ✅ CHỜ TEXT BOT RENDER ỔN ĐỊNH (FIX EMPTY ANSWER)
-// await page.waitForFunction(() => {
-//     const bots = document.querySelectorAll("div.chat-assistant");
-//     if (!bots.length) return false;
-  
-//     const lastBot = bots[bots.length - 1] as HTMLElement;
-//     return lastBot.innerText.trim().length > 20;
-//   }, { timeout: 30000 });
-// ✅ CHỜ TEXT BOT ỔN ĐỊNH (KHÔNG THAY ĐỔI TRONG 4 GIÂY)
-await page.waitForFunction(() => {
-  const bots = document.querySelectorAll(
-    "div.chat-assistant, div.chat-message.assistant, div[data-message-role='assistant'], div[data-role='assistant'], div[data-message-author-role='assistant'], div[data-testid='assistant-message'], article[data-message-author-role='assistant']"
-  );
-  if (!bots.length) return false;
+      await waitForNewBotMessageOrTextChange(page, prevBotCount, prevBotText);
 
-  let lastBot: HTMLElement | null = null;
-  for (let i = bots.length - 1; i >= 0; i--) {
-    const el = bots[i] as HTMLElement;
-    const txt = el.innerText.trim();
-    if (txt.length > 0) {
-      lastBot = el;
-      break;
-    }
-  }
-  if (!lastBot) return false;
+      await page.evaluate(() => {
+        const w = window as any;
+        delete w.__lastBotText;
+        delete w.__lastBotTime;
+      });
 
-  const text = lastBot.innerText.trim();
+      await waitLatestBotStable(page);
 
-  if (text.length < 20) return false;
-
-  // lưu text vào window để so sánh
-  if (!(window as any).__lastBotText) {
-    (window as any).__lastBotText = text;
-    (window as any).__lastBotTime = Date.now();
-    return false;
-  }
-
-  if ((window as any).__lastBotText !== text) {
-    (window as any).__lastBotText = text;
-    (window as any).__lastBotTime = Date.now();
-    return false;
-  }
-
-  // nếu text không đổi trong 4 giây → coi như xong
-  return Date.now() - (window as any).__lastBotTime > 4000;
-
-}, { timeout: 240000 });
-  
+      // Always scroll to bottom before extract to avoid picking old blocks
+      await scrollToBottom(page);
+      await page.waitForTimeout(1000);
 
       // Extract Answer + Sources with retry
       let answer = "";
       let sources: string[] = [];
       const maxAttempts = 5;
 
+      const currentUserCount = await getUserBlockCount(page);
+      const userIndex =
+        currentUserCount > 0 ? currentUserCount - 1 : prevUserCount;
+
       for (let attempt = 1; attempt <= maxAttempts; attempt++) {
         console.log(`🔁 Extract attempt ${attempt}/${maxAttempts}`);
-        answer = await getLatestBotAnswer(page);
-        sources = await getLatestBotSources(page);
+        answer = await getLatestBotAnswer(page, userIndex, prevBotText);
+        sources = await getLatestBotSources(page, userIndex, prevBotText);
 
         if (!isBadAnswer(answer) && !isBadSources(sources)) {
           break;
         }
 
         console.log("⚠️  Missing answer or sources, retrying after wait...");
-        await page.waitForTimeout(3000);
+        await page.waitForTimeout(4500);
       }
 
       if (isBadAnswer(answer) || isBadSources(sources)) {
@@ -544,11 +774,11 @@ await page.waitForFunction(() => {
       // ✅ Giữ nguyên structure KB.json nhưng không mutate file gốc
 const originalObj = kbData[startIndex];
 
-// clone object và chỉ thêm đúng field answer + source
+// clone object và chỉ thêm đúng field answer + file
 const newObj = {
   ...originalObj,
   answer: answer,
-  source: sources,
+  sources: sources,
 };
 
 // push object đầy đủ vào output

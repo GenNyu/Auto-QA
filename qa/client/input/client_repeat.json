@@ -1,0 +1,58 @@
+[
+  {
+    "question": "Làm thế nào để các ông chứng minh rằng sơ đồ mạng và sơ đồ luồng dữ liệu hiện tại phản ánh đúng thực tế lưu trữ dữ liệu thẻ và đang được sử dụng để xác định phạm vi đánh giá?",
+    "id": "Q007"
+  },
+  {
+    "question": "Khi lưu trữ nhật ký kiểm toán (audit logs), làm thế nào các ông đảm bảo tính toàn vẹn của chúng trước các nỗ lực sửa đổi của kẻ tấn công?",
+    "id": "Q014"
+  },
+  {
+    "question": "Làm thế nào các ông đảm bảo rằng dữ liệu xác thực nhạy cảm (SAD) không bao giờ được lưu trữ sau khi ủy quyền, ngay cả trong các tệp nhật ký xử lý sự cố?",
+    "id": "Q021"
+  },
+  {
+    "question": "Làm thế nào để đảm bảo rằng các chính sách bảo mật của các ông không chỉ nằm trên giấy tờ mà thực sự được nhân viên hiểu và thực thi hàng ngày?",
+    "id": "Q028"
+  },
+  {
+    "question": "Làm thế nào để các ông đảm bảo rằng các nhân viên của mình luôn được cập nhật về các mối đe dọa an ninh mới nhất?",
+    "id": "Q035"
+  },
+  {
+    "question": "Các ông làm thế nào để bảo vệ dữ liệu thẻ khi nó được lưu trữ tạm thời trong bộ nhớ (memory) hoặc các tệp tạm thời trong quá trình xử lý?",
+    "id": "Q042"
+  },
+  {
+    "question": "Làm thế nào các ông đảm bảo rằng các ứng dụng web của mình không bị ảnh hưởng bởi các cuộc tấn công phổ biến như SQL Injection hay Cross-Site Scripting (XSS)?",
+    "id": "Q049"
+  },
+  {
+    "question": "Làm thế nào để các ông bảo vệ dữ liệu thẻ khi nó được hiển thị trên các biên lai thanh toán hoặc báo cáo in ra giấy?",
+    "id": "Q056"
+  },
+  {
+    "question": "Làm thế nào để các ông bảo vệ mạng nội bộ khỏi các cuộc tấn công từ các thiết bị IoT (như camera giám sát hay máy in mạng)?",
+    "id": "Q063"
+  },
+  {
+    "question": "Làm thế nào để các ông đảm bảo rằng các cuộc tấn công từ chối dịch vụ (DoS/DDoS) không làm tê liệt hệ thống thanh toán của mình?",
+    "id": "Q070"
+  },
+  {
+    "question": "Quy trình kiểm tra an ninh định kỳ của các ông có giúp phát hiện các thiết bị ghi lén dữ liệu (skimmers) được lắp đặt trên các cổng mạng công cộng không?",
+    "id": "Q077"
+  },
+  {
+    "question": "Làm thế nào để các ông đảm bảo rằng các thiết bị hạ tầng mạng của mình luôn được cập nhật phần mềm (firmware) mới nhất từ nhà sản xuất?",
+    "id": "Q084"
+  },
+  {
+    "question": "Quy trình rà soát an ninh vật lý của các ông có giúp phát hiện các nỗ lực xâm nhập qua các lối thoát hiểm hoặc cửa sổ không?",
+    "id": "Q091"
+  },
+  {
+    "question": "Quy trình rà soát an ninh mạng của các ông có giúp phát hiện các nỗ lực quét cổng (port scanning) từ bên trong mạng nội bộ không?",
+    "id": "Q098"
+  }
+]

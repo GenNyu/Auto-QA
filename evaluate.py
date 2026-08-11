@@ -20,339 +20,19 @@ from config import (
     PROVIDER_CONFIGS,
     PROVIDER_KIND_MAP,
 )
+from core.env import load_env_file, resolve_api_key, resolve_env_override
+from prompts_evaluate import (
+    SYSTEM_PROMPT,
+    SYSTEM_PROMPT_CLAIM_EXTRACTOR,
+    SYSTEM_PROMPT_PASS2,
+)
 from providers.base import LLMProvider
 from providers.factory import create_provider, normalize_provider_name
 
 # Constants
 DEFAULT_TEMPERATURE = 0.0
 DEFAULT_SLEEP = 0.3
-ENV_FILE = ".env"
 RECHECK_THRESHOLD = 7  # Re-evaluate with full file if score is in range [5, threshold]
-
-# ─────────────────────────────────────────────
-# SYSTEM PROMPTS
-# ─────────────────────────────────────────────
-
-SYSTEM_PROMPT = """
-You are a Professional Quality Assurance Evaluator for Corporate Compliance AI Systems.
-
-### GOAL:
-Evaluate whether the AI Answer matches the Expected Answer (ground truth) in meaning, based on PCI DSS compliance intent.
-
----
-
-### INPUTS:
-- Question
-- Requirement Context
-- Main Content
-- Expected Answer
-- AI Answer
-
----
-
-### CORE PRINCIPLE (VERY IMPORTANT):
-
-- The Expected Answer is a **reference**, NOT the only valid expression.
-- The AI Answer must be evaluated based on:
-  - correctness of compliance meaning
-  - audit usefulness
-  - alignment with security intent
-
-- If the AI Answer is correct in meaning, it MUST receive a high score (≥ 8),
-  even if wording, terminology, or structure differs.
-
----
-
-### EVALUATION PHILOSOPHY:
-
-Focus on:
-1. Correct control (what is enforced)
-2. Correct scope (where it applies)
-3. Correct intent (why it exists)
-
-Do NOT over-penalize:
-- verbosity
-- paraphrasing
-- additional correct context
-
----
-
-### WHAT COUNTS AS A STRONG MATCH:
-
-An AI Answer is strong if:
-- It captures the same compliance meaning
-- It reflects real audit reasoning
-- It would be acceptable in an audit explanation
-
----
-
-### SCORING RUBRIC (CALIBRATED):
-
-#### ENTAILED (High confidence match)
-- 10:
-  - Correct conclusion + correct reasoning + correct scope
-  - Clear, sufficiently deep, and audit-ready
-  - Can be used directly in a real audit explanation
-  - No incorrect or misleading information
-
-- 9:
-  - Fully correct in meaning, scope, and intent
-  - Slightly less depth (e.g., missing explicit risk/example/implication)
-  - Still fully acceptable for audit
-
-- 8:
-  - Correct core compliance meaning (correct conclusion and scope)
-  - Somewhat generic OR reasoning not clearly articulated
-  - Lacks clear audit-level explanation
-
----
-
-#### PARTIAL
-- 7:
-  - Correct core direction
-  - Missing important elements such as:
-    - reasoning
-    - risk
-    - handling approach
-  - Not sufficient for audit, but shows correct understanding
-
-- 6:
-  - Correct direction but missing key component (control / scope / intent)
-
-- 5:
-  - Vague or insufficient for audit use
-
----
-
-#### NOT_MATCH
-- 4: Only partially related, misses main compliance idea
-- 3: Misinterprets core intent
-
----
-
-#### CONTRADICTED
-- 2: Contains contradiction with compliance meaning
-- 1: Completely incorrect / irrelevant / empty
-
----
-
-### CORE MATCH GUIDELINE (CRITICAL):
-
-- If the AI Answer:
-  - has the correct conclusion
-  - has the correct scope
-  - contains no incorrect or misleading information
-
-→ Minimum score MUST be 8
-
-- To achieve score = 9:
-  - must include clear reasoning (why / impact / logic)
-
-- To achieve score = 10:
-  - must include:
-    - clear reasoning
-    - sufficient depth
-    - audit-ready explanation
-
-IMPORTANT:
-- Do NOT automatically assign 10 just because the answer is correct
-- Score 10 is reserved for answers that are strong enough for real audit usage
-
----
-
-### 10 SCORE CLARIFICATION (VERY IMPORTANT):
-
-Score 10 MUST be assigned when:
-- The AI Answer is fully correct in meaning, scope, and intent
-- The reasoning is clearly expressed or strongly implied
-- The answer is usable in an audit context without correction
-
-The AI Answer does NOT need to:
-- Use the same wording or terminology as the Expected Answer
-- Explicitly mention all examples (e.g., "forensics")
-- Match structure or phrasing
-
-If the reasoning already implies the same concept,
-it MUST be considered complete.
-
----
-
-### WORDING vs MEANING RULE (CRITICAL):
-
-Do NOT penalize the AI Answer for:
-- Not using specific keywords (e.g., "forensics")
-- Not explicitly naming concepts if they are clearly implied
-
-Focus on meaning, NOT wording.
-
-Examples:
-- "investigation", "incident analysis", "determine impact"
-  ≈ "forensics"
-
-→ MUST be treated as equivalent
-
----
-
-### EXPECTED ANSWER INTERPRETATION:
-
-- The Expected Answer may include:
-  - examples
-  - scenarios
-  - elaborations
-
-→ These are NOT mandatory.
-
-Missing examples MUST NOT reduce score if:
-- the core compliance reasoning is correct
-
----
-
-### EXTRA INFORMATION RULE:
-
-Do NOT penalize if extra content is:
-- correct
-- aligned with PCI DSS
-- helpful
-
-Penalize ONLY if extra content:
-- is incorrect
-- is misleading
-- introduces unsupported claims
-
----
-
-### VERBOSITY RULE:
-
-Do NOT penalize longer answers if:
-- content is correct
-- content remains relevant
-
-Penalize ONLY if:
-- the answer drifts away from the compliance point
-- introduces confusion
-
----
-
-### NEVER FORGIVE:
-
-- Wrong compliance meaning
-- Wrong scope
-- Contradictions
-
----
-
-### SPECIAL CASE:
-
-- If the AI Answer is empty → score = 1
-
----
-
-### EVALUATION ORDER:
-
-1. Read Requirement Context + Main Content → identify audit intent
-2. Read Expected Answer → extract semantic ground truth
-3. Compare AI Answer based on:
-   - intent
-   - scope
-   - reasoning
-4. Ignore wording differences
-5. Prioritize correctness over wording completeness
-
----
-
-### OUTPUT FORMAT (JSON ONLY):
-
-{
-  "label": "ENTAILED | PARTIAL | NOT_MATCH | CONTRADICTED",
-  "score": number (1-10),
-  "confidence": number (0-1),
-  "reason": "Brief explanation in Vietnamese describing alignment, missing elements, or issues."
-}
-"""
-
-SYSTEM_PROMPT_CLAIM_EXTRACTOR = """
-You are a precise fact extraction assistant for compliance evaluation.
-
-### GOAL:
-Given a Question, Expected Answer, and AI Answer, extract ONLY the specific claims in the AI Answer
-that go BEYOND what the Expected Answer already provides.
-
-### RULES:
-1. A "claim" is any specific factual statement: a number, a name, a date, a status, a field value, a scope item, a step, a rule, a URL, or a role.
-2. SKIP claims that are:
-   - Already stated in the Expected Answer (even if rephrased slightly)
-   - Clearly inherited from the Question
-   - Generic professional language ("đảm bảo tuân thủ", "theo quy trình", "giúp minh bạch")
-   - File name citations or metadata
-3. INCLUDE claims that are:
-   - Specific field values, system names, dates, numbers, approvals, scopes, records, or steps that are NOT in the Expected Answer
-   - Strongly specific operational details not present in the Expected Answer
-4. If the AI Answer only paraphrases the Expected Answer more generically, return no extra claims.
-
-### OUTPUT FORMAT (JSON ONLY):
-{
-  "extra_claims": [
-    "claim 1",
-    "claim 2"
-  ],
-  "claim_count": number
-}
-
-If there are no extra claims, return: {"extra_claims": [], "claim_count": 0}
-"""
-
-SYSTEM_PROMPT_PASS2 = """
-You are a Professional Quality Assurance Evaluator for Corporate Compliance AI Systems.
-
-### GOAL:
-Re-evaluate a borderline AI Answer using the FULL SOURCE FILE.
-Your final judgment must consider BOTH:
-1. Whether the AI Answer is supported by the Full Source File, and
-2. Whether the AI Answer still matches the Expected Answer in meaning.
-
-### CONTEXT:
-- Pass 1 compared AI Answer vs Expected Answer and gave a borderline score (5-7).
-- A Claim Extractor identified extra claims in the AI Answer that were not explicit in the Expected Answer.
-- Your job is to verify those extra claims against the Full Source File.
-- Pass 2 is primarily intended to RAISE confidence for borderline answers that may be correct but more detailed.
-- Your score will only be used if it is HIGHER than Pass 1.
-
-### VERIFICATION PROCESS:
-For each extra claim:
-  ✅ SUPPORTED     — found verbatim or clearly implied in the full file
-  ❌ CONTRADICTED  — the file says something explicitly different
-  ❓ NOT_FOUND     — cannot be found in the file
-
-### HOW TO SCORE:
-1. First, judge whether the AI Answer matches the Expected Answer semantically.
-   - If it clearly contradicts or misses the core meaning of the Expected Answer, do NOT raise the score.
-2. Then verify the extra claims against the Full Source File.
-3. Use this guidance:
-   - Strong semantic match + all/most extra claims SUPPORTED → 8-10
-   - Strong semantic match + extra claims mostly NOT_FOUND but harmless/non-specific → 7-8
-   - Strong semantic match + extra claims include unsupported specific details → at most 7
-   - Any CONTRADICTED extra claim → at most 6
-   - Semantic mismatch with Expected Answer → keep score low, even if some file evidence exists
-
-### IMPORTANT RULES:
-1. NOT_FOUND is not the same as wrong. It only limits how much confidence you can gain.
-2. CONTRADICTED is wrong.
-3. Do NOT reward extra facts if they drift away from the Expected Answer's core meaning.
-4. Ignore company names / proprietary names if the answer preserves the same compliance meaning.
-5. If extra_claims is empty, you may still use the Full Source File to determine whether the AI Answer is a faithful, acceptable paraphrase of the Expected Answer.
-
-### OUTPUT FORMAT (JSON ONLY):
-{
-  "label": "ENTAILED | PARTIAL | NOT_MATCH | CONTRADICTED",
-  "score": number (1-10),
-  "confidence": number (0-1),
-  "reason": "Giải thích ngắn gọn bằng tiếng Việt. Nêu rõ AI Answer có khớp Expected Answer không và các extra claim có được file hỗ trợ hay không.",
-  "verified_claims": [
-    {"claim": "...", "status": "SUPPORTED | NOT_FOUND | CONTRADICTED", "note": "lý do ngắn gọn"}
-  ]
-}
-"""
-
 
 # ─────────────────────────────────────────────
 # CONFIG
@@ -374,54 +54,111 @@ class EvaluatorConfig:
     recheck_threshold: int = RECHECK_THRESHOLD  # NEW: re-evaluate if score <= this
     disable_pass2: bool = False           # NEW: force 1-pass only
 
+    # Join mode: merge a QA output file with a compliance file (e.g. PCI-DSS) by id.
+    qa_file: Optional[str] = None
+    pci_file: Optional[str] = None
+    context_field: str = "pci_dss_requirements"
+    expected_field: str = "customer_only"
+    main_field: str = "testing_procedures"
+    id_field: str = "id"
+
+    @property
+    def join_mode(self) -> bool:
+        return bool(self.qa_file and self.pci_file)
+
 
 # ─────────────────────────────────────────────
 # KB FILE LOOKUP
 # ─────────────────────────────────────────────
 
-def find_kb_file(file_name: str, kb_dir: str) -> Optional[Path]:
-    """
-    Locate a KB file on disk.
+# Trailing version marker: _v2, _ver_8, _Ver7, _final_10 …
+_VERSION_SUFFIX_RE = re.compile(r'(?:[_-](?:v|ver|version)[_-]?\d+)+$', re.IGNORECASE)
+# Leading date stamp: 20260206_
+_DATE_PREFIX_RE = re.compile(r'^\d{6,8}[_-]')
+# Random hash suffix added by the KB uploader: __76vsy07
+_HASH_SUFFIX_RE = re.compile(r'__[a-z0-9]{5,}$', re.IGNORECASE)
 
-    The 'file' field in JSON is like: 20260206_PRT_DanhSach_Danh_sach_MC_final_10.md
+
+def version_base(file_name: str) -> str:
+    """
+    Normalize a KB filename down to the identity of the DOCUMENT, dropping the
+    markers that only distinguish one version of it from another.
+
+        20260619_BD_OPS_..._Chinh_sach_ban_hang_ver_8.md ─┐
+        20260127_BD_OPS_..._Chinhsach_ban_hang_Ver7.md   ─┴→ bdops...chinhsachbanhang
+
+    Separators are dropped as well, because the two versions of a document are often
+    typed inconsistently ("Chinhsach" vs "Chinh_sach"). Numbering that carries meaning
+    survives: Requirement_1_1 and Requirement_1_2 stay distinct documents.
+
+    Two files sharing a base are two versions of the same document, and the KB
+    genuinely contains such pairs with conflicting values. The evaluator must see
+    all of them, otherwise it flags a correct answer as fabricated.
+    """
+    stem = Path(file_name).stem
+    stem = _HASH_SUFFIX_RE.sub("", stem)
+    stem = _DATE_PREFIX_RE.sub("", stem)
+    stem = _VERSION_SUFFIX_RE.sub("", stem)
+    return re.sub(r'[_\-\s]+', '', stem).lower()
+
+
+def find_kb_files(file_name: str, kb_dir: str) -> List[Path]:
+    """
+    Locate every version of a KB document on disk.
+
+    The 'file'/'source' field in JSON is like: 20260206_PRT_DanhSach_Danh_sach_MC_final_10.md
     The actual file on disk may have a random hash suffix added:
         20260206_PRT_DanhSach_Danh_sach_MC_final_10__76vsy07.md
 
     Strategy:
-    1. Exact match first.
-    2. Strip .md, use as prefix, find first file that starts with it.
+    1. Exact match, then prefix/loose match, to find the referenced file itself.
+    2. Add every other file whose version_base() matches — the sibling versions.
+
+    Returns the referenced file first, siblings after it (sorted by name for
+    deterministic prompts). Empty list when nothing matches.
     """
     kb_path = Path(kb_dir)
     if not kb_path.is_dir():
-        return None
+        return []
 
-    # 1. Exact match
+    stem = Path(file_name).stem
+    candidates = sorted(kb_path.glob("*.md"))
+
+    primary: Optional[Path] = None
     exact = kb_path / file_name
     if exact.exists():
-        return exact
+        primary = exact
+    else:
+        for candidate in candidates:
+            if candidate.stem.startswith(stem) or stem.startswith(candidate.stem):
+                primary = candidate
+                break
+    if primary is None:
+        for candidate in candidates:
+            if stem in candidate.stem or candidate.stem in stem:
+                primary = candidate
+                break
 
-    # 2. Prefix match (handle hash suffix)
-    stem = Path(file_name).stem  # filename without .md
-    for candidate in kb_path.glob("*.md"):
-        # candidate stem starts with our stem (ignoring trailing hash)
-        if candidate.stem.startswith(stem) or stem.startswith(candidate.stem):
-            return candidate
+    base = version_base(primary.name if primary else file_name)
+    siblings = [
+        c for c in candidates
+        if c != primary and base and version_base(c.name) == base
+    ]
 
-    # 3. Loose match: check if stem is a substring of candidate stem
-    for candidate in kb_path.glob("*.md"):
-        if stem in candidate.stem or candidate.stem in stem:
-            return candidate
-
-    return None
+    found = ([primary] if primary else []) + siblings
+    return found
 
 
-def read_kb_file(file_name: str, kb_dir: str, max_chars: int = 100_000) -> Optional[str]:
+def read_kb_file(file_name, kb_dir: str, max_chars: int = 100_000) -> Optional[str]:
     """
-    Read full content of one or more KB source files. Truncates at max_chars to stay within LLM limits.
+    Read full content of the KB source files backing an answer, including every
+    sibling version of each one.
 
-    - If file_name is a list, concatenate all found files (in order).
-    - Each file is separated with a clear header to help the LLM attribute claims.
-    - Enforce a global max_chars budget across all files.
+    - file_name may be a single filename or a list (the 'source' field is a list).
+    - Each file is separated with a clear header so the LLM can attribute claims
+      to a specific version.
+    - The max_chars budget is split evenly across files, so a later version is
+      never dropped entirely just because an earlier one was long.
     """
     files: List[str] = []
     if isinstance(file_name, list):
@@ -433,25 +170,22 @@ def read_kb_file(file_name: str, kb_dir: str, max_chars: int = 100_000) -> Optio
     if not files:
         return None
 
-    parts: List[str] = []
-    total_len = 0
+    paths: List[Path] = []
     for f in files:
-        path = find_kb_file(f, kb_dir)
-        if path is None:
-            continue
-        content = path.read_text(encoding="utf-8")
-        header = f"\n\n===== FILE: {path.name} =====\n"
-        remaining = max_chars - total_len
-        if remaining <= 0:
-            break
-        chunk = header + content
-        if len(chunk) > remaining:
-            chunk = chunk[:remaining] + f"\n\n[... FILE TRUNCATED AT {max_chars} CHARS TOTAL ...]"
-        parts.append(chunk)
-        total_len += len(chunk)
-
-    if not parts:
+        for path in find_kb_files(f, kb_dir):
+            if path not in paths:
+                paths.append(path)
+    if not paths:
         return None
+
+    per_file = max(2_000, max_chars // len(paths))
+    parts: List[str] = []
+    for path in paths:
+        content = path.read_text(encoding="utf-8")
+        if len(content) > per_file:
+            content = content[:per_file] + f"\n\n[... TRUNCATED AT {per_file} CHARS ...]"
+        parts.append(f"\n\n===== FILE: {path.name} =====\n{content}")
+
     return "".join(parts)
 
 
@@ -459,38 +193,118 @@ def read_kb_file(file_name: str, kb_dir: str, max_chars: int = 100_000) -> Optio
 # PROMPT BUILDERS
 # ─────────────────────────────────────────────
 
+def strip_citations(text: str) -> str:
+    """
+    Normalize KB citation artifacts in AI answers before evaluation.
+
+    File references are KEPT, rewritten as [SOURCE: ...]. Deleting them used to
+    turn a careful answer ("theo nguồn 1 [ver_8]: 3 tỷ / theo nguồn 2 [Ver7]: 2 tỷ")
+    into what looked like a self-contradiction, and the evaluator scored it as a
+    hallucination. The version marker is the evidence that the answer is right.
+    """
+    if not text:
+        return ""
+    # Normalize truncated file refs like: 20251121_PDT_Da...1leq8gc.md
+    text = re.sub(
+        r'\d{8}_[A-Za-z0-9_]+(?:\.\.\.)?[A-Za-z0-9_]*\.md',
+        lambda m: f'[SOURCE: {m.group(0)}]',
+        text,
+    )
+    # Remove "Nguồn tham khảo:" lines (with or without URL)
+    text = re.sub(r'Nguồn tham khảo:[^\n]*', '', text)
+    # Remove bare URLs
+    text = re.sub(r'https?://\S+', '', text)
+    # Clean up leftover punctuation artifacts (standalone dots, multiple newlines)
+    text = re.sub(r'\n\s*\.\s*\n', '\n', text)
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    return text.strip()
+
+
 def get_expected_answer(item: Dict) -> str:
     """Get expected answer from item (gold/check/expected)."""
     return str(item.get("gold") or item.get("check") or item.get("expected") or "").strip()
 
 
 def get_ai_answer(item: Dict) -> str:
-    """Get AI answer from item."""
-    return str(item.get("answer") or "").strip()
+    """Get AI answer from item, with citation artifacts removed."""
+    raw = str(item.get("answer") or "").strip()
+    return strip_citations(raw)
+
+
+def get_requirement_context(item: Dict) -> str:
+    """Get compliance requirement context (join mode only, empty otherwise)."""
+    return str(item.get("context") or item.get("pci_dss_requirements") or "").strip()
+
+
+def get_main_content(item: Dict) -> str:
+    """Get the source excerpt backing the question.
+
+    "chunk" is what script.py writes for freshly generated questions; the other
+    two names come from the compliance join mode.
+    """
+    return str(
+        item.get("main_content")
+        or item.get("testing_procedures")
+        or item.get("chunk")
+        or ""
+    ).strip()
+
+
+# Shown in place of the expected answer when the item has none, so the judge
+# grades against the source excerpt instead of against a blank reference.
+NO_EXPECTED_ANSWER = (
+    "(none — this item has no expected answer; "
+    "grade the AI Answer against the Chunk above)"
+)
+
+# Nothing to verify against at all — the rubric says score 5 / NOT_MATCH.
+NO_REFERENCE_AT_ALL = (
+    "(none — and there is no Chunk either; "
+    "you have nothing to verify against, so return score 5 / NOT_MATCH)"
+)
 
 
 def build_user_prompt(item: Dict) -> str:
-    """Build Pass 1 evaluation prompt from QA item (gold vs AI answer)."""
-    return f"""
-Question:
-{item.get("question", "")}
+    """
+    Build Pass 1 evaluation prompt from QA item (gold vs AI answer).
 
-Expected Answer:
-{get_expected_answer(item)}
+    Requirement Context and Main Content are only emitted when the item carries
+    them (join mode), so plain KB items keep the original prompt shape.
+    """
+    sections = [f'Question:\n{item.get("question", "")}']
 
-AI Answer:
-{get_ai_answer(item)}
-""".strip()
+    requirement_context = get_requirement_context(item)
+    if requirement_context:
+        sections.append(f"Requirement Context:\n{requirement_context}")
+
+    main_content = get_main_content(item)
+    if main_content:
+        # Nhãn "Chunk" khớp đúng từ vựng dùng trong prompts_evaluate.py
+        sections.append(f"Chunk:\n{main_content}")
+
+    if expected := get_expected_answer(item):
+        reference = expected
+    else:
+        reference = NO_EXPECTED_ANSWER if main_content else NO_REFERENCE_AT_ALL
+    sections.append(f"Expected Answer:\n{reference}")
+    sections.append(f"AI Answer:\n{get_ai_answer(item)}")
+
+    return "\n\n".join(sections)
 
 
 def build_user_prompt_claim_extractor(item: Dict) -> str:
-    """Build prompt for Claim Extractor — identifies extra claims beyond the expected answer."""
+    """Build prompt for Claim Extractor — identifies extra claims beyond the expected answer.
+
+    With no reference answer, the source excerpt takes its place so the extractor
+    still has something to measure "extra" against.
+    """
+    reference = get_expected_answer(item) or get_main_content(item) or NO_EXPECTED_ANSWER
     return f"""
 Question:
 {item.get("question", "")}
 
 Expected Answer:
-{get_expected_answer(item)}
+{reference}
 
 AI Answer:
 {get_ai_answer(item)}
@@ -508,12 +322,18 @@ def build_user_prompt_pass2(
         claims_block = "\n".join(f"  - {c}" for c in extra_claims)
     else:
         claims_block = "  (none identified — re-evaluate the answer freely against the full file)"
+
+    # Không có đáp án mẫu thì lấy chunk gốc làm chuẩn; không có nữa thì dựa hẳn
+    # vào file nguồn đầy đủ bên dưới.
+    reference = get_expected_answer(item) or original_chunk.strip() or (
+        "(none — verify the AI Answer directly against the Full Source File below)"
+    )
     return f"""
 Question:
 {item.get("question", "")}
 
 Expected Answer:
-{get_expected_answer(item)}
+{reference}
 
 Extra Claims to Verify (identified by Claim Extractor — these were NOT in the Expected Answer above):
 {claims_block}
@@ -808,11 +628,12 @@ def process_item(
     Evaluate a single QA item.
 
     Step 1 — Pass 1   : evaluate Answer vs retrieved Chunk → score
-    Step 2 — Extract  : if 5 <= score <= threshold, extract extra claims from Answer beyond Chunk
-    Step 3 — Pass 2   : verify each extra claim against the full KB source file → final score
+    Step 2 — Extract  : if score <= threshold or Pass 1 flagged unverified details,
+                        extract the claims in the Answer that go beyond the Chunk
+    Step 3 — Pass 2   : verify each claim against the full KB source files, including
+                        every sibling version of them → final score
 
-    Items with score ≤ 4 (incorrect) are NOT rechecked — their errors are real, not caused
-    by a truncated chunk.
+    Only an explicit CONTRADICTED verdict from Pass 1 skips the recheck.
     """
     try:
         # ── STEP 1: PASS 1 ──────────────────────
@@ -821,29 +642,37 @@ def process_item(
         label = nli.get("label", "UNKNOWN")
         confidence = nli.get("confidence", 0)
 
+        needs_source_check = bool(nli.get("needs_source_check"))
+
         item["pass1_score"] = score
-        item["pass1_check"] = nli.get("reason", "")
+        item["pass1_reason"] = nli.get("reason", "")
+        item["pass1_needs_source_check"] = needs_source_check
         item["rechecked"] = False
 
         print(f"[{idx}] Pass1 → {label} (score: {score}, conf: {confidence:.2f})", end="")
 
         # ── STEP 2 + 3: CLAIM EXTRACT → PASS 2 ─
-        # Only recheck if score is in the "borderline" range (5-threshold).
-        # score ≤ 4 → genuinely incorrect answer, skip pass 2.
-        # score > threshold → already good enough, skip pass 2.
+        # Recheck when the score is at or below the threshold, OR when Pass 1 saw
+        # details it could not verify from the chunk.
+        #
+        # A low score is NOT a reason to skip: Pass 1 only sees one retrieved chunk,
+        # so an answer quoting another version of the same document looks fabricated
+        # to it. Those are exactly the items that must be checked against the files.
+        # Only an explicit CONTRADICTED verdict skips Pass 2.
         should_recheck = (
-            (5 <= score <= config.recheck_threshold)
+            (score <= config.recheck_threshold or needs_source_check)
+            and label != "CONTRADICTED"
             and bool(config.kb_dir)
             and not config.disable_pass2
         )
 
         if not should_recheck:
-            if score <= 4 and config.kb_dir:
-                print(f"  →  pass2 skipped (incorrect, score={score})")
+            if label == "CONTRADICTED" and config.kb_dir:
+                print(f"  →  pass2 skipped (contradicted, score={score})")
             print()
         else:
-            # Only use legacy "file" field for KB filename
-            file_name = item.get("file", "")
+            # "source" is the current field (a list of retrieved files); "file" is legacy.
+            file_name = item.get("file") or item.get("source") or ""
             if not file_name:
                 print(f"  →  skipped (no source/file field)")
                 print()
@@ -887,18 +716,22 @@ def process_item(
                     item["rechecked"] = True
                     item["extra_claims"] = extra_claims
                     item["pass2_score"] = score2
-                    item["pass2_check"] = nli2.get("reason", "")
+                    item["pass2_reason"] = nli2.get("reason", "")
                     item["pass2_verified_claims"] = nli2.get("verified_claims", [])
+                    item["version_conflict"] = bool(nli2.get("version_conflict"))
 
         # ── FINAL RESULT ────────────────────────
+        # The scoring rationale goes to "reason", never to "check": "check" is an
+        # INPUT field holding the expected answer in join mode, and overwriting it
+        # destroyed the expected answer on every scored file.
         item["evaluate"] = map_score_to_evaluate(score)
         item["score"] = score
-        item["check"] = nli.get("reason", "")
+        item["reason"] = nli.get("reason", "")
 
     except Exception as e:
         item["evaluate"] = "error"
         item["score"] = 0
-        item["check"] = str(e)
+        item["reason"] = str(e)
         item["rechecked"] = False
         print(f"\n[{idx}] ERROR → {e}")
 
@@ -907,12 +740,59 @@ def process_item(
 # EVALUATION LOOP
 # ─────────────────────────────────────────────
 
+def build_joined_items(config: EvaluatorConfig) -> List[Dict]:
+    """Join a QA output file with a compliance file (e.g. PCI-DSS) by id."""
+    qa_path = Path(config.qa_file)
+    pci_path = Path(config.pci_file)
+    if not qa_path.exists():
+        raise FileNotFoundError(f"QA file not found: {qa_path}")
+    if not pci_path.exists():
+        raise FileNotFoundError(f"Compliance file not found: {pci_path}")
+
+    qa_data = json.loads(qa_path.read_text(encoding="utf-8"))
+    pci_data = json.loads(pci_path.read_text(encoding="utf-8"))
+
+    pci_by_id = {}
+    for row in pci_data:
+        pid = str(row.get(config.id_field, "")).strip()
+        if pid:
+            pci_by_id[pid] = row
+
+    joined: List[Dict] = []
+    missing = 0
+    for row in qa_data:
+        qid = str(row.get(config.id_field, "")).strip()
+        pci_row = pci_by_id.get(qid) if qid else None
+        if not pci_row:
+            missing += 1
+            continue
+
+        joined.append({
+            "id": qid,
+            "question": row.get("question", ""),
+            "answer": row.get("answer", ""),
+            "context": pci_row.get(config.context_field, ""),
+            "main_content": pci_row.get(config.main_field, ""),
+            "check": pci_row.get(config.expected_field, ""),
+            "source": row.get("source", []),
+        })
+
+    if missing > 0:
+        print(f"⚠ join mode: skipped {missing} item(s) with no matching id")
+
+    return joined
+
+
 def run_evaluation(config: EvaluatorConfig, provider: LLMProvider, provider_name: str) -> None:
     """Main evaluation loop."""
-    input_path = Path(config.input_path)
-    output_path = input_path.with_name(f"{input_path.stem}_semantic_scored.json")
+    if config.join_mode:
+        input_path = Path(config.qa_file)
+        data = build_joined_items(config)
+    else:
+        input_path = Path(config.input_path)
+        data = json.loads(input_path.read_text(encoding="utf-8"))
 
-    data = json.loads(input_path.read_text(encoding="utf-8"))
+    output_path = input_path.with_name(f"{input_path.stem}_semantic_scored.json")
     total = len(data)
 
     print(f"Loaded   : {input_path.name}")
@@ -1041,10 +921,12 @@ def classify_error_category(item: Dict) -> str:
     - Missing Information: answer is incomplete, vague, or fails to provide required points
     - Information Inaccuracy: answer is wrong, contradictory, or off-topic
     """
+    # pass*_check / check are the pre-rename field names, kept so files scored
+    # by an older version still classify.
     text_parts = [
-        str(item.get("check", "")),
-        str(item.get("pass1_check", "")),
-        str(item.get("pass2_check", "")),
+        str(item.get("reason") or item.get("check", "")),
+        str(item.get("pass1_reason") or item.get("pass1_check", "")),
+        str(item.get("pass2_reason") or item.get("pass2_check", "")),
         str(item.get("answer", "")),
     ]
     text = " ".join(part.lower() for part in text_parts if part)
@@ -1150,29 +1032,6 @@ def print_error_classification_table(data: List[Dict]) -> None:
 # ENV / ARG PARSING
 # ─────────────────────────────────────────────
 
-def load_env_file(env_path: str = ENV_FILE) -> None:
-    """Load key=value pairs from a .env file into the process environment."""
-    path = Path(env_path)
-    if not path.exists():
-        return
-    for raw_line in path.read_text(encoding="utf-8").splitlines():
-        line = raw_line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        key, value = line.split("=", 1)
-        key = key.strip()
-        value = value.strip().strip('"').strip("'")
-        if key and key not in os.environ:
-            os.environ[key] = value
-
-
-def resolve_api_key(provider_name: str, cli_key: Optional[str]) -> Optional[str]:
-    """Resolve API key from CLI or environment."""
-    if cli_key:
-        return cli_key
-    return os.getenv(f"{provider_name.upper()}_API_KEY")
-
-
 def build_arg_parser() -> argparse.ArgumentParser:
     provider_choices = sorted(PROVIDER_CONFIGS.keys()) + ["ollama"]
 
@@ -1203,20 +1062,23 @@ Scoring:
 
 2-Pass Logic (3 steps when --kb-dir is set):
   Step 1 — Pass 1  : evaluate Answer vs retrieved Chunk → score
-  Step 2 — Extract : if 5 <= score <= threshold, extract extra claims beyond the Chunk
-  Step 3 — Pass 2  : verify each claim against full KB source file → final score
+  Step 2 — Extract : if score <= threshold or Pass 1 flagged unverified details,
+                     extract the claims that go beyond the Chunk
+  Step 3 — Pass 2  : verify each claim against the full KB source files — including
+                     every sibling VERSION of them → final score
 
-  score ≤ 4 (incorrect) → skip pass 2, error is real
-  score 5-7 (borderline) → run claim extract + pass 2
-  score ≥ 8 (good)       → skip pass 2, already reliable
+  label CONTRADICTED     → skip pass 2, the answer really does conflict
+  score ≤ threshold      → run claim extract + pass 2
+  needs_source_check     → run claim extract + pass 2, whatever the score
+  otherwise              → skip pass 2, already reliable
 
   Claim verification outcome:
-    SUPPORTED    → score raised toward 9-10
+    SUPPORTED    → score raised toward 9-10 (any version of the document counts)
     NOT_FOUND    → floor at 7 (absence of evidence ≠ wrong)
-    CONTRADICTED → score capped at 6 or lower
+    CONTRADICTED → score capped low (value found in no file at all)
         """,
     )
-    parser.add_argument("--input", required=True, help="Input JSON file with QA pairs")
+    parser.add_argument("--input", help="Input JSON file with QA pairs (omit when using --qa-file/--pci-file)")
     parser.add_argument(
         "--provider",
         choices=provider_choices,
@@ -1250,12 +1112,35 @@ Scoring:
         "--recheck-threshold",
         type=int,
         default=RECHECK_THRESHOLD,
-        help=f"Run Pass 2 if Pass 1 score is in range [5, threshold] (default: {RECHECK_THRESHOLD}). Score ≤ 4 always skipped.",
+        help=f"Run Pass 2 if Pass 1 score <= threshold (default: {RECHECK_THRESHOLD}). Also runs whenever Pass 1 flags unverified details; skipped only on a CONTRADICTED verdict.",
     )
     parser.add_argument(
         "--no-pass2",
         action="store_true",
         help="Disable Pass 2 even if --kb-dir is provided (force 1-pass only).",
+    )
+
+    join = parser.add_argument_group(
+        "join mode",
+        "Merge a QA output file with a compliance file by id, instead of --input.",
+    )
+    join.add_argument("--qa-file", help="QA output JSON (questions + AI answers)")
+    join.add_argument("--pci-file", help="Compliance JSON providing context and expected answers")
+    join.add_argument("--id-field", default="id", help="Field used to match rows (default: id)")
+    join.add_argument(
+        "--context-field",
+        default="pci_dss_requirements",
+        help="Compliance field holding the requirement context (default: pci_dss_requirements)",
+    )
+    join.add_argument(
+        "--main-field",
+        default="testing_procedures",
+        help="Compliance field holding the source excerpt (default: testing_procedures)",
+    )
+    join.add_argument(
+        "--expected-field",
+        default="customer_only",
+        help="Compliance field holding the expected answer (default: customer_only)",
     )
     return parser
 
@@ -1274,19 +1159,33 @@ def main() -> None:
 
     provider_name = normalize_provider_name(args.provider)
 
+    if bool(args.qa_file) != bool(args.pci_file):
+        print("❌ Join mode needs both --qa-file and --pci-file.")
+        return
+    if not args.input and not args.qa_file:
+        print("❌ Provide --input, or --qa-file together with --pci-file.")
+        return
+
     config = EvaluatorConfig(
-        input_path=args.input,
+        input_path=args.input or "",
         output_path="",
         provider=provider_name,
         temperature=args.temperature,
         sleep_time=args.sleep,
         ollama_model=env_ollama_model or args.ollama_model,
         ollama_url=env_ollama_url or args.ollama_url,
-        base_url=args.base_url,
-        model=args.model,
+        # CLI thắng env, env thắng mặc định của provider.
+        base_url=args.base_url or resolve_env_override(provider_name, "BASE_URL"),
+        model=args.model or resolve_env_override(provider_name, "MODEL"),
         kb_dir=args.kb_dir,
         recheck_threshold=args.recheck_threshold,
         disable_pass2=args.no_pass2,
+        qa_file=args.qa_file,
+        pci_file=args.pci_file,
+        context_field=args.context_field,
+        expected_field=args.expected_field,
+        main_field=args.main_field,
+        id_field=args.id_field,
     )
 
     api_key: Optional[str] = None

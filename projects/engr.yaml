@@ -1,0 +1,20 @@
+# Bộ đánh giá tài liệu ENGR (security questionnaire)
+# Chạy:  just run engr
+
+name: ENGR Security Q&A
+source: input/kb/engr/     # 54 file tài liệu ENGR_DS
+questions: 2
+
+chatbot:
+  # Trang chat và model lấy theo CHAT_URL / CHAT_MODEL trong .env.
+  # Chỉ khai ở đây khi bộ này cần chạy khác với phần còn lại:
+  #   model: "ENGR Test1"
+  batch_size: 10
+
+scoring:
+  threshold: 6
+  deep_check: true
+
+llm:
+  # Bỏ trống model/base_url thì lấy theo OPENAI_MODEL / OPENAI_BASE_URL trong .env
+  provider: openai

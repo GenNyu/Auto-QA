@@ -25,18 +25,18 @@ from config import (
     MAX_RETRY,
     MAX_TOKENS,
     OLLAMA_TIMEOUT,
-    PROVIDER_API_KEYS,
     PROVIDER_CONFIGS,
     PROVIDER_KIND_MAP,
     TEMPERATURE,
 )
+from core.env import load_env_file, resolve_api_key, resolve_env_override
+from core.text import normalize_text
 from providers.base import LLMProvider
 from providers.factory import create_provider, normalize_provider_name
 
 
 DEFAULT_INPUT = "outputs/PCI_DSS_filtered.json"
 DEFAULT_OUTPUT = "outputs/PCI_DSS_qa.json"
-ENV_FILE = ".env"
 
 
 SYSTEM_PROMPT = """
@@ -73,49 +73,8 @@ A single, clear compliance question.
 LABEL_PATTERN = r"\b\d+(?:\.\d+)+(?:\.[a-z])?\b"
 
 
-def normalize_text(value: str) -> str:
-    if value is None:
-        return ""
-    return " ".join(str(value).split()).strip()
-
-
 def build_context(pci: str) -> str:
     return pci.strip()
-
-
-def load_env_file(env_path: str = ENV_FILE) -> None:
-    path = Path(env_path)
-    if not path.exists():
-        return
-    for raw_line in path.read_text(encoding="utf-8").splitlines():
-        line = raw_line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        key, value = line.split("=", 1)
-        key = key.strip()
-        value = value.strip().strip('"').strip("'")
-        if key and key not in os.environ:
-            os.environ[key] = value
-
-
-def resolve_api_key(provider_name: str, cli_key: Optional[str]) -> Optional[str]:
-    if cli_key:
-        return cli_key
-    env_key = f"{provider_name.upper()}_API_KEY"
-    env_value = os.getenv(env_key)
-    if env_value:
-        return env_value
-    return PROVIDER_API_KEYS.get(provider_name)
-
-
-def resolve_env_override(provider_name: str, suffix: str) -> Optional[str]:
-    env_key = f"{provider_name.upper()}_{suffix}"
-    value = os.getenv(env_key)
-    if value:
-        return value
-    if provider_name == "anthropic" and suffix == "MODEL":
-        return os.getenv("ANTHROPIC_DEFAULT_SONNET_MODEL")
-    return None
 
 
 def build_prompt(req: str, pci: str, testing: str, customer_only: str) -> str:

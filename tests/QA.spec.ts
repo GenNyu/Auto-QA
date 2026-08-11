@@ -2,12 +2,15 @@ import { test, Page } from "@playwright/test";
 import * as process from "process";
 import * as fs from "fs";
 import * as path from "path";
+import { escapeRegExp, optionalEnv, requireEnv } from "./env";
 
 /* ============================
    CONFIG
+   Mọi giá trị dưới đây do qa.py truyền vào qua biến môi trường.
 ============================ */
 
-const URL = "https://chat.urbox.dev/";
+const URL = optionalEnv("CHAT_URL", "https://chat.urbox.dev/");
+const CHAT_MODEL = optionalEnv("CHAT_MODEL", "ENG Test");
 
 // Login selectors
 const EMAIL_INPUT = "#email";
@@ -35,16 +38,16 @@ const USER_BLOCK_SELECTOR = [
   "article[data-message-author-role='user']",
 ].join(", ");
 
-// Account test
-const EMAIL = "3khoa@yopmail.com";
-const PASSWORD = "khoa3";
+// Account test - lấy từ .env (xem .env.example)
+const EMAIL = requireEnv("CHAT_EMAIL");
+const PASSWORD = requireEnv("CHAT_PASSWORD");
 
 // Input + Output JSON
 const INPUT_FILE = process.env.QA_INPUT || "outputs/PCI_DSS_qa.json";
 const OUTPUT_FILE = process.env.QA_OUTPUT || "outputs/PCI_DSS_qa_output.json";
 
 // Restart browser after N questions
-const MAX_PER_SESSION = 6;
+const MAX_PER_SESSION = Number(optionalEnv("QA_MAX_PER_SESSION", "6"));
 
 /* ============================
    HELPER FUNCTIONS
@@ -71,40 +74,115 @@ async function login(page: Page) {
 
   console.log("✅ Chat editor ready!");
 }
+/**
+ * Đọc tên model đang được chọn, từ aria-label "Selected model: <tên>".
+ */
+async function getSelectedModel(page: Page): Promise<string | null> {
+  const button = page.locator('button[aria-label^="Selected model:"]');
+  if ((await button.count()) === 0) return null;
+
+  const label = await button.getAttribute("aria-label");
+  return label ? label.replace(/^Selected model:\s*/i, "").trim() : null;
+}
+
+/**
+ * Chọn đúng model CHAT_MODEL trên giao diện chat.
+ *
+ * Toàn bộ kết quả đánh giá phụ thuộc vào việc hỏi ĐÚNG model, nên hàm này ném lỗi
+ * khi không đổi được. Bản trước in "✅ Model already correct" ngay trong nhánh
+ * không tìm thấy model, nên khi dropdown không mở hoặc tên model sai chính tả thì
+ * cả lượt chạy vẫn tiếp tục — với model cũ, mà log lại báo thành công.
+ */
 async function selectENGTestModel(page: Page) {
   await page.waitForTimeout(4000);
 
-  // Kiểm tra model hiện tại
-  const currentModel = page.locator('button[aria-label^="Selected model:"]');
-  const count = await currentModel.count();
+  const current = await getSelectedModel(page);
+  console.log(`ℹ️  Model đang chọn: "${current ?? "(không đọc được)"}"`);
 
-  if (count > 0) {
-    const label = await currentModel.getAttribute("aria-label");
-    console.log(`✅ Current model: "${label}"`);
+  if (current === CHAT_MODEL) {
+    console.log(`✅ Đã đúng model "${CHAT_MODEL}", bỏ qua bước đổi.`);
+    return;
+  }
 
-    // Nếu đã đúng model rồi thì skip
-    if (label?.includes("ENG Test")) {
-      console.log("✅ Correct model already selected, skipping...");
-      return;
+  const button = page.locator('button[aria-label^="Selected model:"]');
+  if ((await button.count()) === 0) {
+    throw new Error(
+      "Không tìm thấy nút chọn model trên giao diện. " +
+        "Giao diện chat có thể đã đổi, cần cập nhật selector trong tests/KB.spec.ts."
+    );
+  }
+
+  console.log(`🖱  Mở dropdown để đổi sang "${CHAT_MODEL}"...`);
+  await button.click({ force: true });
+  await page.waitForTimeout(1500);
+
+  // Danh sách model cuộn được và chỉ render phần đang nhìn thấy, nên phải gõ vào
+  // ô tìm kiếm thay vì mong model nằm sẵn trong DOM.
+  const search = page.locator('input[placeholder*="Search a model" i]');
+  if ((await search.count()) > 0) {
+    await search.first().fill(CHAT_MODEL);
+  }
+
+  // Open WebUI dựng danh sách model bằng role listbox/option:
+  //     <div role="listbox" aria-label="Available models">
+  //       <div role="option" aria-label="Select BD Solution model"> …
+  // Selector cũ `button[aria-roledescription="model-item"]` không khớp gì cả — đó là
+  // lý do bước đổi model chưa bao giờ chạy, chỉ là trước đây nó im lặng bỏ qua.
+  const items = page.locator(
+    '[role="option"], button[aria-roledescription="model-item"]'
+  );
+  await items.first().waitFor({ state: "visible", timeout: 10000 }).catch(() => {});
+  const total = await items.count();
+
+  const escaped = escapeRegExp(CHAT_MODEL);
+  // Thử từ chặt tới lỏng, để "ENG Test" không chọn nhầm "ENGR Test1".
+  const strategies = [
+    () => page.getByRole("option", {
+      name: new RegExp(`^Select\\s+${escaped}\\s+model$`, "i"),
+    }),
+    () => items.filter({ hasText: new RegExp(`^\\s*${escaped}\\s*$`, "i") }),
+    () => items.filter({ hasText: new RegExp(escaped, "i") }),
+  ];
+
+  let target = items.filter({ hasText: new RegExp(escaped, "i") });
+  for (const strategy of strategies) {
+    const candidate = strategy();
+    if ((await candidate.count()) > 0) {
+      target = candidate;
+      break;
     }
   }
 
-  // Nếu sai model → click để mở dropdown và chọn lại
-  console.log("🖱 Opening model dropdown to switch...");
-  await currentModel.click({ force: true });
+  if ((await target.count()) === 0) {
+    const available: string[] = [];
+    for (let i = 0; i < Math.min(total, 20); i++) {
+      const item = items.nth(i);
+      const label = (await item.getAttribute("aria-label")) || "";
+      const name = label.replace(/^Select\s+/i, "").replace(/\s+model$/i, "").trim();
+      available.push(name || (await item.innerText()).trim().split("\n")[0]);
+    }
+    await dumpDebug(page, "model_not_found");
+    throw new Error(
+      `Không tìm thấy model "${CHAT_MODEL}" trong danh sách.\n` +
+        `   Model đang có: ${available.join(", ") || "(danh sách rỗng)"}\n` +
+        `   Sửa CHAT_MODEL trong .env cho khớp đúng chữ hiển thị trên giao diện.`
+    );
+  }
+
+  await target.first().click({ force: true });
   await page.waitForTimeout(2000);
 
-  const engTestModelOption = page
-    .locator('button[aria-roledescription="model-item"]')
-    .filter({ hasText: /ENG Test/i });
-
-  const optionCount = await engTestModelOption.count();
-  if (optionCount > 0) {
-    await engTestModelOption.click({ force: true });
-    console.log("✅ ENG Test selected!");
-  } else {
-    console.log("✅ Model already correct, no switch needed.");
+  // Xác nhận đã đổi thật, không tin vào cú click.
+  const after = await getSelectedModel(page);
+  if (after !== CHAT_MODEL) {
+    await dumpDebug(page, "model_switch_failed");
+    throw new Error(
+      `Đổi model thất bại: vẫn đang là "${after ?? "(không đọc được)"}", ` +
+        `cần "${CHAT_MODEL}".`
+    );
   }
+
+  console.log(`✅ Đã đổi sang model "${CHAT_MODEL}".`);
 }
 
 /**

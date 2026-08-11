@@ -1,0 +1,2900 @@
+[
+  {
+    "question": "Phiếu quà tặng giấy có những mệnh giá nào?",
+    "file": "20260119_BD_OPS_BD_Training_DaoTao_San_Pham_URBOX.md",
+    "chunk": "Mệnh giá: Có 4 mệnh giá phiếu quà tặng giấy là 50.000đ, 100.000đ, 200.000đ, 500.000đ",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo mẫu hội thoại, BD nên đưa ra bao nhiêu mốc thời gian cụ thể khi chốt lịch hẹn với khách hàng?",
+    "file": "20260127_BD_OPS_BD_Training__BieuMau_Tiep_can_KH_qua_đien_thoai.md",
+    "chunk": "Luôn kết thúc bằng việc đưa ra hai mốc thời gian cụ thể (ví dụ: thứ 2 hoặc thứ 3) thay vì hỏi khách hàng \"khi nào rảnh\" để tăng tỷ lệ đồng ý gặp mặt.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "BD cần gửi tài liệu gì cho khách hàng ngay sau cuộc gọi để giải quyết thắc mắc về hóa đơn?",
+    "file": "20260127_BD_OPS_BD_Training__BieuMau_Tiep_can_KH_qua_đien_thoai.md",
+    "chunk": "Đối với vấn đề hóa đơn, cần chủ động cung cấp bằng chứng pháp lý (công văn thuế) ngay sau cuộc gọi để giải tỏa lo ngại của khách hàng về việc hạch toán chi phí.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo chính sách thanh toán, những trường hợp nào khách hàng mong muốn thanh toán trả sau cần có phê duyệt từ các cấp có thẩm quyền?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_Ver7.md",
+    "chunk": "Các trường hợp khách hàng mong muốn trả sau cần có phê duyệt từ BD Leader/ team BD Ops/ FIN/ BOD.\n\nChính sách công nợ cho các cơ quan nhà nước: Khuyến khích khách hàng thanh toán trả trước toàn bộ giá trị đơn hàng. Nếu đàm phán trả sau, áp dụng công nợ tối đa 10 ngày, nếu khách hàng mong muốn có thời gian công nợ dài hơn thì cần xin phê duyệt từ FIN và BOD.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Chính sách thu hồi và hoàn hủy đối với các sản phẩm UrBox cung cấp được quy định như thế nào?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_Ver7.md",
+    "chunk": "UrBox không áp dụng chính sách thu hồi, hoàn hủy có hoàn lại tiền trong mọi trường hợp và đối với mọi sản phẩm UrBox cung cấp, bao gồm nhưng không giới hạn: Voucher UrBox, Phiếu quà tặng...\n\nCác sản phẩm và đơn hàng UrBox đã được bàn giao cho khách hàng sẽ không được hoàn trả vì bất kỳ lý do gì.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mức chiết khấu tối đa áp dụng cho tất cả các khách hàng FMCG và Agency của khách hàng FMCG là bao nhiêu?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_FMCG.md",
+    "chunk": "Chiết khấu tối đa 1% với tất cả các khách hàng FMCG và Agency của khách hàng FMCG",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Điều kiện về tổng giá trị đơn hàng trong năm hợp đồng để khách hàng được áp dụng chính sách gia hạn là gì?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_FMCG.md",
+    "chunk": "Khách hàng cam kết có tổng giá trị đơn hàng trong năm hợp đồng từ 2.000.000.000 VNĐ trở lên (Hai tỷ đồng)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Khách hàng cần được phê duyệt từ những cấp nào nếu mong muốn thanh toán trả sau trên 15 ngày?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_KCN_-_KCX.md",
+    "chunk": "Trả sau > 15 ngày cần có phê duyệt từ FIN và BOD.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Chiết khấu theo volume được áp dụng cho những sản phẩm nào?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_KCN_-_KCX.md",
+    "chunk": "Chiết khấu chỉ áp dụng cho Voucher UrBox, Voucher thương hiệu, không áp dụng chiết khấu cho các loại phí đi kèm (phí in ấn, vận chuyển, …)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Chính sách bán hàng này áp dụng cho đối tượng khách hàng nào?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_moi_KCN_-_KCX.md",
+    "chunk": "Chính sách bán hàng này áp dụng cho toàn bộ đội ngũ nhân viên kinh doanh của Dự án Khu Công Nghiệp trong quá trình tiếp cận và phục vụ Khách hàng thuộc Khu công nghiệp, Khu công nghệ cao, Khu chế xuất.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Giá trị voucher tặng thêm đối với đơn hàng có tổng giá trị từ 10.000.000 - 20.000.000 VNĐ là bao nhiêu?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_moi_KCN_-_KCX.md",
+    "chunk": "ĐỐI TƯỢNG 1: ĐƠN HÀNG TỪ 10.000.000 - 20.000.000 VNĐ\n\nTổng giá trị 1 đơn hàng (VNĐ): Từ 10.000.000 - 20.000.000\n\nGiá trị voucher tặng thêm/ đơn hàng (UP): 500.000",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Bảng danh sách khách hàng tiềm năng cần bao gồm những cột thông tin nào?",
+    "file": "20260127_BD_OPS_BD_Training__HDSD_BieuMau_danh_sach_KH_tiem_nang.md",
+    "chunk": "Bảng cần bao gồm 5 cột thông tin sau:\n\nSTT\n\nTên công ty\n\nPhòng ban\n\nTên người liên hệ chính\n\nChân dung KH mà BD nên tập trung (5–7 tiêu chí)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Nhân viên BD nên ưu tiên tiếp cận những chức danh nào khi tìm kiếm người liên hệ chính?",
+    "file": "20260127_BD_OPS_BD_Training__HDSD_BieuMau_danh_sach_KH_tiem_nang.md",
+    "chunk": "Ưu tiên các chức danh:\n\nTrưởng phòng / Manager\n\nHead / Director\n\nFounder / Co-founder (với công ty nhỏ)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục đích chính của việc xác định rõ Owner và Company Name trong bảng quản lý thông tin khách hàng là gì?",
+    "file": "20260127_BD_OPS_BD_Training__HDSD_BieuMau_upload_Contact_len_HubSpot.md",
+    "chunk": "Xác định rõ Owner (Người sở hữu) và Company Name là mốc chốt quan trọng nhất để giải quyết vấn đề \"trùng khách, trùng người liên hệ\" thường gặp.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Bảng thông tin khách hàng gồm những cột dữ liệu nào?",
+    "file": "20260127_BD_OPS_BD_Training__HDSD_BieuMau_upload_Contact_len_HubSpot.md",
+    "chunk": "Owner\n\nContact Type\n\nFirst Name\n\nCompany Name\n\nPhòng ban\n\nChức danh\n\nSố di động\n\nEmail\n\nEmail (Khác)\n\nSố điện thoại bàn\n\nĐịa chỉ văn phòng",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Điều kiện cần để thêm người tham dự vào lịch họp trên HubSpot là gì?",
+    "file": "20260127_BD_OPS_BD_Training__HDSD_Đong_bo_HubSpot_voi_Google_Calendar_&_dat_lich_hop.md",
+    "chunk": "Điều kiện: Người tham dự phải tồn tại dưới dạng Contact trên HubSpot.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Điều kiện cần để thêm người tham dự vào cuộc họp trên HubSpot là gì?",
+    "file": "20260127_BD_OPS_BD_Training__HDSD_Đong_bo_HubSpot_voi_Google_Calendar_&_dat_lich_hop.md",
+    "chunk": "Điều kiện: Người tham dự phải tồn tại dưới dạng Contact trên HubSpot.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian xử lý đơn hàng Phiếu quà tặng sẵn có với số lượng từ 10.000 đến 20.000 là bao nhiêu ngày làm việc?",
+    "file": "20260127_BD_OPS_BD_Training__QuyTrinh_SLA_process_đơn_hàng_của_BD_Admin+KAM.md",
+    "chunk": "Số lượng: Từ 10.000 đến 20.000\n\nThời gian xử lý: 4–5 ngày làm việc",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Quy định về mệnh giá khi in Voucher Giấy nạp App UrBox là gì?",
+    "file": "20260127_BD_OPS_BD_Training__QuyTrinh_SLA_process_đơn_hàng_của_BD_Admin+KAM.md",
+    "chunk": "Quy định:\n\nMệnh giá là bội số của 10.000 VND.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mẫu CV thu hồi công nợ được sử dụng cho mục đích gì?",
+    "file": "20260128_BD_OPS_BD_Training__BieuMau_Mau_CV_thu_hoi_cong_no.md",
+    "chunk": "Đây là mẫu cho Công văn đề nghị thanh toán nợ quá hạn, dùng để nhắc nhở và yêu cầu khách hàng/ đối tác thực hiện nghĩa vụ thanh toán công nợ khi đã quá thời hạn cam kết trong hợp đồng đã ký kết trước đó.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Công văn thu hồi công nợ có tính chất pháp lý như thế nào so với các email trao đổi thông tin thông thường?",
+    "file": "20260128_BD_OPS_BD_Training__BieuMau_Mau_CV_thu_hoi_cong_no.md",
+    "chunk": "Đây là công cụ hành chính chính thức , có tính pháp lý cao hơn các email trao đổi thông tin thông thường, nhằm làm cơ sở để bảo vệ quyền lợi của UrBox.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mẫu thư nhắc nợ quá hạn được gợi ý cho bao nhiêu trường hợp?",
+    "file": "20260128_BD_OPS_BD_Training__BieuMau_Mau_thu_nhac_No_qua_han.md",
+    "chunk": "Mẫu thư nhắc Nợ quá hạn cho email được gợi ý cho 2 trường hợp.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Lần nhắc nợ thứ 2 được thực hiện sau thời gian quá hạn bao nhiêu ngày?",
+    "file": "20260128_BD_OPS_BD_Training__BieuMau_Mau_thu_nhac_No_qua_han.md",
+    "chunk": "Lần 2: Sau thời gian quá hạn 10 ngày",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mức chi thưởng điểm UP mà cộng tác viên nhận được khi giới thiệu Qualified Lead tổ chức thành công buổi gặp mặt trực tiếp là bao nhiêu?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhach_Chinh_sach_khen_thuong_CTV_Ver2.md",
+    "chunk": "Thưởng: 500.000 điểm UP (tương đương 500.000đ), chuyển vào ví UrBox cho Cộng tác viên.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian áp dụng của chính sách khen thưởng cho cộng tác viên là từ khi nào đến khi nào?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhach_Chinh_sach_khen_thuong_CTV_Ver2.md",
+    "chunk": "Thời gian áp dụng: 01/11/2025 - 30/06/2026 hoặc đến khi có thông báo mới từ UrBox",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Chính sách bán hàng này áp dụng cho đối tượng khách hàng nào?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_canh_tranh.md",
+    "chunk": "CHÍNH SÁCH BÁN HÀNG\n\n(Dành cho các khách hàng cạnh tranh trực tiếp từ đối thủ)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Chiết khấu theo volume được áp dụng cho những loại sản phẩm nào?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_canh_tranh.md",
+    "chunk": "Chiết khấu chỉ áp dụng cho Voucher UrBox, Voucher thương hiệu, không áp dụng chiết khấu cho các loại phí đi kèm (phí in ấn, vận chuyển, …)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao BD cần thực hiện kiểm tra đầu BIN thẻ của Khách hàng trong quy trình bán hàng?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_thanh_toan_bang_the_VISA.md",
+    "chunk": "Kiểm tra đầu BIN thẻ là để đảm bảo giao dịch qua cổng VCB thành công, tránh lãng phí thời gian tạo link nếu thẻ không được hỗ trợ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao BD cần thực hiện kiểm tra đầu BIN thẻ của Khách hàng trong quy trình bán hàng thanh toán bằng thẻ VISA?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_thanh_toan_bang_the_VISA.md",
+    "chunk": "Kiểm tra đầu BIN thẻ là để đảm bảo giao dịch qua cổng VCB thành công, tránh lãng phí thời gian tạo link nếu thẻ không được hỗ trợ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Chính sách tặng quà Merchandise có hiệu lực từ ngày nào?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_tang_qua_merchandise_cho_khach_hang.md",
+    "chunk": "Chính sách có hiệu lực từ ngày 27/10/2025 đến khi có thông báo mới.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo nguyên tắc chung, mọi trường hợp ngoại lệ cần được phê duyệt như thế nào trước khi triển khai?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_tang_qua_merchandise_cho_khach_hang.md",
+    "chunk": "Mọi trường hợp ngoại lệ cần có văn bản giải trình và được BD Ops phê duyệt bằng email/ticket trước khi triển khai",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mức ngân sách hàng tháng được quy định cho nhân sự BD chính thức và nhân sự BD thử việc là bao nhiêu?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_trai_nghiem_cho_khach_hang_moi.md",
+    "chunk": "STT: 1\n\nBộ phận: BD – Chính thức\n\nNgân sách/tháng/nhân sự: 2.000.000đ\n\nSTT: 2\n\nBộ phận: BD – Thử việc\n\nNgân sách/tháng/nhân sự: 500.000đ",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo nguyên tắc thực hiện, việc đưa hàng mẫu, dịch vụ mẫu cho khách hàng dùng thử phải đáp ứng điều kiện gì?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_trai_nghiem_cho_khach_hang_moi.md",
+    "chunk": "Hàng mẫu, dịch vụ mẫu đưa cho Khách hàng/ đối tác dùng thử phải là hàng hóa, dịch vụ được kinh doanh hợp pháp mà UrBox đang hoặc sẽ bán, cung ứng trên thị trường.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Khi gửi email cho nhân viên đối tác, người gửi cần thực hiện hành động gì liên quan đến cấp lãnh đạo của họ?",
+    "file": "20260128_BD_OPS_BD_Training__DaoTao_10tips_viet_mail_hieu_qua.md",
+    "chunk": "Khi viết cho nhân viên đối tác, bắt buộc phải CC thêm cấp lãnh đạo của họ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo quy chuẩn trong tài liệu, BD phải điền nội dung gì nếu hạng mục kê khai không có thông tin?",
+    "file": "20260128_BD_OPS_BD_Training__HDSD_Admin-UrStaff_Portal.md",
+    "chunk": "Theo quy chuẩn, nếu hạng mục nào không có nội dung, BD bắt buộc phải điền \"KHÔNG CÓ\" hoặc \"N/A\", không được để trống để AI nhận diện dữ liệu nhất quán.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "BD cần gửi email bàn giao đơn hàng UrStaff đến địa chỉ nào?",
+    "file": "20260128_BD_OPS_BD_Training__HDSD_Admin-UrStaff_Portal.md",
+    "chunk": "Đầu mối nhận đơn UrStaff: bdadmin@urbox.vn cc: Line Manager",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Kế toán cần thực hiện chuẩn xác các mẫu TB1-TB3 nhằm mục đích gì?",
+    "file": "20260128_BD_OPS_BD_Training__QuyTrinh_Quy_trinh_phoi_hop_thu_hoi_cong_no.md",
+    "chunk": "Kế toán cần thực hiện chuẩn xác các mẫu TB1-TB3 để bảo vệ quyền lợi của UrBox trước cơ quan Thuế.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Báo cáo Top 5 được thực hiện vào thời điểm nào trong tuần?",
+    "file": "20260128_BD_OPS_BD_Training__QuyTrinh_Quy_trinh_phoi_hop_thu_hoi_cong_no.md",
+    "chunk": "Báo cáo Top 5 vào sáng thứ 5 hàng tuần giúp BD Leader điều chỉnh chiến lược chăm sóc hoặc tạm dừng dịch vụ kịp thời, tránh tình trạng nợ chồng nợ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Nhân viên Kinh doanh cần tập hợp bao nhiêu đầu mục thông tin trong danh mục Checklist khi thực hiện quy trình duyệt Backdate?",
+    "file": "20260128_BD_OPS_BD_Training__Quytrinh_Quy_trinh_duyet_Backdate.md",
+    "chunk": "Bước 1: Nhân viên Kinh doanh (BD) tập hợp đầy đủ 07 đầu mục thông tin trong danh mục Checklist.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Nhân viên cần thực hiện hành động gì khi ngày cần backdate cách ngày hiện tại trên 30 ngày?",
+    "file": "20260128_BD_OPS_BD_Training__Quytrinh_Quy_trinh_duyet_Backdate.md",
+    "chunk": "Trường hợp 2 (Không đạt): Nếu ngày cần backdate cách ngày hiện tại trên 30 ngày.\n\nHành động: Gửi yêu cầu qua Email để Legal Phê duyệt.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Từ ngày 01/06/2024, các giao dịch chuyển khoản vào tài khoản cá nhân sẽ được xử lý như thế nào?",
+    "file": "20260128_BD_OPS_BD_Training__Thongbao_Thong_bao_chuyen_doi_tai_khoan_nhan_thanh_toan.md",
+    "chunk": "Xử lý vi phạm: Các giao dịch sau ngày 01/06/2024 vào tài khoản cá nhân sẽ được Phòng Kế toán hỗ trợ Hoàn tiền nhưng sẽ làm chậm tiến độ giao hàng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Giai đoạn chuyển giao từ 20/05 đến 31/05/2024, Team Business Development (BD) và Team Key Account Management (KAM) cần thực hiện những công việc gì?",
+    "file": "20260128_BD_OPS_BD_Training__Thongbao_Thong_bao_chuyen_doi_tai_khoan_nhan_thanh_toan.md",
+    "chunk": "Giai đoạn chuyển giao (20/05 - 31/05/2024): Team Business Development (BD) và Team Key Account Management (KAM) thực hiện Cập nhật tài liệu đào tạo và thông báo cho Khách hàng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Loại thẻ nào bị từ chối theo quy định về Thẻ thanh toán trong thông báo này?",
+    "file": "20260128_BD_OPS_BD_Training__Thongbao_Thong_bao_thanh_toan_bang_the_qua_link_thanh_toan.md",
+    "chunk": "Loại thẻ bị từ chối: Thẻ Cá nhân.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo quy trình phối hợp thực hiện, BD phải thực hiện hành động gì ở Bước 1 trước khi gửi thông tin cho Commercial xác nhận?",
+    "file": "20260128_BD_OPS_BD_Training__Thongbao_Thong_bao_thanh_toan_bang_the_qua_link_thanh_toan.md",
+    "chunk": "[Bước 1]: BD chủ động Kiểm tra danh sách đầu BIN thẻ Commercial theo đường dẫn hệ thống.\n\nLưu ý: BD phải thực hiện Kiểm tra trước khi gửi thông tin để Commercial Xác nhận.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo hướng dẫn sử dụng email template, các bước thực hiện nào cần được tuân theo để gửi email giới thiệu dịch vụ?",
+    "file": "20260129_BD_OPS_BD_Training__BieuMau_Client_email_template_Gioi_thieu_dich_vu.md",
+    "chunk": "HDSD Email Template\n\nThay nội dung trong ngoặc + Điều chỉnh theo thực tế + Xóa ví dụ/nội dung trong ngoặc không liên quan.\n\nKiểm tra và đảm bảo nội dung mail đã chuẩn\n\nQuét khối nội dung mail+Chọn Background Color màu trắng\n\nGửi email.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mẫu email này được sử dụng trong trường hợp nào?",
+    "file": "20260129_BD_OPS_BD_Training__BieuMau_Client_email_template_Gioi_thieu_dich_vu.md",
+    "chunk": "[Client Email Template] 01B2. Giới thiệu DV sau khi tiếp cận qua điện thoại",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Làm thế nào để kết nối Hubspot với email công ty?",
+    "file": "20260129_BD_OPS_BD_Training__HDSD_Huong_dan_thao_tac_tren_CRM_Hubspot.md",
+    "chunk": "[Bước 1]: Bấm vào ảnh user góc phải trên cùng, chọn Profile & Preferences\n\n[Bước 2]:Trong General, chọn Email, chọn Connect Personal Email\n\n[Bước 3]: Chọn Connect your inbox\n\n[Bước 4]: Chọn next\n\n[Bước 5]: Chọn connect to gmail\n\n[Bước 5]: Chọn continue\n\n[Bước 6]: chọn email\n\n[Bước 7]: Bấm allow\n\n[Bước 8]: Download exyension\n\n[Bước 9]: Chọn download loại phù hợp\n\n[Bước 10]: Add to chrome\n\n[Bước 11]: Thêm tiện ích\n\n[Bước 12]: Chọn I acknowledge\n\n[Bước 13]: Có thể tracking Khách hàng mở mail chưa, đọc nội dung gì trong mail - bấm next\n\n[Bước 14]: Có thể dùng các mẫu email có sẵn để gửi ra mà k cần tốn công soạn - Done\n\n[Bước 15]: Bấm send\n\n[Bước 16]: Hoàn thành\n\n[Bước 17]: Kiểm tra trên trang mail công ty / Outlook có 2 icon của Hubspot như trong hình là thành công.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao BD cần thực hiện Log activity (Call/Meeting) trên Hubspot?",
+    "file": "20260129_BD_OPS_BD_Training__HDSD_Huong_dan_thao_tac_tren_CRM_Hubspot.md",
+    "chunk": "Log activity (Call/Meeting) để hệ thống ghi nhận công việc; nếu thiếu bước này, BD sẽ không có cơ sở để đánh giá KPI định kỳ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Điều gì sẽ xảy ra nếu BD không nhập website khi tạo Công ty?",
+    "file": "20260129_BD_OPS_BD_Training__QuyTrinh_Tao_Company-Contact-Deal.md",
+    "chunk": "Nhập website của công ty. Trong trường hợp không nhập website, công ty có thể bị tạo trùng dẫn đến việc BD mất quyền owner công ty",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao BD cần điền chính xác các thông tin khi chuyển Stage của Deal?",
+    "file": "20260129_BD_OPS_BD_Training__QuyTrinh_Tao_Company-Contact-Deal.md",
+    "chunk": "Để được chuyển Stage của Deal, cần điền các thông tin yêu cầu (Thay đổi theo từng Stage). Các thông tin này sẽ được BD Admin check lại nên cần điền chính xác theo từng giai đoạn.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo quy tắc nhận thông báo trên hệ thống HubSpot, sau bao lâu Deal từ nguồn Telesales ở Stage 1 sẽ bị thu hồi nếu không có hoạt động với khách hàng?",
+    "file": "20260129_BD_OPS_BD_Training__QuyTrinh_Van_hanh_phong_kinh_doanh_tren_nen_tang_Hubspot.md",
+    "chunk": "Nguồn từ Telesales, sau 30 phút từ khi nhận email nhắc nhở lần 1, hệ thống kiểm tra vẫn chưa có hoạt động với khách hàng. Deal sẽ được thu hồi và chuyển lại cho BD admin.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Role duyệt QPO đã chuyển từ Kế Toán sang ai?",
+    "file": "20260130_BD_OPS_BD_Training__Chinhsach_Dieu_kien_don_hang_dung_cong_cu_QPO_de_ban_giao.md",
+    "chunk": "Role duyệt QPO chuyển từ Kế Toán sang KAM Supervisor (Anh Duy + Hoa + Trinh/Thi/Như. Mỗi lines BD sẽ có 1 KAM Supervisor)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đơn hàng QPO áp dụng cho những loại sản phẩm nào?",
+    "file": "20260130_BD_OPS_BD_Training__Chinhsach_Dieu_kien_don_hang_dung_cong_cu_QPO_de_ban_giao.md",
+    "chunk": "Điều kiện áp dụng:\n\nKH phải thanh toán trả trước\n\nĐơn hàng thỏa 5 điều kiện:\n\nSản phẩm: Link quà tặng / Mã nạp app",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Ai là người phụ trách (PIC) nội dung Hướng dẫn thao tác trên CRM HubSpot?",
+    "file": "20260130_BD_OPS_BD_Training__DaoTao_Cac_quy_trinh_can_biet_truoc_khi_ban_hang.md",
+    "chunk": "Nội dung: Hướng dẫn thao tác trên CRM HubSpot\n\nhttps://drive.google.com/drive/folders/1kLI1mRsiCRn9r9StcwZJ1PlnhddsxxST?usp=sharing\n\nPIC: Quỳnh Anh BD Ops",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Nội dung 'Các quy trình cần biết trước khi bán hàng' bao gồm những quy trình nào?",
+    "file": "20260130_BD_OPS_BD_Training__DaoTao_Cac_quy_trinh_can_biet_truoc_khi_ban_hang.md",
+    "chunk": "Nội dung: Các quy trình cần biết trước khi bán hàng\n\nhttps://docs.google.com/spreadsheets/d/17F9yyedC5ye5o9hRZvf3rx2Y2fI7BkiBfbkkuatUrsc/edit?gid=1403301422#gid=1403301422\n\nGhi chú:\n\nQuy trình chạy đơn API Loyalty.\n\n\n\n\nQuy trình bán các loại link 1 thương hiệu.\n\n\n\n\nQuy trình làm việc với PRT order ngoài luồng.\n\n\n\n\nQuy trình BD request KAM + BD admin bàn giao.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mỗi tin nhắn SMS có thể chứa tối đa bao nhiêu ký tự không dấu?",
+    "file": "20260130_BD_OPS_BD_Training__DaoTao_Mẫu_SMS.md",
+    "chunk": "Tối đa 160 ký tự/ SMS",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "BD cần gửi yêu cầu cho đối tượng nào khi muốn đăng ký mẫu SMS mới?",
+    "file": "20260130_BD_OPS_BD_Training__DaoTao_Mẫu_SMS.md",
+    "chunk": "Đầu mối BD request: KAM",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Cách đặt tiêu đề meeting đối với 1st meeting và các meeting follow up được quy định như thế nào?",
+    "file": "20260130_BD_OPS_BD_Training__HDSD_Luu_y_va_dien_giai_cac_truong_thong_tin_cua_company_và_deal.md",
+    "chunk": "Đối với 1st meeting: UB01 - Hình thức – UBxKH – Tiêu đề meeting\n\nĐối với các meeting follow up sau deal hoặc meeting để bán đơn hàng tiếp theo cho KH cũ/hiện tại: Hình thức – UBxKH – Tiêu đề meeting",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Quy trình kiểm tra và gán Contact Owner được thực hiện ra sao khi Contact đã tồn tại trên hệ thống?",
+    "file": "20260130_BD_OPS_BD_Training__HDSD_Luu_y_va_dien_giai_cac_truong_thong_tin_cua_company_và_deal.md",
+    "chunk": "Nếu đã có Contact, BD Ops check Contact Owner\nBD phải có sự đồng ý của Contact Owner hiện tại, cuộc trò chuyện phải thể hiện trên Group chat BD | Tra cứu Company. Sau khi xác nhận có sự đồng ý của Owner 1, BD Ops gán BD là Contact Owner 2, Nếu Owner 1 không đồng ý, Không gán Owner 2.\n\nLưu ý: Mọi trao đổi ngoài phạm vi Group chat đều không được thông qua.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Dung lượng file đính kèm tối đa được quy định là bao nhiêu?",
+    "file": "20260202_BD_OPS_BD_Training__BieuMau_Client_email_Template_-_Meeting_request.md",
+    "chunk": "Giảm tối đa dung lượng file, nếu pdf thì phải <5mb",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao cần hạn chế đính kèm file zip trong email gửi khách hàng?",
+    "file": "20260202_BD_OPS_BD_Training__BieuMau_Client_email_Template_-_Meeting_request.md",
+    "chunk": "Hạn chế đính kèm file zip để KH có thể check mail và mở file xem luôn.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tiêu đề email request triển khai đơn hàng API Loyalty cần được viết theo cú pháp nào?",
+    "file": "20260202_BD_OPS_BD_Training__QuyTrinh_Request_ban_giao_don_hang_API_loyalty.md",
+    "chunk": "Tiêu đề mail: [INTERNAL- TÊN BD] TÊN KH - API LOYALTY- số Hợp đồng",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian trung bình để xây dựng game là bao lâu?",
+    "file": "20260202_BD_OPS_BD_Training__QuyTrinh_Request_ban_giao_don_hang_API_loyalty.md",
+    "chunk": "Thời gian trung bình để xây dựng game mất từ 4-6 tuần làm việc tùy thuộc vào yêu cầu của KH",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đầu mối tiếp nhận email request bàn giao đơn hàng UrStaff là địa chỉ nào?",
+    "file": "20260202_BD_OPS_BD_Training__QuyTrinh_Request_ban_giao_don_hang_UrStaff_Portal.md",
+    "chunk": "Đầu mối nhận đơn UrStaff: bdadmin@urbox.vn",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tiêu đề email request bàn giao đơn hàng UrStaff cần tuân thủ cấu trúc như thế nào?",
+    "file": "20260202_BD_OPS_BD_Training__QuyTrinh_Request_ban_giao_don_hang_UrStaff_Portal.md",
+    "chunk": "Tiêu đề mail: [INTERNAL] {Tên Doanh nghiệp} - Bàn giao đơn hàng URSTAFF [Giá trị đơn] + Giao [dd.mm]\n\nVD: [INTERNAL] Prudential - Bàn giao đơn hàng URSTAFF 12 triệu + Giao 29.09",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian xử lý đơn hỗ trợ gấp theo quy định SLA là bao lâu?",
+    "file": "20260202_BD_OPS_BD_Training__QuyTrinh_Request_ban_giao_don_hang_sản_phẩm_còn_lại.md",
+    "chunk": "SLA hỗ trợ gấp: 06h - 08h xử lý đơn.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Kích thước Banner chương trình được quy định là bao nhiêu?",
+    "file": "20260202_BD_OPS_BD_Training__QuyTrinh_Request_ban_giao_don_hang_sản_phẩm_còn_lại.md",
+    "chunk": "Banner: 1528px x 800px",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tổng số thương hiệu Merchant hiện có trong danh sách là bao nhiêu?",
+    "file": "20260203_BD_OPS_BD_Training_Danhsach_Danh_sach_chiet_khau_Merchant.md",
+    "chunk": "Tổng số Merchant: 296 thương hiệu.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Ngành hàng nào có số lượng Merchant nhiều nhất và chiếm tỷ lệ bao nhiêu phần trăm?",
+    "file": "20260203_BD_OPS_BD_Training_Danhsach_Danh_sach_chiet_khau_Merchant.md",
+    "chunk": "Tổng cộng 296 merchant, trong đó F&B chiếm nhiều nhất (~45%), cho thấy tập trung mạnh vào nhu cầu tiêu dùng hằng ngày.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Vấn đề gặp phải trong hợp đồng với Merchant về phần chiết khấu là gì?",
+    "file": "20260203_BD_OPS_BD_Training_DaoTao_Canh_bao_ve_cach_tinh_P&L.md",
+    "chunk": "Trong hợp đồng với Merchant, phần chiết khấu không thể hiện giá trị trước VAT hay sau VAT dẫn tới tính nhầm chiết khấu thực tế.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Phương án kế toán đề xuất tại phần tính P&L cho từng dự án có luồng chiết khấu Client là gì?",
+    "file": "20260203_BD_OPS_BD_Training_DaoTao_Canh_bao_ve_cach_tinh_P&L.md",
+    "chunk": "Tại phần tính P&L cho từng dự án có luồng chiết khấu Client, Account và BD tính thêm chi phí thuế cho phần hoa hồng/phí dịch vụ mà UrBox phải xuất hóa đơn cho Merchant để đảm bảo lợi nhuận hợp lý.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo quy định, ngưỡng giá trị giải thưởng nào trở lên thì thu nhập từ trúng thưởng phải chịu thuế Thu nhập cá nhân?",
+    "file": "20260203_BD_OPS_BD_Training_DaoTao_Luu_y_ve_thue_TNCN.md",
+    "chunk": "Thu nhập tính thuế TNCN từ trúng thưởng là phần giá trị giải thưởng vượt trên 10 triệu đồng mà người nộp thuế nhận được theo từng lần trúng thưởng không phụ thuộc vào số lần nhận tiền thưởng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Trong trường hợp nào việc tặng Voucher cho nhân viên không phải tính vào thu nhập chịu thuế Thu nhập cá nhân?",
+    "file": "20260203_BD_OPS_BD_Training_DaoTao_Luu_y_ve_thue_TNCN.md",
+    "chunk": "Nếu nội dung chi trả không ghi đích danh cá nhân được thụ hưởng mà chi chung cho tập thể cán bộ nhân viên thì khoản thu nhập này không tính vào thu nhập chịu thuế TNCN.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Hai đầu số BIN mới cập nhật trong danh sách là những số nào?",
+    "file": "20260204_BD_OPS_BD_Training_QuyTrinh_Tra_cuu_dau_BIN_khi_khach_hang_thanh_toan_bang_link_thanh_toan.md",
+    "chunk": "Số lượng đầu BIN mới cập nhật: 2 đầu số (48356201, 40371704).",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Danh sách các danh mục dịch vụ Premium Service được liệt kê trong tài liệu bao gồm những gì?",
+    "file": "20260205_BD_OPS_BD_Training_HDSD_Danh_sach_va_mo_ta_cac_dich_vu_Premium_Service.md",
+    "chunk": "Categories/Danh mục\n\nGlobal Airport services (lounges, fast track,..)/Dịch vụ sân bay: phòng chờ, đón/tiễn ưu tiên\n\nPremium Culinary experience/Trải nghiệm ẩm thực đặc quyền\n\nGlobal Hospitality services (hotels, cruises, golf,..)/ Dịch vụ khách sạn toàn cầu (khách sạn, du lịch trên biển, sân golf,..)\n\nPremium Healthcare/Chăm sóc sức khỏe cao cấp\n\nVIP Card/Thẻ VIP\n\nOther assistance upon the request/Hỗ trợ khác theo yêu cầu",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Dịch vụ Golf tại UrBox cung cấp trải nghiệm cho khách hàng trên bao nhiêu sân trên toàn quốc?",
+    "file": "20260205_BD_OPS_BD_Training_HDSD_Danh_sach_va_mo_ta_cac_dich_vu_Premium_Service.md",
+    "chunk": "GOLFING: khách hàng sẽ được hưởng trải nghiệm đánh golf trên 59 sân toàn quốc/Customers will enjoy the golf experience on 59 courses nationwide.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tài liệu cung cấp đường dẫn đến các tài liệu chứng từ về việc áp dụng loại chữ ký nào?",
+    "file": "20260205_BD_OPS_BD_Training_ThongBao_Chu_ky_dien_tu_-_Chu_ky_so.md",
+    "chunk": "Tài liệu cung cấp đường dẫn đến các tài liệu chứng từ về việc áp dụng chữ ký điện tử, chữ ký số của bộ phận Kế toán.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Các tài liệu trong danh sách này thuộc bộ phận nào cung cấp?",
+    "file": "20260205_BD_OPS_BD_Training_ThongBao_Chu_ky_dien_tu_-_Chu_ky_so.md",
+    "chunk": "đây là tài liệu được cung cấp bởi Kế toán.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Quy cách đóng gói chung cho các loại thẻ là bao nhiêu thẻ một cọc?",
+    "file": "20260206_BD_OPS_BD_Training_DanhSach_Ton_kho_Phieu_qua_tang_và_the_qua_tang_vat_ly_(voucher_giay).md",
+    "chunk": "Quy cách đóng gói chung: 100 thẻ / cọc, sắp xếp theo Serial tăng dần, có Nilong niêm phong.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Yêu cầu về lớp phủ bạc đối với Phiếu quà tặng là gì?",
+    "file": "20260206_BD_OPS_BD_Training_DanhSach_Ton_kho_Phieu_qua_tang_và_the_qua_tang_vat_ly_(voucher_giay).md",
+    "chunk": "Phủ bạc chống soi chiếu, chạy chữ URBOX trên lớp phủ bạc",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Số tài khoản thụ hưởng chính thức mới mà các đơn vị cần thực hiện thanh toán là gì?",
+    "file": "20260206_BD_OPS_BD_Training__Thongbao_Thong_bao_chuyen_doi_tai_khoan_nhan_thanh_toan.md",
+    "chunk": "Số tài khoản: 031-01-01-056666-3",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Cấu trúc nội dung chuyển khoản được quy định như thế nào để hệ thống tự động nhận diện?",
+    "file": "20260206_BD_OPS_BD_Training__Thongbao_Thong_bao_chuyen_doi_tai_khoan_nhan_thanh_toan.md",
+    "chunk": "Để đảm bảo hệ thống tự động nhận diện, yêu cầu nhập đúng cấu trúc: “PS - <SỐ_ĐIỆN_THOẠI> - PS - <MÃ_BOOKING>”",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo quy định triển khai, BD cần thực hiện những bước nào để xác định pháp nhân ký kết với khách hàng?",
+    "file": "20260209_BD_OPS_BD_Training_HDSD_Giai_phap_cho_khach_hang_su_dung_Telco.md",
+    "chunk": "Bước 1: BD Kiểm tra nhu cầu dịch vụ của Khách hàng.\n\nBước 2: Xác định pháp nhân ký kết:\n\nNếu dùng dịch vụ hỗn hợp: Ký 2 pháp nhân (UB Trading + UB).\n\nNếu chỉ dùng mã thẻ: Sử dụng GIẢI PHÁP 2.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Trong Giải pháp 1, pháp nhân UB Trading sẽ xuất chứng từ thu cho khách hàng trong trường hợp nào?",
+    "file": "20260209_BD_OPS_BD_Training_HDSD_Giai_phap_cho_khach_hang_su_dung_Telco.md",
+    "chunk": "KH mua voucher (link topup điện thoại - link ver 8): UB Trading xuất chứng từ thu cho Client\n\nKH mua voucher UB (link/ app) bộ quà full: UB trading xuất chứng từ thu cho Client",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại bước Cross-check đơn hàng, BD cần thực hiện hành động gì khi khách hàng yêu cầu đăng ký mới Template SMS?",
+    "file": "20260209_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_ban_giao_don_hang.md",
+    "chunk": "Trường hợp cần Đăng ký mới: Cần check với team Ops về thời gian đăng ký và báo lại BD/Khách hàng",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Quy trình quy định các nguyên tắc nào để kiểm tra danh sách số điện thoại hợp lệ?",
+    "file": "20260209_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_ban_giao_don_hang.md",
+    "chunk": "Một số nguyên tắc để check danh sách Số điện thoại: \n\nChuỗi số điện thoại phải bắt đầu bằng 0\n\nKhông dùng +84\n\nKhông có khoảng trắng, không ký tự đặc biệ",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian xử lý đơn hàng Phiếu quà tặng sẵn có là bao nhiêu ngày làm việc đối với số lượng từ 10.000 đến 20.000?",
+    "file": "20260209_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_in_an_Voucher_và_kiem_soat_rui_ro.md",
+    "chunk": "Số lượng: Từ 10.000 đến 20.000\n\nThời gian xử lý: 4–5 ngày làm việc",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Quy trình xử lý như thế nào khi kho không đáp ứng được số lượng Phiếu quà tặng yêu cầu?",
+    "file": "20260209_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_in_an_Voucher_và_kiem_soat_rui_ro.md",
+    "chunk": "Trường hợp 2 (Kho không đáp ứng): Do số lượng yêu cầu lớn, vượt quá kho:\n\nOP Báo KAM/BD chia đợt bàn giao hoặc kéo dài SLA thực hiện in bổ sung.\n\nKAM & BD Điều chỉnh timeline + OP: 3 team tìm phương án xử lý theo yêu cầu.\n\nSau khi thống nhất, chuyển sang [Bước 4].",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "File Briefing gồm những tab chính nào?",
+    "file": "20260210_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_tao_file_Briefing_và_trinh_duyet_thong_tin_du_an.md",
+    "chunk": "Cấu trúc file: Gồm 02 tab chính là THÔNG TIN DỰ ÁN và THÔNG TIN CẦN XIN DUYỆT",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Sau khi được BOD phê duyệt ngoại lệ, BD phải hoàn tất ký kết chính thức trong thời gian tối đa bao nhiêu ngày làm việc?",
+    "file": "20260210_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_tao_file_Briefing_và_trinh_duyet_thong_tin_du_an.md",
+    "chunk": "Trường hợp được BOD phê duyệt ngoại lệ, BD phải hoàn tất ký kết chính thức trong tối đa 07 ngày làm việc.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đối tượng nào sẽ sử dụng bộ slide giới thiệu tổng quan về UrBox phiên bản tiếng Anh?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Chung_Company_Brochure_EN_ver.md",
+    "chunk": "Đối tượng sử dụng: BD.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Ai là đối tượng sử dụng chính của bộ slide này?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Chung_Company_Brochure_VN_ver.md",
+    "chunk": "Đối tượng sử dụng: BD.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Giải pháp 4.0 Trade Marketing Solution được thiết kế dành cho ngành hàng nào?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_FMCG_Brochure_EN_ver.md",
+    "chunk": "Tài liệu là bộ slide giới thiệu giải pháp quà tặng 4.0 Trade Marketing Solution dành cho ngành FMCG phiên bản tiếng anh (English).",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tên giải pháp được giới thiệu trong tài liệu là gì?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_FMCG_Brochure_VN_ver.md",
+    "chunk": "Tên giải pháp: 4.0 Trade Marketing Solution.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Ngành hàng mục tiêu của giải pháp 4.0 Trade Marketing Solution là ngành nào?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_FMCG_Brochure_VN_ver.md",
+    "chunk": "Ngành hàng mục tiêu: FMCG.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Giải pháp OCR được áp dụng cho ngành hàng nào?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Giai_phap_OCR.md",
+    "chunk": "Ngành hàng mục tiêu: FMCG.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Giải pháp OCR có những ứng dụng chính nào?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Giai_phap_OCR.md",
+    "chunk": "Ứng dụng chính: Thu thập dữ liệu hóa đơn, kiểm soát chương trình khuyến mãi, xác thực bằng chứng mua hàng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục tiêu chính của giải pháp trả thưởng cho nhà phân phối, cửa hàng, đại lý là gì?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Giai_phap_tra_thuong_NPP-cua_hang-nha_thau.md",
+    "chunk": "Mục tiêu: Tăng cường gắn kết hệ thống đại lý và đo lường hiệu quả trả thưởng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Ai là đối tượng sử dụng tài liệu giới thiệu giải pháp trả thưởng này?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Giai_phap_tra_thuong_NPP-cua_hang-nha_thau.md",
+    "chunk": "Đối tượng sử dụng: BD dùng để Tư vấn và Thuyết trình, giới thiệu giải pháp",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục đích chính của biểu mẫu email nội bộ này là gì?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Internal_Email_Template_Request_ban_giao_don_hang_voi_Account.md",
+    "chunk": "Tài liệu này là Internal Email Template dùng để Request bàn giao đơn hàng với Account cho BD",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Điều gì sẽ xảy ra nếu thông tin trong email không đồng nhất với Hợp đồng nguyên tắc?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Internal_Email_Template_Request_ban_giao_don_hang_voi_Account.md",
+    "chunk": "Nếu thông tin không đồng nhất với Hợp đồng nguyên tắc, bộ phận Account có quyền Từ chối tiếp nhận và yêu cầu BD điều chỉnh lại.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục tiêu của tài liệu giới thiệu sản phẩm phiếu quà tặng UrBox là gì?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Phieu_qua_tang__Brochure_Vn__ver.md",
+    "chunk": "Mục tiêu: Cung cấp giải pháp quà tặng tối ưu cho các chương trình của đối tác.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đối tượng nào sử dụng Bộ tài liệu hướng dẫn kích hoạt phiếu quà tặng và voucher giấy?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Phieu_qua_tang_va_voucher_giay_(TQT_vat_ly).md",
+    "chunk": "Đối tượng sử dụng  Bộ tài liệu gồm các file hướng dẫn kích hoạt phiếu quà tăng và voucher giấy dành cho khách hàng: BD dùng để hướng dẫn cho Khách hàng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Bộ tài liệu bao gồm những hình thức sản phẩm nào?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Phieu_qua_tang_va_voucher_giay_(TQT_vat_ly).md",
+    "chunk": "Hình thức sản phẩm Bộ tài liệu gồm các file hướng dẫn kích hoạt phiếu quà tăng và voucher giấy dành cho khách hàng: Voucher giấy, Phiếu quà tặng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Voucher Lock SKU chỉ áp dụng cho đối tượng nào?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Tinh_nang_Voucher_LOCK_SKU.md",
+    "chunk": "Voucher Lock SKU chỉ áp dụng cho sản phẩm (SKU) nhất định.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Voucher Lock SKU có những usecase nào được liệt kê trong tài liệu?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Tinh_nang_Voucher_LOCK_SKU.md",
+    "chunk": "Vc áp dụng cho sản phẩm thuộc nhà cung cấp (Supplier) nhất định\n\nTạo các Chương trình khuyến mãi với các điều kiện nâng cao\n\nVc dùng sản phẩm thuộc Ngành hàng (Category) nhất định.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "UrBox+ được định nghĩa là gì và bao gồm những loại voucher nào?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_UrBox+.md",
+    "chunk": "UrBox+ là một kho Voucher, gồm voucher phổ thông và voucher độc quyền",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao BD cần truy cập các link tham khảo về ưu đãi và thương hiệu đang có trên UrBox Plus?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_UrBox+.md",
+    "chunk": "BD truy cập các link tham khảo về ưu đãi và thương hiệu đang có trên UrBox Plus để tư vấn khách hàng đúng, các ưu đãi và thương hiệu có sự điều chỉnh liên tục.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Các gói dùng thử miễn phí của UrBox+ bao gồm những gói nào và thời hạn sử dụng là bao lâu?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_UrBox+_gói_dùng_thử.md",
+    "chunk": "Gói dùng thử miễn phí: Hạng Bạc (30 ngày) và Hạng Vàng (7 ngày).",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đối tượng áp dụng của chương trình dùng thử UrBox+ là những ai?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_UrBox+_gói_dùng_thử.md",
+    "chunk": "Đối tượng áp dụng: Tất cả Khách hàng mới hoặc lâu năm.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Biểu mẫu Đăng Ký áp dụng cho những đối tượng nào?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Dang_ky_ra_soat,_soan_thao_van_ban.md",
+    "chunk": "Form Đăng Ký áp dụng cho toàn thể các phòng ban của UrBox và JOMO",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Người Đăng Ký cần làm gì trước khi nộp Form Đăng Ký đối với yêu cầu \"Soạn mới mẫu Văn Bản\"?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Dang_ky_ra_soat,_soan_thao_van_ban.md",
+    "chunk": "Đối với yêu cầu \"Soạn mới mẫu Văn Bản\", Người Đăng Ký cần trao đổi trước với Legal về các nội dung hợp tác, kinh doanh trước khi tiến hành nộp Form Đăng Ký.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đối tượng tiếp nhận email request bàn giao đơn hàng UrStaff Portal là ai?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Internal_Email_Template_Request_ban_giao_don_hang_UrStaff_Porta.md",
+    "chunk": "Đối tượng tiếp nhận: BD-admin",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục đích của việc quy định sử dụng mẫu email này là gì?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Internal_Email_Template_Request_ban_giao_don_hang_UrStaff_Porta.md",
+    "chunk": "Để tránh việc thiếu sót thông tin khi chuyển giao công việc giữa hai bộ phận, UrBox quy định sử dụng mẫu email này cho mọi đơn hàng UrStaff Portal",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục đích chính của Internal Email Template này là gì?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Internal_Email_Template_Request_lam_hop_dong.md",
+    "chunk": "Tài liệu này là Internal Email Template dùng để Request lam hợp đồng khi có nhu cầu yêu cầu Legal thực hiện Review hoặc Soạn thảo các văn bản, hợp đồng mới",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đối tượng nào là người tiếp nhận yêu cầu từ biểu mẫu email này?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Internal_Email_Template_Request_lam_hop_dong.md",
+    "chunk": "Đối tượng sử dụng: BD.\n\nĐối tượng tiếp nhận: Legal.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đối tượng nào là người sử dụng biểu mẫu email template này?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Mau_Email_Template_khi_gui_mail_merge.md",
+    "chunk": "Đối tượng sử dụng: BD",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục đích của việc BD sử dụng đúng email template là gì?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Mau_Email_Template_khi_gui_mail_merge.md",
+    "chunk": "BD sử dụng đúng email template để đảm bảo luồng công việc",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Ai là đối tượng tiếp nhận biểu mẫu template brief hợp đồng này?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Template_brief_hop_dong_(BD_admin_ho_tro).md",
+    "chunk": "Đối tượng tiếp nhận: BD admin",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian khắc phục lỗi kỹ thuật của Nhà Cung Cấp đối với sản phẩm Voucher UrBox (Link quà tặng điện tử) là tối đa bao nhiêu ngày làm việc?",
+    "file": "20260305_BD_OPS_BD_Training_ChinhSach_Chinh_sach_bao_hanh_san_pham_UrBox.md",
+    "chunk": "Thời gian khắc phục lỗi kỹ thuật của Nhà Cung Cấp (hệ thống quá tải, gián đoạn) trong tối đa 5 Ngày Làm Việc (không bao gồm ngày Lễ Tết). Trong trường hợp thời gian khắc phục lỗi dự kiến trên 5 Ngày Làm Việc, Nhà Cung Cấp sẽ thực hiện thay thế link quà điện tử mới với giá trị tương đương tại thời điểm phát sinh lỗi.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "UrBox có chịu trách nhiệm bảo hành về số dư sau thời điểm Thẻ UrBox được bàn giao tới đầu mối doanh nghiệp/ cá nhân sở hữu không?",
+    "file": "20260305_BD_OPS_BD_Training_ChinhSach_Chinh_sach_bao_hanh_san_pham_UrBox.md",
+    "chunk": "Không bảo hành về số dư sau thời điểm Thẻ UrBox được bàn giao tới đầu mối doanh nghiệp/ cá nhân sở hữu.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Năm nào được ghi nhận trong báo cáo công nợ của các đối tác và khách hàng?",
+    "file": "20260305_BD_OPS_BD_Training_DanhSach_Theo_doi_PO_Cong_no_cua_khach_hang.md",
+    "chunk": "Tài liệu là tổng hợp báo cáo công nợ của các đối tác và khách hàng trong năm 2025.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục đích chính của việc tổng hợp chi tiết về nội dung giao dịch, giá trị hợp đồng, số tiền đã thanh toán và tình trạng nợ hiện tại là gì?",
+    "file": "20260305_BD_OPS_BD_Training_DanhSach_Theo_doi_PO_Cong_no_cua_khach_hang.md",
+    "chunk": "để phục vụ công tác đối soát và thu hồi nợ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đường dẫn trong tài liệu dùng để làm gì?",
+    "file": "20260305_BD_OPS_BD_Training_DanhSach_Tra_cuu_van_ban_phap_ly.md",
+    "chunk": "Đường dẫn này là nơi tổng hợp yêu cầu tra cứu Hồ sơ gửi Legal. BD có thể tham khảo tra cứu văn bản pháp lý.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Danh sách tra cứu bao gồm những loại hồ sơ nào?",
+    "file": "20260305_BD_OPS_BD_Training_DanhSach_Tra_cuu_van_ban_phap_ly.md",
+    "chunk": "Loại hồ sơ: HĐ, PLHĐ, TTHT, các loại hợp đồng khác",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Trong quá trình thiết kế các ấn phẩm và slide thuyết trình với khách hàng cần tuân thủ điều gì?",
+    "file": "20260305_BD_OPS_BD_Training_HDSD_Checklist_tai_lieu_thiet_ke_Quy_chuan_su_dung_trong_thiet_ke.md",
+    "chunk": "Trong quá trình thiết kế các ấn phẩm/ slide thuyết trình với khách hàng cần tuân thủ đúng guideline UrBox",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Các yếu tố nào cần được tham khảo tại đường dẫn checklist khi thiết kế?",
+    "file": "20260305_BD_OPS_BD_Training_HDSD_Checklist_tai_lieu_thiet_ke_Quy_chuan_su_dung_trong_thiet_ke.md",
+    "chunk": "Màu, logo, bộ slide thiết kế tham khảo tại đường dẫn checklist.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "BD Admin được phép cập nhật trạng thái Hoàn thành khi nào?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Huong_dan_quy_trinh_duyet_chinh_sach_khach_hang_moi_KCN.md",
+    "chunk": "Hoàn thành (sau khi hoàn thành xong hết tất cả các công việc chi tiết mới chọn)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "BD cần chọn người nhận yêu cầu BD Ops là ai khi tạo ticket duyệt chính sách khách hàng mới khu công nghiệp?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Huong_dan_quy_trinh_duyet_chinh_sach_khach_hang_moi_KCN.md",
+    "chunk": "Người nhận yêu cầu BD Ops: BD chọn Nguyễn Phương Thảo và Nguyễn Thị Quỳnh Anh",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "BD Admin được chọn trạng thái \"Hoàn thành\" khi nào?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Huong_dan_quy_trinh_hoan_tat_HĐ_PLHĐ_ĐĐH.md",
+    "chunk": "Hoàn thành (sau khi hoàn thành xong hết tất cả các công việc chi tiết mới chọn)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "BD cần đính kèm tài liệu gì để xác nhận của Khách hàng về HĐ/PLHĐ/ĐĐH?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Huong_dan_quy_trinh_hoan_tat_HĐ_PLHĐ_ĐĐH.md",
+    "chunk": "Xác nhận của Khách hàng về HĐ/PLHĐ/ĐĐH (BD đính kèm bảng pdf về Email xác nhận chính thức từ Khách hàng, trong đó nêu rõ các thông tin đặt hàng (sản phẩm/dịch vụ, số lượng, giá trị, thời gian cung cấp)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Quy trình request báo cáo cho khách hàng được áp dụng chính thức từ ngày nào?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Huong_dan_quy_trinh_request_bao_cao_cho_KH.md",
+    "chunk": "Quy trình 4 bước BD request báo cáo cho KH từ 19/06/24\n\nThời gian áp dụng quy trình: Từ 19/06/2024",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian xử lý tối thiểu đối với báo cáo theo template là bao nhiêu ngày làm việc?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Huong_dan_quy_trinh_request_bao_cao_cho_KH.md",
+    "chunk": "Báo cáo theo template: Ít nhất 2 ngày làm việc (gồm thời gian Data thực hiện report + KAM QC)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "BD cần làm gì để quá trình làm việc diễn ra hiệu quả theo hướng dẫn của tài liệu?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Phan_quyen_BD.md",
+    "chunk": "BD căn cứ vào từng trường hợp cụ thể để liên hệ PIC cho từng luồng công việc",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian xử lý khiếu nại đối với quà tặng vật lý là bao nhiêu ngày làm việc?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_xu_ly_khieu_nai_cho_khach_hang.md",
+    "chunk": "Nội dung: UrBox xử lý khiếu nại của KH về quà tặng vật lý\n\nThời gian xử lý:  10 ngày làm việc",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Khách hàng có bao nhiêu ngày lịch để khiếu nại về quà tặng vật lý kể từ khi nhận hàng thành công?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_xu_ly_khieu_nai_cho_khach_hang.md",
+    "chunk": "Nội dung: Thời gian KH khiếu nại về quà vật lý\n\nThời gian xử lý: 05 ngày lịch\n\nGhi chú: Thời gian được tính kể từ thời điểm được ghi nhận trên hệ thống của Công ty vận chuyển quà tặng vật lý thành công tới Khách hàng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Quy trình đặt đơn gấp (cần nhanh hơn SLA quy định) được thực hiện như thế nào?",
+    "file": "20260305_BD_OPS_BD_Training_ThamKhao_Bo_quy_chuan_ho_tro_khach_hang.md",
+    "chunk": "Quy trình đặt đơn gấp (cần nhanh hơn SLA quy định):\n\nBD check với KAM thời gian nhanh nhất có thể để có thông tin final báo với khách hàng\n\nBD cung cấp thông tin process và đính kèm thông tin BDM approve qua chat (tele/zalo..), mail",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian SLA để xử lý đơn hàng Voucher Điểm UP khi tạo bằng QPO là bao lâu?",
+    "file": "20260305_BD_OPS_BD_Training_ThamKhao_Bo_quy_chuan_ho_tro_khach_hang.md",
+    "chunk": "Tên Sản phẩm: Voucher Điểm UP (Link giftcard ver6, Link balance Ver 10/ Card Link UrBox, Mã (Thẻ) nạp App UrBox, Link topup điện thoại (Link ver8) \n\nĐịnh nghĩa sản phẩm: Số dư nằm trong thẻ sử dụng để đổi ra các Evoucher thương hiệu, quà tặng hiện vật, nạp điện thoại, thanh toán xăng dầu, quà booking trên link, app UrBox.\n\nPIC: KAM\n\nTrường hợp:\n\nCó thể tạo bằng QPO\n\nSLA: \n\nOrder trước 12g trưa ngày N, bàn giao trước 18g ngày N\n\nOrder trước 18g ngày N , bàn giao trước 12g trưa ngày N+1",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tài liệu tham khảo SLA process đơn hàng của KAM bao gồm những nội dung nào?",
+    "file": "20260305_BD_OPS_BD_Training_ThamKhao_SLA_process_don_hang_của_KAM_Tham_khao_thoi_gian-chi_phi_in_an.md",
+    "chunk": "Đây là link dẫn tài liệu tham khảo SLA process đơn hàng của KAM, tham khảo thời gian, chi phí in ấn",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời điểm xuất hóa đơn là khi nào theo quy định?",
+    "file": "20260305_BD_OPS_BD_Training_ThongBao_Thoi_diem_xuat_hoa_don.md",
+    "chunk": "Thời điểm xuất hóa đơn là ngày T+1 khi kết thúc kỳ đối soát.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Việc xử lý chênh lệch đối soát được thực hiện như thế nào sau ngày 12 hàng tháng?",
+    "file": "20260305_BD_OPS_BD_Training_ThongBao_Thoi_diem_xuat_hoa_don.md",
+    "chunk": "điều chỉnh phần chênh lệch vào kỳ đối soát tiếp theo đối với sau ngày 12 hàng tháng",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục tiêu của dự án OCR là giảm bao nhiêu phần trăm thao tác nhập liệu thủ công?",
+    "file": "20260401_BD_SOLUTION_CUSTOMER_JOURNEY.md",
+    "chunk": "Mục tiêu: Tự động hóa việc trích xuất thông tin, giảm 80% thao tác nhập liệu thủ công.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đối tượng nào sẽ sử dụng tài liệu Customer Journey cho mục đích bán hàng?",
+    "file": "20260401_BD_SOLUTION_CUSTOMER_JOURNEY.md",
+    "chunk": "Đối tượng sử dụng tài liệu “Customer Journey” là BD Solution cần dùng tài liệu để bán hàng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tech cần thông báo trước bao lâu cho KAM về các hoạt động bảo trì hoặc cập nhật hệ thống OCR?",
+    "file": "20260401_BD_SOLUTION_FAQ_ve_tan_suat_va_thoi_gian_phan_hoi_(SLA)_giai_phap_OCR.md",
+    "chunk": "Tech phải gửi thông tin trước từ 1 đến 2 tuần.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "KAM cần thông báo cho Client trong thời gian bao lâu sau khi nhận thông tin từ Tech về hoạt động bảo trì hoặc cập nhật hệ thống OCR?",
+    "file": "20260401_BD_SOLUTION_FAQ_ve_tan_suat_va_thoi_gian_phan_hoi_(SLA)_giai_phap_OCR.md",
+    "chunk": "KAM cập nhật cho Client sau 1-2 ngày khi nhân thông tin từ Tech",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo quy trình dự án Premium Service, Checkpoint 2 yêu cầu những điều kiện bắt buộc nào trước khi quyết định Go-live?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP).md",
+    "chunk": "Checkpoint 2: KHÔNG Go-live nếu chưa có xác nhận UAT từ khách hàng và xác nhận luồng đối soát từ Finance.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian triển khai của dự án loại A (Fast-track) là bao lâu?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP).md",
+    "chunk": "Loại dự án : A. Dự án nhanh / Cơ hội (Fast-track) (OCR)\n\nĐặc điểm: Thời gian triển khai < 1.5 tháng, ít phòng ban tham gia, phạm vi rõ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tần suất báo cáo Steering Report trong giai đoạn Executing của Dự án Chiến lược (Loại C) là bao nhiêu?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP)_QuyTrinhTruyenThong.md",
+    "chunk": "Tần suất: 2 tuần/lần hoặc theo sprint",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo nguyên tắc chung, kênh nào được sử dụng cho các thông tin nhanh?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP)_QuyTrinhTruyenThong.md",
+    "chunk": "Thông tin nhanh → Chat nhóm: Kênh chính thống là GChat",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Trong mô hình RACI của dự án OCR, ký hiệu A (Accountable) có ý nghĩa gì và quy định về số lượng người như thế nào?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP)_du_an_OCR_DinhNghia.md",
+    "chunk": "A (Accountable - Người chịu trách nhiệm) là Người \"đứng mũi chịu sào\", có quyền phê duyệt cuối cùng. Chỉ duy nhất 1 người A cho mỗi đầu việc, Chịu trách nhiệm cuối.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Vai trò của Tech Lead trong dự án OCR Solution tại UrBox là gì?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP)_du_an_OCR_DinhNghia.md",
+    "chunk": "Định nghĩa / Nhiệm vụ chính: Lãnh đạo kỹ thuật, đưa ra giải pháp kiến trúc, đảm bảo tiêu chuẩn kỹ thuật, hỗ trợ PM ước lượng effort và quản lý chất lượng code.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian triển khai của dự án OCR Loại A là bao lâu?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP)_du_an_OCR_PhanLoaiDuAn.md",
+    "chunk": "Đặc điểm: Thời gian triển khai < 1.5 tháng, ít phòng ban tham gia, phạm vi rõ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "SLA mock-up cho các sản phẩm đã đóng gói là bao nhiêu ngày làm việc?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP)_du_an_OCR_PhanLoaiDuAn.md",
+    "chunk": "SLA cho việc mock up theo sản phẩm đã đóng gói là  2- 3 ngày làm việc.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Doanh thu dự kiến của dự án là bao nhiêu?",
+    "file": "20260402_BD_SOLUTION_Business-Requirements-Document-Template-JCB.md",
+    "chunk": "Doanh thu dự kiến: 10 tỷ VNĐ cho tới hết năm 2025.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Dự án có bao nhiêu nhân sự cốt lõi?",
+    "file": "20260402_BD_SOLUTION_Business-Requirements-Document-Template-JCB.md",
+    "chunk": "Nhân sự cốt lõi: 08 vị trí (gồm BD, PRD, BA, Tech, Design).",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Chi phí setup gói cơ bản cho hạng mục Lập trình hệ thống (Loyalty Platform) & Portal vận hành là bao nhiêu?",
+    "file": "20260402_BD_SOLUTION_CacHangMucTrongDuAnOCR.md",
+    "chunk": "Gói cơ bản:  setup : 50 triệu",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mẫu kế hoạch dự án này được sử dụng cho các dự án có thời hạn như thế nào?",
+    "file": "20260402_BD_SOLUTION_ProjectPlanTemplate.md",
+    "chunk": "Tài liệu này là mẫu khung kế hoạch dự án (Project Plan Template) dùng để lập kế hoạch cho các dự án trung hạn, dài hạn theo quý và năm của OCR.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Dự án JCB Platinum Services sử dụng kênh truy cập nào để thực hiện kiểm thử?",
+    "file": "20260402_BD_SOLUTION_UAT_Checklist.md",
+    "chunk": "Kênh truy cập: Zalo Mini App (via QR Code).",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao ZNS (Zalo Notification Service) được loại bỏ khỏi danh mục kiểm thử?",
+    "file": "20260402_BD_SOLUTION_UAT_Checklist.md",
+    "chunk": "Loại bỏ ZNS (Zalo Notification Service) khỏi danh mục kiểm thử để tránh việc đánh giá sai lệch về chất lượng hệ thống khi không nhận được thông báo tự động.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo chính sách thanh toán, khách hàng có trách nhiệm thanh toán như thế nào trước khi UrBox bàn giao Sản phẩm/ Dịch vụ?",
+    "file": "20260619_BD_OPS_BD_Training__Chinh_sach_Chinh_sach_ban_hang_ver_8.md",
+    "chunk": "Khách hàng có trách nhiệm thanh toán trả trước toàn bộ giá trị Đơn đặt hàng trước khi UrBox bàn giao Sản phẩm/ Dịch vụ theo Đơn đặt hàng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Chính sách bán hàng quy định như thế nào về việc thu hồi và hoàn hủy các sản phẩm do UrBox cung cấp?",
+    "file": "20260619_BD_OPS_BD_Training__Chinh_sach_Chinh_sach_ban_hang_ver_8.md",
+    "chunk": "UrBox không áp dụng chính sách thu hồi, hoàn hủy có hoàn lại tiền trong mọi trường hợp và đối với mọi sản phẩm UrBox cung cấp, bao gồm nhưng không giới hạn: Voucher UrBox, Phiếu quà tặng...",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mức trừ trên tổng thưởng thanh toán theo năm áp dụng khi khách hàng thanh toán chậm trên 90 ngày là bao nhiêu?",
+    "file": "20260727_BD_SOLUTION_ChinhSach_ChinhsachthuongduanSolution.md",
+    "chunk": "Nếu khách hàng thanh toán chậm trên 90 ngày: trừ 100% trên tổng thưởng của phần thanh toán theo năm.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Voucher thương hiệu có bao nhiêu loại quà và đặc điểm của từng loại là gì?",
+    "file": "20260119_BD_OPS_BD_Training_DaoTao_San_Pham_URBOX.md",
+    "chunk": "Loại quà: Voucher thương hiệu có 3 loại quà:\n\nLoại quà Tự sinh: UrBox có thể tự phát hành mã Voucher, có thể bàn giao ngay, không giới hạn số lượng hay mệnh giá, sau khi bàn giao có thể biết được tình trạng sử dụng và có thể chủ động hỗ trợ nhanh chóng khi KH gặp bất kỳ vấn đề nào trong quá trình sử dụng\n\nLoại quà API: Merchant API kho mã quà với hệ thống UrBox, có thể bàn giao ngay trong giới hạn số lượng và mệnh giá, khi cần check tình trạng sử dụng, cần gửi thông tin cho Ops Egift check case by case vì mỗi merchant sẽ có những yêu cầu kiểm tra tình trạng voucher khác nhau\n\nLoại quà Tự up: UrBox nhập code do Merchant phát hành và lưu kho, có thể bàn giao ngay trong giới hạn số lượng và mệnh giá, sau khi bàn giao không thể biết được tình trạng sử dụng, nếu KH gặp vấn đề trong quá trình sử dụng, UrBox sẽ cần liên hệ Merchant để kiểm tra tình trạng và hỗ trợ",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Phiếu quà tặng giấy có những mệnh giá nào?",
+    "file": "20260119_BD_OPS_BD_Training_DaoTao_San_Pham_URBOX.md",
+    "chunk": "Mệnh giá: Có 4 mệnh giá phiếu quà tặng giấy là 50.000đ, 100.000đ, 200.000đ, 500.000đ",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo mẫu hội thoại, BD nên đưa ra bao nhiêu mốc thời gian cụ thể khi chốt lịch hẹn với khách hàng?",
+    "file": "20260127_BD_OPS_BD_Training__BieuMau_Tiep_can_KH_qua_đien_thoai.md",
+    "chunk": "Luôn kết thúc bằng việc đưa ra hai mốc thời gian cụ thể (ví dụ: thứ 2 hoặc thứ 3) thay vì hỏi khách hàng \"khi nào rảnh\" để tăng tỷ lệ đồng ý gặp mặt.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Khi khách hàng thắc mắc về vấn đề hóa đơn, BD cần thực hiện hành động gì ngay sau cuộc gọi?",
+    "file": "20260127_BD_OPS_BD_Training__BieuMau_Tiep_can_KH_qua_đien_thoai.md",
+    "chunk": "Đối với vấn đề hóa đơn, cần chủ động cung cấp bằng chứng pháp lý (công văn thuế) ngay sau cuộc gọi để giải tỏa lo ngại của khách hàng về việc hạch toán chi phí.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo chính sách bán hàng, trường hợp nào khách hàng không được áp dụng chính sách trả sau?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_Ver7.md",
+    "chunk": "Không áp dụng chính sách trả sau cho Khách lẻ, theo đó Khách lẻ được định nghĩa là các khách hàng chưa xác định được mức độ thường xuyên sử dụng dịch vụ của UrBox và không có Hợp đồng cung cấp dịch vụ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mức chiết khấu cho sản phẩm Voucher UrBox được quy định như thế nào đối với đơn hàng có tổng giá trị từ 500.000.000 VND đến dưới 2.500.000.000 VND?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_Ver7.md",
+    "chunk": "Mức 2: Tổng giá trị đặt hàng từ 500.000.000 VND – dưới 2.500.000.000 VND\n\nMức chiết khấu cho sản phẩm PQT: 0,8%\n\nMức chiết khấu cho sản phẩm Voucher UrBox: 1,0%",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mức chiết khấu phẳng tối đa áp dụng cho khách hàng FMCG và Agency của khách hàng FMCG là bao nhiêu?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_FMCG.md",
+    "chunk": "Chiết khấu tối đa 1% với tất cả các khách hàng FMCG và Agency của khách hàng FMCG",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo chính sách thu hồi và hoàn hủy, UrBox có áp dụng chính sách hoàn lại tiền trong mọi trường hợp không?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_FMCG.md",
+    "chunk": "UrBox không áp dụng chính sách thu hồi, hoàn hủy có hoàn lại tiền trong mọi trường hợp và đối với mọi sản phẩm UrBox cung cấp, bao gồm nhưng không giới hạn: Voucher UrBox, Phiếu quà tặng,...",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mức chiết khấu Voucher UrBox áp dụng cho đơn hàng có tổng giá trị từ 500.000.000 VNĐ đến dưới 1.000.000.000 VNĐ là bao nhiêu?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_KCN_-_KCX.md",
+    "chunk": "MỨC CHIẾT KHẤU 2\n\nTổng giá trị đặt hàng: Từ 500.000.000 VNĐ đến dưới 1.000.000.000 VNĐ\n\nChiết khấu sản phẩm PQT: 1,0%\n\nChiết khấu Voucher UrBox: 1,0%",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo chính sách bán hàng, việc thanh toán trả sau trên 15 ngày cần có sự phê duyệt từ những cấp nào?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_KCN_-_KCX.md",
+    "chunk": "Các trường hợp khách hàng mong muốn trả sau:\n\nTrả sau ≤ 15 ngày cần có phê duyệt từ BD Leader\n\nTrả sau > 15 ngày cần có phê duyệt từ FIN và BOD.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Giá trị voucher tặng thêm đối với đơn hàng có tổng giá trị từ 10.000.000 - 20.000.000 VNĐ là bao nhiêu?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_moi_KCN_-_KCX.md",
+    "chunk": "ĐỐI TƯỢNG 1: ĐƠN HÀNG TỪ 10.000.000 - 20.000.000 VNĐ\n\nTổng giá trị 1 đơn hàng (VNĐ): Từ 10.000.000 - 20.000.000\n\nGiá trị voucher tặng thêm/ đơn hàng (UP): 500.000",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo nguyên tắc chung, yêu cầu áp dụng Chính sách Khách hàng mới phải được gửi trong thời gian nào?",
+    "file": "20260127_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_moi_KCN_-_KCX.md",
+    "chunk": "Thời hạn hợp lệ: Yêu cầu áp dụng Chính sách Khách hàng mới phải được gửi trong tháng có Đơn hàng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Bảng danh sách khách hàng tiềm năng cần bao gồm những cột thông tin nào?",
+    "file": "20260127_BD_OPS_BD_Training__HDSD_BieuMau_danh_sach_KH_tiem_nang.md",
+    "chunk": "Bảng cần bao gồm 5 cột thông tin sau:\n\nSTT\n\nTên công ty\n\nPhòng ban\n\nTên người liên hệ chính\n\nChân dung KH mà BD nên tập trung (5–7 tiêu chí)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Nhân viên BD nên ưu tiên tiếp cận những chức danh nào tại doanh nghiệp khách hàng?",
+    "file": "20260127_BD_OPS_BD_Training__HDSD_BieuMau_danh_sach_KH_tiem_nang.md",
+    "chunk": "Ưu tiên các chức danh:\n\nTrưởng phòng / Manager\n\nHead / Director\n\nFounder / Co-founder (với công ty nhỏ)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục đích chính của bảng quản lý thông tin khách hàng dành cho BD là gì?",
+    "file": "20260127_BD_OPS_BD_Training__HDSD_BieuMau_upload_Contact_len_HubSpot.md",
+    "chunk": "Mục đích của bảng\n\nLưu trữ thông tin khách hàng đầy đủ, có hệ thống\n\nTránh trùng khách, trùng người liên hệ\n\nDễ follow-up, chăm sóc và chuyển đổi sale",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Bảng thông tin khách hàng bao gồm những trường dữ liệu nào?",
+    "file": "20260127_BD_OPS_BD_Training__HDSD_BieuMau_upload_Contact_len_HubSpot.md",
+    "chunk": "Cấu trúc bảng thông tin khách hàng\n\nOwner\n\nContact Type\n\nFirst Name\n\nCompany Name\n\nPhòng ban\n\nChức danh\n\nSố di động\n\nEmail\n\nEmail (Khác)\n\nSố điện thoại bàn\n\nĐịa chỉ văn phòng",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Nhân viên cần thực hiện thao tác gì tại mục Account Setting để bật tính năng đồng bộ lịch trên HubSpot?",
+    "file": "20260127_BD_OPS_BD_Training__HDSD_Đong_bo_HubSpot_voi_Google_Calendar_&_dat_lich_hop.md",
+    "chunk": "Tại mục Account Setting, tick chọn Calendar sync.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Điều kiện cần thỏa mãn đối với người tham dự khi thêm vào danh sách Attendee trên HubSpot là gì?",
+    "file": "20260127_BD_OPS_BD_Training__HDSD_Đong_bo_HubSpot_voi_Google_Calendar_&_dat_lich_hop.md",
+    "chunk": "Điều kiện: Người tham dự phải tồn tại dưới dạng Contact trên HubSpot.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian xử lý đơn hàng Phiếu quà tặng sẵn có với số lượng từ 10.000 đến 20.000 là bao nhiêu ngày làm việc?",
+    "file": "20260127_BD_OPS_BD_Training__QuyTrinh_SLA_process_đơn_hàng_của_BD_Admin+KAM.md",
+    "chunk": "Số lượng: Từ 10.000 đến 20.000\n\nThời gian xử lý: 4–5 ngày làm việc",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Trong quy trình yêu cầu đơn hàng Phiếu quà tặng sẵn có, ai là người thực hiện việc kiểm đếm, xuất kho và topup tiền vào Voucher?",
+    "file": "20260127_BD_OPS_BD_Training__QuyTrinh_SLA_process_đơn_hàng_của_BD_Admin+KAM.md",
+    "chunk": "[Bước 4]: Xử lý nghiệp vụ kho\n\nOP Kiểm đếm, Xuất kho, Topup tiền vào Voucher.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mẫu công văn thu hồi công nợ được sử dụng vào mục đích gì?",
+    "file": "20260128_BD_OPS_BD_Training__BieuMau_Mau_CV_thu_hoi_cong_no.md",
+    "chunk": "Đây là mẫu cho Công văn đề nghị thanh toán nợ quá hạn, dùng để nhắc nhở và yêu cầu khách hàng/ đối tác thực hiện nghĩa vụ thanh toán công nợ khi đã quá thời hạn cam kết trong hợp đồng đã ký kết trước đó.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Ai là người có thẩm quyền ký công văn thu hồi công nợ?",
+    "file": "20260128_BD_OPS_BD_Training__BieuMau_Mau_CV_thu_hoi_cong_no.md",
+    "chunk": "Thẩm quyền ký: Phải là Giám đốc hoặc người đại diện theo pháp luật (có ký tên và đóng dấu đỏ).",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mẫu thư nhắc nợ quá hạn được gợi ý cho những trường hợp nào?",
+    "file": "20260128_BD_OPS_BD_Training__BieuMau_Mau_thu_nhac_No_qua_han.md",
+    "chunk": "Mẫu thư nhắc Nợ quá hạn cho email được gợi ý cho 2 trường hợp. \n\nTrường hợp 1: Nhắc công nợ trước 2 ngày khi đến hạn\n\nTrường hợp 2: Nhắc công nợ quá hạn",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời điểm thực hiện nhắc nợ quá hạn lần 1 và lần 2 là khi nào?",
+    "file": "20260128_BD_OPS_BD_Training__BieuMau_Mau_thu_nhac_No_qua_han.md",
+    "chunk": "Lần 1: Sau thời điểm quá hạn 5 ngày\n\nLần 2: Sau thời gian quá hạn 10 ngày",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo quy định chung, điểm thưởng tích lũy sẽ hết hạn vào thời điểm nào?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhach_Chinh_sach_khen_thuong_CTV_Ver2.md",
+    "chunk": "Điểm thưởng tích lũy sẽ hết hạn vào ngày cuối cùng của tháng thứ 12 (mười hai) kể từ ngày điểm thưởng được ghi nhận vào tài khoản điểm thưởng của khách hàng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mức chi thưởng điểm UP mà cộng tác viên nhận được khi giới thiệu Qualified Lead tổ chức thành công buổi gặp mặt trực tiếp là bao nhiêu?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhach_Chinh_sach_khen_thuong_CTV_Ver2.md",
+    "chunk": "Thưởng: 500.000 điểm UP (tương đương 500.000đ), chuyển vào ví UrBox cho Cộng tác viên.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mức chiết khấu cho sản phẩm Voucher UrBox ở MỨC 3 là bao nhiêu phần trăm?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_canh_tranh.md",
+    "chunk": "MỨC 3\n\nTổng giá trị đặt hàng: Từ 2.500.000.000 VNĐ – Dưới 5.000.000.000 VNĐ\n\nMức chiết khấu cho sản phẩm PQT: 0,9%\n\nMức chiết khấu cho sản phẩm Voucher UrBox: 1,2%",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Chính sách bán hàng này áp dụng cho đối tượng khách hàng nào?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_canh_tranh.md",
+    "chunk": "CHÍNH SÁCH BÁN HÀNG\n\n(Dành cho các khách hàng cạnh tranh trực tiếp từ đối thủ)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao cần thực hiện kiểm tra đầu BIN thẻ của Khách hàng trong quy trình bán hàng?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_thanh_toan_bang_the_VISA.md",
+    "chunk": "Kiểm tra đầu BIN thẻ là để đảm bảo giao dịch qua cổng VCB thành công, tránh lãng phí thời gian tạo link nếu thẻ không được hỗ trợ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao kiểm tra đầu BIN thẻ là bước quan trọng trong quy trình bán hàng cho khách hàng thanh toán bằng thẻ VISA?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_ban_hang_cho_Khach_hang_thanh_toan_bang_the_VISA.md",
+    "chunk": "Kiểm tra đầu BIN thẻ là để đảm bảo giao dịch qua cổng VCB thành công, tránh lãng phí thời gian tạo link nếu thẻ không được hỗ trợ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Chính sách tặng quà Merchandise có hiệu lực từ ngày nào?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_tang_qua_merchandise_cho_khach_hang.md",
+    "chunk": "Chính sách có hiệu lực từ ngày 27/10/2025 đến khi có thông báo mới.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo nguyên tắc chung, ai là người có trách nhiệm phê duyệt các trường hợp ngoại lệ trước khi triển khai?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_tang_qua_merchandise_cho_khach_hang.md",
+    "chunk": "Mọi trường hợp ngoại lệ cần có văn bản giải trình và được BD Ops phê duyệt bằng email/ticket trước khi triển khai",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục tiêu chính của việc xây dựng chính sách trải nghiệm dịch vụ UrBox là gì?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_trai_nghiem_cho_khach_hang_moi.md",
+    "chunk": "Xây dựng chính sách trải nghiệm dịch vụ UrBox cho đối tác và đề ra ngân sách hàng tháng để các nhân sự Khối Kinh doanh chủ động triển khai.\n\nThuyết phục Khách hàng/đối tác tiềm năng ký kết hợp đồng sử dụng dịch vụ UrBox hoặc thực hiện các hoạt động thúc đẩy truyền thông cho UrBox.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Ngân sách hàng tháng dành cho nhân sự Bộ phận Phát triển kinh doanh (BD) chính thức là bao nhiêu?",
+    "file": "20260128_BD_OPS_BD_Training__Chinhsach_Chinh_sach_trai_nghiem_cho_khach_hang_moi.md",
+    "chunk": "STT: 1\n\nBộ phận: BD – Chính thức\n\nNgân sách/tháng/nhân sự: 2.000.000đ",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo quy định trong tài liệu, dung lượng tối đa của file PDF khi đính kèm email là bao nhiêu?",
+    "file": "20260128_BD_OPS_BD_Training__DaoTao_10tips_viet_mail_hieu_qua.md",
+    "chunk": "Dung lượng file PDF phải <5MB; không dùng file ZIP.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo quy chuẩn trong tài liệu, BD phải điền nội dung gì nếu hạng mục không có thông tin?",
+    "file": "20260128_BD_OPS_BD_Training__HDSD_Admin-UrStaff_Portal.md",
+    "chunk": "Theo quy chuẩn, nếu hạng mục nào không có nội dung, BD bắt buộc phải điền \"KHÔNG CÓ\" hoặc \"N/A\", không được để trống để AI nhận diện dữ liệu nhất quán.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Địa chỉ email nào là đầu mối nhận đơn UrStaff?",
+    "file": "20260128_BD_OPS_BD_Training__HDSD_Admin-UrStaff_Portal.md",
+    "chunk": "Đầu mối nhận đơn UrStaff: bdadmin@urbox.vn cc: Line Manager",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo quy trình phối hợp thu hồi công nợ, các mốc thời gian quan trọng được xác định là những thời điểm nào?",
+    "file": "20260128_BD_OPS_BD_Training__QuyTrinh_Quy_trinh_phoi_hop_thu_hoi_cong_no.md",
+    "chunk": "Trước thời hạn 1-2 ngày\n\nQuá hạn 5 ngày\n\nQuá hạn 10 ngày\n\nQuá hạn 10 ngày\n\nQuá hạn từ 11 ngày đến ngày thứ 29\n\nQuá hạn trên 30 ngày",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục đích của việc gửi báo cáo Top 5 vào sáng thứ 5 hàng tuần là gì?",
+    "file": "20260128_BD_OPS_BD_Training__QuyTrinh_Quy_trinh_phoi_hop_thu_hoi_cong_no.md",
+    "chunk": "Báo cáo Top 5 vào sáng thứ 5 hàng tuần giúp BD Leader điều chỉnh chiến lược chăm sóc hoặc tạm dừng dịch vụ kịp thời, tránh tình trạng nợ chồng nợ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Nhân viên Kinh doanh cần thực hiện hành động gì khi ngày cần backdate cách ngày hiện tại trên 30 ngày?",
+    "file": "20260128_BD_OPS_BD_Training__Quytrinh_Quy_trinh_duyet_Backdate.md",
+    "chunk": "Trường hợp 2 (Không đạt): Nếu ngày cần backdate cách ngày hiện tại trên 30 ngày.\n\nHành động: Gửi yêu cầu qua Email để Legal Phê duyệt.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Nhân viên phải cung cấp những thông tin nào để thực hiện Gửi yêu cầu duyệt backdate?",
+    "file": "20260128_BD_OPS_BD_Training__Quytrinh_Quy_trinh_duyet_Backdate.md",
+    "chunk": "Để thực hiện Gửi yêu cầu, nhân viên phải cung cấp đầy đủ các thông tin sau:\n\n1 - Ngày backdate đề xuất: Là mốc thời gian cần xét duyệt.\n\n2 - Ngày Khách hàng (KH) và UrBox chốt deal lần đầu tiên: Cơ sở so sánh tính hợp lý.\n\n3 - Ngày bắt đầu trao đổi HĐ/PLHĐ: Ngày backdate phải nằm sau ngày này.\n\n4 - Lý do chọn ngày backdate: BD phải đính kèm giải thích rõ.\n\n5 - Tài liệu xác nhận cam kết tài chính từ KH: Ví dụ như Ủy nhiệm chi (UNC), xác nhận thanh toán, Email....\n\n6 - Tình hình triển khai thực tế: Nếu có.\n\n7 - Người chịu trách nhiệm cam kết: Bao gồm BD và Leader.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tài khoản cá nhân nào sẽ ngưng sử dụng để nhận các khoản thanh toán từ Khách hàng?",
+    "file": "20260128_BD_OPS_BD_Training__Thongbao_Thong_bao_chuyen_doi_tai_khoan_nhan_thanh_toan.md",
+    "chunk": "Chủ tài khoản: Trưởng Cổng Hiếu Số tài khoản: 02324849001 Ngân hàng: LPB",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Từ ngày nào tất cả đơn hàng bắt buộc chuyển khoản vào tài khoản công ty?",
+    "file": "20260128_BD_OPS_BD_Training__Thongbao_Thong_bao_chuyen_doi_tai_khoan_nhan_thanh_toan.md",
+    "chunk": "Giai đoạn áp dụng 100% (Từ 01/06/2024): Tất cả đơn hàng bắt buộc chuyển khoản vào tài khoản công ty.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Loại thẻ nào được chấp nhận và loại thẻ nào bị từ chối theo quy định về thẻ thanh toán?",
+    "file": "20260128_BD_OPS_BD_Training__Thongbao_Thong_bao_thanh_toan_bang_the_qua_link_thanh_toan.md",
+    "chunk": "Loại thẻ được phép: Thẻ Doanh nghiệp thuộc các tổ chức VISA, Mastercard, và JCB.\n\nLoại thẻ bị từ chối: Thẻ Cá nhân.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Loại thẻ nào bị từ chối theo quy định về Thẻ thanh toán?",
+    "file": "20260128_BD_OPS_BD_Training__Thongbao_Thong_bao_thanh_toan_bang_the_qua_link_thanh_toan.md",
+    "chunk": "Loại thẻ bị từ chối: Thẻ Cá nhân.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo hướng dẫn sử dụng email template, các bước thực hiện gửi email gồm những gì?",
+    "file": "20260129_BD_OPS_BD_Training__BieuMau_Client_email_template_Gioi_thieu_dich_vu.md",
+    "chunk": "Thay nội dung trong ngoặc + Điều chỉnh theo thực tế + Xóa ví dụ/nội dung trong ngoặc không liên quan.\n\nKiểm tra và đảm bảo nội dung mail đã chuẩn\n\nQuét khối nội dung mail+Chọn Background Color màu trắng\n\nGửi email.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Trong thông tin chung về giải pháp của UrBox, hạng mục 'Chương trình dành cho khách hàng' bao gồm những nội dung nào?",
+    "file": "20260129_BD_OPS_BD_Training__BieuMau_Client_email_template_Gioi_thieu_dich_vu.md",
+    "chunk": "STT: 2\n\nHạng mục: Chương trình dành cho khách hàng\n\nDiễn giải: \n\nXây dựng giải pháp chi trả thưởng cho đội ngũ bán hàng, đội ngũ đại lý, đối tác của doanh nghiệp \n\nKết nối API Loyalty \n\nXây dựng White-label (xây trang đổi quà theo nhận diện thương hiệu của doanh nghiệp) \n\nXây dựng Landing Page đổi quà \n\nXây dựng giải pháp Quét QR Tích Điểm Đổi Quà\n\nXây dựng Gamification Reward Solution",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Làm thế nào để kết nối Hubspot với email công ty?",
+    "file": "20260129_BD_OPS_BD_Training__HDSD_Huong_dan_thao_tac_tren_CRM_Hubspot.md",
+    "chunk": "[Bước 1]: Bấm vào ảnh user góc phải trên cùng, chọn Profile & Preferences\n\n[Bước 2]:Trong General, chọn Email, chọn Connect Personal Email\n\n[Bước 3]: Chọn Connect your inbox\n\n[Bước 4]: Chọn next\n\n[Bước 5]: Chọn connect to gmail\n\n[Bước 5]: Chọn continue\n\n[Bước 6]: chọn email\n\n[Bước 7]: Bấm allow\n\n[Bước 8]: Download exyension\n\n[Bước 9]: Chọn download loại phù hợp\n\n[Bước 10]: Add to chrome\n\n[Bước 11]: Thêm tiện ích\n\n[Bước 12]: Chọn I acknowledge\n\n[Bước 13]: Có thể tracking Khách hàng mở mail chưa, đọc nội dung gì trong mail - bấm next\n\n[Bước 14]: Có thể dùng các mẫu email có sẵn để gửi ra mà k cần tốn công soạn - Done\n\n[Bước 15]: Bấm send\n\n[Bước 16]: Hoàn thành\n\n[Bước 17]: Kiểm tra trên trang mail công ty / Outlook có 2 icon của Hubspot như trong hình là thành công.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao BD phải thực hiện Log activity (Call/Meeting) trên Hubspot?",
+    "file": "20260129_BD_OPS_BD_Training__HDSD_Huong_dan_thao_tac_tren_CRM_Hubspot.md",
+    "chunk": "Log activity (Call/Meeting) để hệ thống ghi nhận công việc; nếu thiếu bước này, BD sẽ không có cơ sở để đánh giá KPI định kỳ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Điều gì sẽ xảy ra nếu BD không nhập Company domain name khi tạo công ty mới?",
+    "file": "20260129_BD_OPS_BD_Training__QuyTrinh_Tao_Company-Contact-Deal.md",
+    "chunk": "Nhập website của công ty. Trong trường hợp không nhập website, công ty có thể bị tạo trùng dẫn đến việc BD mất quyền owner công ty",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao BD cần nhập Domain (website) khi tạo Công ty mới trên HubSpot?",
+    "file": "20260129_BD_OPS_BD_Training__QuyTrinh_Tao_Company-Contact-Deal.md",
+    "chunk": "Nhập website của công ty. Trong trường hợp không nhập website, công ty có thể bị tạo trùng dẫn đến việc BD mất quyền owner công ty",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo quy tắc nhận thông báo trên hệ thống HubSpot, sau bao nhiêu thời gian kể từ khi nhận email nhắc nhở lần 1 mà vẫn chưa có hoạt động với khách hàng thì Deal từ nguồn Telesales sẽ bị thu hồi và chuyển lại cho BD admin?",
+    "file": "20260129_BD_OPS_BD_Training__QuyTrinh_Van_hanh_phong_kinh_doanh_tren_nen_tang_Hubspot.md",
+    "chunk": "Nguồn từ Telesales, sau 30 phút từ khi nhận email nhắc nhở lần 1, hệ thống kiểm tra vẫn chưa có hoạt động với khách hàng. Deal sẽ được thu hồi và chuyển lại cho BD admin.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Quyền duyệt đơn hàng QPO được chuyển từ vai trò nào sang vai trò nào?",
+    "file": "20260130_BD_OPS_BD_Training__Chinhsach_Dieu_kien_don_hang_dung_cong_cu_QPO_de_ban_giao.md",
+    "chunk": "Role duyệt QPO chuyển từ Kế Toán sang KAM Supervisor (Anh Duy + Hoa + Trinh/Thi/Như. Mỗi lines BD sẽ có 1 KAM Supervisor)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "QPO không áp dụng cho những loại đơn hàng nào?",
+    "file": "20260130_BD_OPS_BD_Training__Chinhsach_Dieu_kien_don_hang_dung_cong_cu_QPO_de_ban_giao.md",
+    "chunk": "Chưa áp dụng cho đơn mua Evoucher thương hiệu, đặt cọc API Loyalty...",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Nhân viên BD cần nắm rõ những nội dung nào theo yêu cầu của tài liệu?",
+    "file": "20260130_BD_OPS_BD_Training__DaoTao_Cac_quy_trinh_can_biet_truoc_khi_ban_hang.md",
+    "chunk": "BD phải nắm rõ hệ thống tên sản phẩm mới và các SLA quy trình đơn hàng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Một tin nhắn SMS tiêu chuẩn chứa tối đa bao nhiêu ký tự không dấu?",
+    "file": "20260130_BD_OPS_BD_Training__DaoTao_Mẫu_SMS.md",
+    "chunk": "Tối đa 160 ký tự/ SMS",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "BD cần thực hiện hành động gì trước khi gửi yêu cầu đăng ký mẫu SMS mới cho KAM?",
+    "file": "20260130_BD_OPS_BD_Training__DaoTao_Mẫu_SMS.md",
+    "chunk": "Trước khi gửi yêu cầu cho KAM, BD check các mẫu đã có sẵn được duyệt ở cột L (Nội dung temp được duyệt) trước theo Link: https://docs.google.com/spreadsheets/d/1VJc3cdpfB3uO7MI61P1zyiM6PBdgC6MkwRwBOcf-rzk/edit",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Cú pháp đặt tiêu đề meeting lần đầu tiên với khách hàng được quy định như thế nào?",
+    "file": "20260130_BD_OPS_BD_Training__HDSD_Luu_y_va_dien_giai_cac_truong_thong_tin_cua_company_và_deal.md",
+    "chunk": "Đối với 1st meeting: UB01 - Hình thức – UBxKH – Tiêu đề meeting",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "BD phải thực hiện hành động gì trước khi tạo mới một Company?",
+    "file": "20260130_BD_OPS_BD_Training__HDSD_Luu_y_va_dien_giai_cac_truong_thong_tin_cua_company_và_deal.md",
+    "chunk": "Check trước khi tạo mới: BD phải kiểm tra Owner trên Group chat BD | Tra cứu Company.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Dung lượng file đính kèm tối đa được quy định là bao nhiêu?",
+    "file": "20260202_BD_OPS_BD_Training__BieuMau_Client_email_Template_-_Meeting_request.md",
+    "chunk": "Dung lượng file đính kèm < 5MB, định dạng Background Color màu trắng",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao cần hạn chế đính kèm file zip trong email gửi khách hàng?",
+    "file": "20260202_BD_OPS_BD_Training__BieuMau_Client_email_Template_-_Meeting_request.md",
+    "chunk": "Hạn chế đính kèm file zip để KH có thể check mail và mở file xem luôn.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian trung bình để xây dựng game mất bao lâu?",
+    "file": "20260202_BD_OPS_BD_Training__QuyTrinh_Request_ban_giao_don_hang_API_loyalty.md",
+    "chunk": "Thời gian trung bình để xây dựng game mất từ 4-6 tuần làm việc tùy thuộc vào yêu cầu của KH",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian trung bình để xây dựng game là bao lâu?",
+    "file": "20260202_BD_OPS_BD_Training__QuyTrinh_Request_ban_giao_don_hang_API_loyalty.md",
+    "chunk": "Thời gian trung bình để xây dựng game mất từ 4-6 tuần làm việc tùy thuộc vào yêu cầu của KH",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đầu mối tiếp nhận email request bàn giao đơn hàng UrStaff là địa chỉ nào?",
+    "file": "20260202_BD_OPS_BD_Training__QuyTrinh_Request_ban_giao_don_hang_UrStaff_Portal.md",
+    "chunk": "Đầu mối nhận đơn UrStaff: bdadmin@urbox.vn",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo quy định trong tài liệu, SLA trung bình và SLA hỗ trợ gấp để xử lý đơn hàng là bao nhiêu?",
+    "file": "20260202_BD_OPS_BD_Training__QuyTrinh_Request_ban_giao_don_hang_sản_phẩm_còn_lại.md",
+    "chunk": "SLA: - trung bình: 2 ngày làm việc - SLA hỗ trợ gấp (case by case): 6h-8h process đơn. Ít hơn thời gian này sẽ có nhiều rủi ro.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Khi gửi email request bàn giao đơn hàng, BD cần lưu ý điều gì về cột \"Lưu ý\" trong nội dung mail gửi cho Account?",
+    "file": "20260202_BD_OPS_BD_Training__QuyTrinh_Request_ban_giao_don_hang_sản_phẩm_còn_lại.md",
+    "chunk": "Lưu ý cho BD (không đưa cột “Lưu ý” vào mail order)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tổng số thương hiệu Merchant hiện có trong danh sách là bao nhiêu?",
+    "file": "20260203_BD_OPS_BD_Training_Danhsach_Danh_sach_chiet_khau_Merchant.md",
+    "chunk": "Tổng số Merchant: 296 thương hiệu.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Ngành hàng nào có số lượng Merchant nhiều nhất và chiếm tỷ lệ bao nhiêu phần trăm?",
+    "file": "20260203_BD_OPS_BD_Training_Danhsach_Danh_sach_chiet_khau_Merchant.md",
+    "chunk": "Tổng cộng 296 merchant, trong đó F&B chiếm nhiều nhất (~45%), cho thấy tập trung mạnh vào nhu cầu tiêu dùng hằng ngày.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Vấn đề gì xảy ra khi hợp đồng với Merchant không thể hiện rõ giá trị chiết khấu trước VAT hay sau VAT?",
+    "file": "20260203_BD_OPS_BD_Training_DaoTao_Canh_bao_ve_cach_tinh_P&L.md",
+    "chunk": "Trong hợp đồng với Merchant, phần chiết khấu không thể hiện giá trị trước VAT hay sau VAT dẫn tới tính nhầm chiết khấu thực tế.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Phương án nào được kế toán đề xuất để đảm bảo lợi nhuận hợp lý khi tính P&L cho các dự án có chiết khấu từ Client?",
+    "file": "20260203_BD_OPS_BD_Training_DaoTao_Canh_bao_ve_cach_tinh_P&L.md",
+    "chunk": "Tại phần tính P&L cho từng dự án có luồng chiết khấu Client, Account và BD tính thêm chi phí thuế cho phần hoa hồng/phí dịch vụ mà UrBox phải xuất hóa đơn cho Merchant để đảm bảo lợi nhuận hợp lý.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo quy định, ngưỡng giá trị giải thưởng nào chịu thuế thu nhập cá nhân từ trúng thưởng?",
+    "file": "20260203_BD_OPS_BD_Training_DaoTao_Luu_y_ve_thue_TNCN.md",
+    "chunk": "Thu nhập tính thuế TNCN từ trúng thưởng là phần giá trị giải thưởng vượt trên 10 triệu đồng mà người nộp thuế nhận được theo từng lần trúng thưởng không phụ thuộc vào số lần nhận tiền thưởng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Trong trường hợp nào việc tặng Voucher cho nhân viên không tính vào thu nhập chịu thuế thu nhập cá nhân?",
+    "file": "20260203_BD_OPS_BD_Training_DaoTao_Luu_y_ve_thue_TNCN.md",
+    "chunk": "Nếu nội dung chi trả không ghi đích danh cá nhân được thụ hưởng mà chi chung cho tập thể cán bộ nhân viên thì khoản thu nhập này không tính vào thu nhập chịu thuế TNCN.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Có bao nhiêu đầu BIN mới được cập nhật và đó là những đầu số nào?",
+    "file": "20260204_BD_OPS_BD_Training_QuyTrinh_Tra_cuu_dau_BIN_khi_khach_hang_thanh_toan_bang_link_thanh_toan.md",
+    "chunk": "Số lượng đầu BIN mới cập nhật: 2 đầu số (48356201, 40371704).",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Danh sách các danh mục dịch vụ Premium Service được liệt kê trong tài liệu bao gồm những gì?",
+    "file": "20260205_BD_OPS_BD_Training_HDSD_Danh_sach_va_mo_ta_cac_dich_vu_Premium_Service.md",
+    "chunk": "Categories/Danh mục\n\nGlobal Airport services (lounges, fast track,..)/Dịch vụ sân bay: phòng chờ, đón/tiễn ưu tiên\n\nPremium Culinary experience/Trải nghiệm ẩm thực đặc quyền\n\nGlobal Hospitality services (hotels, cruises, golf,..)/ Dịch vụ khách sạn toàn cầu (khách sạn, du lịch trên biển, sân golf,..)\n\nPremium Healthcare/Chăm sóc sức khỏe cao cấp\n\nVIP Card/Thẻ VIP\n\nOther assistance upon the request/Hỗ trợ khác theo yêu cầu",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Khách hàng sử dụng dịch vụ Healthcare thực hiện thao tác nào để đặt dịch vụ?",
+    "file": "20260205_BD_OPS_BD_Training_HDSD_Danh_sach_va_mo_ta_cac_dich_vu_Premium_Service.md",
+    "chunk": "Operation: Call UB hotline/ Vận hành: khách liên hệ hotline UB",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tài liệu cung cấp đường dẫn đến các tài liệu chứng từ về việc áp dụng chữ ký điện tử, chữ ký số của bộ phận nào?",
+    "file": "20260205_BD_OPS_BD_Training_ThongBao_Chu_ky_dien_tu_-_Chu_ky_so.md",
+    "chunk": "Tài liệu cung cấp đường dẫn đến các tài liệu chứng từ về việc áp dụng chữ ký điện tử, chữ ký số của bộ phận Kế toán.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Quy cách đóng gói chung cho các loại thẻ vật lý là bao nhiêu thẻ một cọc?",
+    "file": "20260206_BD_OPS_BD_Training_DanhSach_Ton_kho_Phieu_qua_tang_và_the_qua_tang_vat_ly_(voucher_giay).md",
+    "chunk": "Quy cách đóng gói chung: 100 thẻ / cọc, sắp xếp theo Serial tăng dần, có Nilong niêm phong.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Yêu cầu về lớp phủ bạc đối với Phiếu quà tặng là gì?",
+    "file": "20260206_BD_OPS_BD_Training_DanhSach_Ton_kho_Phieu_qua_tang_và_the_qua_tang_vat_ly_(voucher_giay).md",
+    "chunk": "Phủ bạc chống soi chiếu, chạy chữ URBOX trên lớp phủ bạc",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Số tài khoản mới mà Kế toán yêu cầu các đơn vị thực hiện thanh toán là bao nhiêu?",
+    "file": "20260206_BD_OPS_BD_Training__Thongbao_Thong_bao_chuyen_doi_tai_khoan_nhan_thanh_toan.md",
+    "chunk": "Số tài khoản: 031-01-01-056666-3",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Cấu trúc nội dung chuyển khoản đúng để hệ thống tự động nhận diện là gì?",
+    "file": "20260206_BD_OPS_BD_Training__Thongbao_Thong_bao_chuyen_doi_tai_khoan_nhan_thanh_toan.md",
+    "chunk": "Để đảm bảo hệ thống tự động nhận diện, yêu cầu nhập đúng cấu trúc: “PS - <SỐ_ĐIỆN_THOẠI> - PS - <MÃ_BOOKING>”",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo quy định triển khai, BD cần xác định pháp nhân ký kết như thế nào nếu khách hàng dùng dịch vụ hỗn hợp?",
+    "file": "20260209_BD_OPS_BD_Training_HDSD_Giai_phap_cho_khach_hang_su_dung_Telco.md",
+    "chunk": "Nếu dùng dịch vụ hỗn hợp: Ký 2 pháp nhân (UB Trading + UB).",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Giải pháp 1 được áp dụng với mức độ ưu tiên như thế nào đối với khách hàng mới và khách hàng hiện tại?",
+    "file": "20260209_BD_OPS_BD_Training_HDSD_Giai_phap_cho_khach_hang_su_dung_Telco.md",
+    "chunk": "KH mới: BD đang chào giá, đàm phán hợp đồng - Ưu tiên 1\n\nKH hiện tại: \"Khách hàng ký Hợp đồng nguyên tắc - tạo PO mỗi khi đặt hàng/ Hợp đồng mua đứt định kỳ mà PO/ HĐ chưa chạy\"  -Ưu tiên 1",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại bước Cross-check đơn hàng, cần thực hiện những việc gì khi nhận thông tin đơn hàng từ BD?",
+    "file": "20260209_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_ban_giao_don_hang.md",
+    "chunk": "Khi nhận thông tin đơn hàng từ BD, cần cross check một số thông tin: \n\nTemplate SMS (Đã có sẵn/ Đăng ký mới)\n\nTrường hợp cần Đăng ký mới: Cần check với team Ops về thời gian đăng ký và báo lại BD/Khách hàng\n\nChi phí SMS (Tính phí hay Free)\n\nTrường hợp Free: Cần có quy định trong Hợp đồng hoặc approve từ các team liên quan (FIN/BOD…)\n\nLuồng sản phẩm voucher UrBox:",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Quy trình quy định những nguyên tắc nào để kiểm tra tính hợp lý của danh sách số điện thoại?",
+    "file": "20260209_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_ban_giao_don_hang.md",
+    "chunk": "Một số nguyên tắc để check danh sách Số điện thoại: \n\nChuỗi số điện thoại phải bắt đầu bằng 0\n\nKhông dùng +84\n\nKhông có khoảng trắng, không ký tự đặc biệ",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian xử lý đơn hàng Phiếu quà tặng sẵn có là bao nhiêu ngày làm việc đối với số lượng từ 10.000 đến 20.000?",
+    "file": "20260209_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_in_an_Voucher_và_kiem_soat_rui_ro.md",
+    "chunk": "Số lượng: Từ 10.000 đến 20.000\n\nThời gian xử lý: 4–5 ngày làm việc",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Xưởng in nội bộ chưa đáp ứng được những loại sản phẩm nào?",
+    "file": "20260209_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_in_an_Voucher_và_kiem_soat_rui_ro.md",
+    "chunk": "Lưu ý: Xưởng chưa đáp ứng được các sản phẩm có tờ gấp (lì xì, phong bì, voucher gấp đôi, gấp ba…), chưa đáp ứng được các sản phẩm yêu cầu bo góc hoặc phủ cào theo kích cỡ tự do, chỉ phủ cào theo tiêu chuẩn kích cỡ UrBox, decal dán/dính….",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "File Briefing gồm những tab chính nào?",
+    "file": "20260210_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_tao_file_Briefing_và_trinh_duyet_thong_tin_du_an.md",
+    "chunk": "Cấu trúc file: Gồm 02 tab chính là THÔNG TIN DỰ ÁN và THÔNG TIN CẦN XIN DUYỆT",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Trường hợp được BOD phê duyệt ngoại lệ, BD phải hoàn tất ký kết chính thức trong thời gian tối đa bao nhiêu ngày làm việc?",
+    "file": "20260210_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_tao_file_Briefing_và_trinh_duyet_thong_tin_du_an.md",
+    "chunk": "Trường hợp được BOD phê duyệt ngoại lệ, BD phải hoàn tất ký kết chính thức trong tối đa 07 ngày làm việc.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Ai là đối tượng sử dụng chính của bộ slide giới thiệu tổng quan về UrBox?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Chung_Company_Brochure_EN_ver.md",
+    "chunk": "Đối tượng sử dụng: BD.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Ai là đối tượng sử dụng chính của bộ slide này?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Chung_Company_Brochure_VN_ver.md",
+    "chunk": "Đối tượng sử dụng: BD.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Giải pháp 4.0 Trade Marketing Solution được thiết kế dành cho ngành hàng nào?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_FMCG_Brochure_EN_ver.md",
+    "chunk": "Tài liệu là bộ slide giới thiệu giải pháp quà tặng 4.0 Trade Marketing Solution dành cho ngành FMCG phiên bản tiếng anh (English).",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tên giải pháp được giới thiệu trong tài liệu là gì?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_FMCG_Brochure_VN_ver.md",
+    "chunk": "Tên giải pháp: 4.0 Trade Marketing Solution.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Ngành hàng mục tiêu của giải pháp 4.0 Trade Marketing Solution là gì?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_FMCG_Brochure_VN_ver.md",
+    "chunk": "Ngành hàng mục tiêu: FMCG.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Giải pháp OCR được áp dụng cho ngành hàng nào?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Giai_phap_OCR.md",
+    "chunk": "Tài liệu là video giới thiệu giải pháp OCR dành cho ngành hàng FMCG.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Giải pháp OCR có những ứng dụng chính nào?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Giai_phap_OCR.md",
+    "chunk": "Ứng dụng chính: Thu thập dữ liệu hóa đơn, kiểm soát chương trình khuyến mãi, xác thực bằng chứng mua hàng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục tiêu chính của Giải pháp trả thưởng cho NPP, cửa hàng, đại lý là gì?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Giai_phap_tra_thuong_NPP-cua_hang-nha_thau.md",
+    "chunk": "Mục tiêu: Tăng cường gắn kết hệ thống đại lý và đo lường hiệu quả trả thưởng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục đích chính của mẫu email nội bộ này là gì?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Internal_Email_Template_Request_ban_giao_don_hang_voi_Account.md",
+    "chunk": "Tài liệu này là Internal Email Template dùng để Request bàn giao đơn hàng với Account cho BD",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Điều gì sẽ xảy ra nếu thông tin trong email không đồng nhất với Hợp đồng nguyên tắc?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Internal_Email_Template_Request_ban_giao_don_hang_voi_Account.md",
+    "chunk": "Nếu thông tin không đồng nhất với Hợp đồng nguyên tắc, bộ phận Account có quyền Từ chối tiếp nhận và yêu cầu BD điều chỉnh lại.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục tiêu của tài liệu giới thiệu sản phẩm phiếu quà tặng UrBox là gì?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Phieu_qua_tang__Brochure_Vn__ver.md",
+    "chunk": "Mục tiêu: Cung cấp giải pháp quà tặng tối ưu cho các chương trình của đối tác.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đối tượng nào sẽ sử dụng bộ tài liệu hướng dẫn kích hoạt phiếu quà tặng và voucher giấy này?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Phieu_qua_tang_va_voucher_giay_(TQT_vat_ly).md",
+    "chunk": "Đối tượng sử dụng  Bộ tài liệu gồm các file hướng dẫn kích hoạt phiếu quà tăng và voucher giấy dành cho khách hàng: BD dùng để hướng dẫn cho Khách hàng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Voucher Lock SKU chỉ áp dụng cho những gì?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Tinh_nang_Voucher_LOCK_SKU.md",
+    "chunk": "Voucher Lock SKU chỉ áp dụng cho sản phẩm (SKU) nhất định.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Voucher có thể áp dụng cho những đối tượng nào?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_Tinh_nang_Voucher_LOCK_SKU.md",
+    "chunk": "Vc áp dụng cho sản phẩm thuộc nhà cung cấp (Supplier) nhất định\n\nTạo các Chương trình khuyến mãi với các điều kiện nâng cao\n\nVc dùng sản phẩm thuộc Ngành hàng (Category) nhất định.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "UrBox+ được định nghĩa là gì và bao gồm những loại voucher nào?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_UrBox+.md",
+    "chunk": "UrBox+ là một kho Voucher, gồm voucher phổ thông và voucher độc quyền",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao BD cần truy cập các link tham khảo về ưu đãi và thương hiệu đang có trên UrBox Plus?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_UrBox+.md",
+    "chunk": "BD truy cập các link tham khảo về ưu đãi và thương hiệu đang có trên UrBox Plus để tư vấn khách hàng đúng, các ưu đãi và thương hiệu có sự điều chỉnh liên tục.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Các gói dùng thử miễn phí của UrBox+ bao gồm những gói nào?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_UrBox+_gói_dùng_thử.md",
+    "chunk": "Gói dùng thử miễn phí: Hạng Bạc (30 ngày) và Hạng Vàng (7 ngày).",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đối tượng áp dụng của chương trình dùng thử UrBox+ là ai?",
+    "file": "20260304_BD_OPS_BD_Training_BieuMau_UrBox+_gói_dùng_thử.md",
+    "chunk": "Đối tượng áp dụng: Tất cả Khách hàng mới hoặc lâu năm.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Biểu mẫu đăng ký này áp dụng cho đối tượng nào?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Dang_ky_ra_soat,_soan_thao_van_ban.md",
+    "chunk": "Đối tượng sử dụng: BD.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Người đăng ký cần làm gì trước khi nộp Form Đăng Ký đối với yêu cầu soạn mới mẫu Văn Bản?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Dang_ky_ra_soat,_soan_thao_van_ban.md",
+    "chunk": "Đối với yêu cầu \"Soạn mới mẫu Văn Bản\", Người Đăng Ký cần trao đổi trước với Legal về các nội dung hợp tác, kinh doanh trước khi tiến hành nộp Form Đăng Ký.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mẫu email nội bộ này được sử dụng cho mục đích gì?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Internal_Email_Template_Request_ban_giao_don_hang_UrStaff_Porta.md",
+    "chunk": "Đây là Internal Email Template để request bàn giao đơn hàng UrStaff Portal dành cho BD.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao UrBox quy định sử dụng mẫu email này cho mọi đơn hàng UrStaff Portal?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Internal_Email_Template_Request_ban_giao_don_hang_UrStaff_Porta.md",
+    "chunk": "Để tránh việc thiếu sót thông tin khi chuyển giao công việc giữa hai bộ phận, UrBox quy định sử dụng mẫu email này cho mọi đơn hàng UrStaff Portal",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục đích của biểu mẫu Internal Email Template này là gì?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Internal_Email_Template_Request_lam_hop_dong.md",
+    "chunk": "Tài liệu này là Internal Email Template dùng để Request lam hợp đồng khi có nhu cầu yêu cầu Legal thực hiện Review hoặc Soạn thảo các văn bản, hợp đồng mới",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đối tượng nào là người tiếp nhận yêu cầu từ biểu mẫu này?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Internal_Email_Template_Request_lam_hop_dong.md",
+    "chunk": "Đối tượng tiếp nhận: Legal.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mẫu email template này được sử dụng vào mục đích gì?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Mau_Email_Template_khi_gui_mail_merge.md",
+    "chunk": "Mẫu Email Template khi gửi mail merge",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đối tượng nào là người sử dụng biểu mẫu email template này?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Mau_Email_Template_khi_gui_mail_merge.md",
+    "chunk": "Đối tượng sử dụng: BD",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đối tượng nào sẽ tiếp nhận thông tin từ biểu mẫu này?",
+    "file": "20260305_BD_OPS_BD_Training_BieuMau_Template_brief_hop_dong_(BD_admin_ho_tro).md",
+    "chunk": "Đối tượng tiếp nhận: BD admin",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian khắc phục lỗi kỹ thuật của Nhà Cung Cấp đối với Voucher UrBox (Link quà tặng) là tối đa bao nhiêu ngày làm việc?",
+    "file": "20260305_BD_OPS_BD_Training_ChinhSach_Chinh_sach_bao_hanh_san_pham_UrBox.md",
+    "chunk": "Thời gian khắc phục lỗi kỹ thuật của Nhà Cung Cấp (hệ thống quá tải, gián đoạn) trong tối đa 5 Ngày Làm Việc (không bao gồm ngày Lễ Tết).",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "UrBox có chịu trách nhiệm bảo hành về số dư sau thời điểm Thẻ UrBox được bàn giao tới đầu mối doanh nghiệp/ cá nhân sở hữu hay không?",
+    "file": "20260305_BD_OPS_BD_Training_ChinhSach_Chinh_sach_bao_hanh_san_pham_UrBox.md",
+    "chunk": "Không bảo hành về số dư sau thời điểm Thẻ UrBox được bàn giao tới đầu mối doanh nghiệp/ cá nhân sở hữu.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Năm nào được ghi nhận trong báo cáo công nợ của các đối tác và khách hàng?",
+    "file": "20260305_BD_OPS_BD_Training_DanhSach_Theo_doi_PO_Cong_no_cua_khach_hang.md",
+    "chunk": "Tài liệu là tổng hợp báo cáo công nợ của các đối tác và khách hàng trong năm 2025.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục đích chính của việc tổng hợp báo cáo công nợ này là gì?",
+    "file": "20260305_BD_OPS_BD_Training_DanhSach_Theo_doi_PO_Cong_no_cua_khach_hang.md",
+    "chunk": "Nội dung bao gồm chi tiết về nội dung giao dịch, giá trị hợp đồng, số tiền đã thanh toán và tình trạng nợ hiện tại để phục vụ công tác đối soát và thu hồi nợ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Đường dẫn này có mục đích tổng hợp yêu cầu gì?",
+    "file": "20260305_BD_OPS_BD_Training_DanhSach_Tra_cuu_van_ban_phap_ly.md",
+    "chunk": "Đường dẫn này là nơi tổng hợp yêu cầu tra cứu Hồ sơ gửi Legal.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Trong quá trình thiết kế các ấn phẩm và slide thuyết trình với khách hàng cần tuân thủ điều gì?",
+    "file": "20260305_BD_OPS_BD_Training_HDSD_Checklist_tai_lieu_thiet_ke_Quy_chuan_su_dung_trong_thiet_ke.md",
+    "chunk": "Trong quá trình thiết kế các ấn phẩm/ slide thuyết trình với khách hàng cần tuân thủ đúng guideline UrBox",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Các yếu tố nào cần tham khảo tại đường dẫn checklist khi thiết kế?",
+    "file": "20260305_BD_OPS_BD_Training_HDSD_Checklist_tai_lieu_thiet_ke_Quy_chuan_su_dung_trong_thiet_ke.md",
+    "chunk": "Màu, logo, bộ slide thiết kế tham khảo tại đường dẫn checklist.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "BD cần chọn người tiếp nhận yêu cầu là ai khi điền thông tin ticket?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Huong_dan_quy_trinh_duyet_chinh_sach_khach_hang_moi_KCN.md",
+    "chunk": "Người nhận yêu cầu BD Ops: BD chọn Nguyễn Phương Thảo và Nguyễn Thị Quỳnh Anh",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mức giá trị voucher tặng thêm có những tùy chọn nào?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Huong_dan_quy_trinh_duyet_chinh_sach_khach_hang_moi_KCN.md",
+    "chunk": "Chọn 1 trong 3 options 500,000 | 1,000,000 | 2,000,000 dựa trên giá trị đơn hàng và chính sách khách hàng mới khu công nghiệp quy định",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "BD Admin được chọn trạng thái \"Hoàn thành\" khi nào?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Huong_dan_quy_trinh_hoan_tat_HĐ_PLHĐ_ĐĐH.md",
+    "chunk": "Hoàn thành (sau khi hoàn thành xong hết tất cả các công việc chi tiết mới chọn)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "BD cần đính kèm tài liệu gì để xác nhận của Khách hàng về HĐ/PLHĐ/ĐĐH?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Huong_dan_quy_trinh_hoan_tat_HĐ_PLHĐ_ĐĐH.md",
+    "chunk": "Xác nhận của Khách hàng về HĐ/PLHĐ/ĐĐH (BD đính kèm bảng pdf về Email xác nhận chính thức từ Khách hàng, trong đó nêu rõ các thông tin đặt hàng (sản phẩm/dịch vụ, số lượng, giá trị, thời gian cung cấp)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian xử lý đối với báo cáo theo template và báo cáo không theo template là bao nhiêu ngày làm việc?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Huong_dan_quy_trinh_request_bao_cao_cho_KH.md",
+    "chunk": "Báo cáo theo template: Ít nhất 2 ngày làm việc (gồm thời gian Data thực hiện report + KAM QC)\n\nBáo cáo KHÔNG theo template: Ít nhất n + 1 (trong đó n là số ngày do KAM, BD và Data thống nhất SLA để thực hiện theo Quy trình của FIN nêu trên)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "BD cần thực hiện hành động gì khi khách hàng yêu cầu loại báo cáo KHÔNG theo template?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Huong_dan_quy_trinh_request_bao_cao_cho_KH.md",
+    "chunk": "Trường hợp này, BD follow theo Quy trình tiếp nhận và xử lý yêu cầu liên quan tới báo cáo của UrBox do FIN ban hành và áp dụng từ 17/06/2024\n\nTheo đó, BD gửi email yêu cầu báo cáo tới địa chỉ (cc Dept Head-anh Nam Bùi): data.support@urbox.vn để xin approve + cc KAM nắm thông tin.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Các nhóm công việc chính được liệt kê trong Key Metrics bao gồm những nội dung nào?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Phan_quyen_BD.md",
+    "chunk": "Chứng từ\n\nThanh toán\n\nChiết khấu\n\nRebate\n\nMiễn phí các chi phí liên quan đến đơn hàng\n\nPhí vận hàng vàng xăng, HĐ/PLHĐ được ký backdate\n\nPhê duyệt Mở thêm hạn mức chương trình API/Loyalty",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian xử lý khiếu nại đối với quà tặng vật lý là bao nhiêu ngày làm việc?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_xu_ly_khieu_nai_cho_khach_hang.md",
+    "chunk": "Nội dung: UrBox xử lý khiếu nại của KH về quà tặng vật lý\n\nThời gian xử lý:  10 ngày làm việc",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Khách hàng có bao nhiêu ngày lịch để khiếu nại về quà tặng vật lý kể từ khi nhận hàng thành công?",
+    "file": "20260305_BD_OPS_BD_Training_QuyTrinh_Quy_trinh_xu_ly_khieu_nai_cho_khach_hang.md",
+    "chunk": "Nội dung: Thời gian KH khiếu nại về quà vật lý\n\nThời gian xử lý: 05 ngày lịch\n\nGhi chú: Thời gian được tính kể từ thời điểm được ghi nhận trên hệ thống của Công ty vận chuyển quà tặng vật lý thành công tới Khách hàng.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian SLA để xử lý đơn hàng Voucher Điểm UP có thể tạo bằng QPO là bao lâu?",
+    "file": "20260305_BD_OPS_BD_Training_ThamKhao_Bo_quy_chuan_ho_tro_khach_hang.md",
+    "chunk": "Có thể tạo bằng QPO\n\nSLA: \n\nOrder trước 12g trưa ngày N, bàn giao trước 18g ngày N\n\nOrder trước 18g ngày N , bàn giao trước 12g trưa ngày N+1",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Quy trình đặt đơn gấp cần nhanh hơn SLA quy định được thực hiện như thế nào?",
+    "file": "20260305_BD_OPS_BD_Training_ThamKhao_Bo_quy_chuan_ho_tro_khach_hang.md",
+    "chunk": "Quy trình đặt đơn gấp (cần nhanh hơn SLA quy định):\n\nBD check với KAM thời gian nhanh nhất có thể để có thông tin final báo với khách hàng\n\nBD cung cấp thông tin process và đính kèm thông tin BDM approve qua chat (tele/zalo..), mail",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tài liệu tham khảo bao gồm những nội dung nào?",
+    "file": "20260305_BD_OPS_BD_Training_ThamKhao_SLA_process_don_hang_của_KAM_Tham_khao_thoi_gian-chi_phi_in_an.md",
+    "chunk": "Đây là link dẫn tài liệu tham khảo SLA process đơn hàng của KAM, tham khảo thời gian, chi phí in ấn",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời điểm xuất hóa đơn là khi nào theo quy định trong thông báo?",
+    "file": "20260305_BD_OPS_BD_Training_ThongBao_Thoi_diem_xuat_hoa_don.md",
+    "chunk": "Thời điểm xuất hóa đơn là ngày T+1 khi kết thúc kỳ đối soát.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục tiêu của giải pháp OCR là giảm bao nhiêu phần trăm thao tác nhập liệu thủ công?",
+    "file": "20260401_BD_SOLUTION_CUSTOMER_JOURNEY.md",
+    "chunk": "Mục tiêu: Tự động hóa việc trích xuất thông tin, giảm 80% thao tác nhập liệu thủ công.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mục tiêu của dự án OCR là giảm bao nhiêu phần trăm thao tác nhập liệu thủ công?",
+    "file": "20260401_BD_SOLUTION_CUSTOMER_JOURNEY.md",
+    "chunk": "Mục tiêu: Tự động hóa việc trích xuất thông tin, giảm 80% thao tác nhập liệu thủ công.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tần suất thực hiện bảo trì hoặc cập nhật hệ thống OCR tại UrBox là như thế nào?",
+    "file": "20260401_BD_SOLUTION_FAQ_ve_tan_suat_va_thoi_gian_phan_hoi_(SLA)_giai_phap_OCR.md",
+    "chunk": "Không có định kỳ chỉ có các đợt update mới, Tech sẽ báo cho KAM và KAM cập nhật đến với client",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tech cần thông báo trước cho KAM bao nhiêu thời gian khi có hoạt động bảo trì hoặc cập nhật hệ thống OCR?",
+    "file": "20260401_BD_SOLUTION_FAQ_ve_tan_suat_va_thoi_gian_phan_hoi_(SLA)_giai_phap_OCR.md",
+    "chunk": "SLA Tech báo trước 1-2 tuần cho KAM.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian phản hồi (SLA) cho việc mock up theo sản phẩm đã đóng gói là bao nhiêu ngày làm việc?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP).md",
+    "chunk": "Nếu cần mock up, có thể request trực tiếp team PRD Design để gửi lại mock up. SLA cho việc mock up theo sản phẩm đã đóng gói là  2- 3 ngày làm việc.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian triển khai của dự án loại A (Fast-track) là bao lâu?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP).md",
+    "chunk": "Loại dự án : A. Dự án nhanh / Cơ hội (Fast-track) (OCR)\n\nĐặc điểm: Thời gian triển khai < 1.5 tháng, ít phòng ban tham gia, phạm vi rõ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tần suất báo cáo Steering Report trong giai đoạn Executing của Dự án Chiến lược (Loại C) là bao nhiêu?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP)_QuyTrinhTruyenThong.md",
+    "chunk": "Tần suất: 2 tuần/lần hoặc theo sprint",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Ai là người chịu trách nhiệm gửi thông tin trong hoạt động Grooming yêu cầu của Dự án Tiêu chuẩn (Loại B)?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP)_QuyTrinhTruyenThong.md",
+    "chunk": "Bên gửi thông tin: Product Owner/ BA",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Trong mô hình RACI của dự án OCR, ký hiệu A (Accountable) có ý nghĩa gì và mỗi đầu việc có bao nhiêu người đóng vai trò này?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP)_du_an_OCR_DinhNghia.md",
+    "chunk": "A (Accountable - Người chịu trách nhiệm) là Người \"đứng mũi chịu sào\", có quyền phê duyệt cuối cùng. Chỉ duy nhất 1 người A cho mỗi đầu việc, Chịu trách nhiệm cuối.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Nhiệm vụ chính của vai trò QA (Quality Assurance) trong dự án OCR Solution tại UrBox là gì?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP)_du_an_OCR_DinhNghia.md",
+    "chunk": "Đảm bảo chất lượng sản phẩm qua test case, test plan, UAT. Báo cáo bug và xác nhận fix trước khi go-live.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Quy trình áp dụng cho dự án Loại A yêu cầu BD thực hiện những bước nào trước khi chốt commercial?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP)_du_an_OCR_PhanLoaiDuAn.md",
+    "chunk": "BD kiểm tra nội dung scope với các scope đã được ban hành theo quy định của từng sản phẩm để xác định có làm được không và đưa ra manday.\n\nNếu cần mock up, có thể request trực tiếp team PRD Design để gửi lại mock up. SLA cho việc mock up theo sản phẩm đã đóng gói là  2- 3 ngày làm việc.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Thời gian triển khai của dự án OCR Loại A là bao lâu?",
+    "file": "20260401_BD_SOLUTION_QuyTrinhVanHanhTieuChuan_(SOP)_du_an_OCR_PhanLoaiDuAn.md",
+    "chunk": "Đặc điểm: Thời gian triển khai < 1.5 tháng, ít phòng ban tham gia, phạm vi rõ.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Doanh thu dự kiến của dự án phát triển Zalo Mini App phục vụ dịch vụ JCB Platinum là bao nhiêu?",
+    "file": "20260402_BD_SOLUTION_Business-Requirements-Document-Template-JCB.md",
+    "chunk": "Doanh thu dự kiến: 10 tỷ VNĐ cho tới hết năm 2025.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Dự án phát triển Zalo Mini App phục vụ dịch vụ JCB Platinum có bao nhiêu nhân sự cốt lõi?",
+    "file": "20260402_BD_SOLUTION_Business-Requirements-Document-Template-JCB.md",
+    "chunk": "Nhân sự cốt lõi: 08 vị trí (gồm BD, PRD, BA, Tech, Design).",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Chi phí setup cho hạng mục Lập trình hệ thống (Loyalty Platform) & Portal vận hành là bao nhiêu?",
+    "file": "20260402_BD_SOLUTION_CacHangMucTrongDuAnOCR.md",
+    "chunk": "Gói cơ bản:  setup : 50 triệu \n\nGói customize: add on rule thì charge bổ sung theo sheet rule",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Phí duy trì brand name SMS hàng tháng là bao nhiêu?",
+    "file": "20260402_BD_SOLUTION_CacHangMucTrongDuAnOCR.md",
+    "chunk": "Phí duy trì brand name sms: 300 nghìn/ tháng",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Mỗi dự án cần có tối thiểu bao nhiêu mục tiêu chính?",
+    "file": "20260402_BD_SOLUTION_ProjectPlanTemplate.md",
+    "chunk": "Mục tiêu: Tối thiểu 02 mục tiêu chính cho mỗi dự án.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Nhóm PRD bao gồm những thành viên nào?",
+    "file": "20260402_BD_SOLUTION_ProjectPlanTemplate.md",
+    "chunk": "PRD: 02 thành viên (Thiết kế UI UX và Phân tích PRD).",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Dự án JCB Platinum Services sử dụng kênh truy cập nào để thực hiện kiểm thử?",
+    "file": "20260402_BD_SOLUTION_UAT_Checklist.md",
+    "chunk": "Kênh truy cập: Zalo Mini App (via QR Code).",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tại sao ZNS (Zalo Notification Service) được loại bỏ khỏi danh mục kiểm thử?",
+    "file": "20260402_BD_SOLUTION_UAT_Checklist.md",
+    "chunk": "Loại bỏ ZNS (Zalo Notification Service) khỏi danh mục kiểm thử để tránh việc đánh giá sai lệch về chất lượng hệ thống khi không nhận được thông báo tự động.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Tier 1 bao gồm những ngành nào?",
+    "file": "20260611_BD_OPS_BD_Training_QuyTrinh_Industry_Dictionary.md",
+    "chunk": "Tier 1 (Nhóm chiến lược): 2 ngành (~11%)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Theo chính sách thanh toán, khách hàng cá nhân là những đối tượng nào?",
+    "file": "20260619_BD_OPS_BD_Training__Chinh_sach_Chinh_sach_ban_hang_ver_8.md",
+    "chunk": "Không áp dụng chính sách trả sau cho Khách hàng cá nhân, theo đó Khách hàng cá nhân là những cá nhân mua sắm sản phẩm/ dịch vụ cho nhu cầu sử dụng cá nhân và không đại diện cho bất kỳ tổ chức hay doanh nghiệp nào.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Chiết khấu được áp dụng cho những sản phẩm nào và không áp dụng cho những khoản phí nào?",
+    "file": "20260619_BD_OPS_BD_Training__Chinh_sach_Chinh_sach_ban_hang_ver_8.md",
+    "chunk": "Chiết khấu chỉ áp dụng cho Phiếu quà tặng, Voucher UrBox, Voucher thương hiệu, không áp dụng chiết khấu cho các loại phí đi kèm (phí in ấn, vận chuyển, …)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Điều kiện tối thiểu về KPI Doanh thu để nhân sự được tính thưởng là bao nhiêu phần trăm?",
+    "file": "20260727_BD_SOLUTION_ChinhSach_ChinhsachthuongduanSolution.md",
+    "chunk": "Điều kiện tính thưởng: hoàn thành từ 50% KPI Doanh thu (sản phẩm dịch vụ/giải pháp) và 70% doanh số từ quà.",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  },
+  {
+    "question": "Công thức tính thưởng cho BD Solution Led team được quy định như thế nào?",
+    "file": "20260727_BD_SOLUTION_ChinhSach_ChinhsachthuongduanSolution.md",
+    "chunk": "Thưởng = 1% x Mức thưởng cơ bản (1) x Hệ số hoàn thành dịch vụ (2) x Hệ số sản phẩm (3)",
+    "answer": "",
+    "evaluate": "",
+    "score": "",
+    "check": ""
+  }
+]

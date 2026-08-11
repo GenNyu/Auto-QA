@@ -20,11 +20,12 @@ from config import (
     MAX_RETRY,
     MAX_TOKENS,
     OLLAMA_TIMEOUT,
-    PROVIDER_API_KEYS,
     PROVIDER_CONFIGS,
     PROVIDER_KIND_MAP,
     TEMPERATURE,
 )
+from core.env import load_env_file, resolve_api_key, resolve_env_override
+from core.text import normalize_text
 from prompts import SYSTEM_MESSAGE, build_user_prompt
 from providers.base import LLMProvider
 from providers.factory import create_provider, normalize_provider_name
@@ -398,13 +399,6 @@ def classify_question_type(question: str) -> str:
     return "unknown"
 
 
-def normalize_text(text: str) -> str:
-    """Normalize text for fuzzy matching."""
-    text = re.sub(r'\s+', ' ', text)
-    text = text.strip()
-    return text
-
-
 def extract_chunk_verbatim(document_text: str, answer_text: str) -> str:
     """
     Trả về đoạn trích NGUYÊN VĂN nếu answer_text xuất hiện trong document_text.
@@ -546,32 +540,15 @@ Examples:
         help="Preview questions without saving",
     )
     parser.add_argument(
+        "--no-timestamp",
+        action="store_true",
+        help="Use --output verbatim instead of appending a UTC timestamp",
+    )
+    parser.add_argument(
         "--model",
         help="Model name to use (Overrides default for provider)",
     )
     return parser
-
-
-def resolve_api_key(provider_name: str, cli_key: Optional[str]) -> Optional[str]:
-    if cli_key:
-        return cli_key
-    env_key = f"{provider_name.upper()}_API_KEY"
-    env_value = os.getenv(env_key)
-    if env_value:
-        return env_value
-    return PROVIDER_API_KEYS.get(provider_name)
-
-
-def resolve_env_override(provider_name: str, suffix: str) -> Optional[str]:
-    """Resolve provider-specific env overrides (e.g., OPENAI_MODEL, OPENAI_BASE_URL)."""
-    env_key = f"{provider_name.upper()}_{suffix}"
-    value = os.getenv(env_key)
-    if value:
-        return value
-    # Backward-compatible alias for Anthropic model name
-    if provider_name == "anthropic" and suffix == "MODEL":
-        return os.getenv("ANTHROPIC_DEFAULT_SONNET_MODEL")
-    return None
 
 
 def preview_dataset(dataset: List[Dict]) -> bool:
@@ -588,25 +565,6 @@ def preview_dataset(dataset: List[Dict]) -> bool:
 
     save = input("\nSave to file? (y/n): ").strip().lower()
     return save == "y"
-
-
-def load_env_file(env_path: str = ENV_FILE) -> None:
-    """Load key=value pairs from a .env file into the process environment."""
-
-    path = Path(env_path)
-    if not path.exists():
-        return
-
-    for raw_line in path.read_text(encoding="utf-8").splitlines():
-        line = raw_line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-
-        key, value = line.split("=", 1)
-        key = key.strip()
-        value = value.strip().strip('"').strip("'")
-        if key and key not in os.environ:
-            os.environ[key] = value
 
 
 # ============================
@@ -657,7 +615,8 @@ def save_processed(processed: Dict[str, int]):
 def main() -> None:
     parser = build_arg_parser()
     args = parser.parse_args()
-    args.output = append_utc_timestamp(args.output)
+    if not args.no_timestamp:
+        args.output = append_utc_timestamp(args.output)
     ensure_parent_dir(args.output)
 
     load_env_file()

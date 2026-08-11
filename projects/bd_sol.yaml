@@ -1,0 +1,24 @@
+# bd_sol — sinh tự động từ input/kb/bd_sol/
+# Sửa thoải mái, mọi trường đều có mặc định. Xem README mục 4.
+
+name: bd_sol
+source: input/kb/bd_sol/
+
+# 89 file · trung bình 9,750 ký tự/file
+# → ~1 câu hỏi cho mỗi 250 ký tự. Tăng lên nếu thấy câu hỏi còn thưa,
+#   giảm xuống nếu thấy nhiều câu hỏi trùng ý nhau.
+questions: 3
+
+chatbot:
+  # Trang chat và model lấy theo CHAT_URL / CHAT_MODEL trong .env.
+  # Chỉ khai ở đây khi bộ này cần chạy khác với phần còn lại:
+  #   model: "ENGR Test1"
+  batch_size: 10           # khởi động lại trình duyệt sau mỗi N câu
+
+scoring:
+  threshold: 6             # từ mấy điểm trở lên là ĐẠT
+  deep_check: true         # đối chiếu lại tài liệu gốc khi cần
+
+llm:
+  # Bỏ trống model/base_url thì lấy theo OPENAI_MODEL / OPENAI_BASE_URL trong .env
+  provider: openai

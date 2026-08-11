@@ -1,18 +1,23 @@
 """
 Anthropic API provider implementation.
 """
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from providers.base import LLMProvider
 
 
 class AnthropicProvider(LLMProvider):
-    """Provider for Anthropic Claude chat API."""
+    """Provider for Anthropic Claude chat API.
 
-    def __init__(self, api_key: str, model: str) -> None:
+    base_url lets this point at a company gateway that speaks the Anthropic
+    protocol; leave it unset to call the official API.
+    """
+
+    def __init__(self, api_key: str, model: str, base_url: Optional[str] = None) -> None:
         super().__init__()
         self.api_key = api_key
         self.model = model
+        self.base_url = base_url
 
     def chat(self, messages: List[Dict[str, str]], **kwargs: Any) -> str:
         self.clear_error()
@@ -24,7 +29,10 @@ class AnthropicProvider(LLMProvider):
             return ""
 
         try:
-            client = anthropic.Anthropic(api_key=self.api_key)
+            client_kwargs: Dict[str, Any] = {"api_key": self.api_key}
+            if self.base_url:
+                client_kwargs["base_url"] = self.base_url
+            client = anthropic.Anthropic(**client_kwargs)
             max_tokens = kwargs.get("max_tokens")
             payload: Dict[str, Any] = {
                 "model": self.model,

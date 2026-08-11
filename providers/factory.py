@@ -46,7 +46,11 @@ def create_provider(
             if not api_key:
                 raise ValueError("API key required for anthropic provider")
             effective_model = model or config.model
-            return AnthropicProvider(api_key=api_key, model=effective_model)
+            return AnthropicProvider(
+                api_key=api_key,
+                model=effective_model,
+                base_url=base_url or config.base_url,
+            )
         if normalized == "deepseek":
             if not api_key:
                 raise ValueError("API key required for deepseek provider")

@@ -7,5 +7,17 @@ __pycache__/
 node_modules/
 test-results/
 cache/
+input/
 outputs/
 data/sessions/
+old_kb/
+
+# Kết quả mỗi lần chạy: câu hỏi, câu trả lời, điểm, báo cáo
+runs/
+
+# Artifact sinh ra khi chạy (file đã commit trước đó không bị ảnh hưởng)
+*_semantic_scored.json
+*_output.json
+
+# Metrics của công cụ ngoài
+.rune/

@@ -4,7 +4,9 @@ Configuration defaults for RAG question generation.
 from dataclasses import dataclass
 from typing import Dict, Optional
 
-DEFAULT_PROVIDER = "anthropic"
+# Gateway của công ty nói giao thức OpenAI, khai báo qua provider "openai"
+# cùng OPENAI_BASE_URL / OPENAI_MODEL trong .env.
+DEFAULT_PROVIDER = "openai"
 DEFAULT_NUM_QUESTIONS = 20
 DEFAULT_OUTPUT = "outputs/rag/rag_eval.json"
 
@@ -30,8 +32,10 @@ PROVIDER_CONFIGS: Dict[str, ProviderConfig] = {
         model="deepseek-chat",
         base_url="https://api.deepseek.com",
     ),
+    # base_url để None: lấy từ {PROVIDER}_BASE_URL trong .env, hoặc --base-url.
+    # model ở đây chỉ là fallback khi .env không đặt {PROVIDER}_MODEL.
     "openai": ProviderConfig(model="gpt-4o-mini"),
-    "anthropic": ProviderConfig(model="glm-4.7"),
+    "anthropic": ProviderConfig(model="claude-sonnet-4-20250514"),
 }
 
 PROVIDER_KIND_MAP: Dict[str, str] = {
@@ -41,9 +45,5 @@ PROVIDER_KIND_MAP: Dict[str, str] = {
     "ollama": "local",
 }
 
-# Optional API keys stored in config (leave empty to use env/CLI).
-PROVIDER_API_KEYS: Dict[str, str] = {
-    "deepseek": "",
-    "openai": "sk-A08WIZrBeajxCt-08Q5FXg",
-    "anthropic": "sk-A08WIZrBeajxCt-08Q5FXg",
-}
+# API keys are never stored here. They are read from .env or the --api-key flag
+# as {PROVIDER}_API_KEY (e.g. OPENAI_API_KEY). See .env.example.

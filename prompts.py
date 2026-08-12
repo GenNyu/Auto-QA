@@ -60,14 +60,34 @@ NGUYÊN TẮC CHUNG (áp dụng cho mọi tài liệu):
 6. Mỗi câu hỏi nên tự đứng độc lập, không phụ thuộc vào việc người đọc biết tên mục
 
 TRÁNH CÂU HỎI VÔ TRI (QUAN TRỌNG):
-❌ KHÔNG tạo câu hỏi chung chung, lý thuyết, không có giá trị thực tế
-✅ CHỈ tạo câu hỏi CỤ THỂ, có THÔNG TIN RÕ RÀNG trong tài liệu
+❌ KHÔNG tạo câu hỏi chung chung, lý thuyết, mập mờ:
+   - "Việc nắm rõ thông tin mang lại lợi ích gì?"
+   - "Tại sao việc X lại quan trọng?"
+   - "Mục đích/chức năng của Y là gì?" (quá chung)
+   - "Nội dung chính của tài liệu là gì?" (quá rộng)
+
+❌ TUYỆT ĐỐI KHÔNG dùng cách hỏi tham chiếu mập mờ:
+   - "Theo chính sách này..." → SAI (chính sách nào? não Readers chưa đọc)
+   - "Theo quy định trên..." → SAI (quy định nào?)
+   - "Như đã nêu trong tài liệu..." → SAI (nêu cái gì?)
+
+✅ Câu hỏi phải TỰ ĐỨNG ĐỘC LẬP:
+   - SAI: "Theo chính sách này, doanh nghiệp cần bao nhiêu lao động?"
+   - ĐÚNG: "Doanh nghiệp sản xuất ngoài KCN cần bao nhiêu lao động để được xác định là công ty KCN?"
+
+✅ CHỈ tạo câu hỏi CỤ THỂ, có THÔNG TIN RÕ RÀNG:
+   - "Phí phạt trễ hạn với khách hàng FMCG là bao nhiêu %?"
+   - "Thời gian SLA xử lý đơn hàng của KAM là bao lâu?"
+   - "Ai có quyền phê duyệt chiết khấu trên 20%?"
+   - "Mẫu hội thoại 1 áp dụng cho đối tượng nào?"
+
 ⚠️ TIÊU CHÍ CHẤT LƯỢNG:
-- Câu hỏi phải có THÔNG TIN CỤ THỂ (số liệu, tên, thời gian, điều kiện)
-- Gold answer phải là thông tin RÕ RÀNG, KHÔNG phải giải thích lý thuyết
-- Nếu không tìm được thông tin cụ thể → KHÔNG tạo câu hỏi đó
+- Câu hỏi phải TỰ ĐỨNG ĐỘC LẬP, không cần "Theo..." mập mờ
+- Phải chứa THÔNG TIN CỤ THỂ (số liệu, tên, thời gian, điều kiện rõ ràng)
+- Gold answer = THÔNG TIN RÕ RÀNG, KHÔNG phải giải thích lý thuyết
+- Nếu không thể diễn đạt rõ ràng → KHÔNG tạo câu hỏi đó
 - Ưu tiên: WHAT (cái gì), HOW MUCH/WHEN (bao nhiêu/khi nào), WHO (ai)
-- Hạn chế: WHY (tại sao) trừ khi có lý do cụ thể trong tài liệu
+- HẠN CHẾ: WHY (tại sao), "lợi ích gì", "mục đích gì"
 
 NGUYÊN TẮC RIÊNG THEO LOẠI TÀI LIỆU:
 1. Nếu tài liệu là QuyTrinh:

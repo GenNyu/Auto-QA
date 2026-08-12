@@ -53,9 +53,17 @@ report project:
 open project:
     @open runs/{{project}}/report.html
 
-# Xoá kết quả của một bộ để chạy lại từ đầu
+# Xoá kết quả của một bộ để chạy lại từ đầu (run folder + cache)
 clean project:
-    @rm -rf runs/{{project}} && echo "Đã xoá runs/{{project}}"
+    @rm -rf runs/{{project}} && echo "✓ Đã xoá runs/{{project}}"
+    @rm -f cache/{{project}}_processed.json && echo "✓ Đã xoá cache/{{project}}_processed.json"
+    @echo "✅ Sẵn sàng chạy lại: just gen {{project}}"
+
+# Xoá tất cả cache và kết quả chạy (fresh start)
+nuke:
+    @rm -rf runs/*
+    @rm -rf cache/*
+    @echo "☢️  Đã xoá TẤT CẢ cache và runs. Sẵn sàng fresh start."
 
 # Xoá file tạm (__pycache__, .DS_Store, test-results)
 tidy:

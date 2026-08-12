@@ -88,7 +88,7 @@ def run_command(command: List[str], env: Optional[dict] = None) -> int:
 # CÁC BƯỚC
 # ─────────────────────────────────────────────
 
-def do_gen(project: ProjectConfig) -> int:
+def do_gen(project: ProjectConfig, force: bool = False) -> int:
     """Bước 1 — sinh câu hỏi từ tài liệu nguồn."""
     source = PROJECT_ROOT / project.source
     if not source.exists():
@@ -103,6 +103,8 @@ def do_gen(project: ProjectConfig) -> int:
         "--num-questions", str(project.questions),
         "--provider", project.provider,
     ]
+    if force:
+        command.append("--force")
     command += llm_flags(project)
 
     code = run_command(command)
@@ -431,13 +433,17 @@ def build_arg_parser() -> argparse.ArgumentParser:
 
     for name, help_text in [
         ("run", "Chạy trọn 3 bước rồi mở báo cáo"),
-        ("gen", "Chỉ sinh câu hỏi"),
         ("ask", "Chỉ hỏi chatbot"),
         ("score", "Chỉ chấm điểm"),
         ("report", "Chỉ dựng lại báo cáo"),
     ]:
         p = sub.add_parser(name, help=help_text)
         p.add_argument("project", help=f"Tên bộ đánh giá (xem: {hint('list')})")
+
+    # gen has extra --force flag
+    p_gen = sub.add_parser("gen", help="Chỉ sinh câu hỏi")
+    p_gen.add_argument("project", help=f"Tên bộ đánh giá (xem: {hint('list')})")
+    p_gen.add_argument("--force", action="store_true", help="Xoá cache và regenerate tất cả")
 
     sub.add_parser("list", help="Liệt kê các bộ đánh giá")
     sub.add_parser("check", help="Kiểm tra máy đã cài đủ chưa")
@@ -472,7 +478,7 @@ def main() -> int:
 
     return {
         "run": do_run,
-        "gen": do_gen,
+        "gen": lambda p: do_gen(p, getattr(args, 'force', False)),
         "ask": do_ask,
         "score": do_score,
         "report": do_report,

@@ -273,39 +273,34 @@ class QuestionGenerator:
     ) -> int:
         rejected_count = 0
         rejected_reasons = {
-            'no_answer_location': 0,
-            'chunk_not_found': 0,
+            'missing_fields': 0,
             'duplicate': 0
         }
         added = 0
-        
+
         for item in generated:
             if len(valid_pairs) >= target:
                 break
 
-            answer_text = item.get("answer_location", "").strip()
-            if not answer_text:
+            question = item.get("question", "").strip()
+            gold_answer = item.get("gold_answer", "").strip()
+
+            if not question or not gold_answer:
                 rejected_count += 1
-                rejected_reasons['no_answer_location'] += 1
+                rejected_reasons['missing_fields'] += 1
                 continue
 
-            answer_in_chunk = extract_chunk_verbatim(chunk, answer_text)
-            if not answer_in_chunk:
-                rejected_count += 1
-                rejected_reasons['chunk_not_found'] += 1
-                print(f"   ⚠️  Rejected (chunk not found): {item.get('question', '')[:60]}...")
-                continue
-
-            if any(q.question == item.get("question") for q in valid_pairs):
+            if any(q.question == question for q in valid_pairs):
                 rejected_count += 1
                 rejected_reasons['duplicate'] += 1
                 continue
 
             valid_pairs.append(
                 QAPair(
-                    question=item.get("question", ""),
+                    question=question,
                     file=self.filename,
                     chunk=chunk,
+                    check=gold_answer,  # Gold answer từ LLM
                 )
             )
             added += 1
@@ -513,6 +508,11 @@ Examples:
         default=DEFAULT_NUM_QUESTIONS,
         help="Number of questions per file (default: 20)",
     )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Regenerate even if files were already processed (clears cache)",
+    )
     parser.add_argument("--api-key", help="LLM API key")
     parser.add_argument(
         "--provider",
@@ -590,20 +590,27 @@ def resolve_input_paths(inputs: List[str]) -> List[str]:
     return paths
 
 
-PROCESSED_TRACKER = "cache/processed.json"
+def get_processed_tracker_path(output_path: str) -> str:
+    """Get cache path based on output file - mỗi project có cache riêng."""
+    output = Path(output_path)
+    # runs/engr/questions.json → cache/engr_processed.json
+    project_name = output.parent.name if output.parent.name else "default"
+    return f"cache/{project_name}_processed.json"
 
-def load_processed() -> Dict[str, int]:
+def load_processed(output_path: str) -> Dict[str, int]:
     """Load danh sách file đã process + số câu hỏi generated."""
-    if not Path(PROCESSED_TRACKER).exists():
+    tracker_path = get_processed_tracker_path(output_path)
+    if not Path(tracker_path).exists():
         return {}
     try:
-        return json.loads(Path(PROCESSED_TRACKER).read_text(encoding="utf-8"))
+        return json.loads(Path(tracker_path).read_text(encoding="utf-8"))
     except:
         return {}
 
-def save_processed(processed: Dict[str, int]):
-    ensure_parent_dir(PROCESSED_TRACKER)
-    Path(PROCESSED_TRACKER).write_text(
+def save_processed(processed: Dict[str, int], output_path: str):
+    tracker_path = get_processed_tracker_path(output_path)
+    ensure_parent_dir(tracker_path)
+    Path(tracker_path).write_text(
         json.dumps(processed, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
@@ -664,7 +671,17 @@ def main() -> None:
         print(f"   📄 {f}")
 
     # ── Resume: load đã process ──
-    processed = load_processed()
+    processed = load_processed(args.output)
+
+    # ── Force flag: clear cache if --force ──
+    if args.force:
+        print("🔄 Force mode: clearing processed cache...")
+        processed = {}
+        save_processed({}, args.output)
+        # Also clear existing output file
+        if Path(args.output).exists():
+            print(f"🗑️  Clearing existing output: {args.output}")
+            Path(args.output).unlink()
 
     # ── Load existing output nếu có ──
     all_questions: List[Dict] = []
@@ -711,7 +728,7 @@ def main() -> None:
 
         # Mark processed + save output incremental sau mỗi file
         processed[file_name] = len(new_questions)
-        save_processed(processed)
+        save_processed(processed, args.output)
 
         with open(args.output, "w", encoding="utf-8") as f:
             json.dump(all_questions, f, ensure_ascii=False, indent=2)

@@ -49,7 +49,7 @@ Dựa trên {document_name} và nội dung tài liệu:
 NGUYÊN TẮC CHUNG (áp dụng cho mọi tài liệu):
 1. Chỉ tạo câu hỏi dựa trên nội dung thực tế của tài liệu
 2. Không suy diễn, không bổ sung kiến thức bên ngoài
-3. Mỗi câu hỏi phải có câu trả lời rõ ràng trong tài liệu
+3. Mỗi câu hỏi phải có câu trả lời rõ ràng, CỤ THỂ trong tài liệu
 4. Câu hỏi phải phản ánh đúng MỤC ĐÍCH SỬ DỤNG của tài liệu
 5. Tránh hỏi theo kiểu “điểm danh yêu cầu”:
    - KHÔNG copy nguyên văn tên mục/yêu cầu/điều khoản rồi biến thành câu hỏi
@@ -58,6 +58,16 @@ NGUYÊN TẮC CHUNG (áp dụng cho mọi tài liệu):
    - Ưu tiên câu hỏi kiểm tra hiểu ý: nguyên nhân, điều kiện áp dụng, tác động,
      ngoại lệ, kết quả cần đạt, vai trò liên quan
 6. Mỗi câu hỏi nên tự đứng độc lập, không phụ thuộc vào việc người đọc biết tên mục
+
+TRÁNH CÂU HỎI VÔ TRI (QUAN TRỌNG):
+❌ KHÔNG tạo câu hỏi chung chung, lý thuyết, không có giá trị thực tế
+✅ CHỈ tạo câu hỏi CỤ THỂ, có THÔNG TIN RÕ RÀNG trong tài liệu
+⚠️ TIÊU CHÍ CHẤT LƯỢNG:
+- Câu hỏi phải có THÔNG TIN CỤ THỂ (số liệu, tên, thời gian, điều kiện)
+- Gold answer phải là thông tin RÕ RÀNG, KHÔNG phải giải thích lý thuyết
+- Nếu không tìm được thông tin cụ thể → KHÔNG tạo câu hỏi đó
+- Ưu tiên: WHAT (cái gì), HOW MUCH/WHEN (bao nhiêu/khi nào), WHO (ai)
+- Hạn chế: WHY (tại sao) trừ khi có lý do cụ thể trong tài liệu
 
 NGUYÊN TẮC RIÊNG THEO LOẠI TÀI LIỆU:
 1. Nếu tài liệu là QuyTrinh:
@@ -172,10 +182,17 @@ OUTPUT:
 [
   {{
     "question": "...",
-    "type": "what|why|when|how|who|list|condition",
-    "answer_location": "Trích dẫn nguyên văn đoạn tài liệu chứa câu trả lời"
+    "gold_answer": "Câu trả lời hoàn chỉnh, rõ ràng, dễ hiểu cho câu hỏi trên (dựa trên nội dung tài liệu)"
   }}
 ]
+
+⚠️ QUAN TRỌNG VỀ gold_answer:
+- Đây là ĐÁP ÁN MẪU (gold standard) để hệ thống chấm điểm
+- PHẢI trả lời HOÀN CHỈNH, RÕ RÀNG câu hỏi một cách dễ hiểu
+- Có thể dựa trên thông tin từ tài liệu, nhưng DIỄN ĐẠT LẠI cho dễ hiểu
+- KHÔNG copy nguyên văn, mà VIẾT LẠI thành câu trả lời hoàn chỉnh
+- Nếu câu hỏi yêu cầu thông tin cụ thể → trả lời cụ thể
+- Nếu câu hỏi yêu cầu liệt kê → liệt kê đầy đủ
 
 CHỈ trả về JSON.
 NHẮC LẠI: MỌI CÂU HỎI PHẢI BẰNG TIẾNG VIỆT.

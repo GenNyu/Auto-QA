@@ -34,8 +34,8 @@ run project:
     @{{python}} qa.py run {{project}}
 
 # Bước 1: chỉ sinh câu hỏi
-gen project:
-    @{{python}} qa.py gen {{project}}
+gen project *args:
+    @{{python}} qa.py gen {{project}} {{args}}
 
 # Bước 2: chỉ hỏi chatbot
 ask project:

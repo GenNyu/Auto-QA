@@ -37,6 +37,10 @@ run project:
 gen project *args:
     @{{python}} qa.py gen {{project}} {{args}}
 
+# Bước 1.5: lọc câu hỏi vô nghĩa (dangling_ref, generic, metadata...)
+filter project:
+    @{{python}} filter_questions.py --input runs/{{project}}/questions.json --output runs/{{project}}/questions.json
+
 # Bước 2: chỉ hỏi chatbot
 ask project:
     @{{python}} qa.py ask {{project}}

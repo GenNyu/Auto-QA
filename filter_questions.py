@@ -6,7 +6,7 @@ import json
 import argparse
 from pathlib import Path
 from typing import Optional
-from validate import filter_questions, FilterConfig, ValidationReason, QuestionValidator
+from core.validate import filter_questions, FilterConfig, ValidationReason, QuestionValidator
 
 
 def load_qa_dataset(filepath: str) -> list:

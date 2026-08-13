@@ -49,6 +49,10 @@ const OUTPUT_FILE = process.env.QA_OUTPUT || "qa_output.json";
 // Restart browser after N questions
 const MAX_PER_SESSION = Number(optionalEnv("QA_MAX_PER_SESSION", "10"));
 
+// Độ dài tối thiểu (sau khi clean) để coi là một câu trả lời thật, không phải
+// mẩu text còn sót lại của trạng thái đang tải.
+const MIN_ANSWER_LENGTH = 20;
+
 /* ============================
    HELPER FUNCTIONS
 ============================ */
@@ -643,39 +647,49 @@ async function getLatestBotSources(
   } catch {}
 
   // STEP 1: Click button "1 Source"
-  let openSourceBtn = lastBot
-    .locator("button")
-    .filter({ hasText: /Source|Sources|Nguồn/i })
-    .first();
+  // Panel nguồn là toggle: click lại khi đang mở sẽ ĐÓNG nó. Vòng retry cũ click
+  // mỗi lượt nên panel cứ mở/đóng xen kẽ. Chỉ click khi chưa thấy item nguồn nào.
+  const SOURCE_ITEM_SELECTOR = "button[id^='source-'], a[id^='source-']";
+  const alreadyExpanded =
+    (await lastBot.locator(SOURCE_ITEM_SELECTOR).count()) > 0;
 
-  if ((await openSourceBtn.count()) === 0) {
-    openSourceBtn = lastBot
-      .locator("button[aria-label*='Source' i], button[aria-label*='Sources' i], button[aria-label*='Nguồn' i]")
-      .first();
-  }
-
-  if ((await openSourceBtn.count()) === 0) {
-    openSourceBtn = page
+  if (alreadyExpanded) {
+    console.log("↩️  Panel nguồn đã mở sẵn, bỏ qua bước click.");
+  } else {
+    let openSourceBtn = lastBot
       .locator("button")
       .filter({ hasText: /Source|Sources|Nguồn/i })
       .first();
-  }
 
-  if ((await openSourceBtn.count()) === 0) {
-    await dumpDebug(page, "no_source_button_found");
-    return ["❌ No Source button found"];
-  }
+    if ((await openSourceBtn.count()) === 0) {
+      openSourceBtn = lastBot
+        .locator("button[aria-label*='Source' i], button[aria-label*='Sources' i], button[aria-label*='Nguồn' i]")
+        .first();
+    }
 
-  console.log("🖱 Clicking Source expand...");
-  await openSourceBtn.click();
+    if ((await openSourceBtn.count()) === 0) {
+      openSourceBtn = page
+        .locator("button")
+        .filter({ hasText: /Source|Sources|Nguồn/i })
+        .first();
+    }
+
+    if ((await openSourceBtn.count()) === 0) {
+      await dumpDebug(page, "no_source_button_found");
+      return ["❌ No Source button found"];
+    }
+
+    console.log("🖱 Clicking Source expand...");
+    await openSourceBtn.click();
+  }
 
   // STEP 2: Wait sources appear
-  let sourceButtons = lastBot.locator("button[id^='source-'], a[id^='source-']");
+  let sourceButtons = lastBot.locator(SOURCE_ITEM_SELECTOR);
 
   try {
     await sourceButtons.first().waitFor({ timeout: 8000 });
   } catch {
-    sourceButtons = page.locator("button[id^='source-'], a[id^='source-']");
+    sourceButtons = page.locator(SOURCE_ITEM_SELECTOR);
     try {
       await sourceButtons.first().waitFor({ timeout: 8000 });
     } catch {
@@ -707,14 +721,24 @@ async function getLatestBotSources(
     : ["❌ No source filename extracted"];
 }
 
+/**
+ * Cổng validate câu trả lời trước khi ghi vào output.
+ *
+ * CHỦ Ý không dùng looksIncompleteBotText ở đây. Hàm đó là tín hiệu tiến độ cho
+ * waitLatestBotStable ("stream còn chạy không?"), không phải tiêu chí hợp lệ.
+ * Khi vòng chờ force-accept vì heuristic đó báo "chưa xong", cổng validate dùng
+ * lại đúng tiêu chí sẽ luôn loại câu trả lời — và retry đọc lại đúng chuỗi đã
+ * đứng yên nên không bao giờ cứu được. Đáp án dạng bảng hoặc danh sách có dòng
+ * cuối là một ô ngắn không dấu câu (vd "Ngày tạo", "10") luôn dính bẫy này.
+ * Ở đây chỉ giữ những tiêu chí khách quan.
+ */
 function isBadAnswer(answer: string): boolean {
   if (!answer || answer.startsWith("❌")) return true;
-  if (answer.trim().length === 0) return true;
   const cleaned = cleanBotText(answer).toLowerCase();
   if (!cleaned) return true;
-  if (cleaned === "querying" || cleaned.startsWith("querying")) return true;
-  if (cleaned === "searching" || cleaned.startsWith("searching")) return true;
-  if (looksIncompleteBotText(answer)) return true;
+  if (cleaned.startsWith("querying")) return true;
+  if (cleaned.startsWith("searching")) return true;
+  if (cleaned.length < MIN_ANSWER_LENGTH) return true;
   return false;
 }
 
@@ -779,6 +803,7 @@ test("KB JSON Auto Answer + Source Extract (Restart every 10)", async ({
 
   let output = loadExistingOutput();
   let startIndex = output.length;
+  const flaggedIndexes: number[] = [];
 
   console.log("📌 Resume from question:", startIndex + 1);
 
@@ -852,34 +877,69 @@ test("KB JSON Auto Answer + Source Extract (Restart every 10)", async ({
 
       for (let attempt = 1; attempt <= maxAttempts; attempt++) {
         console.log(`🔁 Extract attempt ${attempt}/${maxAttempts}`);
-        answer = await getLatestBotAnswer(page, userIndex, prevBotText);
-        sources = await getLatestBotSources(page, userIndex, prevBotText);
 
-        if (!isBadAnswer(answer) && !isBadSources(sources)) {
-          break;
+        // Chỉ lấy lại phần đang hỏng. Trước đây cả hai đều bị đọc lại mỗi lượt,
+        // vừa tốn thời gian vừa làm phần đã lấy được bị ghi đè bằng kết quả xấu.
+        if (isBadAnswer(answer)) {
+          answer = await getLatestBotAnswer(page, userIndex, prevBotText);
+        }
+        if (isBadSources(sources)) {
+          sources = await getLatestBotSources(page, userIndex, prevBotText);
         }
 
-        console.log("⚠️  Missing answer or sources, retrying after wait...");
-        await page.waitForTimeout(4500);
+        if (!isBadAnswer(answer) && !isBadSources(sources)) break;
+
+        if (attempt < maxAttempts) {
+          const missing = [
+            isBadAnswer(answer) ? "answer" : null,
+            isBadSources(sources) ? "sources" : null,
+          ]
+            .filter(Boolean)
+            .join(" + ");
+          console.log(`⚠️  Thiếu ${missing}, chờ rồi thử lại...`);
+          await page.waitForTimeout(4500);
+        }
       }
 
-      if (isBadAnswer(answer) || isBadSources(sources)) {
-        await dumpDebug(page, "missing_answer_or_sources_after_retries");
-        throw new Error("Missing answer or sources after retries");
-      }
+      const answerBad = isBadAnswer(answer);
+      const sourcesBad = isBadSources(sources);
+      const missingParts = [
+        answerBad ? "answer" : null,
+        sourcesBad ? "sources" : null,
+      ]
+        .filter(Boolean)
+        .join("+");
 
-      console.log("✅ Answer:", answer);
-      console.log("✅ Sources:", sources);
+      if (missingParts) {
+        // Không throw nữa: output resume theo độ dài file, nên một câu hỏng sẽ
+        // chặn vĩnh viễn toàn bộ phần còn lại của bộ câu hỏi. Ghi cờ rồi chạy
+        // tiếp, review lại các câu có needs_review sau.
+        await dumpDebug(page, `missing_${missingParts}_after_retries`);
+        console.log(
+          `⚠️  Câu ${startIndex + 1} thiếu ${missingParts} sau ${maxAttempts} lần thử — ghi cờ và chạy tiếp.`
+        );
+        console.log(`   answer(200): ${JSON.stringify(answer.slice(0, 200))}`);
+        console.log(`   sources: ${JSON.stringify(sources)}`);
+        flaggedIndexes.push(startIndex + 1);
+      } else {
+        console.log("✅ Answer:", answer);
+        console.log("✅ Sources:", sources);
+      }
 
       // ✅ Giữ nguyên structure KB.json nhưng không mutate file gốc
 const originalObj = kbData[startIndex];
 
 // clone object và chỉ thêm đúng field answer + file
-const newObj = {
+const newObj: Record<string, any> = {
   ...originalObj,
   answer: answer,
   sources: sources,
 };
+
+if (missingParts) {
+  newObj.needs_review = true;
+  newObj.flag = `missing_${missingParts}`;
+}
 
 // push object đầy đủ vào output
 output.push(newObj);
@@ -902,4 +962,11 @@ output.push(newObj);
 
   console.log("\n✅ DONE! All questions completed.");
   console.log("📌 Output saved in:", OUTPUT_FILE);
+
+  if (flaggedIndexes.length) {
+    console.log(
+      `⚠️  ${flaggedIndexes.length} câu bị gắn cờ needs_review: ${flaggedIndexes.join(", ")}`
+    );
+    console.log("   Xem test-results/kb-debug/ để đối chiếu HTML + ảnh chụp.");
+  }
 });

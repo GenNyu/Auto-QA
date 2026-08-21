@@ -7,10 +7,12 @@ from config import (
     DEFAULT_OLLAMA_MODEL,
     DEFAULT_OLLAMA_URL,
     DEFAULT_PROVIDER,
+    DEFAULT_STREAM,
     OLLAMA_TIMEOUT,
     PROVIDER_CONFIGS,
     PROVIDER_KIND_MAP,
 )
+from core.env import resolve_env_flag
 from providers.base import LLMProvider
 from providers.llm_api.anthropic_provider import AnthropicProvider
 from providers.llm_api.deepseek_provider import DeepSeekProvider
@@ -72,6 +74,7 @@ def create_provider(
             api_key=api_key,
             model=effective_model,
             base_url=effective_base_url,
+            stream=resolve_env_flag(f"{normalized.upper()}_STREAM", DEFAULT_STREAM),
         )
 
     if provider_kind == "local":

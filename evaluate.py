@@ -559,6 +559,11 @@ def call_llm(
         )
         last_response_text = response_text
 
+        # Gọi hỏng ở tầng mạng thì không có gì để sửa: nhắc lại prompt cũng vô
+        # ích, mà còn che mất nguyên nhân thật dưới nhãn "Invalid JSON".
+        if not response_text and provider.last_error:
+            raise ValueError(f"LLM call failed: {provider.last_error}")
+
         try:
             return parse_llm_response(response_text)
         except (json.JSONDecodeError, ValueError) as e:

@@ -7,7 +7,7 @@ source: input/kb/test_model/
 # 89 file · trung bình 9,750 ký tự/file
 # → ~1 câu hỏi cho mỗi 250 ký tự. Tăng lên nếu thấy câu hỏi còn thưa,
 #   giảm xuống nếu thấy nhiều câu hỏi trùng ý nhau.
-questions: 2
+questions: 3
 
 chatbot:
   # Trang chat và model lấy theo CHAT_URL / CHAT_MODEL trong .env.

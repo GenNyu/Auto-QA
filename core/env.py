@@ -40,6 +40,14 @@ def resolve_api_key(provider_name: str, cli_key: Optional[str] = None) -> Option
     return os.getenv(f"{provider_name.upper()}_API_KEY")
 
 
+def resolve_env_flag(name: str, default: bool) -> bool:
+    """Read a yes/no switch from the environment, e.g. OPENAI_STREAM=0."""
+    raw = os.getenv(name)
+    if raw is None or not raw.strip():
+        return default
+    return raw.strip().lower() not in {"0", "false", "no", "off"}
+
+
 def resolve_env_override(provider_name: str, suffix: str) -> Optional[str]:
     """Resolve provider-specific overrides such as OPENAI_MODEL or OPENAI_BASE_URL."""
     value = os.getenv(f"{provider_name.upper()}_{suffix}")

@@ -3,7 +3,17 @@ OpenAI API provider implementation.
 """
 from typing import Any, Dict, List, Optional
 
+from config import API_TIMEOUT, DEFAULT_STREAM
 from providers.base import LLMProvider
+
+
+class StreamInterrupted(Exception):
+    """Stream đứt sau khi đã nhận được một phần câu trả lời."""
+
+    def __init__(self, reason: str, received: str) -> None:
+        super().__init__(reason)
+        self.reason = reason
+        self.received = received
 
 
 class OpenAIProvider(LLMProvider):
@@ -15,12 +25,43 @@ class OpenAIProvider(LLMProvider):
         api_key: str,
         model: str,
         base_url: Optional[str] = None,
+        stream: bool = DEFAULT_STREAM,
+        timeout: int = API_TIMEOUT,
     ) -> None:
         super().__init__()
         self.provider_name = provider_name
         self.api_key = api_key
         self.model = model
         self.base_url = base_url
+        self.stream = stream
+        self.timeout = timeout
+
+    def _label(self) -> str:
+        return "DeepSeek" if self.provider_name == "deepseek" else "OpenAI"
+
+    def _collect_stream(self, response: Any) -> str:
+        """Gộp các delta của một response SSE thành văn bản hoàn chỉnh.
+
+        Ném lỗi nếu stream đứt giữa chừng, kèm phần đã nhận được, để phía gọi
+        phân biệt được "mạng đứt" với "model trả JSON sai".
+        """
+        pieces: List[str] = []
+        try:
+            for chunk in response:
+                # Có gateway gửi kèm chunk chỉ chứa usage, không có choices.
+                if not getattr(chunk, "choices", None):
+                    continue
+                delta = chunk.choices[0].delta
+                # reasoning_content (model suy luận như glm-5) cố ý bỏ qua: nó
+                # giữ kết nối không im lặng, nhưng không thuộc câu trả lời.
+                piece = getattr(delta, "content", None)
+                if piece:
+                    pieces.append(piece)
+        except Exception as exc:
+            received = "".join(pieces)
+            raise StreamInterrupted(str(exc), received) from exc
+
+        return "".join(pieces)
 
     def chat(self, messages: List[Dict[str, str]], **kwargs: Any) -> str:
         self.clear_error()
@@ -32,7 +73,10 @@ class OpenAIProvider(LLMProvider):
             return ""
 
         try:
-            client_kwargs: Dict[str, Any] = {"api_key": self.api_key}
+            client_kwargs: Dict[str, Any] = {
+                "api_key": self.api_key,
+                "timeout": self.timeout,
+            }
             if self.base_url:
                 client_kwargs["base_url"] = self.base_url
 
@@ -46,13 +90,20 @@ class OpenAIProvider(LLMProvider):
             if "temperature" in kwargs and kwargs["temperature"] is not None:
                 params["temperature"] = kwargs["temperature"]
 
-            response = client.chat.completions.create(**params)
-            return response.choices[0].message.content or ""
+            if not self.stream:
+                response = client.chat.completions.create(**params)
+                return response.choices[0].message.content or ""
+
+            response = client.chat.completions.create(stream=True, **params)
+            return self._collect_stream(response)
+
+        except StreamInterrupted as exc:
+            print(f"❌ {self._label()} stream đứt giữa chừng: {exc.reason}")
+            print(f"   (đã nhận {len(exc.received)} ký tự trước khi đứt)")
+            self.last_error = f"stream_interrupted: {exc.reason}"
+            return ""
 
         except Exception as exc:
-            if self.provider_name == "deepseek":
-                print(f"❌ DeepSeek API error: {exc}")
-            else:
-                print(f"❌ OpenAI API error: {exc}")
+            print(f"❌ {self._label()} API error: {exc}")
             self.last_error = str(exc)
             return ""
